@@ -478,7 +478,9 @@ class AdminController extends Controller {
     	$this->assign('sum',$sum);
     	$this->display();
     }
-    
+    public function jrpointdwcontentsearch(){
+		
+	}
     
     
     

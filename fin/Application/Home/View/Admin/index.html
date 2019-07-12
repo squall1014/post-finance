@@ -6,84 +6,84 @@
 <!--前左导航-->
 <include file="Public/login/body" />
 
-  <div class="layui-body">
-    <!-- 内容主体区域 -->
-    <include file="Public/login/title" />
-    
-    <br />
-    	<div class="layui-card-header">
-       <font size="4">待办事项</font>
-    </div>
-    <br />
-    <div style="padding: 20px; background-color: #F2F2F2; width: 60%;">
-      <div class="layui-row layui-col-space15">
-        <div class="layui-col-md6">
-          <div class="layui-card">
-            <div class="layui-card-header">今日已上报</div>
-            <div class="layui-card-body">
-            	<form action="{:U('jrpointperstoday')}" enctype="multipart/form-data" method="post" class="layui-form" >
-              	<button class="layui-btn">今日上报数量<span class="layui-badge layui-bg-gray">{$jsr}</span></button>
-             </form>
-            </div>
+<div class="layui-body">
+  <!-- 内容主体区域 -->
+  <include file="Public/login/title" />
+
+  <br />
+  <div class="layui-card-header">
+    <font size="4">待办事项</font>
+  </div>
+  <br />
+  <div style="padding: 20px; background-color: #F2F2F2; width: 60%;">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md6">
+        <div class="layui-card">
+          <div class="layui-card-header">今日已上报</div>
+          <div class="layui-card-body">
+            <form action="{:U('jrpointperstoday')}" enctype="multipart/form-data" method="post" class="layui-form">
+              <button class="layui-btn">今日上报数量<span class="layui-badge layui-bg-gray">{$jsr}</span></button>
+            </form>
           </div>
         </div>
-        <div class="layui-col-md6">
-          <div class="layui-card">
-            <div class="layui-card-header">今日上报被修改</div>
-            <div class="layui-card-body">
-            	<form action="{:U('jrpointperstoday')}" enctype="multipart/form-data" method="post" class="layui-form" >
-	              <button class="layui-btn">今日上报被修改数量<span class="layui-badge layui-bg-gray">{$jsrr}</span></button>
-	            </form>
-            </div>
-          </div>
-        </div>
-        <div class="layui-col-md6">
-          <div class="layui-card">
-            <div class="layui-card-header">昨日已上报</div>
-            <div class="layui-card-body">
-            	<form action="{:U('jrpointpersyesterday')}" enctype="multipart/form-data" method="post" class="layui-form" >
-              	<button class="layui-btn">昨日上报数量<span class="layui-badge layui-bg-gray">{$yjsr}</span></button>
-             </form>
-            </div>
-          </div>
-        </div>
-        <div class="layui-col-md6">
-          <div class="layui-card">
-            <div class="layui-card-header">昨日上报被修改</div>
-            <div class="layui-card-body">
-            	<form action="{:U('jrpointpersyesterday')}" enctype="multipart/form-data" method="post" class="layui-form" >
-              	<button class="layui-btn">昨日上报被修改数量<span class="layui-badge layui-bg-gray">{$yjsrr}</span></button>
-             </form>
-            </div>
-          </div>
-        </div>
-        
-        
       </div>
+      <div class="layui-col-md6">
+        <div class="layui-card">
+          <div class="layui-card-header">今日上报被修改</div>
+          <div class="layui-card-body">
+            <form action="{:U('jrpointperstoday')}" enctype="multipart/form-data" method="post" class="layui-form">
+              <button class="layui-btn">今日上报被修改数量<span class="layui-badge layui-bg-gray">{$jsrr}</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-md6">
+        <div class="layui-card">
+          <div class="layui-card-header">昨日已上报</div>
+          <div class="layui-card-body">
+            <form action="{:U('jrpointpersyesterday')}" enctype="multipart/form-data" method="post" class="layui-form">
+              <button class="layui-btn">昨日上报数量<span class="layui-badge layui-bg-gray">{$yjsr}</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-md6">
+        <div class="layui-card">
+          <div class="layui-card-header">昨日上报被修改</div>
+          <div class="layui-card-body">
+            <form action="{:U('jrpointpersyesterday')}" enctype="multipart/form-data" method="post" class="layui-form">
+              <button class="layui-btn">昨日上报被修改数量<span class="layui-badge layui-bg-gray">{$yjsrr}</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-    <br />
-    <div style="padding: 20px; background-color: #F2F2F2; width: 60%;">
-      <div class="layui-card-header">
-       <font size="4">本网点积分排名</font>
+  </div>
+  <br />
+  <div style="padding: 20px; background-color: #F2F2F2; width: 60%;">
+    <div class="layui-card-header">
+      <font size="4">本网点积分排名</font>
     </div>
     <table class="layui-table" style="width: 100%">
-          <tr>
-            <td>序号</td>
-            <td>网点</td>
-            <td>姓名</td>
-            <td>积分</td>
-          </tr>
-          <volist name="jpsrr" id="vo">
-          <tr>
-            <td></td>
-            <td>{$vo.dwname}</td>
-            <td>{$vo.persname}</td>
-            <td>{$vo.sums}</td>
-          </tr>
-        </volist>
-        </table>
-      </div>
+      <tr>
+        <td>序号</td>
+        <td>网点</td>
+        <td>姓名</td>
+        <td>积分</td>
+      </tr>
+      <volist name="jpsrr" id="vo">
+        <tr>
+          <td></td>
+          <td>{$vo.dwname}</td>
+          <td>{$vo.persname}</td>
+          <td>{$vo.sums}</td>
+        </tr>
+      </volist>
+    </table>
   </div>
-  
+</div>
+
 <!--底部-->
 <include file="Public/login/footer" />
