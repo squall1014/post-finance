@@ -1,0 +1,15 @@
+[ 2019-07-11T11:54:45+08:00 ] ::1 /fin/index.php/Home/Admin/index.html
+ERR: syntax error, unexpected 'where' (T_STRING)
+
+[ 2019-07-11T11:54:58+08:00 ] ::1 /fin/index.php/Home/Admin/index.html
+ERR: syntax error, unexpected 'where' (T_STRING)
+
+[ 2019-07-11T11:55:05+08:00 ] ::1 /fin/index.php/Home/Admin/index.html
+ERR: syntax error, unexpected 'where' (T_STRING)
+
+[ 2019-07-11T12:10:11+08:00 ] ::1 /fin/index.php/Home/Admin/index.html
+ERR: Think\Model:arsort方法不存在！
+
+[ 2019-07-11T12:10:24+08:00 ] ::1 /fin/index.php/Home/Admin/index.html
+ERR: Think\Model:sort方法不存在！
+

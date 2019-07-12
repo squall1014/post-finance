@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <include file="Public/login/title" />
+    
+    <br />
+    <div class="layui-card-body">
+        <form action="{:U('persmodifysuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="">
+         	<input type="hidden" name="id" value="{$data['id']}">
+         	<tr>
+         	 <th>单位</th>
+         	 <td>
+         	 	<select name="dwname" lay-verify="required" lay-search>
+         	 		<option value="{$data['dwnameid']}">{$data['dwname']}</option>
+         	 		<volist name="drr" id="vo">
+              <option value="{$vo.dwnameid}">{$vo.dwname}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 <th>职务</th>
+         	 <td>
+         	 	<select name="zhiwu" lay-verify="required" lay-search>
+         	 		<option value="{$data['zhiwuid']}">{$data['zhiwu']}</option>
+         	 		<volist name="zrr" id="vo">
+              <option value="{$vo.zhiwuid}">{$vo.zhiwu}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 <th>工种</th>
+         	 <td>
+         	 	<select name="gongzhong" lay-verify="required" lay-search >
+         	 		<option value="{$data['gongzhongid']}">{$data['gongzhong']}</option>
+         	 		<volist name="grr" id="vo">
+              <option value="{$vo.gongzhongid}">{$vo.gongzhong}</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 <th>调动说明</th>
+         	 	<td><input type="text" name="beizhu" placeholder="请输入调动说明" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<tr>
+         	 <th>员工姓名</th>
+         	 <td><input type="text" name="persname" value="{$data['persname']}" required lay-verify="required" placeholder="请输入员工姓名" autocomplete="off" class="layui-input"> </td>
+         	 <th>人力编号</th>
+         	 <td><input type="text" name="gonghao" value="{$data['gonghao']}" required lay-verify="number" placeholder="请输入人力编号" autocomplete="off" class="layui-input"></td>
+         	 <th>调动日期</th>
+         	 <td>
+         	 	<input type="text" name="date" id="date" placeholder="请点击选择日期" autocomplete="off" required lay-verify="" class="layui-input">
+         	 </td>
+         	 <th>员工状态</th>
+         	 <td>
+         	 	<select name="stats" lay-verify="required" id="stats" lay-search >
+         	 		<option value="0">在岗</option>
+              <option value="2">待岗、离岗</option>
+              <option value="1">离职</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 	</tr>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">数据重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

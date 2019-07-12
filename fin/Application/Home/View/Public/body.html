@@ -1,0 +1,125 @@
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">丽水市金融积分考核系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">管理</a>
+        <dl class="layui-nav-child">
+          <dd><a href="__URL__/jrpointshtime">审核开放期限</a></dd>
+        </dl>
+      </li>
+      <!--<li class="layui-nav-item"><a href="__URL__/passwordreset">用户密码管理</a></li>-->
+      <li class="layui-nav-item">
+        <a href="javascript:;">员工管理</a>
+        <dl class="layui-nav-child">
+          <dd><a href="__URL__/passwordreset">员工密码管理</a></dd>
+          <dd><a href="__URL__/persstats">员工待岗管理</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">待开发</a></dd>
+          <dd><a href="">待开发</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+            	{$user['exp']}--{$user['district']}
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="__URL__/passwordedit">密码修改</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/logout">退了</a></li>
+    </ul>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+      	<li class="layui-nav-item"><a href="__URL__/index">首页</a></li>
+      	<li class="layui-nav-item">
+          <if condition="$user.auth eq 9"><a class="" href="javascript:;">员工权限管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/lunganginfo">金融网点人员信息管理</a></dd>
+            <dd><a href="__URL__/lungangauth">金融网点人员权限管理</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<if condition="$user.auth eq 5"><a class="" href="javascript:;">积分项目管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/pointitemedit">积分项目大类管理</a></dd>
+            <dd><a href="__URL__/pointcontentedit">积分项目管理</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<if condition="$user.auth eq 5"><a class="" href="javascript:;">奖金池设置管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/bonusadd">网点奖金池设置</a></dd>
+            <dd><a href="__URL__/bonussearch">网点奖金池查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">机构网点积分报表管理</a>
+          <dl class="layui-nav-child">
+          	<dd><a href="__URL__/jrpointdwdatefw">网点积分汇总报表</a></dd>
+          	<dd><a href="__URL__/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <!--<dd><a href="__URL__/jrpointdwdate">按机构网点日报表</a></dd>-->
+            <!--<dd><a href="__URL__/jrpointdwdatesh">按机构网点未审核明细</a></dd>-->
+            
+            <!--<dd><a href="__URL__/jrpointdwdatetb">按机构网点日报表通报</a></dd>-->
+            
+            <!--<dd><a href="__URL__/jrpointdwdatefw">按机构网点范围报表汇总</a></dd>-->
+            <!--<dd><a href="__URL__/jrpointdwdatefwdt">按机构网点积分明细（再建）</a></dd>-->
+            <!--<dd><a href="__URL__/jrpointdwdatefwtb">按机构网点积分通报（再建）</a></dd>-->
+            <dd><a href="__URL__/jrpointperspay">按员工奖金池月报报表（再建）</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">机构网点积分报表分析</a>
+          <dl class="layui-nav-child">
+            <!--<dd><a href="__URL__/jrpointdwitemdate">按机构网点按项目报表（再建）</a></dd>-->
+            <!--<dd><a href="__URL__/jrpointdwitemsdate">按机构网点按大类报表（再建）</a></dd>-->
+            <dd><a href="__URL__/jrpointdwicdate">网点项目分类报表</a></dd>
+            <!--<dd><a href="__URL__/jrpointdwdatetb">按机构网点日报表通报（再建）</a></dd>-->
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">日爆点午巡活动管理分析</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractivedwdatefw/activecontentid/1">日爆点午巡活动统计报表</a></dd>
+          </dl>
+        </li>
+        <!--<li class="layui-nav-item">
+        	<a class="" href="javascript:;">日爆点日终活动管理分析</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractivedwdate/activecontentid/2">日爆点日终活动日报表</a></dd>
+            <dd><a href="__URL__/jractivedwdatefw/activecontentid/2">日爆点日终活动统计报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">厅堂联动及网沙行为量</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractivebxdate/activecontentid/3">厅堂联动及网沙上报日报表</a></dd>
+            <dd><a href="__URL__/jractivebxdatefw/activecontentid/3">厅堂联动及网沙上报统计报表</a></dd>
+          </dl>
+        </li>-->
+        <!--<li class="layui-nav-item">
+        	<a class="" href="javascript:;">轮岗记录查询</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jrlgtransferdate">轮岗记录查询</a></dd>
+          </dl>
+        </li>-->
+        <!--<li class="layui-nav-item"><a href="__URL__/qingjiacounts">JSON数据测试</a></li>
+        <li class="layui-nav-item"><a href="__URL__/select">测试</a></li>-->
+      </ul>
+    </div>
+  </div>

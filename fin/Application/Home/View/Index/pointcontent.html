@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <include file="Public/login/title" />
+    <br />
+    <div class="layui-card" style="width: 75%;">
+        	<div class="layui-card-header">
+        		<font size="4">积分项目管理</font>
+        		
+        	</div>
+    			<br />
+					<br />
+        	<div class="layui-card-body">
+					
+    			<form class="layui-form" action="{:U('pointcontentadd')}">
+    				<div>
+    					<input type="submit" class="layui-btn" value="添加新项目">
+    				</div>
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+					    	
+								<td>项目序号</td>
+								<td>项目名称</td>
+								<td>项目大类</td>
+								<td>分值</td>
+								<td>备注</td>
+								<td>状态</td>
+								<td>操作</td>
+								
+							</tr>
+							
+							<volist name="data" id="vo">
+							<tr>
+								<!--<td><input type="checkbox" name="inboundid[]" id="b{$vo.inboundid}" value="{$vo.inboundid}" lay-skin="primary"></td>-->
+								<td>{$vo.pointcontentid}</td>
+								<td>{$vo.content}</td>
+								<td>{$vo.item}</td>
+								<td>{$vo.score}</td>
+								<td>{$vo.beizhu}</td>
+								<td><if condition="$vo.stats eq 0">启用<else />停用</if></td>
+								<!--<td><input type="text" class="layui-radio" readonly="" name="{$vo.inboundid}" id="c{$vo.inboundid}" value="0" onblur="a{$vo.inboundid}()" onclick="e{$vo.inboundid}()" lay-verify="" placeholder="请输入实际入库数量" autocomplete="off" ></td>-->
+								<td>
+							    <a href="__URL__/pointcontents/pointcontentid/{$vo.pointcontentid}">修改</a>
+								</td>
+							</tr>
+							</volist>
+		    		</table>
+		    	</div>
+		</div>
+<include file="Public/footer" />
