@@ -44,7 +44,7 @@
                     </div>
                 </div><!--loginf-->
             </div><!--nopassword-->
-            <form id="login" action="/fin/index.php/Home/Login/index" method="post">
+            <form id="login" action="/fin/index.php/home/login/index" method="post">
             	
                 <div class="username">
                 	<div class="usernameinner">
@@ -60,10 +60,10 @@
                 <input type="submit" value="登录">
                 </div>
                 <div class="keep">
-                	<a href="/fin/index.php/Home/Login/downloads" class="btn btn2 btn_blue btn_link"><span>下载谷歌浏览器,WIN7及以上</span></a>
+                	<a href="/fin/index.php/home/login/downloads" class="btn btn2 btn_blue btn_link"><span>下载谷歌浏览器,WIN7及以上</span></a>
                 	<br />
                 	<br />
-                	<a href="/fin/index.php/Home/Login/downloadshh" class="btn btn2 btn_blue btn_link"><span>下载火狐浏览器,仅限XP</span></a>
+                	<a href="/fin/index.php/home/login/downloadshh" class="btn btn2 btn_blue btn_link"><span>下载火狐浏览器,仅限XP</span></a>
                 </div>
             </form>
             <form action="gonghaocx" method="post">

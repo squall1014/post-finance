@@ -477,10 +477,192 @@ class AdminController extends Controller {
     	$this->assign('sumpoint',$sumpoint);
     	$this->assign('sum',$sum);
     	$this->display();
-    }
-    public function jrpointdwcontentsearch(){
-		
 	}
+	public function jrpointdwicdate(){
+    	$dwname = cookie('dwname');
+    	$where['districtid'] = $dwname['districtid'];
+    	$where['stats'] = 0;
+    	$jpi = M('jrpointitem');
+    	$jpirr = $jpi -> where($where) -> select();
+    	
+    	$jpc = M('jrpointcontent');
+    	$jpcrr = $jpc -> where($where) -> select();
+    	
+    	foreach($jpirr as &$valuejpi){
+    		
+    		foreach($jpcrr as &$valuejpc){
+    			
+    			if($valuejpi['pointitemid'] == $valuejpc['pointitemid']){
+    				
+    				$valuejpi[$valuejpc['pointcontentid']]['pointcontentid'] = $valuejpc['pointcontentid'];
+    				$valuejpi[$valuejpc['pointcontentid']]['content'] = $valuejpc['content'];
+    				$valuejpi[$valuejpc['pointcontentid']]['pointitemid'] = $valuejpi['pointitemid'];
+    			}
+    		}
+    	}
+    	$this->assign('data',$jpirr);
+    	$this->assign('datas',$jpcrr);
+		// var_dump($dwname,$jpcrr);
+		
+    	$this->display();
+    }
+	public function jrpointdwicdates(){
+    	$dwname = cookie('dwname');
+    	
+    	$date = substr($_POST['date_date'],0,10);
+    	$dates = substr($_POST['date_date'],-10,10);
+//  	$where['shenhe'] = 1;
+    	$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+    	
+//  	foreach($_POST['item'] as $value){
+//  		$item[] = $value;
+//  	}
+//  	
+//  	foreach($_POST['content'] as $value){
+//  		$content[] =$value;
+//  	}
+//  	
+//  	var_dump($item,$content);
+    	
+    	foreach($_POST['item'] as $value){
+    		$item[] = $value;
+    	}
+    	$stats['stats'] = 0;
+    	$jps = M('jrpointsum');
+    	$jpi = M('jrpointitem');
+    	if($item == null){
+    		
+    	}else{
+	    	$jpir['pointitemid'] = array('in',$item);
+	    	$jpir['stats'] = 0;
+	    	$jpirr = $jpi -> where($jpir) -> select();
+	    	foreach($jpirr as &$value){
+	    		$title[][] = $value['item'];
+	    	}
+	    	$jpc = M('jrpointcontent');
+	    	$jpcrr = $jpc -> where($stats) -> select();
+	    	foreach($jpirr as &$valuejpi){
+	    		
+	    		foreach($jpcrr as &$valuejpc){
+	    			
+	    			if($valuejpi['pointitemid'] == $valuejpc['pointitemid']){
+	    				
+	    				//$valuejpi[$valuejpi['pointitemid']][$valuejpc['pointcontentid']] = $valuejpc['pointcontentid'];
+	    				$items[$valuejpi['pointitemid']][] = $valuejpc['pointcontentid'];
+	    				continue;
+	    				
+	    			}
+	    			
+	    		}
+	    		$pointitemid['shenhe'] = 1;
+				$pointitemid['districtid'] = $dwname['districtid'];
+				$pointitemid['jgh'] = $dwname['jgh'];
+	    		$pointitemid['pointcontentid'] = array('in',$items[$valuejpi['pointitemid']]);
+	    		$pointitemid['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+	    		$jpsrr[] = $jps -> where($pointitemid) -> field('persname,gonghao,sum(point) as sums') -> group('persname,gonghao') -> select();
+	    	}
+	    	
+//	    	var_dump($jpsrr);
+	    	
+	    	
+	    	
+//	    	$wheresumi['pointcontentid'] = array('in',$content);
+//	    	$wheresumi['shenhe'] = 1;
+//	    	$wheresumi['date'] = $_POST['date'];
+//	    	$jps = M('jrpointsum');
+//	    	$data = $jps -> where($wheresumi) -> field('jgh,pointcontentid,sum(point) as sums,date') -> group('jgh,pointcontentid,date') -> select();
+	    	
+    	}
+    	
+    	
+    	
+    	$jpc = M('jrpointcontent');
+    	//var_dump($item);
+    	foreach($_POST['content'] as &$value){
+    		$content[] = $value;
+	    }
+	    
+	    
+	    
+    	if($content == null){
+    		
+    	}else{
+    		$jpcr['pointcontentid|pointitemid'] = array(array('in',$content),array('in',$item),'_multi'=>true);
+    		$jpcr['stats'] = 0;
+    		$wherejpc['pointcontentid'] = array('in',$content);
+	    	$wherejpc['stats'] = 0;
+	    	$jpcrr = $jpc -> where($wherejpc) -> select();
+	    	foreach($jpcrr as &$value){
+	    		$title[][] = $value['content'];
+	    		//$items[] = $value['pointcontentid'];
+	    	}
+	    	//var_dump($title,$items);
+	    	//$pointitemid['pointcontentid'] = array('in',$items);
+	    	
+	    	foreach($content as &$value){
+	    		//var_dump($value);
+		    	$pointcontentid['pointcontentid'] = $value;
+		    	$pointcontentid['shenhe'] = 1;
+				$pointcontentid['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+				
+		    	$jpsrr[] = $jps -> where($pointcontentid) -> field('persname,gonghao,pointcontentid,sum(point) as sums') -> group('persname,gonghao,pointcontentid') -> select();
+	    	}
+	    	
+	    	//$jps = M('jrpointsum');
+	    	
+//	    	foreach($jpcrr as &$valuejpc){
+//	    		
+//	    		foreach($data as &$value){
+//	    			
+//	    			if($valuejpc['pointcontentid'] == $value['pointcontentid']){
+//	    				
+//	    				$value['pointitemid'] = $valuejpc['pointitemid'];
+//	    			}
+//	    		}
+//	    	}
+	    	
+	    	
+	    	
+    	}
+    	//var_dump($jpsrr,$title);
+		
+		$l = M('lungang');
+		$wherel['dwname'] = $dwname['jgh'];
+		$lrr = $l -> where($wherel) -> select();
+
+    	$d = M('danwei');
+    	$whered['jiagou'] = 'A1';
+    	$whered['districtid'] = $dwname['districtid'];
+    	$drr = $d -> where($whered) -> order('pianqu asc') -> select();
+    	
+    	foreach($lrr as &$valued){
+    		
+    		foreach($jpsrr as $key=>$valuejps){
+    			
+    			foreach($valuejps as &$value){
+    				
+    				//var_dump($key);
+    				if($valued['gonghao'] == $value['gonghao']){
+    					
+    					$valued[$key]['sums'] = $value['sums'];
+    				}
+    				
+    			}
+    		}
+    	}
+    	//var_dump($title,$drr);
+    	$this->assign('title',$title);
+    	foreach($title as $key => $value){
+    		
+    		$titles[$key] = $key;
+    		
+    	}
+    	//var_dump($titles,$drr);
+    	$this->assign('titles',$titles);
+    	$this->assign('data',$lrr);
+    	// var_dump($lrr,$jpsrr);
+    	$this->display();
+    }
     
     
     
