@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>每日行为量选填项目修改</legend>
+		</fieldset>
+        <form action="{:U('jractupmodifysucs')}" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 45%">
+         	<volist name="data" id="vo">
+         	<if condition="$vo.actitemid eq 1">
+         	<tr>
+         		<th style="text-align:center;">本月重点村社</th>
+         		<td>
+         			<select name="{$vo.actsumid}">
+         			
+         	 		<option value="{$vo.actpoint}">{$vo.actpoints}</option>
+         	 		
+         	 		<volist name="jvrr" id="vo">
+              <option value="{$vo.villageid}">{$vo.village}</option>
+             </volist>
+            </select>
+         		</td>
+         	</tr>
+         	<else /></if>
+         	</volist>
+         	<volist name="data" id="vo">
+         	<if condition="$vo.actitemid eq 4">
+         	<tr>
+         		<th style="text-align:center;">支行长是否参与走访</th>
+         		<td>
+         			<select name="{$vo.actsumid}">
+         	 		<if condition="$vo.actpoint eq √">
+         	 			<option value="{$vo.actpoint}">是</option>
+         	 		<else />
+         	 			<option value="{$vo.actpoint}">否</option>
+         	 		</if>	
+              <option value="√">是</option>
+             	<option value=" ">否</option>
+            </select>
+         		</td>
+         	</tr>
+         	<else /></if>
+         	</volist>
+         	<volist name="data" id="vo">
+         	<if condition="$vo.actitemid eq 9">
+         	<tr>
+         		<th style="text-align:center;">生日会活动地点</th>
+         		<td>
+         			<select name="{$vo.actsumid}">
+         	 		<option value="{$vo.actpoint}">{$vo.actpoint}</option>
+              <option value="村社活动">村社活动</option>
+             	<option value="厅堂活动">厅堂活动</option>
+            </select>
+         		</td>
+         	</tr>
+         	<else /></if>
+         	</volist>
+         	<volist name="data" id="vo">
+         	<if condition="$vo.actitemid eq 11">
+         	<tr>
+         		<th style="text-align:center;">其他活动地点</th>
+         		<td>
+         			<select name="{$vo.actsumid}">
+         	 		<option value="{$vo.actpoint}">{$vo.actpoint}</option>
+              <option value="村社活动">村社活动</option>
+             	<option value="厅堂活动">厅堂活动</option>
+            </select>
+         		</td>
+         	</tr>
+         	<else /></if>
+         	</volist>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/login/footer" />

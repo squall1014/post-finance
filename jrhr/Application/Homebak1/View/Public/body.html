@@ -1,0 +1,84 @@
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">余杭区金融积分考核系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">管理</a></li>
+      <li class="layui-nav-item"><a href="">用户管理</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+            	金融业务部
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/logout">退了</a></li>
+    </ul>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+      	<li class="layui-nav-item"><a href="__URL__/index">首页</a></li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">积分项目管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/pointitem">积分项目大类管理</a></dd>
+            <dd><a href="__URL__/pointcontent">积分项目管理</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">机构网点积分报表管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jrpointdwdate">按机构网点日报表</a></dd>
+            <dd><a href="__URL__/jrpointdwdatesh">按机构网点未审核明细</a></dd>
+            
+            <dd><a href="__URL__/jrpointdwdatetb">按机构网点日报表通报</a></dd>
+            
+            <dd><a href="__URL__/jrpointdwdatefw">按机构网点范围报表汇总</a></dd>
+            <dd><a href="__URL__/jrpointdwdatefwdt">按机构网点范围报表明细</a></dd>
+            <dd><a href="__URL__/jrpointdwdatefwtb">按机构网点范围报表通报</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">机构网点积分报表分析</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jrpointdwitemdate">按机构网点按项目报表</a></dd>
+            <dd><a href="__URL__/jrpointdwitemsdate">按机构网点按大类报表</a></dd>
+            <dd><a href="__URL__/jrpointdwicdate">按机构网点大类项目混合报表</a></dd>
+            <dd><a href="__URL__/jrpointdwdatetb">按机构网点日报表通报</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">机构网点行为量管理分析</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractdwdate">粽情端午节行为量日报表</a></dd>
+            <dd><a href="__URL__/jractdwdatefw">粽情端午节行为量统计</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">轮岗记录查询</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jrlgtransferdate">轮岗记录查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="__URL__/qingjiacounts">JSON数据测试</a></li>
+        <li class="layui-nav-item"><a href="__URL__/select">测试</a></li>
+      </ul>
+    </div>
+  </div>

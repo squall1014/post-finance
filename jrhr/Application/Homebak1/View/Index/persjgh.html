@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区人力资源系统</div></h1>
+    
+    <br />
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>部门</td>
+								<td>姓名</td>
+								<td>工号</td>
+								<td>职务</td>
+								<td>工种</td>
+								<td>性别</td>
+								<td>学历</td>
+								<td>电话</td>
+								<td>工作年月</td>
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<td>{$vo.dwname}</td>
+								<td>{$vo.persname}</td>
+								<td>{$vo.gonghao}</td>
+								<td>{$vo.zhiwu}</td>
+								<td>{$vo.gongzhong}</td>
+								<td>{$vo.sex}</td>
+								<td>{$vo.xueli}</td>
+								<td>{$vo.phone}</td>
+								<td>{$vo.gongzuony}</td>
+							</tr>
+							</volist>
+					  </table>
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>开户信息上传</h1></div>
+    
+    <h2>开户信息清空</h2>
+    
+    <hr class="layui-bg-red">
+        <form action="{:U('jraccountinfocleans')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">信息清空</button>
+        </form>
+        <br />
+        <br />
+    <h2>客户1元以上信息前清空</h2>
+    
+    <hr class="layui-bg-red">
+        <form action="{:U('jrclientassetsoldcleans')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">信息清空</button>
+        </form>
+        <br />
+        <br />
+    <h2>客户1元以上信息后清空</h2>
+    
+    <hr class="layui-bg-red">
+        <form action="{:U('jrclientassetscleans')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">信息清空</button>
+        </form>
+        <br />
+        <br />
+  </div>
+<!--底部-->
+<include file="Public/footer" />

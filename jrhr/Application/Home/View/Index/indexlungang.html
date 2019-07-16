@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+      <table class="layui-table" style="width: 100%">
+       <tr>
+       	<th>片区</th>
+				<th>单位名称</th>
+				<th>在岗人数</th>
+				<th>网点负责人</th>
+				<th>综合柜员</th>
+				<th>理财经理</th>
+				<th>大堂经理</th>
+				<th>客户经理</th>
+				<th>普通柜员</th>
+			</tr>
+			<volist name="data" id="vo">
+			<tr>
+				<td>{$vo.pianquname}</td>
+				<td><a href="__URL__/persjgh/jgh/{$vo.jgh}">{$vo.dwname}</a></td>
+				<td><a href="__URL__/persjgh/jgh/{$vo.jgh}">{$vo.count}</a></td>
+				<td><volist name="vo.wdfzr" id="vo6"><a href="__URL__/persmodify/gonghao/{$vo6.gonghao}">{$vo6.persname}</a>({$vo6.gongzhong})|</volist></td>
+				<td><volist name="vo.zhgy" id="vo5"><a href="__URL__/persmodify/gonghao/{$vo5.gonghao}">{$vo5.persname}</a>({$vo5['gongzhong']})|</volist></td>
+				<td><volist name="vo.lcjl" id="vo4"><a href="__URL__/persmodify/gonghao/{$vo4.gonghao}">{$vo4.persname}</a>({$vo4['gongzhong']})|</volist></td>
+				<td><volist name="vo.dtjl" id="vo3"><a href="__URL__/persmodify/gonghao/{$vo3.gonghao}">{$vo3.persname}</a>({$vo3['gongzhong']})|</volist></td>
+				<td><volist name="vo.khjl" id="vo2"><a href="__URL__/persmodify/gonghao/{$vo2.gonghao}">{$vo2.persname}</a>({$vo2['gongzhong']})|</volist></td>
+			  <td><volist name="vo.ptgy" id="vo1"><a href="__URL__/persmodify/gonghao/{$vo1.gonghao}">{$vo1.persname}</a>({$vo1['gongzhong']})|</volist></td>
+			</tr>
+			
+			</volist>
+			<tr>
+				<td></td>
+				<td>总计</td>
+				<td>{$count.counts}</td>
+				<td>{$count.wdfzr}</td>
+				<td>{$count.zhgy}</td>
+				<td>{$count.lcjl}</td>
+				<td>{$count.dtjl}</td>
+				<td>{$count.khjl}</td>
+				<td>{$count.ptgy}</td>
+			</tr>
+      </table>
+     </div>
+  	</div>
+  
+<!--底部-->
+<include file="Public/footer" />

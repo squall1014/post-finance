@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    
+    <br />
+        <form action="{:U('pointcontentaddsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">积分项目管理</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	<tr>
+         	  <th>项目名称</th>
+         	 <td>
+         	 	<input type="text" name="content" lay-verify="required" required placeholder="请输入项目名称" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <td>项目大类</td>
+         	 <td>
+         	 	<select name="pointitemid" lay-verify="required" lay-search>
+         	 		<option value="">请选择项目大类</option>
+         	 		<volist name="jrpirr" id="vo">
+              <option value="{$vo.pointitemid}">{$vo.item}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 <th>单位</th>
+         	 <td>
+         	 	<input type="text" name="unit" placeholder="请输入单位" lay-verify="required" required autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>分值</th>
+         	 <td>
+         	 	<input type="text" name="score" placeholder="请输入分值" lay-verify="required" required autocomplete="off" class="layui-input">
+         	 </td>
+         	 </tr>
+         	 <tr>
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         </table>
+        </div>
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即添加</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

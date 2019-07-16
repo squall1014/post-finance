@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    
+    <br />
+        <form action="{:U('jrperspointupsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<input type="hidden" name="gonghao" value="{$data[0]['gonghao']}">
+         	<tr>
+         		<th style="text-align:center;">单位</th>
+         		<th style="text-align:center;">职务</th>
+         		<th style="text-align:center;">姓名</th>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">分值</th>
+         		<th style="text-align:center;">业绩</th>
+         		<th style="text-align:center;">总分</th>
+         	</tr>
+         	<volist name="data" id="vo">
+         	<tr>
+         		<input type="hidden" name="pointsumid[]" value="{$vo.pointsumid}">
+         		<th style="text-align:center;">{$vo.dwname}</th>
+         		<th style="text-align:center;">{$vo.zhiwu}</th>
+         		<th style="text-align:center;">{$vo.persname}</th>
+         		<td style="text-align:center;">{$vo.content}</td>
+         		<td style="text-align:center;">{$vo.score}</td>
+         		<td style="text-align:center;">{$vo.point}</td>
+         		<td style="text-align:center;">{$vo.sum}</td>
+         	</tr>
+         	</volist>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即审核</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+<!--底部-->
+<include file="Public/login/footer" />

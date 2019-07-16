@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>每日行为量必报项目</legend>
+		</fieldset>
+        <form action="{:U('jractupsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 45%">
+         	<volist name="jairrr" id="vo">
+         		<if condition="$vo.actitemid eq 4">
+         			<tr>
+         		<th style="text-align:center;">支行长是否参与走访</th>
+         		<td>
+         			<select name="4">
+	         			<option value="">请选择</option>
+	              <option value="√">是</option>
+	             	<option value="x">否</option>
+            	</select>
+         		</td>
+         	</tr>
+         	<else /></if>
+         	</volist>
+         	
+         	<volist name="jairr" id="vo">
+         	<tr>
+         		<th style="text-align:center;">{$vo.item}</th>
+         		<td><input type="text" name="{$vo.actitemid}" id="b{$vo.actitemid}" onblur="a{$vo.actitemid}()" placeholder="" autocomplete="off" class="layui-input"> </td>
+         		<script type="text/javascript">
+         		function a{$vo.actitemid}(){
+         			var total = document.getElementById("b{$vo.actitemid}").value;
+         			var reg = /^[0-9]+\.?[0-9]*$/;
+         			
+         			if(!total.match(reg)){
+         				if(!total){
+         					
+         				}else{
+         					alert('请输入正确的数字');
+         					document.getElementById("b{$vo.actitemid}").value = null;
+         				}
+         					
+         			}else{
+         				
+         			}
+         			
+         		}
+         	</script>
+         	</tr>
+         	</volist>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/login/footer" />

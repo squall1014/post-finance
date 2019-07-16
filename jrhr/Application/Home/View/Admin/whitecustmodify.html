@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('whitecustmodifysuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">白名单客户修改</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	<input type="hidden" value="{$jwrr[0]['whitecustid']}" name="whitecustid" />
+         	 <th><font color="#FF0000">*</font>身份证</th>
+         	 <td>
+         	 	<input type="text" name="sfz" id="sfz" value="{$jwrr[0]['sfz']}" required lay-verify="identity" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th><font color="#FF0000">*</font>客户姓名</th>
+         	 <td>
+         	 	<input type="text" name="custname" value="{$jwrr[0]['custname']}" required lay-verify="required" placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th><font color="#FF0000">*</font>联系电话</th>
+         	 <td>
+         	 	<input type="text" name="phone" value="{$jwrr[0]['phone']}" required lay-verify="number" placeholder="请输入客户联系方式" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th><font color="#FF0000">*</font>客户地址</th>
+         	 <td>
+         	 	<input type="text" name="address" value="{$jwrr[0]['address']}" required lay-verify="required" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 </td>
+         	 </tr>
+         	 	
+         	 <tr>
+         	 <th><font color="#FF0000">*</font>村社名称</th>
+         	 <td>
+         	 	<select name="village" lay-verify="required" lay-search>
+         	 		<option value="{$jwrr[0]['village']}">{$jwrr[0]['villages']}</option>
+         	 		<volist name="jvrr" id="vo">
+              <option value="{$vo.villageid}">{$vo.village}</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 <th>客户来源</th>
+         	 <td>
+         	 	<select name="source" lay-verify="required" lay-search>
+         	 		<option value="{$jwrr[0]['source']}">{$jwrr[0]['sources']}</option>
+         	 		<volist name="jsrr" id="vo">
+              <option value="{$vo.sourceid}">{$vo.source}</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 <th><font color="#FF0000">*</font>维护方式</th>
+         	 <td>
+         	 	<select name="maintenance" lay-verify="required" lay-search>
+         	 		<option value="{$jwrr[0]['maintenance']}">{$jwrr[0]['maintenances']}</option>
+         	 		<volist name="jmrr" id="vo">
+              <option value="{$vo.maintenanceid}">{$vo.maintenance}</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 <th>意向产品</th>
+         	 <td>
+         	 	<select name="product" lay-verify="required" lay-search>
+         	 		<option value="{$jwrr[0]['product']}">{$jwrr[0]['products']}</option>
+         	 		<volist name="jprr" id="vo">
+              <option value="{$vo.productid}">{$vo.product}</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 
+         	 
+         	 
+         	</tr>
+         	
+         	 <tr>
+         	 
+         	 <th>备注</th>
+         	 <td colspan="7">
+         	 	<textarea placeholder="请输入需要备注的内容" class="layui-textarea" name="beizhu">{$jwrr[0]['beizhu']}</textarea>
+         	 </td>
+         	 
+         	</tr>
+         	
+         </table>
+         </div>
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区金融积分考核系统
+  </div>
+<script src="/jrhr/Public/layui.all.js"></script>
+
+<script>
+	layui.use('element', function(){
+  var element = layui.element;
+  
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(types1)', function(data){
+			var datas = eval({$insr});
+			for(i = 0 ; i < datas.length ; i++){
+				
+				if(data.value == datas[i].insuranceid){
+					document.getElementById("payment2").value = datas[i].pay + '年';
+					
+					document.getElementById("duration2").value = datas[i].dur + '年';
+					
+					document.getElementById("insurance2").value = datas[i].insurance;
+					
+					//alert(datas[i].dur);
+					break;
+				}
+			}
+			
+		});
+  
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(servicebak1)', function(data){
+			if(document.getElementById("xszb").style.visibility == "visible"){
+				
+			}else{
+				document.getElementById("xszb").style.visibility = "visible";
+				document.getElementById("xszb1").style.visibility = "visible";
+				document.getElementById("percentagebak").value = "0.5";
+			}
+			
+			
+		});
+  
+	});
+	
+</script>
+<!--底部-->
+</body>
+</html>

@@ -1,0 +1,102 @@
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">余杭区金融积分考核系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">管理</a></li>
+      <li class="layui-nav-item"><a href="">用户管理</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                      {$dwname['user']}--{$dwname['dwname']}--{$dwname['zhiwu']}
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/logout">退了</a></li>
+    </ul>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+      	<li class="layui-nav-item"><a href="__URL__/index">首页</a></li>
+      	<li class="layui-nav-item">
+        	<a class="" href="javascript:;">金融每日积分操作</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jrpointup">每日积分上报</a></dd>
+            <dd><a href="__URL__/jrpointupmodify">每日积分修改</a></dd>
+            <dd><a href="__URL__/jrpointupsearch">每日积分查询</a></dd>
+            <!--<dd><a href="__URL__/jrpointuptj">每日积分统计查询</a></dd>-->
+            <if condition="$dwname.zhiwud eq 75"><dd><a href="__URL__/jrpointsupsearch">本网点积分查询</a></dd><else /></if>
+            <if condition="$dwname.zhiwud eq 75"><dd><a href="__URL__/jrpointupsh">每日积分审核</a></dd><else /></if>
+            
+          </dl>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">金融每日行为量上报</a>
+          <dl class="layui-nav-child">
+          	<dd><a href="__URL__/jractups">每日行为量选报项目</a></dd>
+            <dd><a href="__URL__/jractup">每日行为量必报项目</a></dd>
+            <dd><a href="__URL__/jractupmodifys">每日行为量选报项目修改</a></dd>
+            <dd><a href="__URL__/jractupmodify">每日行为量必报项目修改</a></dd>
+            <dd><a href="__URL__/jractupsearch">每日行为量查询</a></dd>
+            <dd><a href="__URL__/jractupsh">每日行为量项目审核</a></dd>
+          </dl>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">粽情端午节行为量上报</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractup">每日行为量必报项目</a></dd>
+            <dd><a href="__URL__/jractupmodify">每日行为量必报项目修改</a></dd>
+            <dd><a href="__URL__/jractupsearch">每日行为量查询</a></dd>
+            <dd><a href="__URL__/jractupsh">每日行为量项目审核</a></dd>
+          </dl>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">日爆点午巡活动上报</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractiveup/activecontentid/1">日爆点午巡活动上报</a></dd>
+            <dd><a href="__URL__/jractiveupmodify/activecontentid/1">日爆点午巡活动修改</a></dd>
+            <dd><a href="__URL__/jractiveupsh/activecontentid/1">日爆点午巡活动审核</a></dd>
+          </dl>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">日爆点日终活动上报</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractiveup/activecontentid/2">日爆点日终活动上报</a></dd>
+            <dd><a href="__URL__/jractiveupmodify/activecontentid/2">日爆点日终活动修改</a></dd>
+            <dd><a href="__URL__/jractiveupsh/activecontentid/2">日爆点日终活动审核</a></dd>
+          </dl>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">厅堂联动及网沙行为量</a>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/jractiveup/activecontentid/3">厅堂联动及网沙上报</a></dd>
+            <dd><a href="__URL__/jractiveupmodify/activecontentid/3">厅堂联动及网沙修改</a></dd>
+            <dd><a href="__URL__/jractiveupsh/activecontentid/3">厅堂联动及网沙审核</a></dd>
+          </dl>
+       </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 9"><a class="" href="javascript:;">导出数据</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/tablepers"></a></dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
