@@ -299,7 +299,7 @@ class AdminController extends Controller {
     	$dateauth = M('dateauth');
     	$dwname = cookie('dwname');
     	$where['districtid'] = $dwname['districtid'];
-    	$dauth = $dateauth -> find();
+    	$dauth = $dateauth -> where($where) -> find();
     	$y = $dauth['dateauth'];
     	for($i = $y-1; $i >= 0; $i--){
     		$date[]['date'] = date('Y-m-d',mktime(0,0,0,date("m"),date("d")-$i,date("Y")));
