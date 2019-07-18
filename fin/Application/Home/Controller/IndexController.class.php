@@ -561,8 +561,6 @@ class IndexController extends Controller {
     		
     		//单项奖励要不要记录；
     		
-    		
-    		
     		$this->success('奖金池注入奖金，请继续' , U('Index/bonusadd'));
     	}else{
     		$this->error('奖金池注入失败，请检查数据');
@@ -1893,25 +1891,25 @@ class IndexController extends Controller {
     	$this->display();
     }
     public function jrpointperspays(){
-    	$where['shenhe'] = '审核通过';
-    	$where['qjts'] = array('gt',12);
-    	$date = substr($_POST['date_date'],0,10);
-    	$dates = substr($_POST['date_date'],-10,10);
-    	$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+    	// $where['shenhe'] = '审核通过';
+    	// $where['qjts'] = array('gt',12);
+    	// $date = substr($_POST['date_date'],0,10);
+    	// $dates = substr($_POST['date_date'],-10,10);
+    	// $where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
     	
-    	$qj = M('qingjia');
-    	$where['zhiwu'] = array( array('notin','网点负责人') , array('notin','大堂经理') , array('notin','客户经理') , 'and');
-    	$qjrr = $qj -> where($where) -> field('gonghao') -> select();
-    	foreach($qjrr as &$value){
+    	// $qj = M('qingjia');
+    	// $where['zhiwu'] = array( array('notin','网点负责人') , array('notin','大堂经理') , array('notin','客户经理') , 'and');
+    	// $qjrr = $qj -> where($where) -> field('gonghao') -> select();
+    	// foreach($qjrr as &$value){
     		
-    		$qjr[] = $value['gonghao'];
-    	}
-    	if($qjr == null){
-    		$qjrrr = '04000282';
-    		$qjr = '04000282';
-    	}else{
-    		$qjrrr = implode(',',$qjr);
-    	}
+    	// 	$qjr[] = $value['gonghao'];
+    	// }
+    	// if($qjr == null){
+    	// 	$qjrrr = '04000282';
+    	// 	$qjr = '04000282';
+    	// }else{
+    	// 	$qjrrr = implode(',',$qjr);
+    	// }
     	
     	//var_dump($qjrrr);
     	
@@ -1921,99 +1919,150 @@ class IndexController extends Controller {
     	//$data = $this->persinfo($data);
     	
     	$User = D('');
-    	$data = $User -> query("select hr_jrpointsum.jgh,hr_jrpointsum.zhiwud,hr_jrpointsum.persname,gonghao,sum(hr_jrpointsum.sum) as sums from hr_jrpointsum where hr_jrpointsum.shenhe = 1 and gonghao not in ($qjrrr) and date >= '$date' and date <= '$dates' and zhiwud <> 75 group by hr_jrpointsum.jgh,hr_jrpointsum.zhiwud,hr_jrpointsum.persname,gonghao");
-    	$datass = $User -> query("select persname,gonghao,substring_index(group_concat(jgh order by jgh asc),',',1) as jgh from hr_jrpointsum where zhiwud <> 75 and date >= '$date' and date <= '$dates' and gonghao not in ($qjrrr) and shenhe = 1 group by persname,gonghao");
-    	//var_dump($datass,$data);
-    	
-    	$lungang['zhiwu'] = array( array('notin','75'), array('notin','18') , array('notin','45') , 'and');
-    	$lungang['gongzhong'] = array('notin','900');
-    	$lungang['gonghao'] = array('notin',$qjr);
-    	$l = M('lungang');
-    	$lrr = $l -> where($lungang) -> field('dwname,count(gonghao) as counts') -> group('dwname') -> select();
+    	// $data = $User -> query("select hr_jrpointsum.jgh,hr_jrpointsum.zhiwud,hr_jrpointsum.persname,gonghao,sum(hr_jrpointsum.sum) as sums from hr_jrpointsum where hr_jrpointsum.shenhe = 1 and gonghao not in ($qjrrr) and date >= '$date' and date <= '$dates' and zhiwud <> 75 group by hr_jrpointsum.jgh,hr_jrpointsum.zhiwud,hr_jrpointsum.persname,gonghao");
+    	// $datass = $User -> query("select persname,gonghao,substring_index(group_concat(jgh order by jgh asc),',',1) as jgh from hr_jrpointsum where zhiwud <> 75 and date >= '$date' and date <= '$dates' and gonghao not in ($qjrrr) and shenhe = 1 group by persname,gonghao");
+		//var_dump($datass,$data);
+		$dwname = cookie('dwname');
+		$where['districtid'] = $dwname['districtid'];
+    	$date = substr($_POST['date_date'],0,10);
+		$dates = substr($_POST['date_date'],-10,10);
+		$da = substr($_POST['date_date'],0,7);
+		$das = substr($_POST['date_date'],-10,7);
+		if($da != $das){
+			$this->error('奖金不能跨月查询，请选择在同一个月内');
+		}
+		// $date = $_POST['date_date'];
+		// var_dump($date);
+		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		// $where['date'] = $date;
+		$where['shenhe'] = 1;
+		// $lungang['zhiwu'] = array( array('notin','75'), array('notin','18') , array('notin','45') , 'and');
+		$where['zhiwud'] = array('notin', '1');
+    	// $lungang['gongzhong'] = array('notin','900');
+    	// $lungang['gonghao'] = array('notin',$qjr);
+    	// $l = M('lungang');
+    	// $lrr = $l -> where($lungang) -> field('districtid,dwname,count(gonghao) as counts') -> group('dwname，districtid') -> select();
     	//var_dump($lrr);
     	
-    	$dateb = date('Y-m-d');
-    	$lungang['date'] = array( array('egt',$dates) , array('elt',$dateb) , 'and' );
-    	$jlt = M('jrlgtransfer');
-    	$jltrr = $jlt -> where($lungang) -> select();
+    	// $dateb = date('Y-m-d');
+    	// $lungang['date'] = array( array('egt',$dates) , array('elt',$dateb) , 'and' );
+    	// $jlt = M('jrlgtransfer');
+    	// $jltrr = $jlt -> where($lungang) -> select();
     	//var_dump($datass);
-    	
-    	foreach($lrr as &$valuelg){
+		
+		$jps = M('jrpointsum');
+		$jpsrr = $jps -> field('districtid,persname,jgh,zhiwu,dwname,zhiwud,sum(sum) as sums') -> order('jgh desc') -> where($where) -> group('persname,zhiwu,dwname,jgh,zhiwud') -> select();
+		
+		$jpsr = $jps -> field('districtid,jgh,sum(sum) as sums') -> where($where) -> group('districtid,jgh') -> select();
+
+		foreach($jpsrr as &$val){
+
+			foreach($jpsr as &$value){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$val['total'] = $val['sums'] / $value['sums'] * 100 . '%';
+					break;
+				}
+			}
+		}
+
+		$bl = M('bonuslist');
+		$wherebl['date'] = $da;
+		$wherebl['stats'] = 0;
+		$wherebl['district'] = $dwname['districtid'];
+
+		$blrr = $bl -> where($wherebl) -> select();
+
+		foreach($jpsrr as &$val){
+
+			foreach($blrr as &$value){
+
+				if($val['jgh'] == $value['dwname']){
+					
+					$val['reward'] = $val['total'] * $value['bonus'];
+					break;
+				}
+			}
+		}
+		$this->assign('data',$jpsrr);
+		$this->display();
+		// var_dump($blrr,$wherebl,$jpsrr);
+    	// foreach($lrr as &$valuelg){
     		
-    		foreach($jltrr as &$valuejlt){
+    	// 	foreach($jltrr as &$valuejlt){
     			
-    			if($valuelg['dwname'] == $valuejlt['ydwname']){
+    	// 		if($valuelg['dwname'] == $valuejlt['ydwname']){
     				
-    				$valuelg['counts'] = $valuelg['counts'] + 1;
-    				//continue;
-    				//var_dump($valuelg['counts'],$valuelg['dwname']);
-    			}
-    			if($valuelg['dwname'] == $valuejlt['dwname']){
+    	// 			$valuelg['counts'] = $valuelg['counts'] + 1;
+    	// 			//continue;
+    	// 			//var_dump($valuelg['counts'],$valuelg['dwname']);
+    	// 		}
+    	// 		if($valuelg['dwname'] == $valuejlt['dwname']){
     				
-    				$valuelg['counts'] = $valuelg['counts'] - 1;
-    				//continue;
-    				//var_dump($valuelg['counts'],$valuelg['dwname']);
-    			}
-    		}
-    	}
-    	foreach($lrr as &$value){
+    	// 			$valuelg['counts'] = $valuelg['counts'] - 1;
+    	// 			//continue;
+    	// 			//var_dump($valuelg['counts'],$valuelg['dwname']);
+    	// 		}
+    	// 	}
+    	// }
+    	// foreach($lrr as &$value){
     		
-    		$value['pay'] = $value['counts'] * 900;
-    	}
+    	// 	$value['pay'] = $value['counts'] * 900;
+    	// }
     	
     	
-    	$d = M('danwei');
-    	$drr = $d -> where('jiagou = "A1"') -> order('pianqu asc') -> select();
+    	// $d = M('danwei');
+    	// $drr = $d -> where('jiagou = "A1"') -> order('pianqu asc') -> select();
     	
     	
     	
-    	foreach($datass as &$valuess){
+    	// foreach($datass as &$valuess){
     		
-    		foreach($data as &$value){
+    	// 	foreach($data as &$value){
     			
-    			if($valuess['persname'] == $value['persname']){
+    	// 		if($valuess['persname'] == $value['persname']){
     				
-    				$valuess['sums'] += $value['sums'];
-    			}
-    		}
-    	}
+    	// 			$valuess['sums'] += $value['sums'];
+    	// 		}
+    	// 	}
+    	// }
     	
-    	foreach($drr as &$valued){
+    	// foreach($drr as &$valued){
     		
-    		foreach($datass as &$value){
+    	// 	foreach($datass as &$value){
     			
-    			if($valued['jgh'] == $value['jgh']){
-    				$value['dwname'] = $valued['dwname'];
-    				$valued['sums'] += $value['sums'];
+    	// 		if($valued['jgh'] == $value['jgh']){
+    	// 			$value['dwname'] = $valued['dwname'];
+    	// 			$valued['sums'] += $value['sums'];
     				
-    			}
-    		}
-    	}
-    	//var_dump($datass,$drr,$lrr);
-    	foreach($drr as &$valued){
+    	// 		}
+    	// 	}
+    	// }
+    	// //var_dump($datass,$drr,$lrr);
+    	// foreach($drr as &$valued){
     		
-    		foreach($datass as &$valuess){
+    	// 	foreach($datass as &$valuess){
     			
-    			if($valuess['jgh'] == $valued['jgh']){
+    	// 		if($valuess['jgh'] == $valued['jgh']){
     				
-    				$valuess['avg'] = $valuess['sums']/$valued['sums'];
-    				$valuess['avgs'] = round($valuess['avg']*100,2).'%';
-    			}
-    		}
-    	}
-    	foreach($lrr as &$valuelg){
+    	// 			$valuess['avg'] = $valuess['sums']/$valued['sums'];
+    	// 			$valuess['avgs'] = round($valuess['avg']*100,2).'%';
+    	// 		}
+    	// 	}
+    	// }
+    	// foreach($lrr as &$valuelg){
     		
-    		foreach($datass as &$valuess){
+    	// 	foreach($datass as &$valuess){
     			
-    			if($valuelg['dwname'] == $valuess['jgh']){
+    	// 		if($valuelg['dwname'] == $valuess['jgh']){
     				
-    				$valuess['reward'] = round($valuess['avg'] * $valuelg['pay'],2);
-    				//var_dump($valuess['reward']);
-    			}
-    		}
-    	}
-    	$this->assign('data',$datass);
-    	$this->display();
+    	// 			$valuess['reward'] = round($valuess['avg'] * $valuelg['pay'],2);
+    	// 		}
+    	// 	}
+    	// }
+    	// $this->assign('data',$datass);
+    	// $this->display();
     }
     
     
@@ -2076,7 +2125,11 @@ class IndexController extends Controller {
     	}else{
     		$this->error('员工添加失败，请检查数据');
     	}
-    }
+	}
+
+
+
+
     public function lungangauth(){
     	$l = M('login');
     	$lrr = $l -> select();

@@ -248,13 +248,15 @@ class AdminController extends Controller {
     	}
     }
     public function jrpointupmodify(){
+		$dwname = cookie('dwname');
+		$where['districtid'] = $dwname['districtid'];
     	$dateauth = M('dateauth');
-    	$dauth = $dateauth -> find();
+    	$dauth = $dateauth -> where($where) -> find();
     	$y = $dauth['dateauth'];
     	for($i = $y-1; $i >= 0; $i--){
     		$date[]['date'] = date('Y-m-d',mktime(0,0,0,date("m"),date("d")-$i,date("Y")));
     	}
-		
+		// var_dump($dauth);
 		$this->assign('data',$date);
 		$this->display();
     }
