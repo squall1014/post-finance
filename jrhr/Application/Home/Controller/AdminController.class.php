@@ -771,7 +771,27 @@ class AdminController extends Controller {
     
     
     
-    
+    public function etccustinfo($data){
+		$jd = M('jrdanwei');
+		$jdr = $jd -> select();
+
+		foreach($data as &$value){
+
+			foreach($jdr as &$val){
+				
+				if($value['jgh'] == $val['jgh']){
+					$value['dwname'] = $val['dwname'];
+				}
+				if($value['refereedwname'] == $val['jgh']){
+					$value['refereedwnames'] = $val['dwname'];
+				}
+				if($value['signdwname'] == $val['jgh']){
+					$value['signdwnames'] = $val['dwname'];
+				}
+			}
+		}
+		return $data;
+	}
     
     public function whitecustinfo($data){
     	$jv = M('jrvillage');
@@ -965,14 +985,274 @@ class AdminController extends Controller {
     	
     	$this->display();
     }
-    
-    
-    
-    
-    
-    
-    
-    
+    public function etccustadd(){
+		$je = M('jretccust');
+		$where['stats'] = 0;
+		$count = $je -> count();
+		if($count == 0){
+			
+		}else{
+			$jer = $je -> field('sfz,custname,phone,carcard,carcustname,carsfz,card') -> where($where) -> select();
+		}
+		
+		foreach($jer as &$value){
+    		
+    		$sfz[] = array(
+				'sfz' => $value['sfz'],
+				'custname' => $value['custname'],
+				'phone' => $value['phone'],
+				'carcard' => $value['carcard'],
+			);
+    	}
+		$sfz = json_encode($sfz);
+		$this->assign('sfz',$sfz);
+
+		$jef = M('jretcreferee');
+		$jefr = $jef -> where($where) -> field('carcard,gonghao,referee,refereedwname') -> select();
+		// var_dump($sfz);
+		foreach($jefr as &$value){
+			$carcard[] = array(
+				'carcard' => $value['carcard'],
+				'gonghao' => $value['gonghao'],
+				'referee' => $value['referee'],
+				'refereedwname' => $value['refereedwname'],
+			);
+		}
+		$carcard = json_encode($carcard);
+		$this->assign('carcard',$carcard);
+
+		$jd = M('jrdanwei');
+		$jdr = $jd -> where("jiagou = 'A1'") -> select();
+
+		$jdrr = $jd -> select();
+
+		$this->assign('jdr',$jdr);
+		$this->assign('jdrr',$jdrr);
+		// var_dump($carcard);
+		$this->display();
+	}
+	public function etccustaddsuc(){
+		$dwname = cookie('dwname');
+		$_POST['carcard'] =  strtoupper($_POST['carcard']);
+		$_POST['jgh'] = $dwname['jgh'];
+		$_POST['stats'] = 0;
+		$_POST['signdwname'] = $dwname['jgh'];
+		$je = M('jretccust');
+
+		$jer = $je -> add($_POST);
+		// var_dump($_POST);
+		if($jer > 0){
+			$this->success('ETC客户添加成功，请继续');
+		}else{
+			$this->error('ETC客户添加失败，请检查数据');
+		}
+	}
+    public function etccustrefereeadd(){
+		$je = M('jretccust');
+		$where['stats'] = 0;
+
+		$count = $je -> where($where) -> count();
+
+		if($count == 0){
+
+		}else{
+			$jer = $je -> where($where) -> field('carcard') -> select();
+		}
+
+		foreach($jer as &$value){
+    		
+    		$carcard[] = $value['carcard'];
+    	}
+		$carcard = json_encode($carcard);
+		$this->assign('carcard',$carcard);
+
+		$jef = M('jretcreferee');
+		$countre = $jef -> where($where) -> count();
+		if($countre == 0){
+
+		}else{
+			$jefr = $jef -> where($where) -> field('carcard') -> select();
+		}
+		foreach($jefr as &$value){
+
+			$carcardre[] = $value['carcard'];
+		}
+		$carcardre = json_encode($carcardre);
+		$this->assign('carcardre',$carcardre);
+		// var_dump($carcard);
+		$this->display();
+	}
+	public function etccustrefereeaddsuc(){
+		$dwname = cookie('dwname');
+		$_POST['carcard'] = strtoupper($_POST['carcard']);
+		$_POST['stats'] = 0;
+		$_POST['gonghao'] = $dwname['gonghao'];
+		$_POST['referee'] = $dwname['user'];
+		$_POST['refereedwname'] = $dwname['jgh'];
+		$_POST['date'] = date('Y-m-d');
+		$jef = M('jretcreferee');
+		$jefr = $jef -> add($_POST);
+
+		if($jefr > 0){
+			$this->success('引荐客户添加成功，请继续');
+		}else{
+			$this->error('引荐客户添加失败，请检查数据');
+		}
+		// var_dump($_POST,$dwname);
+	}
+	public function etccustsearchs(){
+		$suc = $_GET['suc'];
+		$je = M('jretccust');
+		$where['stats'] = 0;
+		// var_dump($suc);
+		if($suc == 1){
+			$date = date('Y').'-01'.'-01';
+			$dates = date('Y-m-d');
+		}else{
+			$date = substr($_POST['date_date'],0,10);
+			$dates = substr($_POST['date_date'],-10,10);
+		}
+		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		// var_dump($where);
+		$jer = $je -> where($where) -> select();
+		$dwname = cookie('dwname');
+		$jgh = $dwname['jgh'];
+		$this->assign('jgh',$jgh);
+		$jer = $this->etccustinfo($jer);
+		$this->assign('data',$jer);
+		$this->display();
+		
+	}
+    public function etccustmodify(){
+		// var_dump($_GET);
+		$etccustid = $_GET['etccustid'];
+		$je = M('jretccust');
+		$jer = $je -> where("etccustid = '$etccustid'") -> select();
+		$jer = $this->etccustinfo($jer);
+		$this->assign('data',$jer);
+
+		$jd = M('jrdanwei');
+
+		$jdrr = $jd -> select();
+
+		$this->assign('jdrr',$jdrr);
+
+		$this->display();
+	}
+    public function etccustmodifysuc(){
+		$etccustid = $_POST['etccustid'];
+
+		$je = M('jretccust');
+		$jer = $je -> where("etccustid = '$etccustid'") -> save($_POST);
+
+		if($jer > 0){
+			$this->success('ETC客户信息修改成功，请继续',U('home/admin/etccustsearchs/suc/1'));
+		}else{
+			$this->error('ETC客户信息修改失败，请检查数据');
+		}
+	}
+    public function etccustrefereesearchs(){
+		$jef = M('jretcreferee');
+		$je = M('jretccust');
+		$dwname = cookie('dwname');
+		$where['gongghao'] = $dwname['gonghao'];
+		$date = substr($_POST['date_date'],0,10);
+		$dates = substr($_POST['date_date'],-10,10);
+		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		$where['stats'] = 0;
+		$jefr = $jef -> where($where) -> select();
+
+		$User = D('');
+    	
+    	$datas = $User->query("select hr_jretcreferee.carcard,hr_jretcreferee.carphone,hr_jretcreferee.carcustname,hr_jretcreferee.carsfz,hr_jretcreferee.referee,hr_jretcreferee.date,hr_jretcreferee.stats from hr_jretcreferee inner join hr_jretccust on hr_jretcreferee.carcard = hr_jretccust.carcard and hr_jretcreferee.stats = 0 and hr_jretccust.stats = 0");
+		foreach($jefr as &$value){
+			$value['status'] = '未签约';
+			foreach($datas as &$val){
+
+				if($value['carcard'] == $val['carcard']){
+					
+					$value['status'] = 已签约;
+					$value['stats'] = 1;
+					break;
+				}
+			}
+		}
+		
+		
+
+		// var_dump($datas);
+		$this->assign('data',$jefr);
+		$this->display();
+	}
+    public function etccustrefereemodify(){
+		$etcrefereeid = $_GET['etcrefereeid'];
+		$jef = M('jretcreferee');
+
+		$jefr = $jef -> where("etcrefereeid = '$etcrefereeid'") -> select();
+		// var_dump($jefr);
+		$this->assign('data',$jefr);
+		$this->display();
+	}
+	public function etccustrefereemodifysuc(){
+		$jef = M('jretcreferee');
+
+		$etcrefereeid = $_POST['etcrefereeid'];
+
+		$jefr = $jef -> where("etcrefereeid = '$etcrefereeid'") -> save($_POST);
+
+		if($jefr > 0){
+			$this->success('ETC引荐客户修改成功，请继续');
+		}else{
+			$this->error('ETC引荐客户修改失败，请检查数据');
+		}
+	}
+	public function etccustdelete(){
+		$je = M('jretccust');
+		$where['stats'] = 0;
+		$jer = $je -> where($where) -> field('etccustid,carcard') -> select();
+
+		$this->assign('carcard',$jer);
+		$this->display();
+	}
+	public function etccustdeletes(){
+		$where['stats'] = 0;
+		$where['carcard'] = $_POST['carcard'];
+
+		$je = M('jretccust');
+		$jer = $je -> where($where) -> select();
+
+		$jer = $this->etccustinfo($jer);
+		$this->assign('data',$jer);
+		$this->display();
+	}
+	public function etccustdeletesuc(){
+		$stats['stats'] = 1;
+
+		$etccustid = $_GET['etccustid'];
+
+		$je = M('jretccust');
+
+		$jer = $je -> where("etccustid = '$etccustid'") -> save($stats);
+
+		if($jer > 0){
+			$this->success('ETC客户解约成功，请继续',U('admin/etccustdelete'));
+		}else{
+			$this->error('ETC客户解约失败，请检查数据');
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+    
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			  <legend>ETC客户车辆解约</legend>
+			</fieldset>
+    	<form class="layui-form layui-form-pane" action="{:U('etccustdeletes')}" method="post">
+    		
+    		<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">车辆查询</label>
+			      <div class="layui-input-block">
+					<input type="text" name="carcard" list="carcards" id="carcard" autocomplete="off" class="layui-input">
+					<datalist id="carcards">
+						<volist name="carcard" id="vo">
+							<option value="{$vo.carcard}">{$vo.carcard}</option>
+						</volist>
+					</datalist>
+			      </div>
+			    </div>
+    		</div>
+    		<br />
+    		<br />
+    		<div class="layui-form-item" style="margin-left:50px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+           </div>
+         </div>
+      </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/login/footer" />

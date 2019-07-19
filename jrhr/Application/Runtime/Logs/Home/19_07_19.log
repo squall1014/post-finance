@@ -1,0 +1,52 @@
+[ 2019-07-19T08:36:35+08:00 ] 192.168.1.211 /jrhr/index.php/Home/index/ectcustsearchs/suc/1.html
+ERR: 非法操作:ectcustsearchs
+
+[ 2019-07-19T08:38:33+08:00 ] 192.168.1.211 /jrhr/index.php/Home/index/etcccustsearchs/suc/1.html
+ERR: 非法操作:etcccustsearchs
+
+[ 2019-07-19T08:44:38+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustmodify/etccustid/4
+ERR: syntax error, unexpected 'ETC客户信息修改失败，' (T_STRING), expecting ',' or ')'
+
+[ 2019-07-19T08:44:44+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustsearchs.html
+ERR: syntax error, unexpected 'ETC客户信息修改失败，' (T_STRING), expecting ',' or ')'
+
+[ 2019-07-19T08:44:52+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustsearchs.html
+ERR: syntax error, unexpected 'ETC客户信息修改失败，' (T_STRING), expecting ',' or ')'
+
+[ 2019-07-19T09:16:14+08:00 ] 192.168.1.211 /jrhr/index.php/home/index/etccustsearchs/suc/1.html
+ERR: 非法操作:etccustsearchs
+
+[ 2019-07-19T09:17:41+08:00 ] 192.168.1.211 /jrhr/index.php/home/index/etccustsearchs/suc/1.html
+ERR: 非法操作:etccustsearchs
+
+[ 2019-07-19T09:23:15+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefereesearch
+ERR: 非法操作:etccustrefereesearch
+
+[ 2019-07-19T09:24:12+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefereesearch
+ERR: 非法操作:etccustrefereesearch
+
+[ 2019-07-19T10:12:09+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefereesearchs.html
+ERR: 1146:Table 'posthr.hr_jretccustreferee' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jretccustreferee`
+
+[ 2019-07-19T11:28:10+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefereesearchs.html
+ERR: 1054:Unknown column 'hr_jretcreferees.stats' in 'field list'
+ [ SQL语句 ] : select hr_jretcreferee.carcard,hr_jretcreferee.carphone,hr_jretcreferee.carcustname,hr_jretcreferee.carsfz,hr_jretcreferee.referee,hr_jretcreferee.date,hr_jretcreferees.stats from hr_jretcreferee inner join hr_jretccust on hr_jretcreferee.carcard = hr_jretccust.carcard
+
+[ 2019-07-19T11:55:46+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefeeremodify/etcrefereeid/2
+ERR: 模板不存在:./Application/Home/View/Admin/etccustrefeeremodify.html
+
+[ 2019-07-19T12:08:54+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefeeremodify/etcrefereeid/2
+ERR: 非法操作:etccustrefeeremodify
+
+[ 2019-07-19T15:42:13+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustrefereeadd
+ERR: 1146:Table 'posthr.hr_jrectreferee' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jrectreferee`
+
+[ 2019-07-19T16:02:17+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustdeletes.html
+ERR: 非法操作:etccustdeletes
+
+[ 2019-07-19T16:30:15+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustdeletesuc/etccustid/11
+ERR: 1062:Duplicate entry '浙A66666-1' for key 'carcard'
+ [ SQL语句 ] : UPDATE `hr_jretccust` SET `stats`='1' WHERE ( etccustid = '11' )
+

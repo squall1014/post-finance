@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('etccustaddsuc')}" id="form" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">ETC客户录入</font>
+        	</div>
+        <div class="layui-card-body">
+		<table class="layui-table" lay-size="">
+			<tr>
+				<th>
+					<font color="#FF0000">*</font>车主车牌
+				</th>
+				<td>
+					<input type="text" name="carcard" id="carcard" onblur="carcards()" required lay-verify=""
+						placeholder="请输入行驶证车牌" autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>行驶证车主姓名
+				</th>
+				<td>
+					<input type="text" name="carcustname" id="carcustname" required lay-verify=""
+						placeholder="请输入行驶证车主姓名" autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>行驶证车主身份证
+				</th>
+				<td>
+					<input type="text" name="carsfz" id="carsfz" required lay-verify="identity" placeholder="请输入行驶证车主身份证"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>车主联系电话
+				</th>
+				<td>
+					<input type="text" name="carphone" id="carphone" required lay-verify="required" placeholder="请输入车主联系电话" autocomplete="off"
+						class="layui-input">
+				</td>
+		
+		
+			</tr>
+			<tr>
+				<th>
+					<font color="#FF0000">*</font>是否本人办理
+				</th>
+				<td>
+					<select name="self" id="self" lay-verify="required" required lay-filter="types1" lay-search>
+						<option value=""></option>
+						<option value="0">是</option>
+						<option value="1">否</option>
+					</select>
+				</td>
+				<th>
+					<font color="#FF0000">*</font>引荐人
+				</th>
+				<td>
+					<input type="text" name="referee" id="referee" required lay-verify="required" placeholder="请输入客户引荐人姓名"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>引荐人部门
+				</th>
+				<td>
+					<div id="redwname" style="display: block">
+						<select name="refereedwname" id="refereedwname" lay-verify="required" lay-search>
+							<option value=""></option>
+							<volist name="jdrr" id="vo">
+								<option value="{$vo.jgh}">{$vo.dwname}</option>
+							</volist>
+						</select>
+					</div>
+				</td>
+				
+				<th>
+					<font color="#FF0000">*</font>签约日期
+				</th>
+				<td>
+					<input type="text" name="signdate" id="date" placeholder="请点击选择日期" autocomplete="off" required lay-verify=""
+						class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<font color="#FF0000">*</font>绑定ETC银行卡号
+				</th>
+				<td>
+					<input type="text" name="card" required lay-verify="required" placeholder="请输入客户银行卡号" autocomplete="off"
+						class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>持卡人身份证
+				</th>
+				<td>
+					<input type="text" name="sfz" id="sfz" onblur="sfzs()" required lay-verify="identity" placeholder="请输入客户身份证"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>持卡人姓名
+				</th>
+				<td>
+					<input type="text" name="custname" id="custname" required lay-verify="required" placeholder="请输入客户姓名" autocomplete="off"
+						class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>持卡人联系电话
+				</th>
+				<td>
+					<input type="text" name="phone" id="phone" required lay-verify="number" placeholder="请输入客户联系方式" autocomplete="off"
+						class="layui-input">
+				</td>
+		
+			</tr>
+			<tr>
+				<th>加办日期</th>
+				<td>
+					<input type="text" name="handledate" id="date1" placeholder="请点击选择日期" autocomplete="off"
+						class="layui-input">
+				</td>
+				<th>设备安装网点</th>
+				<td>
+					<select name="handledwname" lay-search>
+						<option value=""></option>
+						<volist name="jprr" id="vo">
+							<option value="{$vo.productid}">{$vo.product}</option>
+						</volist>
+					</select>
+				</td>
+		
+		
+		
+			</tr>
+		
+			<tr>
+		
+				<th>备注</th>
+				<td colspan="7">
+					<textarea placeholder="请输入需要备注的内容" class="layui-textarea" name="beizhu"></textarea>
+				</td>
+		
+			</tr>
+		</table>
+    	</div>
+    </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区金融积分考核系统
+  </div>
+<script src="/jrhr/Public/layui.all.js"></script>
+
+<script>
+	function sfzs(){
+		var sfza = document.getElementById("sfz").value;
+		
+		isInArray(arr,sfza);
+	}
+	
+	var arr = {$sfz};
+	
+	function isInArray(arr,value){
+		
+		for(var i = 0; i < arr.length; i++){
+	        if(value == arr[i]){
+	        	
+	        //alert('此用户已存在');
+	        	
+	        // 	if(confirm("此客户已存在,是否继续添加详细信息?")){
+	        	
+            // window.location= "whitecustmodify?sfz="+arr[i]+"";
+            
+            // 	}else{
+            	
+            // 	document.getElementById("sfz").value = '';
+            	
+            // }
+	            //return true;
+	        }
+	            //return true;
+	    }
+	}
+	function carcards(){
+		// var carcarda = document.getElementById("carcard").value;
+		var carcardb = document.getElementById("carcard").value;
+		// isInsfz(crr,carcarda);
+		isIncarcard(drr,carcardb);
+	}
+	// var crr = {$sfz};
+	// function isInsfz(crr,value){
+	// 	for(var i = 0; i< crr.length; i++){
+	// 		if(value.toUpperCase() == crr[i]['carcard']){
+	// 			console.log(crr[i]);
+	// 			// document.getElementById("carsfz").value = crr[i]['sfz'];
+	// 		}
+	// 	}
+	// }
+	var drr = {$carcard};
+	function isIncarcard(drr,value){
+		for(var i = 0; i< drr.length; i++){
+			if(value.toUpperCase() == drr[i]['carcard']){
+				console.log(drr[i]);
+				// document.getElementById("redwname").style.display = "none";
+				// document.getElementById("refedwname").style.display = "block";
+				document.getElementById("referee").value = drr[i]['referee'];
+				// document.getElementById("referee").disabled = "disabled";
+				document.getElementById("refereedwname").value = drr[i]['refereedwname'];
+				// var index = document.getElementById("refereedwname").selectedIndex.innerHtml;
+				// console.log(index);
+				// var indexs = document.getElementById("refereedwname").options.selectedIndex.innerHtml;
+				// console.log(indexs);
+				break;
+			}
+		}
+	}
+// 	layui.use('element', function(){
+//   var element = layui.element;
+  
+// 	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(types1)', function(data){
+			// var datas = eval({$insr});
+			console.log(data);
+			if(data.value == 0){
+				document.getElementById("custname").value = document.getElementById("carcustname").value;
+				document.getElementById("phone").value = document.getElementById("carphone").value;
+				document.getElementById("sfz").value = document.getElementById("carsfz").value;
+			}else{
+				document.getElementById("custname").value = "";
+				document.getElementById("phone").value = "";
+				document.getElementById("sfz").value = "";
+			}
+			// for(i = 0 ; i < datas.length ; i++){
+				
+			// 	if(data.value == datas[i].insuranceid){
+			// 		document.getElementById("payment2").value = datas[i].pay + '年';
+					
+			// 		document.getElementById("duration2").value = datas[i].dur + '年';
+					
+			// 		document.getElementById("insurance2").value = datas[i].insurance;
+					
+			// 		//alert(datas[i].dur);
+			// 		break;
+			// 	}
+			// }
+			
+		});
+  
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	    elem: '#date1' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+	// layui.use('form', function(){
+	//   var form = layui.form;
+	//   //获取types1控件中的数据
+	// 	form.on('select(servicebak1)', function(data){
+	// 		if(document.getElementById("xszb").style.visibility == "visible"){
+				
+	// 		}else{
+	// 			document.getElementById("xszb").style.visibility = "visible";
+	// 			document.getElementById("xszb1").style.visibility = "visible";
+	// 			document.getElementById("percentagebak").value = "0.5";
+	// 		}
+			
+			
+	// 	});
+  
+	// });
+	
+</script>
+<!--底部-->
+</body>
+</html>

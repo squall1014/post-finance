@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('etccustrefereemodifysuc')}" id="form" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">ETC客户引荐修改</font>
+        	</div>
+        <div class="layui-card-body">
+		<table class="layui-table" lay-size="">
+			<input type="hidden" name="etcrefereeid" value="{$data[0]['etcrefereeid']}">
+			<tr>
+				<th>
+					<font color="#FF0000">*</font>车主车牌
+				</th>
+				<td>
+					<input type="text" name="carcard" value="{$data[0]['carcard']}" id="carcard" required lay-verify=""
+						placeholder="请输入行驶证车牌" autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>车主联系电话
+				</th>
+				<td>
+					<input type="text" name="carphone" id="carphone" value="{$data[0]['carphone']}" required
+						lay-verify="required" placeholder="请输入客户银行卡号" autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					行驶证车主姓名
+				</th>
+				<td>
+					<input type="text" name="carcustname" value="{$data[0]['carcustname']}" id="carcustname"
+					 placeholder="请输入行驶证车主姓名" autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					行驶证车主身份证
+				</th>
+				<td>
+					<input type="text" name="carsfz" id="carsfz" value="{$data[0]['carsfz']}"
+					 placeholder="请输入行驶证车主身份证" autocomplete="off" class="layui-input">
+				</td>
+		
+		
+		
+			</tr>
+			<tr>
+		
+				<th>
+					<font color="#FF0000">*</font>引荐人
+				</th>
+				<td>
+					<input type="text" name="referee" value="{$data[0]['referee']}" id="referee" disabled="disabled" required lay-verify="required"
+						placeholder="请输入客户引荐人姓名" autocomplete="off" class="layui-input">
+				</td>
+				<th>
+					<font color="#FF0000">*</font>引荐日期
+				</th>
+				<td>
+					<input type="text" name="date" id="date" value="{$data[0]['date']}" placeholder="请点击选择日期" autocomplete="off"
+						required lay-verify="" class="layui-input">
+				</td>
+			</tr>
+			</tr>
+			<tr>
+				<th>备注</th>
+				<td colspan="7">
+					<textarea placeholder="请输入需要备注的内容" class="layui-textarea" name="beizhu"></textarea>
+				</td>
+		
+			</tr>
+		</table>
+    	</div>
+    </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区金融积分考核系统
+  </div>
+<script src="/jrhr/Public/layui.all.js"></script>
+
+<script>
+
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	    elem: '#date1' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+	// layui.use('form', function(){
+	//   var form = layui.form;
+	//   //获取types1控件中的数据
+	// 	form.on('select(servicebak1)', function(data){
+	// 		if(document.getElementById("xszb").style.visibility == "visible"){
+				
+	// 		}else{
+	// 			document.getElementById("xszb").style.visibility = "visible";
+	// 			document.getElementById("xszb1").style.visibility = "visible";
+	// 			document.getElementById("percentagebak").value = "0.5";
+	// 		}
+			
+			
+	// 	});
+  
+	// });
+	
+</script>
+<!--底部-->
+</body>
+</html>

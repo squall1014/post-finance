@@ -1,0 +1,30 @@
+[ 2019-07-18T10:41:21+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustsearch
+ERR: 非法操作:etccustsearch
+
+[ 2019-07-18T10:55:00+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustaddsuc.html
+ERR: 1364:Field 'referee' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `hr_jretccust` (`carcard`,`carcustname`,`carsfz`,`carphone`,`self`,`refereedwname`,`signdate`,`card`,`sfz`,`custname`,`phone`,`handledate`,`handledwname`,`beizhu`,`jgh`,`stats`) VALUES ('浙A88888','吴宗耀','330105198510141010','13757176779','0','23','2019-07-18','62201300000','330105198510141010','吴宗耀','13757176779','','','','23','0')
+
+[ 2019-07-18T11:01:07+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustaddsuc.html
+ERR: 1364:Field 'signdwname' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `hr_jretccust` (`carcard`,`carcustname`,`carsfz`,`carphone`,`self`,`referee`,`refereedwname`,`signdate`,`card`,`sfz`,`custname`,`phone`,`handledate`,`handledwname`,`beizhu`,`jgh`,`stats`) VALUES ('浙A88888','吴宗耀','330105198510141010','13757176779','0','赵琳霞','23','2019-07-18','6220100000','330105198510141010','吴宗耀','13757176779','','','','23','0')
+
+[ 2019-07-18T11:01:37+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustaddsuc.html
+ERR: 1062:Duplicate entry '浙A88888-0' for key 'carcard'
+ [ SQL语句 ] : INSERT INTO `hr_jretccust` (`carcard`,`carcustname`,`carsfz`,`carphone`,`self`,`referee`,`refereedwname`,`signdate`,`card`,`sfz`,`custname`,`phone`,`handledate`,`handledwname`,`beizhu`,`jgh`,`stats`,`signdwname`) VALUES ('浙A88888','吴宗耀','330105198510141010','13757176779','0','赵琳霞','23','2019-07-18','6220100000','330105198510141010','吴宗耀','13757176779','','','','23','0','23')
+
+[ 2019-07-18T15:03:53+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustsearchs.html
+ERR: syntax error, unexpected '<'
+
+[ 2019-07-18T15:04:33+08:00 ] 192.168.1.211 /jrhr/index.php/Home/Admin/etccustsearchs.html
+ERR: syntax error, unexpected ''): ?><a href="/jrhr/index.php' (T_CONSTANT_ENCAPSED_STRING)
+
+[ 2019-07-18T17:26:07+08:00 ] 192.168.1.211 /jrhr/index.php/Home/index/ectcustsearchs.html
+ERR: 非法操作:ectcustsearchs
+
+[ 2019-07-18T17:30:23+08:00 ] 192.168.1.211 /jrhr/index.php/Home/index/ectcustsearchs/suc/1.html
+ERR: 非法操作:ectcustsearchs
+
+[ 2019-07-18T17:30:34+08:00 ] 192.168.1.211 /jrhr/index.php/Home/index/ectcustsearchs/suc/1.html
+ERR: 非法操作:ectcustsearchs
+
