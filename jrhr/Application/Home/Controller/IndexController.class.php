@@ -2203,7 +2203,46 @@ class IndexController extends Controller {
     	$p->execute("truncate table hr_jrclientassets");
     	$this->success('数据已清空，请继续操作');
     }
-    
+	public function jretccustpts(){
+		$date = substr($_POST['date_date'],0,10);
+    	$dates = substr($_POST['date_date'],-10,10);
+		$where['signdate'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		
+		$where['stats'] = 0;
+		$je = M('jretccust');
+
+		$jer = $je -> where($where) -> select();
+
+		$jd = M('jrdanwei');
+		$jdr = $jd -> select();
+
+		foreach($jer as &$value){
+
+			foreach($jdr as &$val){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$value['jghs'] = $val['dwname'];
+				}
+				if($value['refereedwname'] == $val['jgh']){
+					
+					$value['reffereedwnames'] = $val['dwname'];
+				}
+				if($value['signdwname'] == $val['jgh']){
+
+					$value['signdwnames'] = $val['dwname'];
+				}
+			}
+		}
+
+		$this->assign('data',$jer);
+		$this->display();
+	}
+	
+
+
+
+
     
     
     
