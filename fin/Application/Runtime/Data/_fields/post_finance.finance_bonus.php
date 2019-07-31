@@ -1,1 +1,0 @@
-a:6:{i:0;s:7:"bonusid";i:1;s:5:"bonus";i:2;s:6:"beizhu";i:3;s:5:"stats";s:3:"_pk";s:7:"bonusid";s:5:"_type";a:4:{s:7:"bonusid";s:8:"int(255)";s:5:"bonus";s:12:"varchar(100)";s:6:"beizhu";s:12:"varchar(100)";s:5:"stats";s:11:"varchar(11)";}}

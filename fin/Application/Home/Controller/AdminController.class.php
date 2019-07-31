@@ -43,7 +43,12 @@ class AdminController extends Controller {
         $where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
         $jps = M('jrpointsum');
         $jpsrr = $jps -> field('dwname,zhiwu,persname,sum(sum) as sums') -> order('sums desc') -> where($where) -> group('dwname,zhiwu,persname') -> select();
-        // var_dump($jpsrr,$date);
+		// var_dump($jpsrr,$date);
+		$i = 1;
+    	foreach($jpsrr as &$value){
+			$value['pm'] = $i;
+			$i = $i + 1;
+		}
         $this->assign('jpsrr',$jpsrr);
 
         // echo phpinfo();
@@ -58,14 +63,16 @@ class AdminController extends Controller {
     	$jsr = $js -> where($gonghao) -> select();
     	$gonghao['shenhe'] = 1;
     	$gonghao['stats'] = 1;
-    	$jsrr = $js -> where($gonghao) -> select();
-    	
+		$jsrr = $js -> where($gonghao) -> select();
+		
     	$jsr = $this->jrpoint($jsr);
     	$jsrr = $this->jrpoint($jsrr);
     	
     	$this->assign('jsr',$jsr);
     	$this->assign('jsrr',$jsrr);
-    	
+		
+		
+
     	$this->display();
     }
     public function jrpointpersyesterday(){

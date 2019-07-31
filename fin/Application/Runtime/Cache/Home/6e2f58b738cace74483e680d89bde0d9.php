@@ -81,7 +81,8 @@
         <li class="layui-nav-item">
         	<a class="" href="javascript:;">机构网点积分报表管理</a>
           <dl class="layui-nav-child">
-          	<dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdetailfw">网点积分汇总明细报表</a></dd>
           	<dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdate">按机构网点日报表</a></dd>-->
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdatesh">按机构网点未审核明细</a></dd>-->
@@ -134,65 +135,146 @@
       </ul>
     </div>
   </div>
-
+<style type="text/css">
+	.layui-body{overflow-y: scroll;}
+</style>
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    	<div class="layui-card" style="width: 100%;">
-        	<div class="layui-card-header">
-        		<font size="4">网点信息明细表</font>
-        	</div>
-      <div class="layui-card-body">
-	     <form action="<?php echo U('persadd');?>" enctype="multipart/form-data" method="post" class="layui-form" >
-	    	<button class="layui-btn" lay-submit lay-filter="formDemo">员工新增</button>
-	     </form>
-      <table class="layui-table" style="width: 100%">
-       <tr>
-       	<th>地区</th>
-       	<th>片区</th>
-				<th>单位名称</th>
-				<th>在岗人数</th>
-				<th>网点负责人</th>
-				<th>综合柜员</th>
-				<th>理财经理</th>
-				<th>普通柜员</th>
-				<th>大堂经理</th>
-			</tr>
-			<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-				<td><?php echo ($vo["districts"]); ?></td>
-				<td><?php echo ($vo["pianquname"]); ?></td>
-				<td><a href="/fin/index.php/home/index/persjgh/jgh/<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></a></td>
-				<td><a href="/fin/index.php/home/index/persjgh/jgh/<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["count"]); ?></a></td>
-				<td><?php if(is_array($vo["wdfzr"])): $i = 0; $__LIST__ = $vo["wdfzr"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo6): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo6["id"]); ?>"><?php echo ($vo6["persname"]); ?></a>(<?php echo ($vo6["gongzhong"]); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
-				<td><?php if(is_array($vo["zhgy"])): $i = 0; $__LIST__ = $vo["zhgy"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo5): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo5["id"]); ?>"><?php echo ($vo5["persname"]); ?></a>(<?php echo ($vo5['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
-				<td><?php if(is_array($vo["lcjl"])): $i = 0; $__LIST__ = $vo["lcjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo4): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo4["id"]); ?>"><?php echo ($vo4["persname"]); ?></a>(<?php echo ($vo4['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
-				<td><?php if(is_array($vo["ptgy"])): $i = 0; $__LIST__ = $vo["ptgy"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo3): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo3["id"]); ?>"><?php echo ($vo3["persname"]); ?></a>(<?php echo ($vo3['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
-				<td><?php if(is_array($vo["dtjl"])): $i = 0; $__LIST__ = $vo["dtjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo2["id"]); ?>"><?php echo ($vo2["persname"]); ?></a>(<?php echo ($vo2['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
-			</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-			<tr>
-				<td></td>
-				<td></td>
-				<td>总计</td>
-				<td><?php echo ($count["counts"]); ?></td>
-				<td><?php echo ($count["wdfzr"]); ?></td>
-				<td><?php echo ($count["zhgy"]); ?></td>
-				<td><?php echo ($count["lcjl"]); ?></td>
-				<td><?php echo ($count["dtjl"]); ?></td>
-				<td><?php echo ($count["khjl"]); ?></td>
-				<td><?php echo ($count["ptgy"]); ?></td>
-			</tr>
-      </table>
-     </div>
-  	</div>
-  	
-  
+	<h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
+	
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+	<legend>按机构网点积分明细表</legend>
+</fieldset>
+<form action="" id="form-select" enctype="multipart/form-data" method="post" class="layui-form">
+	<div class="layui-card-body">
+		<div class="layui-inline">
+			<label class="layui-form-label">日期选择</label>
+			<div class="layui-input-block">
+				<input type="text" value="2019-05-01 - 2019-05-31" name="date" id="test6" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">网点选择</label>
+			<div class="layui-input-block">
+				<select name="dwname" id="dwname" lay-verify="required" lay-search>
+					<option value=""></option>
+					<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+			</div>
+		</div>
+		<div class="layui-inline">
+			<button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+		</div>
+	</div>
+
+	<div class="layui-card-body">
+		<div style="overflow:scroll;">
+			<table class="layui-table" lay-size="" id="table-show">
+				<!-- <tr>
+					<th style="text-align:center;">网点</th>
+					<?php if(is_array($datefwss)): $i = 0; $__LIST__ = $datefwss;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vodate): $mod = ($i % 2 );++$i;?><th style="text-align:center;"><?php echo ($vodate); ?></th><?php endforeach; endif; else: echo "" ;endif; ?>
+				</tr>
+				<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+						<th style="text-align:center;"><a href="/fin/index.php/home/index/jrpointdwdatefwpers/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
+						<?php if(is_array($datefwss)): $i = 0; $__LIST__ = $datefwss;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vodate): $mod = ($i % 2 );++$i;?><th style="text-align:center;"><?php echo ($vo[$vodate]); ?></th><?php endforeach; endif; else: echo "" ;endif; ?>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?> -->
+			</table>
+		</div>
+	</div>
+	<br />
+	<!--<div class="layui-form-item" style="margin-left:100px;">
+	           <div class="layui-input-block">
+	            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+	            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+	           </div>
+	         </div>-->
+</form>
+</div>
 <!--底部-->
-  <div class="layui-footer">
+<div class="layui-footer">
     <!-- 底部固定区域 -->
     © 丽水市金融积分考核系统
   </div>
 </div>
 <script src="/fin/Public/layui.all.js"></script>
+<script src="/fin/Public/jquery-1.12.4.min.js"></script>
+<script text/JavaScript>
+	$("#form-select").on('submit',function(){
+		table_show();
+		event.preventDefault();
+	})
+	function table_show(){
+		var dwname = document.getElementById("dwname").value;
+		var date = document.getElementById("test6").value;
+		$.ajax({
+        type:"post",
+        url:'<?php echo U("jrpointdwdetailfws");?>',
+        data:{
+			dwname: dwname,
+			date: date,
+		},
+		
+        success:function (data) {
+			// var data=data.split("-");
+			// data = eval("("+data+")");
+			// console.log(data);
+			data = JSON.parse(data);
+			th = JSON.parse(data[0]);
+			datas = JSON.parse(data[1]);
+
+			// console.log(datas);
+
+			var html = "";
+			html = html + '<tr>';
+			html = html + '<th>';
+			html = html + '姓名';
+			html = html + '</th>';
+			html = html + '<th>';
+			html = html + '职务';
+			html = html + '</th>';
+			for(i = 0; i < th.length; i ++){
+				html = html + '<th>';
+				html = html + th[i]['content'];
+				html = html + '</th>';
+			}
+			html = html + '</tr>';
+
+			for(i = 0; i < datas.length; i ++){
+
+				html = html + '<tr>';
+
+				html = html + '<th>'
+
+				html = html + datas[i]['persname'];
+				
+				html + html + '</th>';
+				
+				html = html + '<th>'
+
+				html = html + datas[i]['zhiwu'];
+
+				html + html + '</th>';
+				console.log(datas[i]['gonghao']);
+					for (y = 0; y < th.length; y++) {
+							console.log(th[y]['pointcontentid']);
+							html = html + '<th>';
+							//三位数组；需要在后台获取所有数值，方可显示；
+							html = html + datas[i][datas[i]['gonghao']][th[y]['pointcontentid']]['sums'];
+
+							html + html + '</th>';
+						}
+
+				html = html + '</tr>';
+
+			}
+
+			$("#table-show").html(html);
+			// console.log(html);
+
+        }
+    });
+	}
+</script>
 <script>
 //JavaScript代码区域
 layui.use('element', function(){

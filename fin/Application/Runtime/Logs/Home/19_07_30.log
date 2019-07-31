@@ -1,0 +1,108 @@
+[ 2019-07-30T11:55:43+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1055:Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'post_finance.finance_jrpointsum.pointsumid' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+ [ SQL语句 ] : SELECT DISTINCT  * FROM `finance_jrpointsum` WHERE ( `date` >= '2019-07-01' AND `date` <= '2019-07-01'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY pointcontentid 
+ERR: 1055:Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'post_finance.finance_jrpointsum.pointsumid' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+ [ SQL语句 ] : SELECT DISTINCT  * FROM `finance_jrpointsum` WHERE ( `date` >= '2019-07-01' AND `date` <= '2019-07-01'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY pointcontentid 
+
+[ 2019-07-30T11:55:46+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1055:Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'post_finance.finance_jrpointsum.pointsumid' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+ [ SQL语句 ] : SELECT DISTINCT  * FROM `finance_jrpointsum` WHERE ( `date` >= '2019-07-01' AND `date` <= '2019-07-01'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY pointcontentid 
+ERR: 1055:Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'post_finance.finance_jrpointsum.pointsumid' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+ [ SQL语句 ] : SELECT DISTINCT  * FROM `finance_jrpointsum` WHERE ( `date` >= '2019-07-01' AND `date` <= '2019-07-01'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY pointcontentid 
+
+[ 2019-07-30T15:22:48+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: Unsupported operand types
+
+[ 2019-07-30T15:22:52+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: Unsupported operand types
+
+[ 2019-07-30T16:49:07+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:49:13+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:49:54+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:51:12+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:51:14+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:51:14+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:51:14+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:51:14+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:51:32+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:55:29+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:55:42+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:55:44+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:55:45+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:57:53+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+
+[ 2019-07-30T16:57:55+08:00 ] 192.168.1.211 /fin/index.php/home/index/jrpointdwdetailfws.html
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+ERR: 1054:Unknown column 'sums' in 'field list'
+ [ SQL语句 ] : SELECT `persname`,`zhiwu`,`jgh`,`pointcontentid`,sum(sums) FROM `finance_jrpointsum` WHERE ( `date` >= '2019-05-01' AND `date` <= '2019-05-31'  ) AND `shenhe` = 1 AND `jgh` = '9' GROUP BY persname,zhiwu,jgh,pointcontentid 
+

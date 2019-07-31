@@ -81,7 +81,8 @@
         <li class="layui-nav-item">
         	<a class="" href="javascript:;">机构网点积分报表管理</a>
           <dl class="layui-nav-child">
-          	<dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdetailfw">网点积分汇总明细报表</a></dd>
           	<dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdate">按机构网点日报表</a></dd>-->
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdatesh">按机构网点未审核明细</a></dd>-->
@@ -140,16 +141,39 @@
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
     
     	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>积分审核开放期限设置</legend>
+			  <legend>按机构网点项目日报表</legend>
 			</fieldset>
-    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointshtimes');?>" method="post">
-    		
+    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointdwicdates');?>" method="post" style="width: 100%;">
+    		<div class="layui-form-item" style="margin-left:30px;">
+			    <div class="layui-block">
+			      <table class="layui-table" style="width: 100%;">
+			      	<tr>
+			      	<td>科目大类选择</td>
+			      	<td>科目选择</td>
+			      	</tr>
+			      	
+			      	<div class="layui-input-block">
+			      	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+			      	<td>
+			        <input type="checkbox" name="item[]" id="" value="<?php echo ($vo["pointitemid"]); ?>" title="<?php echo ($vo["item"]); ?>" autocomplete="off" class="layui-input">
+			      	</td>
+			      	
+			      	
+			      	<td>
+			      	<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vos): $mod = ($i % 2 );++$i; if($vo['pointitemid'] == $vo[$vos['pointcontentid']]['pointitemid']): ?><input type="checkbox" name="content[]" value="<?php echo ($vo[$vos['pointcontentid']]['pointcontentid']); ?>" title="<?php echo ($vo[$vos['pointcontentid']]['content']); ?>" >
+			      		<?php else: endif; endforeach; endif; else: echo "" ;endif; ?>
+			      	</td>
+			      	 </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+			      </div>
+			     
+			      </table>
+			    </div>
+    		</div>
     		<div class="layui-form-item" style="margin-left:50px;">
 			    <div class="layui-inline">
-			      <label class="layui-form-label">天数(1-7)</label>
+			      <label class="layui-form-label">日期选择</label>
 			      <div class="layui-input-block">
-			      	<input type="hidden" name="dateauthid" value="<?php echo ($data[0]['dateauthid']); ?>" />
-			        <input type="text" name="dateauth" lay-verify="number" value="<?php echo ($data[0]['dateauth']); ?>" autocomplete="off" class="layui-input">
+			        <input type="text" name="date_date" id="test6" autocomplete="off" class="layui-input">
 			      </div>
 			    </div>
     		</div>
@@ -157,7 +181,7 @@
     		<br />
     		<div class="layui-form-item" style="margin-left:50px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
            </div>
          </div>
       </form>

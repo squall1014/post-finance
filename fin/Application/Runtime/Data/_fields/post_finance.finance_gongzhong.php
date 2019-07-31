@@ -1,1 +1,0 @@
-a:7:{i:0;s:11:"gongzhongid";i:1;s:9:"gongzhong";i:2;s:6:"beizhu";i:3;s:5:"stats";i:4;s:4:"sort";s:3:"_pk";s:11:"gongzhongid";s:5:"_type";a:5:{s:11:"gongzhongid";s:8:"int(255)";s:9:"gongzhong";s:12:"varchar(100)";s:6:"beizhu";s:12:"varchar(100)";s:5:"stats";s:11:"varchar(11)";s:4:"sort";s:8:"int(100)";}}

@@ -1,1 +1,0 @@
-a:7:{i:0;s:10:"dateauthid";i:1;s:10:"districtid";i:2;s:8:"dateauth";i:3;s:6:"beizhu";i:4;s:5:"stats";s:3:"_pk";s:10:"dateauthid";s:5:"_type";a:5:{s:10:"dateauthid";s:8:"int(255)";s:10:"districtid";s:7:"int(11)";s:8:"dateauth";s:7:"int(11)";s:6:"beizhu";s:12:"varchar(100)";s:5:"stats";s:11:"varchar(11)";}}

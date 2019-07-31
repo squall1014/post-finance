@@ -14,10 +14,12 @@
 		</fieldset>
 		<div class="layui-card-body">
         <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 70%">
+         <table class="layui-table" lay-size="" style="width: 95%">
          	<tr>
          		<th style="text-align:center;">所属网点</th>
-         		<th style="text-align:center;">姓名</th>
+				<th style="text-align:center;">姓名</th>
+				<th style="text-align:center;">职务</th>
+				<th style="text-align:center;">工种</th>
          		<th style="text-align:center;">总分</th>
          		<th style="text-align:center;">总分占比</th>
          		<th style="text-align:center;">奖金</th>
@@ -25,7 +27,9 @@
          	<volist name="data" id="vo">
          	<tr>
          		<th style="text-align:center;">{$vo.dwname}</th>
-         		<th style="text-align:center;">{$vo.persname}</th>
+				<th style="text-align:center;">{$vo.persname}</th>
+				<th style="text-align:center;">{$vo.zhiwu}</th>
+				<th style="text-align:center;">{$vo.gongzhong}</th>
          		<th style="text-align:center;">{$vo.sums}</th>
          		<th style="text-align:center;">{$vo.total}</th>
          		<th style="text-align:center;">{$vo.reward}</th>

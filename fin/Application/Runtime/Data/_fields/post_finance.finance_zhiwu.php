@@ -1,1 +1,0 @@
-a:9:{i:0;s:7:"zhiwuid";i:1;s:5:"zhiwu";i:2;s:8:"zwjiagou";i:3;s:6:"beizhu";i:4;s:5:"stats";i:5;s:4:"auth";i:6;s:4:"sort";s:3:"_pk";s:7:"zhiwuid";s:5:"_type";a:7:{s:7:"zhiwuid";s:8:"int(255)";s:5:"zhiwu";s:12:"varchar(100)";s:8:"zwjiagou";s:12:"varchar(100)";s:6:"beizhu";s:12:"varchar(100)";s:5:"stats";s:11:"varchar(11)";s:4:"auth";s:7:"int(11)";s:4:"sort";s:8:"int(100)";}}

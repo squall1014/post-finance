@@ -1071,7 +1071,121 @@ class IndexController extends Controller {
     	$this->assign('data',$drr);
     	$this->display();
     }
-    
+	public function jrpointdwdetailfw(){
+		$dwname = cookie('dwname');
+		$d = M('danwei');
+		$where['districtid'] = $dwname['districtid'];
+		$drr = $d -> where($where) -> select();
+
+		$this->assign('drr',$drr);
+
+		
+
+		$this->display();
+	}
+	public function jrpointdwdetailfws(){
+		$date = substr($_POST['date'],0,10);
+		$dates = substr($_POST['date'],-10,10);
+		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		$where['shenhe'] = 1;
+		$where['jgh'] = $_POST['dwname'];
+
+		$js = M('jrpointsum');
+		$pointcontentid = $js -> distinct('pointcontentid') -> field('pointcontentid') -> where($where) ->  select();
+		$gonghao = $js -> distinct('gonghao') -> field('gonghao') -> where($where) ->  select();
+		$jpsr = $js -> field('persname,gonghao,zhiwu,jgh,pointcontentid,sum(sum) as sums') -> where($where) -> group('persname,gonghao,zhiwu,jgh,pointcontentid') -> select();
+		
+		foreach($gonghao as &$value){
+			//进行gonghao人员合并；
+			foreach($jpsr as &$val){
+				//员工项目合并；
+				foreach($pointcontentid as &$v){
+					//工号相同的进行合并；
+					if($value['gonghao'] == $val['gonghao']){
+						$value['persname'] = $val['persname'];
+						$value['zhiwu'] = $val['zhiwu'];
+						if($val['pointcontentid'] == $v['pointcontentid']){
+							//判断有值的进行赋值，没有值的赋值空值；
+							$value[$value['gonghao']][$v['pointcontentid']]['sums'] = $val['sums'];
+
+						}else{
+							//判断如果没有值的进行赋值，有值的直接跳过；
+							if($value[$value['gonghao']][$v['pointcontentid']]['sums'] == null){
+								$value[$value['gonghao']][$v['pointcontentid']]['sums'] = '';
+							}
+							
+						}
+					}
+
+						
+					}
+					
+				}
+			}
+		
+
+
+		// foreach($jpsr as &$val){
+
+		// 	foreach($pointcontentid as &$value){
+
+		// 			if($val['pointcontentid'] == $value['pointcontentid']){
+
+		// 				$val[$val['gonghao']][$value['pointcontentid']]['sums'] = $val['sums'];
+		// 			}else{
+
+		// 				$val[$val['gonghao']][$value['pointcontentid']]['sums'] = '';
+		// 			}
+		
+		// 		}
+		// 	}
+		
+		// foreach($gonghao as &$value){
+
+		// 	foreach($jpsr as &$val){
+
+		// 		if($value['gonghao'] == $val['gonghao']){
+
+		// 			$value['persname'] = $val['persname'];
+		// 			$value['zhiwu'] = $val['zhiwu'];
+		// 			$value['pointcontentid'][$val['pointcontentid']]['sums'] = $val['sums'];
+
+		// 		}
+		// 	}
+		// }
+		$dwname = cookie('dwname');
+		$wherejc['districtid'] = $dwname['districtid'];
+		$jc = M('jrpointcontent');
+		$jcr = $jc -> where($wherejc) -> field('pointcontentid,content') -> select();
+
+		foreach($pointcontentid as &$value){
+
+			foreach($jcr as &$val){
+
+				if($value['pointcontentid'] == $val['pointcontentid']){
+
+					$value['content'] = $val['content'];
+					break;
+				}
+			}
+		}
+
+		
+
+		$pointcontentid = json_encode($pointcontentid);
+		$gonghao = json_encode($gonghao);
+		// $data = $pointcontentid . '-' . $jcr;
+		
+		$data[] = $pointcontentid;
+		$data[] = $gonghao;
+		$data = json_encode($data);
+		echo $data;
+		// echo $gonghao;
+	}
+
+
+
+
     
     public function jrpointdwdatetbs(){
     	$dwname = cookie('dwname');
@@ -1951,7 +2065,7 @@ class IndexController extends Controller {
     	//var_dump($datass);
 		
 		$jps = M('jrpointsum');
-		$jpsrr = $jps -> field('districtid,persname,jgh,zhiwu,dwname,zhiwud,sum(sum) as sums') -> order('jgh desc') -> where($where) -> group('persname,zhiwu,dwname,jgh,zhiwud') -> select();
+		$jpsrr = $jps -> field('districtid,persname,jgh,zhiwu,gongzhong,dwname,zhiwud,sum(sum) as sums') -> order('jgh desc') -> where($where) -> group('persname,zhiwu,dwname,jgh,zhiwud,gongzhong') -> select();
 		
 		$jpsr = $jps -> field('districtid,jgh,sum(sum) as sums') -> where($where) -> group('districtid,jgh') -> select();
 
@@ -1961,7 +2075,7 @@ class IndexController extends Controller {
 
 				if($value['jgh'] == $val['jgh']){
 
-					$val['total'] = $val['sums'] / $value['sums'] * 100 . '%';
+					$val['total'] = round($val['sums'] / $value['sums'] , 4) * 100 . '%';
 					break;
 				}
 			}
@@ -1980,11 +2094,12 @@ class IndexController extends Controller {
 
 				if($val['jgh'] == $value['dwname']){
 					
-					$val['reward'] = $val['total'] * $value['bonus'];
+					$val['reward'] = $val['total'] * $value['bonus'] / 100;
 					break;
 				}
 			}
 		}
+
 		$this->assign('data',$jpsrr);
 		$this->display();
 		// var_dump($blrr,$wherebl,$jpsrr);
