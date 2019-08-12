@@ -83,7 +83,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
             <dd><a href="/fin/index.php/home/index/jrpointdwdetailfw">网点积分汇总明细报表</a></dd>
-          	<dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdatenosh">网点未审核员工明细表</a></dd>
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdate">按机构网点日报表</a></dd>-->
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdatesh">按机构网点未审核明细</a></dd>-->
             
@@ -140,192 +141,76 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
     
-    <br />
-    <div class="layui-card" style="width: 100%;">
-        	<div class="layui-card-header">
-        		<font size="4">积分项目大类管理</font>
-        	</div>
-        <div class="layui-card-body">
-        
-					<table class="layui-hide" id="test" lay-filter="test"></table>
-					
-					<script type="text/html" id="switchTpl">
-					  <!-- 这里的 checked 的状态只是演示 -->
-					  <input type="checkbox" id="{{d.pointitemid}}" name="stats" value="{{d.pointitemid}}" lay-skin="switch" lay-text="启用|停用" lay-filter="sexDemo" {{ d.stats == 0 ? 'checked' : '' }}>
-					</script>
-					
-					<script type="text/html" id="toolbarDemo">
-					  <div class="layui-btn-container">
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">查看项目</button>
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">添加项目</button>
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量停用</button>
-					  </div>
-					</script>
-					
-					<script type="text/html" id="barDemo">
-					  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-					  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-					</script>
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			  <legend>按机构网点积分汇总</legend>
+			</fieldset>
+    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointdwdatefws');?>" method="post">
+    		
+    		<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">日期选择</label>
+			      <div class="layui-input-block">
+			        <input type="text" name="date" id="date1" autocomplete="off" class="layui-input">
+			      </div>
+			    </div>
+    		</div>
+    		<br />
+    		<br />
+    		<div class="layui-form-item" style="margin-left:50px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+           </div>
          </div>
-        </div>
+      </form>
   </div>
+  
+<!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 丽水市金融积分考核系统
   </div>
+</div>
 <script src="/fin/Public/layui.all.js"></script>
-<script src="/fin/Public/jquery-1.12.4.min.js"></script>
-
 <script>
-	layui.use('table', function(){
-  var table = layui.table;
-  var form = layui.form;
-  table.render({
-    elem: '#test'
-    ,url:'<?php echo U("pointitemedits");?>'
-    ,toolbar: '#toolbarDemo'
-    ,title: '用户数据表'
-    ,cols: [[
-      {type: 'checkbox', fixed: 'left'}
-      ,{field:'pointitemid', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-      ,{field:'class', title:'大类', width:300, sort: true}
-      ,{field:'item', title:'项目大类', width:300, edit: 'text',sort: true}
-      ,{field:'beizhu', title:'备注', width:200, edit: 'text', sort: true}
-      ,{field:'stats', title:'状态', width:85, templet: '#switchTpl', unresize: true}
-      
-    ]]
-    ,page: true
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#date' //指定元素
   });
   
-	  //监听单元格编辑
-	  table.on('edit(test)', function(obj){
-	    var value = obj.value //得到修改后的值
-	    ,data = obj.data //得到所在行所有键值
-	    ,field = obj.field;//得到字段
-	    
-	    layer.msg('[ID: '+ data.pointitemid +'] ' + field + ' 字段更改为：'+ value);
-	    
-	    $.ajax({
-	    	type:"post",
-	    	data:{
-	    		pointitemid : data.pointitemid,
-	    		item : data.item,
-	    		beizhu:data.beizhu,
-	    	},
-	    	url:'<?php echo U("pointitemeditsuc");?>',
-	    	
-	    	success: function(result){
-	    		console.log(result);
-	    	},
-	    });
-	    
-	  });
-	  
-	  //头工具栏事件
-  	table.on('toolbar(test)', function(obj){
-	  	var checkStatus = table.checkStatus(obj.config.id);
-	    switch(obj.event){
-	      case 'getCheckData':
-	        var data = checkStatus.data;
-	        layer.alert(JSON.stringify(data));
-	      break;
-	      case 'getCheckLength':
-	        layer.open({
-		        type: 2 //此处以iframe举例
-		        ,title: '积分项目大类添加'
-		        ,area: ['800px', '600px']
-		        ,shade: 0
-		        ,maxmin: true
-		        
-		        ,content: 'pointitemadd.html'
-		        ,btn: ['全部关闭'] //只是为了演示
-		        
-		        ,btn2: function(){
-		          layer.closeAll();
-		        }
-		        
-		        ,zIndex: layer.zIndex //重点1
-		        ,success: function(layero){
-		          layer.setTop(layero); //重点2
-		        }
-		      });
-	      break;
-	      case 'getCheckstats':
-	        var data = table.checkStatus(obj.config.id);
-	        location.reload();
-	        $.ajax({
-	        	type:"post",
-	        	url:'<?php echo U("pointitembatchstats");?>',
-	        	async:true,
-	        	data : {
-	        		pointitemid : data.data,
-	        	},
-	        	success:function(result){
-	        		alert("共有" + result + "条已停用");
-	        		
-	        	},
-	        });
-	        
-	        
-	        
-	      break;
-	      
-	      case 'isAll':
-	        layer.msg(checkStatus.isAll ? '全选': '未全选');
-	      break;
-	      
-	    };
-	  	
-	  	
-	  });
-	  
-	  //监听性别操作
-	  form.on('switch(sexDemo)', function(obj){
-	    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
-	    console.log(obj);
-	    $.ajax({
-	    	type:"post",
-	    	
-	    	url:'<?php echo U("pointitemstats");?>',
-	    	
-	    	async:true,
-	    	
-	    	data:{
-	    		pointitemid : this.value,
-	    		stats : obj.elem.checked,
-	    	},
-	    	
-	    	success:function(result){
-	    		console.log(result);
-	    	},
-	    });
-	    
-	  });
-	  
-	 	//监听行工具事件
-	  table.on('tool(test)', function(obj){
-	    var data = obj.data;
-	    //console.log(obj)
-	    if(obj.event === 'del'){
-	      layer.confirm('真的删除行么', function(index){
-	        obj.del();
-	        layer.close(index);
-	      });
-	    } else if(obj.event === 'edit'){
-	      layer.prompt({
-	        formType: 2
-	        ,value: data.email
-	      }, function(value, index){
-	        obj.update({
-	          email: value
-	        });
-	        layer.close(index);
-	      });
-	    }
-	  });
-	 
+    laydate.render({
+    elem: '#date1' //指定元素
+  });
+    laydate.render({
+    elem: '#date3' //指定元素
+    ,type: 'month'
+  });
+    
+  laydate.render({
+  	elem: '#test6'
+  	,range: true
+});
 });
 </script>
-<!--底部-->
+<!--<script>
+
+</script>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#datea' //指定元素
+  });
+});
+</script>-->
 </body>
 </html>

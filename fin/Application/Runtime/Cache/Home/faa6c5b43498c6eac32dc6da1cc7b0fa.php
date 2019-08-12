@@ -83,7 +83,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
             <dd><a href="/fin/index.php/home/index/jrpointdwdetailfw">网点积分汇总明细报表</a></dd>
-          	<dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdatenosh">网点未审核员工明细表</a></dd>
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdate">按机构网点日报表</a></dd>-->
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdatesh">按机构网点未审核明细</a></dd>-->
             
@@ -139,16 +140,46 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 5px;">
-				  <legend>奖金池设置</legend>
-				  <!--<input type="hidden" name="warehouseid[]" value="<?php echo ($vo[0]['warehouseid']); ?>"  />-->
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>按机构网点积分汇总</legend>
 		</fieldset>
-    
-    	<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="layui-input-inline" style="margin: 5px;">
-    	<a href="/fin/index.php/home/index/bonusadds/dwnameid/<?php echo ($vo["dwnameid"]); ?>" class="layui-btn layui-btn-normal layui-btn-radius"><span><?php echo ($vo["dwname"]); ?></span></a>
-			</div><?php endforeach; endif; else: echo "" ;endif; ?>
-			<!--<input type="text" id="test6">-->
-			
+		<div class="layui-card-body">
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<tr>
+         		<th style="text-align:center;">区县</th>
+         		<th style="text-align:center;">网点</th>
+         		<th style="text-align:center;">职务</th>
+         		<th style="text-align:center;">姓名</th>
+         		<th style="text-align:center;">业绩</th>
+         		<th style="text-align:center;">总分</th>
+         	</tr>
+         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<th style="text-align:center;"><?php echo ($vo["district"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["zhiwu"]); ?></th>
+         		<th style="text-align:center;"><a href="/fin/index.php/home/index/jrpointdwdatefwpersinfo/gonghao/<?php echo ($vo["gonghao"]); ?>"><font color="#CC0000"><?php echo ($vo["persname"]); ?></font></a></th>
+         		<th style="text-align:center;"><?php echo ($vo["points"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["sums"]); ?></th>
+         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th style="text-align:center;">总计</th>
+						<th style="text-align:center;"><?php echo ($point); ?></th>
+						<th style="text-align:center;"><?php echo ($sum); ?></th>
+					</tr>
+         </table>
+         <br />
+         <!--<div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>-->
+        </form>
+       </div>
   </div>
   
 <!--底部-->

@@ -83,7 +83,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/fin/index.php/home/index/jrpointdwdatefw">网点积分汇总报表</a></dd>
             <dd><a href="/fin/index.php/home/index/jrpointdwdetailfw">网点积分汇总明细报表</a></dd>
-          	<dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdateshfw">网点审核汇总报表</a></dd>
+            <dd><a href="/fin/index.php/home/index/jrpointdwdatenosh">网点未审核员工明细表</a></dd>
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdate">按机构网点日报表</a></dd>-->
             <!--<dd><a href="/fin/index.php/home/index/jrpointdwdatesh">按机构网点未审核明细</a></dd>-->
             
@@ -150,7 +151,7 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">日期选择</label>
 			<div class="layui-input-block">
-				<input type="text" value="2019-05-01 - 2019-05-31" name="date" id="test6" autocomplete="off" class="layui-input">
+				<input type="text" value="" name="date" id="test6" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-inline">
@@ -163,10 +164,18 @@
 			</div>
 		</div>
 		<div class="layui-inline">
+			<label class="layui-form-label">分值类型</label>
+			<div class="layui-input-block">
+				<select name="point_sum" id="point_sum" lay-verify="required" lay-search>
+					<option value="score">业绩</option>
+					<option value="sum">总分</option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-inline">
 			<button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
 		</div>
 	</div>
-
 	<div class="layui-card-body">
 		<div style="overflow:scroll;">
 			<table class="layui-table" lay-size="" id="table-show">
@@ -206,12 +215,14 @@
 	function table_show(){
 		var dwname = document.getElementById("dwname").value;
 		var date = document.getElementById("test6").value;
+		var point_sum = document.getElementById("point_sum").value
 		$.ajax({
         type:"post",
         url:'<?php echo U("jrpointdwdetailfws");?>',
         data:{
 			dwname: dwname,
 			date: date,
+			point_sum : point_sum,
 		},
 		
         success:function (data) {

@@ -1090,10 +1090,12 @@ class IndexController extends Controller {
 		$where['shenhe'] = 1;
 		$where['jgh'] = $_POST['dwname'];
 
+		$point_sum = $_POST['point_sum'];
+
 		$js = M('jrpointsum');
 		$pointcontentid = $js -> distinct('pointcontentid') -> field('pointcontentid') -> where($where) ->  select();
 		$gonghao = $js -> distinct('gonghao') -> field('gonghao') -> where($where) ->  select();
-		$jpsr = $js -> field('persname,gonghao,zhiwu,jgh,pointcontentid,sum(sum) as sums') -> where($where) -> group('persname,gonghao,zhiwu,jgh,pointcontentid') -> select();
+		$jpsr = $js -> field('persname,gonghao,zhiwu,jgh,pointcontentid,sum('.$point_sum.') as sums') -> where($where) -> group('persname,gonghao,zhiwu,jgh,pointcontentid') -> select();
 		
 		foreach($gonghao as &$value){
 			//进行gonghao人员合并；

@@ -1,1 +1,0 @@
-a:8:{i:0;s:12:"pointclassid";i:1;s:10:"districtid";i:2;s:4:"sort";i:3;s:5:"class";i:4;s:6:"beizhu";i:5;s:5:"stats";s:3:"_pk";s:12:"pointclassid";s:5:"_type";a:6:{s:12:"pointclassid";s:8:"int(255)";s:10:"districtid";s:8:"int(255)";s:4:"sort";s:8:"int(255)";s:5:"class";s:12:"varchar(100)";s:6:"beizhu";s:12:"varchar(100)";s:5:"stats";s:11:"varchar(11)";}}
