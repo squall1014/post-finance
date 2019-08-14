@@ -140,17 +140,53 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
-    	<a href="/fin/index.php/home/index/indexlungang" class="layui-btn layui-btn-warm layui-btn-radius"><span>金融</span></a>&nbsp&nbsp&nbsp
-
-			<br  />
-			
-			<!--<input type="text" id="test6">-->
-			
-  </div>
+    	<div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">网点信息明细表</font>
+        	</div>
+      <div class="layui-card-body">
+	     <form action="<?php echo U('persadd');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+	    	<button class="layui-btn" lay-submit lay-filter="formDemo">员工新增</button>
+	     </form>
+      <table class="layui-table" style="width: 100%">
+       <tr>
+       	<th>地区</th>
+       	<th>片区</th>
+				<th>单位名称</th>
+				<th>在岗人数</th>
+				<th>网点负责人</th>
+				<th>综合柜员</th>
+				<th>理财经理</th>
+				<th>普通柜员</th>
+				<th>大堂经理</th>
+			</tr>
+			<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+				<td><?php echo ($vo["districts"]); ?></td>
+				<td><?php echo ($vo["pianquname"]); ?></td>
+				<td><a href="/fin/index.php/home/index/persjgh/jgh/<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></a></td>
+				<td><a href="/fin/index.php/home/index/persjgh/jgh/<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["count"]); ?></a></td>
+				<td><?php if(is_array($vo["wdfzr"])): $i = 0; $__LIST__ = $vo["wdfzr"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo6): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo6["id"]); ?>"><?php echo ($vo6["persname"]); ?></a>(<?php echo ($vo6["gongzhong"]); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["zhgy"])): $i = 0; $__LIST__ = $vo["zhgy"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo5): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo5["id"]); ?>"><?php echo ($vo5["persname"]); ?></a>(<?php echo ($vo5['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["lcjl"])): $i = 0; $__LIST__ = $vo["lcjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo4): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo4["id"]); ?>"><?php echo ($vo4["persname"]); ?></a>(<?php echo ($vo4['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["ptgy"])): $i = 0; $__LIST__ = $vo["ptgy"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo3): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo3["id"]); ?>"><?php echo ($vo3["persname"]); ?></a>(<?php echo ($vo3['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["dtjl"])): $i = 0; $__LIST__ = $vo["dtjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?><a href="/fin/index.php/home/index/persmodify/id/<?php echo ($vo2["id"]); ?>"><?php echo ($vo2["persname"]); ?></a>(<?php echo ($vo2['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+			</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>总计</td>
+				<td><?php echo ($count["counts"]); ?></td>
+				<td><?php echo ($count["wdfzr"]); ?></td>
+				<td><?php echo ($count["zhgy"]); ?></td>
+				<td><?php echo ($count["lcjl"]); ?></td>
+				<td><?php echo ($count["dtjl"]); ?></td>
+				<td><?php echo ($count["khjl"]); ?></td>
+				<td><?php echo ($count["ptgy"]); ?></td>
+			</tr>
+      </table>
+     </div>
+  	</div>
+  	
   
 <!--底部-->
   <div class="layui-footer">

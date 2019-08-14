@@ -19,7 +19,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="/fin/index.php/home/index/jrpointshtime">审核开放期限</a></dd>
+          <dd><a href="/fin/index.php/home/index/jrpointshtimedw">审核开放期限</a></dd>
         </dl>
       </li>
       <!--<li class="layui-nav-item"><a href="/fin/index.php/home/index/passwordreset">用户密码管理</a></li>-->

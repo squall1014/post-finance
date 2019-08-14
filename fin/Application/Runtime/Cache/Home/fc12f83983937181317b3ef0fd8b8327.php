@@ -19,7 +19,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="/fin/index.php/home/index/jrpointshtime">审核开放期限</a></dd>
+          <dd><a href="/fin/index.php/home/index/jrpointshtimedw">审核开放期限</a></dd>
         </dl>
       </li>
       <!--<li class="layui-nav-item"><a href="/fin/index.php/home/index/passwordreset">用户密码管理</a></li>-->
@@ -140,35 +140,31 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>按机构网点积分汇总</legend>
-		</fieldset>
-		<div class="layui-card-body">
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 40%">
-         	<tr>
-         		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">总分</th>
-         	</tr>
-         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><a href="/fin/index.php/home/index/jrpointdwdatefwpers/dwnameid/<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><a href="/fin/index.php/home/index/jrpointdwdatefwss/dwnameid/<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["sums"]); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-					<tr>
-						<th style="text-align:center;">总计</th>
-						<th style="text-align:center;"><?php echo ($sum); ?></th>
-					</tr>
-         </table>
-         <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
+    
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			  <legend>积分审核开放期限设置</legend>
+			</fieldset>
+    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointshtimes');?>" method="post">
+    		<input type="hidden" value="<?php echo ($dwnameid); ?>" name="dwnameid">
+    		<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">天数(1-7)</label>
+			      <div class="layui-input-block">
+			      	<!-- <input type="hidden" name="dateauthid" value="<?php echo ($data[0]['dateauthid']); ?>" /> -->
+			        <input type="text" name="dateauth" lay-verify="number" value="<?php echo ($drr['dateauth']); ?>" autocomplete="off" class="layui-input">
+			      </div>
+			    </div>
+    		</div>
+    		<br />
+    		<br />
+    		<div class="layui-form-item" style="margin-left:50px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
            </div>
-         </div>-->
-        </form>
-        </div>
+         </div>
+      </form>
   </div>
+  
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

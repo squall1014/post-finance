@@ -1,1 +1,0 @@
-a:8:{i:0;s:7:"loginid";i:1;s:8:"username";i:2;s:8:"password";i:3;s:4:"auth";i:4;s:10:"districtid";i:5;s:5:"stats";s:3:"_pk";s:7:"loginid";s:5:"_type";a:6:{s:7:"loginid";s:8:"int(255)";s:8:"username";s:12:"varchar(100)";s:8:"password";s:12:"varchar(100)";s:4:"auth";s:7:"int(11)";s:10:"districtid";s:7:"int(11)";s:5:"stats";s:11:"varchar(11)";}}

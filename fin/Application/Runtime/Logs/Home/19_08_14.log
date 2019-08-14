@@ -1,0 +1,12 @@
+[ 2019-08-14T09:53:54+08:00 ] ::1 /fin/index.php/home/index/jrpointshtimes.html
+ERR: 1146:Table 'post_finance.finance_dwname' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `finance_dwname`
+ERR: 1146:Table 'post_finance.finance_dwname' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `finance_dwname`
+
+[ 2019-08-14T09:55:11+08:00 ] ::1 /fin/index.php/home/index/jrpointshtimes.html
+ERR: 1146:Table 'post_finance.finance_dwname' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `finance_dwname`
+ERR: 1146:Table 'post_finance.finance_dwname' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `finance_dwname`
+

@@ -19,7 +19,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="/fin/index.php/home/index/jrpointshtime">审核开放期限</a></dd>
+          <dd><a href="/fin/index.php/home/index/jrpointshtimedw">审核开放期限</a></dd>
         </dl>
       </li>
       <!--<li class="layui-nav-item"><a href="/fin/index.php/home/index/passwordreset">用户密码管理</a></li>-->
@@ -141,19 +141,30 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
     
-    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>按机构网点积分汇总</legend>
-			</fieldset>
-    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointdwdatefws');?>" method="post">
-    		
-    		<div class="layui-form-item" style="margin-left:50px;">
-			    <div class="layui-inline">
-			      <label class="layui-form-label">日期选择</label>
-			      <div class="layui-input-block">
-			        <input type="text" name="date" id="date1" autocomplete="off" class="layui-input">
-			      </div>
-			    </div>
-    		</div>
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>按机构网点积分汇总</legend>
+		</fieldset>
+		<form class="layui-form layui-form-pane" action="<?php echo U('jrpointdwdatenoshs');?>" method="post">
+		
+			<div class="layui-form-item" style="margin-left:50px;">
+				<div class="layui-inline">
+					<label class="layui-form-label">日期选择</label>
+					<div class="layui-input-block">
+						<input type="text" name="date" id="date1" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item" style="margin-left:50px;">
+				<div class="layui-inline">
+					<label class="layui-form-label">网点选择</label>
+					<div class="layui-input-block">
+						<select name="dwname" id="dwname" lay-verify="required" lay-search>
+							<option value=""></option>
+							<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+						</select>
+					</div>
+				</div>
+			</div>
     		<br />
     		<br />
     		<div class="layui-form-item" style="margin-left:50px;">

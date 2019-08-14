@@ -138,20 +138,79 @@
   </div>
 
   <div class="layui-body">
+  
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
-    	<a href="/fin/index.php/home/index/indexlungang" class="layui-btn layui-btn-warm layui-btn-radius"><span>金融</span></a>&nbsp&nbsp&nbsp
-
-			<br  />
-			
-			<!--<input type="text" id="test6">-->
-			
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>奖金池设置(<?php echo ($drr[0]['dwname']); ?>共<?php echo ($count); ?>人考核)</legend>
+		</fieldset>
+		<div class="layui-card-body">
+        <form action="<?php echo U('bonusaddsuc');?>" enctype="multipart/form-data" id="form" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<tr>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">奖金(元)</th>
+         		<th style="text-align:center;">备注</th>
+         	</tr>
+         	<?php if(is_array($brr)): $i = 0; $__LIST__ = $brr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<th style="text-align:center;"><?php echo ($vo["bonus"]); ?></th>
+         		<td><input type="text" name="<?php echo ($vo["bonusid"]); ?>" id="b<?php echo ($vo["bonusid"]); ?>" onblur="c<?php echo ($vo["bonusid"]); ?>()" lay-verify="number" required placeholder="" autocomplete="off" class="layui-input"> </td>
+         		<th style="text-align:center;"><?php echo ($vo["beizhu"]); ?></th>
+         	</tr>
+         	<script type="text/javascript">
+         		// function c<?php echo ($vo["bonusid"]); ?>(){
+         		// 	var sums = 0;
+         		// 	var f = document.getElementById("form");
+         		// 	var g = f.getElementsByTagName("input");
+         		// 	for(i = 0; i < g.length - 2; i++){
+         		// 		if(i == 0){
+         		// 			sums = sums + Number(g[i].value) * Number(<?php echo ($count); ?>);
+         		// 		}else{
+         		// 			sums = sums + Number(g[i].value);
+         					
+         		// 		}
+         				
+         		// 	}
+         		// 	document.getElementById("sum").innerHTML = sums;
+         			
+				 // }
+				 function c<?php echo ($vo["bonusid"]); ?>(){
+					 var sums = 0;
+					 var f = document.getElementById("form");
+					 var g = f.getElementsByTagName("input");
+					 for(i = 0; i < g.length - 2; i++){
+						 sums = sums + Number(g[i].value);
+					 }
+					 document.getElementById("sum").innerHTML = sums;
+				 }
+         	</script><?php endforeach; endif; else: echo "" ;endif; ?>
+         	
+         	
+         	
+					<tr>
+         		<th style="text-align:center;">总计</th>
+         		<th>
+         			<label id="sum"></label>
+         		<th>
+         	</tr>
+         </table>
+         <script type="text/javascript">
+         	function sum2(){
+         		document.getElementById("sum1").value = document.getElementById("sum").innerHTML;
+         	}
+         </script>
+         <input type="hidden" id="sum1" name="sum" value="" />
+         <input type="hidden" name="dwname" value="<?php echo ($drr[0]['dwnameid']); ?>" />
+         <br />
+         <div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" onclick="sum2()" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+        </div>
   </div>
-  
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
@@ -172,15 +231,10 @@ layui.use('laydate', function(){
   laydate.render({
     elem: '#date' //指定元素
   });
-  
-    laydate.render({
-    elem: '#date1' //指定元素
-  });
-    laydate.render({
-    elem: '#date3' //指定元素
+  laydate.render({
+    elem: '#date3'
     ,type: 'month'
   });
-    
   laydate.render({
   	elem: '#test6'
   	,range: true

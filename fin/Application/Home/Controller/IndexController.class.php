@@ -174,29 +174,52 @@ class IndexController extends Controller {
     	}
     	
     	return $data;
-    }
+	}
+	public function jrpointshtimedw(){
+		$dwname = cookie('dwname');
+		$districtid['districtid'] = $dwname['districtid'];
+
+		$d = M('danwei');
+		$drr = $d -> where($districtid) -> select();
+
+		$this->assign('drr',$drr);
+		$this->display();
+	}
     public function jrpointshtime(){
-    	$dwname = cookie('dwname');
+    	// $dwname = cookie('dwname');
     	
-    	$districtid['districtid'] = $dwname['districtid'];
-    	$da = M('dateauth');
-    	$data = $da -> where($districtid) -> select();
-    	$this->assign('data',$data);
-//  	var_dump($data);
+    	// $districtid['districtid'] = $dwname['districtid'];
+    	// $da = M('dateauth');
+    	// $data = $da -> where($districtid) -> select();
+		// $this->assign('data',$data);
+		$dwnameid = $_GET['dwnameid'];
+		$this->assign('dwnameid',$dwnameid);
+
+		$d = M('danwei');
+		$drr = $d -> where("dwnameid = '$dwnameid'") -> find();
+
+		$this->assign('drr',$drr);
+
     	$this->display();
     }
     public function jrpointshtimes(){
-    	$dwname = cookie('dwname');
-    	$dateauthid['dateauthid'] = $_POST['dateauthid'];
-    	$dateauth['dateauth'] = $_POST['dateauth'];
-    	if($_POST['dateauth'] > 7 or $_POST['dateauth'] < 1){
-    		$this->error('请输入数字 1 - 7 天');
+    	// $dwname = cookie('dwname');
+    	// $dateauthid['dateauthid'] = $_POST['dateauthid'];
+    	// $dateauth['dateauth'] = $_POST['dateauth'];
+    	if($_POST['dateauth'] > 10 or $_POST['dateauth'] < 1){
+    		$this->error('请输入数字 1 - 10 天');
     	}
-    	$da = M('dateauth');
-    	$data = $da -> where($dateauthid) -> save($dateauth);
-    	
+    	// $da = M('dateauth');
+    	// $data = $da -> where($dateauthid) -> save($dateauth);
+		
+		$dwnameid['dwnameid'] = $_POST['dwnameid'];
+		$dateauth['dateauth'] = $_POST['dateauth'];
+		// var_dump($dwnameid);
+		$d = M('danwei');
+		$data = $d -> where($dwnameid) -> save($dateauth);
+
     	if($data > 0){
-    		$this->success('审核期限修改成功,请继续');
+    		$this->success('审核期限修改成功,请继续',U('index/jrpointshtimedw'));
     	}else{
     		$this->error('审核期限修改失败,请检查数据');
     	}
@@ -580,8 +603,43 @@ class IndexController extends Controller {
     	$this->assign('blrr',$blrr);
     	$this->display();
     }
-    
-    
+    public function bonusmodify(){
+		$bonuslistid = $_GET['bonuslistid'];
+
+		$bl = M('bonuslist');
+		$data = $bl -> where("bonuslistid = '$bonuslistid'") -> select();
+
+		$d = M('danwei');
+		$drr = $d -> select();
+
+		foreach($data as &$value){
+
+			foreach($drr as &$val){
+
+				if($value['dwname'] == $val['dwnameid']){
+					
+					$value['dwnames'] = $val['dwname'];
+					break;
+				}
+			}
+		}
+
+		$this->assign('data',$data);
+		$this->display();
+	}
+    public function bonusmodifys(){
+		$bonuslistid = $_POST['bonuslistid'];
+		$bonus['bonus'] = $_POST['bonus'];
+
+		$bl = M('bonuslist');
+
+		$blrr = $bl -> where("bonuslistid = '$bonuslistid'") -> save($bonus);
+		if($blrr > 0){
+			$this->success('奖金池修改成功，请继续',U('index/bonussearch'));
+		}else{
+			$this->error('奖金池修改失败，请检查数据');
+		}
+	}
     
     
     
@@ -1070,7 +1128,63 @@ class IndexController extends Controller {
     	$this->assign('datefwss',$datefwss);
     	$this->assign('data',$drr);
     	$this->display();
-    }
+	}
+	public function jrpointdwdatenosh(){
+		$dwname = cookie('dwname');
+		$d = M('danwei');
+		$where['districtid'] = $dwname['districtid'];
+		$drr = $d -> where($where) -> select();
+		$this->assign('drr',$drr);
+		$this->display();
+	}
+	public function jrpointdwdatenoshs(){
+		$date = $_POST['date'];
+		$jgh = $_POST['dwname'];
+
+		$where['date'] = $date;
+		$where['jgh'] = $jgh;
+		$where['shenhe'] = 0;
+
+		$jps = M('jrpointsum');
+		$jpsr = $jps -> where($where) -> field('pointcontentid') -> distinct(true) -> select();
+
+		$dwname = cookie('dwname');
+		$wherejp['districtid'] = $dwname['districtid'];
+
+		$jp = M('jrpointcontent');
+		$jpr = $jp -> where($wherejp) -> select();
+
+		foreach($jpsr as &$val){
+
+			foreach($jpr as &$value){
+
+				if($val['pointcontentid'] == $value['pointcontentid']){
+					
+					$val['content'] = $value['content'];
+					break;
+				}
+			}
+		}
+		// foreach($jpsr as &$value){
+
+		// 	$pointcontentid[] = $value['content'];
+		// }
+
+		$jpsrr = $jps -> where($where) -> field('gonghao,pointcontentid,persname,zhiwu,point') -> select();
+
+		foreach($jpsrr as &$value){
+
+			$data[$value['gonghao']]['persname'] = $value['persname'];
+			$data[$value['gonghao']]['zhiwu'] = $value['zhiwu'];
+			$data[$value['gonghao']][$value['pointcontentid']] = $value['point'];
+		}
+
+		// $this->assign('pointcontentid',$jpsr);
+		$this->assign('data',$data);
+		$this->assign('datas',$jpsr);
+		$this->display();
+		// var_dump($data,$jpsr);
+	}
 	public function jrpointdwdetailfw(){
 		$dwname = cookie('dwname');
 		$d = M('danwei');

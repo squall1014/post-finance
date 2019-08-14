@@ -141,15 +141,27 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
     
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
-    	<a href="/fin/index.php/home/index/indexlungang" class="layui-btn layui-btn-warm layui-btn-radius"><span>金融</span></a>&nbsp&nbsp&nbsp
-
-			<br  />
-			
-			<!--<input type="text" id="test6">-->
-			
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			  <legend>按机构网点积分汇总</legend>
+			</fieldset>
+    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointdwdatefws');?>" method="post">
+    		
+    		<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">日期选择</label>
+			      <div class="layui-input-block">
+			        <input type="text" name="date_date" id="test6" autocomplete="off" class="layui-input">
+			      </div>
+			    </div>
+    		</div>
+    		<br />
+    		<br />
+    		<div class="layui-form-item" style="margin-left:50px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+           </div>
+         </div>
+      </form>
   </div>
   
 <!--底部-->

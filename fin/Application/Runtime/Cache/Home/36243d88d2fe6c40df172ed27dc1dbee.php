@@ -140,65 +140,97 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
-    	<a href="/fin/index.php/home/index/indexlungang" class="layui-btn layui-btn-warm layui-btn-radius"><span>金融</span></a>&nbsp&nbsp&nbsp
-
-			<br  />
-			
-			<!--<input type="text" id="test6">-->
-			
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>奖金池查询</legend>
+		</fieldset>
+		<div class="layui-card-body">
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 80%">
+         	<tr>
+         		<th style="text-align:center;">区县</th>
+         		<th style="text-align:center;">网点</th>
+         		<th style="text-align:center;">奖金池</th>
+         		<th style="text-align:center;">考核日期</th>
+				<th style="text-align:center;">录入时间</th>
+				<th style="text-align:center;">操作</th>
+         	</tr>
+         	<?php if(is_array($blrr)): $i = 0; $__LIST__ = $blrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<th style="text-align:center;"><?php echo ($vo["districts"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["dwnames"]); ?></th>
+				 <th class="bonustxt" style="text-align:center;">
+					<div id="bonus"><?php echo ($vo["bonus"]); ?></div>
+				</th>
+         		<th style="text-align:center;"><?php echo ($vo["date"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["alterdate"]); ?></th>
+         		<th style="text-align:center;"><a href="/fin/index.php/home/index/bonusmodify/bonuslistid/<?php echo ($vo["bonuslistid"]); ?>"><font color="#ff0000">修改</font></th>
+         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:100px;">
+           <div class="layui-input-block">
+           </div>
+         </div>
+        </form>
   </div>
-  
+  </div>
 <!--底部-->
-  <div class="layui-footer">
-    <!-- 底部固定区域 -->
-    © 丽水市金融积分考核系统
-  </div>
-</div>
-<script src="/fin/Public/layui.all.js"></script>
-<script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
-  
-});
-layui.use('laydate', function(){
-  var laydate = layui.laydate;
-  
-  //执行一个laydate实例
-  laydate.render({
-    elem: '#date' //指定元素
-  });
-  
-    laydate.render({
-    elem: '#date1' //指定元素
-  });
-    laydate.render({
-    elem: '#date3' //指定元素
-    ,type: 'month'
-  });
-    
-  laydate.render({
-  	elem: '#test6'
-  	,range: true
-});
-});
-</script>
-<!--<script>
-
-</script>
-<script>
-layui.use('laydate', function(){
-  var laydate = layui.laydate;
-  
-  //执行一个laydate实例
-  laydate.render({
-    elem: '#datea' //指定元素
-  });
-});
-</script>-->
-</body>
-</html>
+<div class="layui-footer">
+		<!-- 底部固定区域 -->
+		© 丽水市金融积分考核系统
+	  </div>
+	</div>
+	<script src="/fin/Public/layui.all.js"></script>
+	<script src="/fin/Public/jquery-1.12.4.min.js"></script>
+	<script text/JavaScript>
+		$("#bonus").click(function(){
+			txt = $("#bonus").text();
+			var input = $("<input type='text'value='" + txt + "' class='layui-input' />");
+			$("#bonus").html(input);
+			input.trigger("focus"); 
+			
+			console.log(txt)
+		})
+	</script>
+	<script>
+	//JavaScript代码区域
+	layui.use('element', function(){
+	  var element = layui.element;
+	  
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+		elem: '#date' //指定元素
+	  });
+	  
+		laydate.render({
+		elem: '#date1' //指定元素
+	  });
+		laydate.render({
+		elem: '#date3' //指定元素
+		,type: 'month'
+	  });
+		
+	  laydate.render({
+		  elem: '#test6'
+		  ,range: true
+	});
+	});
+	</script>
+	<!--<script>
+	
+	</script>
+	<script>
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+		elem: '#datea' //指定元素
+	  });
+	});
+	</script>-->
+	</body>
+	</html>

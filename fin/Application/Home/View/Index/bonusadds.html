@@ -28,22 +28,31 @@
          		<th style="text-align:center;">{$vo.beizhu}</th>
          	</tr>
          	<script type="text/javascript">
-         		function c{$vo.bonusid}(){
-         			var sums = 0;
-         			var f = document.getElementById("form");
-         			var g = f.getElementsByTagName("input");
-         			for(i = 0; i < g.length - 2; i++){
-         				if(i == 0){
-         					sums = sums + Number(g[i].value) * Number({$count});
-         				}else{
-         					sums = sums + Number(g[i].value);
+         		// function c{$vo.bonusid}(){
+         		// 	var sums = 0;
+         		// 	var f = document.getElementById("form");
+         		// 	var g = f.getElementsByTagName("input");
+         		// 	for(i = 0; i < g.length - 2; i++){
+         		// 		if(i == 0){
+         		// 			sums = sums + Number(g[i].value) * Number({$count});
+         		// 		}else{
+         		// 			sums = sums + Number(g[i].value);
          					
-         				}
+         		// 		}
          				
-         			}
-         			document.getElementById("sum").innerHTML = sums;
+         		// 	}
+         		// 	document.getElementById("sum").innerHTML = sums;
          			
-         		}
+				 // }
+				 function c{$vo.bonusid}(){
+					 var sums = 0;
+					 var f = document.getElementById("form");
+					 var g = f.getElementsByTagName("input");
+					 for(i = 0; i < g.length - 2; i++){
+						 sums = sums + Number(g[i].value);
+					 }
+					 document.getElementById("sum").innerHTML = sums;
+				 }
          	</script>
          	</volist>
          	

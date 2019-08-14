@@ -19,7 +19,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="/fin/index.php/home/index/jrpointshtime">审核开放期限</a></dd>
+          <dd><a href="/fin/index.php/home/index/jrpointshtimedw">审核开放期限</a></dd>
         </dl>
       </li>
       <!--<li class="layui-nav-item"><a href="/fin/index.php/home/index/passwordreset">用户密码管理</a></li>-->
@@ -141,151 +141,41 @@
 </style>
   <div class="layui-body">
     <!-- 内容主体区域 -->
-	<h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-	
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-	<legend>按机构网点积分明细表</legend>
-</fieldset>
-<form action="" id="form-select" enctype="multipart/form-data" method="post" class="layui-form">
-	<div class="layui-card-body">
-		<div class="layui-inline">
-			<label class="layui-form-label">日期选择</label>
-			<div class="layui-input-block">
-				<input type="text" value="" name="date" id="test6" autocomplete="off" class="layui-input">
-			</div>
-		</div>
-		<div class="layui-inline">
-			<label class="layui-form-label">网点选择</label>
-			<div class="layui-input-block">
-				<select name="dwname" id="dwname" lay-verify="required" lay-search>
-					<option value=""></option>
-					<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-				</select>
-			</div>
-		</div>
-		<div class="layui-inline">
-			<label class="layui-form-label">分值类型</label>
-			<div class="layui-input-block">
-				<select name="point_sum" id="point_sum" lay-verify="required" lay-search>
-					<option value="score">业绩</option>
-					<option value="sum">总分</option>
-				</select>
-			</div>
-		</div>
-		<div class="layui-inline">
-			<button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
-		</div>
-	</div>
-	<div class="layui-card-body">
-		<div style="overflow:scroll;">
-			<table class="layui-table" lay-size="" id="table-show">
-				<!-- <tr>
-					<th style="text-align:center;">网点</th>
-					<?php if(is_array($datefwss)): $i = 0; $__LIST__ = $datefwss;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vodate): $mod = ($i % 2 );++$i;?><th style="text-align:center;"><?php echo ($vodate); ?></th><?php endforeach; endif; else: echo "" ;endif; ?>
-				</tr>
-				<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-						<th style="text-align:center;"><a href="/fin/index.php/home/index/jrpointdwdatefwpers/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-						<?php if(is_array($datefwss)): $i = 0; $__LIST__ = $datefwss;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vodate): $mod = ($i % 2 );++$i;?><th style="text-align:center;"><?php echo ($vo[$vodate]); ?></th><?php endforeach; endif; else: echo "" ;endif; ?>
-					</tr><?php endforeach; endif; else: echo "" ;endif; ?> -->
-			</table>
-		</div>
-	</div>
-	<br />
-	<!--<div class="layui-form-item" style="margin-left:100px;">
-	           <div class="layui-input-block">
-	            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-	            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-	           </div>
-	         </div>-->
-</form>
-</div>
+    <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>按机构网点未审核积分明细表</legend>
+		</fieldset>
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+        	<div style="overflow:scroll;">
+         <table class="layui-table" lay-size="">
+         	<tr>
+				<th style="text-align:center;">姓名</th>
+				<th style="text-align:center;">职务</th>
+         		<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vopc): $mod = ($i % 2 );++$i;?><th style="text-align:center;"><?php echo ($vopc['content']); ?></th><?php endforeach; endif; else: echo "" ;endif; ?>
+         	</tr>
+         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+				<th style="text-align:center;"><?php echo ($vo["persname"]); ?></th>
+				<th style="text-align:center;"><?php echo ($vo["zhiwu"]); ?></th>
+         		<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vopc): $mod = ($i % 2 );++$i;?><th style="text-align:center;"><?php echo ($vo[$vopc['pointcontentid']]); ?></th><?php endforeach; endif; else: echo "" ;endif; ?>
+         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+         </table>
+         </div>
+         <br />
+         <!--<div class="layui-form-item" style="margin-left:100px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>-->
+        </form>
+  </div>
 <!--底部-->
-<div class="layui-footer">
+  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 丽水市金融积分考核系统
   </div>
 </div>
 <script src="/fin/Public/layui.all.js"></script>
-<script src="/fin/Public/jquery-1.12.4.min.js"></script>
-<script text/JavaScript>
-	$("#form-select").on('submit',function(){
-		table_show();
-		event.preventDefault();
-	})
-	function table_show(){
-		var dwname = document.getElementById("dwname").value;
-		var date = document.getElementById("test6").value;
-		var point_sum = document.getElementById("point_sum").value
-		$.ajax({
-        type:"post",
-        url:'<?php echo U("jrpointdwdetailfws");?>',
-        data:{
-			dwname: dwname,
-			date: date,
-			point_sum : point_sum,
-		},
-		
-        success:function (data) {
-			// var data=data.split("-");
-			// data = eval("("+data+")");
-			// console.log(data);
-			data = JSON.parse(data);
-			th = JSON.parse(data[0]);
-			datas = JSON.parse(data[1]);
-
-			// console.log(datas);
-
-			var html = "";
-			html = html + '<tr>';
-			html = html + '<th>';
-			html = html + '姓名';
-			html = html + '</th>';
-			html = html + '<th>';
-			html = html + '职务';
-			html = html + '</th>';
-			for(i = 0; i < th.length; i ++){
-				html = html + '<th>';
-				html = html + th[i]['content'];
-				html = html + '</th>';
-			}
-			html = html + '</tr>';
-
-			for(i = 0; i < datas.length; i ++){
-
-				html = html + '<tr>';
-
-				html = html + '<th>'
-
-				html = html + datas[i]['persname'];
-				
-				html + html + '</th>';
-				
-				html = html + '<th>'
-
-				html = html + datas[i]['zhiwu'];
-
-				html + html + '</th>';
-				console.log(datas[i]['gonghao']);
-					for (y = 0; y < th.length; y++) {
-							console.log(th[y]['pointcontentid']);
-							html = html + '<th>';
-							//三位数组；需要在后台获取所有数值，方可显示；
-							html = html + datas[i][datas[i]['gonghao']][th[y]['pointcontentid']]['sums'];
-
-							html + html + '</th>';
-						}
-
-				html = html + '</tr>';
-
-			}
-
-			$("#table-show").html(html);
-			// console.log(html);
-
-        }
-    });
-	}
-</script>
 <script>
 //JavaScript代码区域
 layui.use('element', function(){

@@ -140,14 +140,14 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 5px;">
+				  <legend>奖金池设置</legend>
+				  <!--<input type="hidden" name="warehouseid[]" value="<?php echo ($vo[0]['warehouseid']); ?>"  />-->
+		</fieldset>
     
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
-    	<a href="/fin/index.php/home/index/indexlungang" class="layui-btn layui-btn-warm layui-btn-radius"><span>金融</span></a>&nbsp&nbsp&nbsp
-
-			<br  />
-			
+    	<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="layui-input-inline" style="margin: 5px;">
+    	<a href="/fin/index.php/home/index/bonusadds/dwnameid/<?php echo ($vo["dwnameid"]); ?>" class="layui-btn layui-btn-normal layui-btn-radius"><span><?php echo ($vo["dwname"]); ?></span></a>
+			</div><?php endforeach; endif; else: echo "" ;endif; ?>
 			<!--<input type="text" id="test6">-->
 			
   </div>

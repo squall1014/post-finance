@@ -11,16 +11,16 @@
     <include file="Public/login/title" />
     
     	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>积分审核开放期限设置</legend>
+			  <legend>{$data[0]['dwnames']}</legend>
 			</fieldset>
-    	<form class="layui-form layui-form-pane" action="{:U('jrpointshtimes')}" method="post">
-    		<input type="hidden" value="{$dwnameid}" name="dwnameid">
+    	<form class="layui-form layui-form-pane" action="{:U('bonusmodifys')}" method="post">
+    		<input type="hidden" value="{$data[0]['bonuslistid']}" name="bonuslistid">
     		<div class="layui-form-item" style="margin-left:50px;">
 			    <div class="layui-inline">
-			      <label class="layui-form-label">天数(1-10)</label>
+			      <label class="layui-form-label">奖金池</label>
 			      <div class="layui-input-block">
 			      	<!-- <input type="hidden" name="dateauthid" value="{$data[0]['dateauthid']}" /> -->
-			        <input type="text" name="dateauth" lay-verify="number" value="{$drr['dateauth']}" autocomplete="off" class="layui-input">
+			        <input type="text" name="bonus" lay-verify="number" value="{$data[0]['bonus']}" autocomplete="off" class="layui-input">
 			      </div>
 			    </div>
     		</div>

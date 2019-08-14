@@ -140,16 +140,46 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
-    
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
-    	<a href="/fin/index.php/home/index/indexlungang" class="layui-btn layui-btn-warm layui-btn-radius"><span>金融</span></a>&nbsp&nbsp&nbsp
-
-			<br  />
-			
-			<!--<input type="text" id="test6">-->
-			
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>按机构网点日报表通报</legend>
+		</fieldset>
+		  <div class="layui-card-body">
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<tr>
+         		<th style="text-align:center;">区县</th>
+         		<th style="text-align:center;">网点</th>
+         		<th style="text-align:center;">职务</th>
+         		<th style="text-align:center;">姓名</th>
+         		<th style="text-align:center;">业绩</th>
+         		<th style="text-align:center;">总分</th>
+         	</tr>
+         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<th style="text-align:center;"><?php echo ($vo["district"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["zhiwu"]); ?></th>
+         		<th style="text-align:center;"><a href="/fin/index.php/home/index/jrpointdwdatepersinfo/gonghao/<?php echo ($vo["gonghao"]); ?>/date/<?php echo ($vo["date"]); ?>"><font color="#CC0000"><?php echo ($vo["persname"]); ?></font></a></th>
+         		<th style="text-align:center;"><?php echo ($vo["points"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["sums"]); ?></th>
+         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th style="text-align:center;">总计</th>
+						<th style="text-align:center;"><?php echo ($point); ?></th>
+						<th style="text-align:center;"><?php echo ($sum); ?></th>
+					</tr>
+         </table>
+         <br />
+         <!--<div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>-->
+        </form>
+        </div>
   </div>
   
 <!--底部-->
