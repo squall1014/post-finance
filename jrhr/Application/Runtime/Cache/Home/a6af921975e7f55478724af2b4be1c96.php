@@ -138,98 +138,197 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
-		</fieldset>
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
-         	<tr>
-         		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">总客户数</th>
-         		<th style="text-align:center;">总金额</th>
-         		<th style="text-align:center;">定期总金额</th>
-         		<th style="text-align:center;">活期总金额</th>
-         		<th style="text-align:center;">客户数增量</th>
-         		<th style="text-align:center;">总金额增量</th>
-         		<th style="text-align:center;">定期增量总金额</th>
-         		<th style="text-align:center;">活期增量总金额</th>
-         		<th style="text-align:center;">客户数减量</th>
-         		<th style="text-align:center;">总金额减量</th>
-         		<th style="text-align:center;">定期减量总金额</th>
-         		<th style="text-align:center;">活期减量总金额</th>
-         		<th style="text-align:center;">定期客户数</th>
-         		<th style="text-align:center;">定期金额</th>
-         	</tr>
-         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jraccountinfoperspt/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["pers"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuez']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persf']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuef']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqipers']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-         </table>
-         <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-           </div>
-         </div>-->
-        </form>
+    
+    <br />
+    <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">积分项目管理</font>
+        	</div>
+        <div class="layui-card-body">
+        
+					<table class="layui-hide" id="test" lay-filter="test"></table>
+					
+					<script type="text/html" id="switchTpl">
+					  <!-- 这里的 checked 的状态只是演示 -->
+					  <input type="checkbox" id="{{d.pointcontentid}}" name="stats" value="{{d.pointcontentid}}" lay-skin="switch" lay-text="启用|停用" lay-filter="sexDemo" {{ d.stats == 0 ? 'checked' : '' }}>
+					</script>
+					
+					<script type="text/html" id="toolbarDemo">
+					  <div class="layui-btn-container">
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">查看项目</button>
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">添加项目</button>
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量停用</button>
+					  </div>
+					</script>
+					
+					<script type="text/html" id="barDemo">
+					  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+					  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+					</script>
+         </div>
+        </div>
   </div>
-<!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区金融积分考核系统
   </div>
-</div>
 <script src="/jrhr/Public/layui.all.js"></script>
-<script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
-  
-});
-layui.use('laydate', function(){
-  var laydate = layui.laydate;
-  
-  //执行一个laydate实例
-  laydate.render({
-    elem: '#date' //指定元素
-  });
-  
-    laydate.render({
-    elem: '#date1' //指定元素
-  });
-  
-  laydate.render({
-  	elem: '#test6'
-  	,range: true
-});
-});
-</script>
-<!--<script>
+<script src="/jrhr/Public/jquery-1.12.4.min.js"></script>
 
-</script>
 <script>
-layui.use('laydate', function(){
-  var laydate = layui.laydate;
-  
-  //执行一个laydate实例
-  laydate.render({
-    elem: '#datea' //指定元素
+	layui.use('table', function(){
+  var table = layui.table;
+  var form = layui.form;
+  table.render({
+    elem: '#test'
+    ,url:'<?php echo U("pointcontentedits");?>'
+    ,toolbar: '#toolbarDemo'
+    ,title: '用户数据表'
+    ,cols: [[
+      {type: 'checkbox', fixed: 'left'}
+      ,{field:'pointcontentid', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+      ,{field:'item', title:'项目大类', width:300, sort: true}
+      ,{field:'content', title:'项目', width:300, edit: 'text',sort: true}
+      ,{field:'score', title:'分值', width:100, edit: 'text',sort: true}
+      ,{field:'unit', title:'单位', width:80, edit: 'text', sort: true}
+      ,{field:'beizhu', title:'备注', width:200, edit: 'text', sort: true}
+      ,{field:'stats', title:'状态', width:85, templet: '#switchTpl', unresize: true}
+      
+    ]]
+    ,page: true
   });
+  
+	  //监听单元格编辑
+	  table.on('edit(test)', function(obj){
+	    var value = obj.value //得到修改后的值
+	    ,data = obj.data //得到所在行所有键值
+	    ,field = obj.field;//得到字段
+	    
+	    layer.msg('[ID: '+ data.pointcontentid +'] ' + field + ' 字段更改为：'+ value);
+	    
+	    $.ajax({
+	    	type:"post",
+	    	data:{
+	    		pointcontentid : data.pointcontentid,
+	    		content : data.content,
+	    		score : data.score,
+	    		unit : data.unit,
+	    		beizhu:data.beizhu,
+	    	},
+	    	url:'<?php echo U("pointcontenteditsuc");?>',
+	    	
+	    	success: function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	  //头工具栏事件
+  	table.on('toolbar(test)', function(obj){
+	  	var checkStatus = table.checkStatus(obj.config.id);
+	    switch(obj.event){
+	      case 'getCheckData':
+	        var data = checkStatus.data;
+	        layer.alert(JSON.stringify(data));
+	      break;
+	      case 'getCheckLength':
+	        layer.open({
+		        type: 2 //此处以iframe举例
+		        ,title: '积分项目添加'
+		        ,area: ['800px', '600px']
+		        ,shade: 0
+		        ,maxmin: true
+		        
+		        ,content: 'pointcontentadd.html'
+		        ,btn: ['全部关闭'] //只是为了演示
+		        
+		        ,btn2: function(){
+		          layer.closeAll();
+		        }
+		        
+		        ,zIndex: layer.zIndex //重点1
+		        ,success: function(layero){
+		          layer.setTop(layero); //重点2
+		        }
+		      });
+	      break;
+	      case 'getCheckstats':
+	        var data = table.checkStatus(obj.config.id);
+	        location.reload();
+	        $.ajax({
+	        	type:"post",
+	        	url:'<?php echo U("pointcontentbatchstats");?>',
+	        	async:true,
+	        	data : {
+	        		pointcontentid : data.data,
+	        	},
+	        	success:function(result){
+	        		alert("共有" + result + "条已停用");
+	        		
+	        	},
+	        });
+	        
+	        
+	        
+	      break;
+	      
+	      case 'isAll':
+	        layer.msg(checkStatus.isAll ? '全选': '未全选');
+	      break;
+	      
+	    };
+	  	
+	  	
+	  });
+	  
+	  //监听性别操作
+	  form.on('switch(sexDemo)', function(obj){
+	    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+	    console.log(obj);
+	    $.ajax({
+	    	type:"post",
+	    	
+	    	url:'<?php echo U("pointcontentstats");?>',
+	    	
+	    	async:true,
+	    	
+	    	data:{
+	    		pointcontentid : this.value,
+	    		stats : obj.elem.checked,
+	    	},
+	    	
+	    	success:function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	 	//监听行工具事件
+	  table.on('tool(test)', function(obj){
+	    var data = obj.data;
+	    //console.log(obj)
+	    if(obj.event === 'del'){
+	      layer.confirm('真的删除行么', function(index){
+	        obj.del();
+	        layer.close(index);
+	      });
+	    } else if(obj.event === 'edit'){
+	      layer.prompt({
+	        formType: 2
+	        ,value: data.email
+	      }, function(value, index){
+	        obj.update({
+	          email: value
+	        });
+	        layer.close(index);
+	      });
+	    }
+	  });
+	 
 });
-</script>-->
+</script>
+<!--底部-->
 </body>
 </html>

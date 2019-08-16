@@ -112,6 +112,9 @@
         <dl class="layui-nav-child">
           <dd><a href="/jrhr/index.php/Home/Admin/etccustadd">ETC客户录入</a></dd>
           <dd><a href="/jrhr/index.php/Home/Admin/etccustsearch">ETC客户查询</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustdelete">ETC客户车辆解约</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereeadd">ETC客户引荐客户录入</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereesearch">ETC引荐客户查询</a></dd>
         </dl>
      </li>
         <li class="layui-nav-item">

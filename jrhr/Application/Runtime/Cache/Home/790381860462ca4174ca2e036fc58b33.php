@@ -140,7 +140,8 @@
     <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
 			<legend>按机构网点日报表</legend>
-		</fieldset>
+    </fieldset>
+    <div class="layui-card-body">
         <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
          <table class="layui-table" lay-size="" style="width: 40%">
          	<tr>
@@ -148,11 +149,11 @@
          		<th style="text-align:center;">数量</th>
          	</tr>
          	<?php if(is_array($jwrr)): $i = 0; $__LIST__ = $jwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jrpointdwdatepers/jgh/<?php echo ($vo["jgh"]); ?>/date/<?php echo ($vo["date"]); ?>"><?php echo ($vo["dwname"]); ?></th>
+         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jrwhitedwdatedetail/jgh/<?php echo ($vo["jgh"]); ?>/date/<?php echo ($date["date"]); ?>/dates/<?php echo ($date["dates"]); ?>"><?php echo ($vo["dwname"]); ?></th>
          		<th style="text-align:center;"><?php echo ($vo["countid"]); ?></th>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 					<tr>
-						<th style="text-align:center;">总计</th>
+						<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jrwhitedwdatedetail/date/<?php echo ($date["date"]); ?>/dates/<?php echo ($date["dates"]); ?>">总计</a></th>
 						<th style="text-align:center;"><?php echo ($count); ?></th>
 					</tr>
          </table>
@@ -164,6 +165,7 @@
            </div>
          </div>
         </form>
+      </div>
   </div>
 <!--底部-->
   <div class="layui-footer">

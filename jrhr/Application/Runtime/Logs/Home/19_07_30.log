@@ -1,0 +1,170 @@
+[ 2019-07-30T10:24:03+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000539s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000366s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000483s ]
+
+[ 2019-07-30T10:24:54+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontenteditsuc.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0013s ]
+SQL: UPDATE `hr_jrpointcontent` SET `content`='定活两便',`unit`='万元',`score`='3.5',`beizhu`='' WHERE ( pointcontentid = '1' ) [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000352s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000477s ]
+
+[ 2019-07-30T10:31:00+08:00 ] ::1 /jrhr/index.php/Home/Index/pointitemedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000527s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointitem` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000309s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000429s ]
+
+[ 2019-07-30T10:31:43+08:00 ] ::1 /jrhr/index.php/Home/Index/pointitemeditsuc.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: UPDATE `hr_jrpointitem` SET `item`='余额策反',`beizhu`='5000' WHERE ( pointitemid = '1' ) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000297s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000426s ]
+
+[ 2019-07-30T10:31:59+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000350s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000466s ]
+
+[ 2019-07-30T10:35:41+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000859s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000375s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000511s ]
+
+[ 2019-07-30T10:48:38+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000652s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000411s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000541s ]
+
+[ 2019-07-30T10:59:43+08:00 ] ::1 /jrhr/index.php/Home/Index/jgh/40/date/
+ERR: 非法操作:jgh
+
+[ 2019-07-30T11:04:56+08:00 ] ::1 /jrhr/index.php/Home/Index/pointitemedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointitem` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000348s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000459s ]
+
+[ 2019-07-30T11:05:25+08:00 ] ::1 /jrhr/index.php/Home/Index/pointitemedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000631s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointitem` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000332s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000452s ]
+
+[ 2019-07-30T11:08:52+08:00 ] ::1 /jrhr/index.php/Home/Index/jrpointdwicdates.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `date` = '2019-07-30' GROUP BY jgh,date' at line 1
+ [ SQL语句 ] : SELECT `jgh`,`date`,sum(point) as sums FROM `hr_jrpointsum` WHERE `shenhe` = 1 AND `pointcontentid` IN () AND `date` = '2019-07-30' GROUP BY jgh,date 
+
+[ 2019-07-30T11:17:23+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000322s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000440s ]
+
+[ 2019-07-30T11:18:35+08:00 ] ::1 /jrhr/index.php/Home/Index/jrpointdwitemdates.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `stats` = 0 ORDER BY pointitemid' at line 1
+ [ SQL语句 ] : SELECT `pointcontentid`,`content` FROM `hr_jrpointcontent` WHERE `pointitemid` IN () AND `stats` = 0 ORDER BY pointitemid 
+
+[ 2019-07-30T11:18:45+08:00 ] ::1 /jrhr/index.php/Home/Index/jrpointdwitemdates.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `stats` = 0 ORDER BY pointitemid' at line 1
+ [ SQL语句 ] : SELECT `pointcontentid`,`content` FROM `hr_jrpointcontent` WHERE `pointitemid` IN () AND `stats` = 0 ORDER BY pointitemid 
+
+[ 2019-07-30T11:19:03+08:00 ] ::1 /jrhr/index.php/Home/Index/jrpointdwitemdates.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `stats` = 0 ORDER BY pointitemid' at line 1
+ [ SQL语句 ] : SELECT `pointcontentid`,`content` FROM `hr_jrpointcontent` WHERE `pointitemid` IN () AND `stats` = 0 ORDER BY pointitemid 
+
+[ 2019-07-30T11:20:23+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000579s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000290s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000414s ]
+
+[ 2019-07-30T11:20:29+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000585s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0014s ]
+SQL: UPDATE `hr_jrpointcontent` SET `stats`='0' WHERE ( pointcontentid = '4' ) [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000341s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000461s ]
+
+[ 2019-07-30T11:20:30+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000611s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0014s ]
+SQL: UPDATE `hr_jrpointcontent` SET `stats`='0' WHERE ( pointcontentid = '5' ) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000339s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000472s ]
+

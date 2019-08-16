@@ -137,54 +137,56 @@
 
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
-		</fieldset>
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
+    <h1><div style="padding: 15px;">余杭区人力资源系统</div></h1>
+    
+    <br />
+        <form action="<?php echo U('persmodifysuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="">
+         	<input type="hidden" name="gonghao" value="<?php echo ($data['gonghao']); ?>">
          	<tr>
-         		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">总客户数</th>
-         		<th style="text-align:center;">总金额</th>
-         		<th style="text-align:center;">定期总金额</th>
-         		<th style="text-align:center;">活期总金额</th>
-         		<th style="text-align:center;">客户数增量</th>
-         		<th style="text-align:center;">总金额增量</th>
-         		<th style="text-align:center;">定期增量总金额</th>
-         		<th style="text-align:center;">活期增量总金额</th>
-         		<th style="text-align:center;">客户数减量</th>
-         		<th style="text-align:center;">总金额减量</th>
-         		<th style="text-align:center;">定期减量总金额</th>
-         		<th style="text-align:center;">活期减量总金额</th>
-         		<th style="text-align:center;">定期客户数</th>
-         		<th style="text-align:center;">定期金额</th>
+         	 <th>单位</th>
+         	 <td>
+         	 	<select name="dwname" lay-verify="required" lay-search>
+         	 		<option value="<?php echo ($data['jgh']); ?>"><?php echo ($data['dwname']); ?></option>
+         	 		<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th>职务</th>
+         	 <td>
+         	 	<select name="zhiwu" lay-verify="required" lay-search>
+         	 		<option value="<?php echo ($data['zhiwud']); ?>"><?php echo ($data['zhiwu']); ?></option>
+         	 		<?php if(is_array($zrr)): $i = 0; $__LIST__ = $zrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["zhiwud"]); ?>"><?php echo ($vo["zhiwu"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th>工种</th>
+         	 <td>
+         	 	<select name="gongzhong" lay-verify="required" lay-search disabled="disabled">
+         	 		<option value="<?php echo ($data['gongzhongd']); ?>"><?php echo ($data['gongzhong']); ?></option>
+            </select>
+         	 </td>
+         	 <th>调动说明</th>
+         	 	<td><input type="text" name="exp" placeholder="请输入调动说明" autocomplete="off" class="layui-input"> </td>
          	</tr>
-         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jraccountinfoperspt/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["pers"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuez']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persf']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuef']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqipers']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+         	<tr>
+         	 <th>员工姓名</th>
+         	 <td><input type="text" name="persname" disabled="disabled" value="<?php echo ($data['persname']); ?>" required lay-verify="required" placeholder="请输入员工姓名" autocomplete="off" class="layui-input"> </td>
+         	 <th>人力编号</th>
+         	 <td><input type="text" name="gonghao" disabled="disabled" value="<?php echo ($data['gonghao']); ?>" required lay-verify="" placeholder="请输入人力编号" autocomplete="off" class="layui-input"></td>
+         	 <th>开始日期</th>
+         	 <td>
+         	 	<input type="text" name="date" id="date" placeholder="请点击选择日期" autocomplete="off" required lay-verify="" class="layui-input">
+         	 </td>
+         	 <th>结束日期</th>
+         	 <td><input type="text" name="dateo" id="date1" placeholder="请点击选择日期" autocomplete="off" class="layui-input"></td>
+         	</tr>
          </table>
          <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
+         <div class="layui-form-item" style="margin-left:360px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">数据重置</button>
            </div>
-         </div>-->
+         </div>
         </form>
   </div>
 <!--底部-->

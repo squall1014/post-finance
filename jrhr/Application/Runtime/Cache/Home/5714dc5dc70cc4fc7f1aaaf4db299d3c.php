@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html>
 <!--大标题和JS-->
 <head>
@@ -139,52 +139,32 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
+			<legend>按员工奖金池月报报表</legend>
 		</fieldset>
         <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
+         <table class="layui-table" lay-size="" style="width: 70%">
          	<tr>
-         		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">总客户数</th>
-         		<th style="text-align:center;">总金额</th>
-         		<th style="text-align:center;">定期总金额</th>
-         		<th style="text-align:center;">活期总金额</th>
-         		<th style="text-align:center;">客户数增量</th>
-         		<th style="text-align:center;">总金额增量</th>
-         		<th style="text-align:center;">定期增量总金额</th>
-         		<th style="text-align:center;">活期增量总金额</th>
-         		<th style="text-align:center;">客户数减量</th>
-         		<th style="text-align:center;">总金额减量</th>
-         		<th style="text-align:center;">定期减量总金额</th>
-         		<th style="text-align:center;">活期减量总金额</th>
-         		<th style="text-align:center;">定期客户数</th>
-         		<th style="text-align:center;">定期金额</th>
+         		<th style="text-align:center;">所属网点</th>
+         		<th style="text-align:center;">姓名</th>
+         		<th style="text-align:center;">总分</th>
+         		<th style="text-align:center;">总分占比</th>
+         		<th style="text-align:center;">奖金</th>
          	</tr>
          	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jraccountinfoperspt/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["pers"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuez']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persf']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuef']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqipers']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["persname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["sums"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["avgs"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["reward"]); ?></th>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
          </table>
          <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
+         <div class="layui-form-item" style="margin-left:100px;">
            <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
            </div>
-         </div>-->
+         </div>
         </form>
   </div>
 <!--底部-->

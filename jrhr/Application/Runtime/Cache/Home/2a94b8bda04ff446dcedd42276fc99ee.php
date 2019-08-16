@@ -117,6 +117,12 @@
           </dl>
         </li>
         <li class="layui-nav-item">
+        	<a class="" href="javascript:;">ETC客户管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/jrhr/index.php/Home/Index/jretccustpt">ETC客户情况报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
         	<a class="" href="javascript:;">轮岗记录查询</a>
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Index/jrlgtransferdate">轮岗记录查询</a></dd>

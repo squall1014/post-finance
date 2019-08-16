@@ -1655,13 +1655,113 @@ class IndexController extends Controller {
     	$this->display();
     }
     
-    
-    
+    public function whitecustinfo($data){
+    	$jv = M('jrvillage');
+    	$jvrr = $jv -> select();
+    	
+    	foreach($data as &$value){
+    		
+    		foreach($jvrr as &$val){
+    			
+    			if($value['village'] == $val['villageid']){
+    				
+    				$value['villages'] = $val['village'];
+    				break;
+    			}
+    		}
+    	}
+    	
+    	$js = M('jrsource');
+    	$jsrr = $js -> select();
+    	
+    	foreach($data as &$value){
+    		
+    		foreach($jsrr as &$val){
+    			
+    			if($value['source'] == $val['sourceid']){
+    				
+    				$value['sources'] = $val['source'];
+    				break;
+    			}
+    		}
+    	}
+    	
+    	$jm = M('jrmaintenance');
+    	$jmrr = $jm -> select();
+    	
+    	foreach($data as &$value){
+    		
+    		foreach($jmrr as &$val){
+    			
+    			if($value['maintenance'] == $val['maintenanceid']){
+    				
+    				$value['maintenances'] = $val['maintenance'];
+    				break;
+    			}
+    		}
+    	}
+    	
+    	$jp = M('jrproduct');
+    	$jprr = $jp -> select();
+    	
+    	foreach($data as &$value){
+    		
+    		foreach($jprr as &$val){
+    			
+    			if($value['product'] == $val['productid']){
+    				
+    				$value['products'] = $val['product'];
+    				break;
+    			}
+    		}
+    	}
+		
+		$d = M('jrdanwei');
+		$drr = $d -> select();
+		
+		foreach($data as &$value){
+
+			foreach($drr as &$val){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$value['dwname'] = $val['dwname'];
+					break;
+				}
+			}
+		}
+		
+    	return $data;
+    }
+	
+	public function jrwhitedwdatedetail(){
+		if($_GET['jgh'] == null){
+
+
+		}else{
+
+			$where['jgh'] = $_GET['jgh'];
+		}
+		
+		$date = $_GET['date'];
+		$dates = $_GET['dates'];
+		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+
+		$jw = M('jrwhitecust');
+		$data = $jw -> where($where) -> select();
+
+		$data = $this->whitecustinfo($data);
+		$this->assign('data',$data);
+		// var_dump($data);
+		$this->display();
+	}
+
     public function jrwhitedwdates(){
     	$date = substr($_POST['date_date'],0,10);
     	$dates = substr($_POST['date_date'],-10,10);
     	$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
-    	
+		$detaildate['date'] = $date;
+		$detaildate['dates'] = $dates;
     	$jw = M('jrwhitecust');
     	$where['stats'] = 0;
     	
@@ -1683,7 +1783,7 @@ class IndexController extends Controller {
     	}
     	
     	$count = $jw -> where($where) -> count();
-    	
+    	$this->assign('date',$detaildate);
     	$this->assign('jwrr',$drr);
     	$this->assign('count',$count);
     	
@@ -1767,8 +1867,8 @@ class IndexController extends Controller {
         //$upload->subName   =     array('date', 'Ym');
         $upload->subName   =     '';
         // 上传文件  
-        $info   =   $upload->upload();
-        
+		$info   =   $upload->upload();
+		
         $file_name =  $upload->rootPath.$info['exl']['savepath'].$info['exl']['savename'];
         $handle = fopen ( $file_name, 'r' );
         //去表头，取第一行开始；
@@ -2182,12 +2282,93 @@ class IndexController extends Controller {
 //  	}
 //		
 //		var_dump($datas,$dataz,$dataf,$whitedata);
+	}
+	public function jraccountinfoperspt(){
+		$jd = M('jrdanwei');
+		$jdr = $jd -> where("jiagou = 'A1'") -> select();
 		
+		$User = D('');
+    	$jgh = $_GET['jgh'];
+    	$datas = $User->query("select hr_jraccountinfo.jgh,hr_jraccountinfo.sfz,hr_jraccountinfo.money,hr_jraccountinfo.dwname from hr_jraccountinfo inner join hr_jrwhitecust on hr_jraccountinfo.jgh = hr_jrwhitecust.jgh and hr_jraccountinfo.sfz = hr_jrwhitecust.sfz where hr_jrwhitecust.jgh = '$jgh'");
+    	
+    	$datab = $User -> query("select hr_jrclientassetsold.sfz,hr_jrclientassetsold.jgh,hr_jrclientassetsold.zyue as zyueb,hr_jrclientassetsold.huoqi as huoqib,hr_jrclientassetsold.dingqi as dingqib from hr_jrwhitecust inner join hr_jrclientassetsold on hr_jrclientassetsold.sfz = hr_jrwhitecust.sfz and hr_jrclientassetsold.jgh = hr_jrwhitecust.dwname where hr_jrwhitecust.jgh = '$jgh' ");
+    	$datao = $User -> query("select hr_jrclientassets.sfz,hr_jrclientassets.jgh,hr_jrclientassets.zyue as zyueo,hr_jrclientassets.huoqi as huoqio,hr_jrclientassets.dingqi as dingqio from hr_jrwhitecust inner join hr_jrclientassets on hr_jrclientassets.sfz = hr_jrwhitecust.sfz and hr_jrclientassets.jgh = hr_jrwhitecust.dwname where hr_jrwhitecust.jgh = '$jgh'");
+		// var_dump($datas,$datao,$datab);
 
+		$where['jgh'] = $jgh;
+		$where['stats'] = 0;
+		$jw = M('jrwhitecust');
+		$jwrr = $jw -> where($where) -> select();
+
+		foreach($datab as &$value){
+
+			foreach($datao as &$val){
+
+				if($value['sfz'] == $val['sfz']){
+
+					$data_cl[] = array(
+
+						'sfz' => $value['sfz'],
+						'jgh' => $value['jgh'],
+						'zyue' => $val['zyueo'] - $value['zyueb'],
+						'dingqi' => $val['dingqio'] - $value['dingqib'],
+						'huoqi' => $val['huoqio'] - $value['huoqib'],
+					);
+
+				}
+			}
+		}
+		foreach($data_cl as &$value){
+
+			foreach($datas as &$val){
+
+				if($value['sfz'] == $val['sfz']){
+
+					$value['money'] = $value['money'] + $val['money'];
+					// $value['dwname'] = $val['jgh'];
+
+				}
+			}
+		}
+
+		foreach($jwrr as &$value){
+
+			foreach($data_cl as &$val){
+
+				if($value['sfz'] == $val['sfz']){
+
+					$data_cust[] = array(
+
+						'custname' => $value['custname'],
+						'phone' => $value['phone'],
+						'sfz' => $value['sfz'],
+						'address' => $value['address'],
+						'jgh' => $value['jgh'],
+						'zyue' => $val['zyue'],
+						'dingqi' => $val['dingqi'],
+						'huoqi' => $val['huoqi'],
+						'money' => $val['money'],
+					);
+				}
+			}
+		}
+
+		foreach($data_cust as &$value){
+
+			foreach($jdr as &$val){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$value['dwname'] = $val['dwname'];
+					break;
+				}
+			}
+		}
+		$this->assign('data',$data_cust);
+		$this->display();
+		// var_dump($data_cl);
+	}
 	
-
-
-    }
     public function jraccountinfocleans(){
     	$p=D('');
     	$p->execute("truncate table hr_jraccountinfo");
@@ -2226,7 +2407,7 @@ class IndexController extends Controller {
 				}
 				if($value['refereedwname'] == $val['jgh']){
 					
-					$value['reffereedwnames'] = $val['dwname'];
+					$value['refereedwnames'] = $val['dwname'];
 				}
 				if($value['signdwname'] == $val['jgh']){
 

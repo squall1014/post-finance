@@ -138,55 +138,44 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
-		</fieldset>
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
-         	<tr>
-         		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">总客户数</th>
-         		<th style="text-align:center;">总金额</th>
-         		<th style="text-align:center;">定期总金额</th>
-         		<th style="text-align:center;">活期总金额</th>
-         		<th style="text-align:center;">客户数增量</th>
-         		<th style="text-align:center;">总金额增量</th>
-         		<th style="text-align:center;">定期增量总金额</th>
-         		<th style="text-align:center;">活期增量总金额</th>
-         		<th style="text-align:center;">客户数减量</th>
-         		<th style="text-align:center;">总金额减量</th>
-         		<th style="text-align:center;">定期减量总金额</th>
-         		<th style="text-align:center;">活期减量总金额</th>
-         		<th style="text-align:center;">定期客户数</th>
-         		<th style="text-align:center;">定期金额</th>
-         	</tr>
-         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jraccountinfoperspt/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["pers"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuez']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persf']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuef']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqipers']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-         </table>
-         <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-           </div>
-         </div>-->
-        </form>
-  </div>
+      <table class="layui-table" style="width: 100%">
+       <tr>
+       	<th>片区</th>
+				<th>单位名称</th>
+				<th>在岗人数</th>
+				<th>网点负责人</th>
+				<th>综合柜员</th>
+				<th>理财经理</th>
+				<th>大堂经理</th>
+				<th>客户经理</th>
+				<th>普通柜员</th>
+			</tr>
+			<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+				<td><?php echo ($vo["pianquname"]); ?></td>
+				<td><a href="/jrhr/index.php/Home/Index/persjgh/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></a></td>
+				<td><a href="/jrhr/index.php/Home/Index/persjgh/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["count"]); ?></a></td>
+				<td><?php if(is_array($vo["wdfzr"])): $i = 0; $__LIST__ = $vo["wdfzr"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo6): $mod = ($i % 2 );++$i;?><a href="/jrhr/index.php/Home/Index/persmodify/gonghao/<?php echo ($vo6["gonghao"]); ?>"><?php echo ($vo6["persname"]); ?></a>(<?php echo ($vo6["gongzhong"]); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["zhgy"])): $i = 0; $__LIST__ = $vo["zhgy"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo5): $mod = ($i % 2 );++$i;?><a href="/jrhr/index.php/Home/Index/persmodify/gonghao/<?php echo ($vo5["gonghao"]); ?>"><?php echo ($vo5["persname"]); ?></a>(<?php echo ($vo5['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["lcjl"])): $i = 0; $__LIST__ = $vo["lcjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo4): $mod = ($i % 2 );++$i;?><a href="/jrhr/index.php/Home/Index/persmodify/gonghao/<?php echo ($vo4["gonghao"]); ?>"><?php echo ($vo4["persname"]); ?></a>(<?php echo ($vo4['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["dtjl"])): $i = 0; $__LIST__ = $vo["dtjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo3): $mod = ($i % 2 );++$i;?><a href="/jrhr/index.php/Home/Index/persmodify/gonghao/<?php echo ($vo3["gonghao"]); ?>"><?php echo ($vo3["persname"]); ?></a>(<?php echo ($vo3['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+				<td><?php if(is_array($vo["khjl"])): $i = 0; $__LIST__ = $vo["khjl"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?><a href="/jrhr/index.php/Home/Index/persmodify/gonghao/<?php echo ($vo2["gonghao"]); ?>"><?php echo ($vo2["persname"]); ?></a>(<?php echo ($vo2['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+			  <td><?php if(is_array($vo["ptgy"])): $i = 0; $__LIST__ = $vo["ptgy"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?><a href="/jrhr/index.php/Home/Index/persmodify/gonghao/<?php echo ($vo1["gonghao"]); ?>"><?php echo ($vo1["persname"]); ?></a>(<?php echo ($vo1['gongzhong']); ?>)|<?php endforeach; endif; else: echo "" ;endif; ?></td>
+			</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+			<tr>
+				<td></td>
+				<td>总计</td>
+				<td><?php echo ($count["counts"]); ?></td>
+				<td><?php echo ($count["wdfzr"]); ?></td>
+				<td><?php echo ($count["zhgy"]); ?></td>
+				<td><?php echo ($count["lcjl"]); ?></td>
+				<td><?php echo ($count["dtjl"]); ?></td>
+				<td><?php echo ($count["khjl"]); ?></td>
+				<td><?php echo ($count["ptgy"]); ?></td>
+			</tr>
+      </table>
+     </div>
+  	</div>
+  
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

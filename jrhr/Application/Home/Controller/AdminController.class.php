@@ -984,7 +984,97 @@ class AdminController extends Controller {
     	$this->assign('jwrr',$jwrr);
     	
     	$this->display();
-    }
+	}
+	public function whitecustinfoperspt(){
+		$dwname = cookie('dwname');
+
+		$jgh = $dwname['jgh'];
+
+		$jd = M('jrdanwei');
+		$jdr = $jd -> where("jiagou = 'A1'") -> select();
+		
+		$User = D('');
+    	$datas = $User->query("select hr_jraccountinfo.jgh,hr_jraccountinfo.sfz,hr_jraccountinfo.money,hr_jraccountinfo.dwname from hr_jraccountinfo inner join hr_jrwhitecust on hr_jraccountinfo.jgh = hr_jrwhitecust.jgh and hr_jraccountinfo.sfz = hr_jrwhitecust.sfz where hr_jrwhitecust.jgh = '$jgh'");
+    	
+    	$datab = $User -> query("select hr_jrclientassetsold.sfz,hr_jrclientassetsold.jgh,hr_jrclientassetsold.zyue as zyueb,hr_jrclientassetsold.huoqi as huoqib,hr_jrclientassetsold.dingqi as dingqib from hr_jrwhitecust inner join hr_jrclientassetsold on hr_jrclientassetsold.sfz = hr_jrwhitecust.sfz and hr_jrclientassetsold.jgh = hr_jrwhitecust.dwname where hr_jrwhitecust.jgh = '$jgh' ");
+    	$datao = $User -> query("select hr_jrclientassets.sfz,hr_jrclientassets.jgh,hr_jrclientassets.zyue as zyueo,hr_jrclientassets.huoqi as huoqio,hr_jrclientassets.dingqi as dingqio from hr_jrwhitecust inner join hr_jrclientassets on hr_jrclientassets.sfz = hr_jrwhitecust.sfz and hr_jrclientassets.jgh = hr_jrwhitecust.dwname where hr_jrwhitecust.jgh = '$jgh'");
+		// var_dump($datas,$datao,$datab);
+		$where['jgh'] = $jgh;
+		$where['stats'] = 0;
+		$jw = M('jrwhitecust');
+		$jwrr = $jw -> where($where) -> select();
+
+		foreach($datab as &$value){
+
+			foreach($datao as &$val){
+
+				if($value['sfz'] == $val['sfz']){
+
+					$data_cl[] = array(
+
+						'sfz' => $value['sfz'],
+						'jgh' => $value['jgh'],
+						'zyue' => $val['zyueo'] - $value['zyueb'],
+						'dingqi' => $val['dingqio'] - $value['dingqib'],
+						'huoqi' => $val['huoqio'] - $value['huoqib'],
+					);
+
+				}
+			}
+		}
+		foreach($data_cl as &$value){
+
+			foreach($datas as &$val){
+
+				if($value['sfz'] == $val['sfz']){
+
+					$value['money'] = $value['money'] + $val['money'];
+					// $value['dwname'] = $val['jgh'];
+
+				}
+			}
+		}
+
+		foreach($jwrr as &$value){
+
+			foreach($data_cl as &$val){
+
+				if($value['sfz'] == $val['sfz']){
+
+					$data_cust[] = array(
+
+						'custname' => $value['custname'],
+						'phone' => $value['phone'],
+						'sfz' => $value['sfz'],
+						'address' => $value['address'],
+						'jgh' => $value['jgh'],
+						'zyue' => $val['zyue'],
+						'dingqi' => $val['dingqi'],
+						'huoqi' => $val['huoqi'],
+						'money' => $val['money'],
+					);
+				}
+			}
+		}
+
+		foreach($data_cust as &$value){
+
+			foreach($jdr as &$val){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$value['dwname'] = $val['dwname'];
+					break;
+				}
+			}
+		}
+		$this->assign('data',$data_cust);
+		$this->display();
+		// var_dump($data_cl);
+		
+	}
+
+
     public function etccustadd(){
 		$je = M('jretccust');
 		$where['stats'] = 0;

@@ -141,41 +141,28 @@
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
 			<legend>白名单客户分析报表</legend>
 		</fieldset>
+		<div class="layui-card-body">
         <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
          <table class="layui-table" lay-size="" style="width: 98%">
          	<tr>
-         		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">总客户数</th>
-         		<th style="text-align:center;">总金额</th>
-         		<th style="text-align:center;">定期总金额</th>
-         		<th style="text-align:center;">活期总金额</th>
-         		<th style="text-align:center;">客户数增量</th>
-         		<th style="text-align:center;">总金额增量</th>
-         		<th style="text-align:center;">定期增量总金额</th>
-         		<th style="text-align:center;">活期增量总金额</th>
-         		<th style="text-align:center;">客户数减量</th>
-         		<th style="text-align:center;">总金额减量</th>
-         		<th style="text-align:center;">定期减量总金额</th>
-         		<th style="text-align:center;">活期减量总金额</th>
-         		<th style="text-align:center;">定期客户数</th>
-         		<th style="text-align:center;">定期金额</th>
+				<th style="text-align:center;">网点</th>
+				<th style="text-align:center;">客户姓名</th>
+				<th style="text-align:center;">联系方式</th>
+				<th style="text-align:center;">地址</th>
+         		<th style="text-align:center;">自跨塞后总金额变化</th>
+         		<th style="text-align:center;">自跨塞后定期变化</th>
+         		<th style="text-align:center;">自跨塞后活期变化</th>
+         		<th style="text-align:center;">区间内开户金额</th>
          	</tr>
          	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
          		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Index/jraccountinfoperspt/jgh/<?php echo ($vo["jgh"]); ?>"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["pers"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo['phone']); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo['address']); ?></th>
          		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
          		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuez']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqiz']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['persf']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyuef']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['huoqif']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqipers']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
+				<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
+				<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
          </table>
          <br />
@@ -185,7 +172,8 @@
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
            </div>
          </div>-->
-        </form>
+		</form>
+	</div>
   </div>
 <!--底部-->
   <div class="layui-footer">

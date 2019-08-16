@@ -1,0 +1,23 @@
+[ 2019-08-15T08:26:27+08:00 ] ::1 /jrhr/index.php/Home/Index/jrwhitedwdatedetail/jgh/4/date/2019-06-01/dates/2019-06-30
+ERR: 模板不存在:./Application/Home/View/Index/jrwhitedwdatedetail.html
+
+[ 2019-08-15T08:36:34+08:00 ] ::1 /jrhr/index.php/Home/Index/jrwhitedwdatedetail/jgh/4/date/2019-06-01/dates/2019-06-30
+ERR: 模板不存在:./Application/Home/View/Index/jrwhitedwdatedetail.html
+
+[ 2019-08-15T08:49:11+08:00 ] ::1 /jrhr/index.php/Home/Index/pointitemedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0022s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointitem` LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001308s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001847s ]
+
+[ 2019-08-15T08:49:30+08:00 ] ::1 /jrhr/index.php/Home/Index/jgh/40/date/
+ERR: 非法操作:jgh
+
+[ 2019-08-15T11:34:51+08:00 ] ::1 /jrhr/index.php/Home/Index/jgh/40/date/
+ERR: 非法操作:jgh
+

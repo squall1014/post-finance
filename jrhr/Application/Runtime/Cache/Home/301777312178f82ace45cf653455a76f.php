@@ -133,45 +133,53 @@
 <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
     <br />
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户查询</legend>
+			<legend>积分上报</legend>
 		</fieldset>
-			<div class="layui-card-body">
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 100%">
+		<div class="layui-card-body">
+        <form action="<?php echo U('jrpointupsuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
          	<tr>
-         		<th style="text-align:center;">姓名</th>
-         		<th style="text-align:center;">身份证</th>
-         		<th style="text-align:center;">电话</th>
-         		<th style="text-align:center;">地址</th>
-         		<th style="text-align:center;">村社</th>
-         		<th style="text-align:center;">客户来源</th>
-         		<th style="text-align:center;">维护方式</th>
-         		<th style="text-align:center;">意向产品</th>
-         		<th style="text-align:center;">加入时间</th>
-         		<th style="text-align:center;">备注</th>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">单位</th>
+         		<th style="text-align:center;">分值</th>
+         		<th style="text-align:center;">业绩</th>
          	</tr>
-         	<?php if(is_array($jwrr)): $i = 0; $__LIST__ = $jwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Admin/whitecustmodify/sfz/<?php echo ($vo["sfz"]); ?>"><font color="#FF0000"><?php echo ($vo["sfz"]); ?></font></a></th>
-         		<th style="text-align:center;"><?php echo ($vo["phone"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["address"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["villages"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["sources"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["maintenances"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["products"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["date"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["beizhu"]); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<th style="text-align:center;"><?php echo ($vo["content"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["unit"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["score"]); ?></th>
+         		<td><input type="text" name="<?php echo ($vo["pointcontentid"]); ?>" id="b<?php echo ($vo["pointcontentid"]); ?>" onblur="a<?php echo ($vo["pointcontentid"]); ?>()" placeholder="" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<script type="text/javascript">
+         		function a<?php echo ($vo["pointcontentid"]); ?>(){
+         			var total = document.getElementById("b<?php echo ($vo["pointcontentid"]); ?>").value;
+         			
+         			var reg = /^(\-|\+)?\d+(\.\d+)?$/;
+         			if(!total.match(reg)){
+         				if(!total){
+         					
+         				}else{
+         					alert('请输入正确的数字');
+         					document.getElementById("b<?php echo ($vo["pointcontentid"]); ?>").value = null;
+         				}
+         					
+         			}else{
+         				
+         			}
+         			
+         		}
+         	</script><?php endforeach; endif; else: echo "" ;endif; ?>
+
          </table>
          <br />
          <div class="layui-form-item" style="margin-left:300px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
            </div>
          </div>
         </form>
-       </div>
+        </div>
   </div>
   
 <!--底部-->

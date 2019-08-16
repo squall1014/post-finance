@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>白名单明细查询</legend>
+		</fieldset>
+		<div class="layui-card-body">
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 100%">
+         	<tr>
+				<th style="text-align:center;">网点</th>
+				<th style="text-align:center;">村社</th>
+         		<th style="text-align:center;">意向产品</th>
+         		<th style="text-align:center;">维护方式</th>
+         		<th style="text-align:center;">客户涞源</th>
+         		<th style="text-align:center;">客户姓名</th>
+         		<th style="text-align:center;">客户地址</th>
+         		<th style="text-align:center;">身份证</th>
+				<th style="text-align:center;">联系方式</th>
+				<th style="text-align:center;">录入日期</th>
+         	</tr>
+         	<volist name="data" id="vo">
+         	<tr>
+         		<th style="text-align:center;">{$vo.dwname}</th>
+         		<th style="text-align:center;">{$vo.villages}</th>
+         		<th style="text-align:center;">{$vo.products}</th>
+         		<th style="text-align:center;">{$vo.maintenances}</th>
+         		<th style="text-align:center;">{$vo.sources}</th>
+         		<th style="text-align:center;">{$vo.custname}</th>
+         		<th style="text-align:center;">{$vo.address}</th>
+				<th style="text-align:center;">{$vo.sfz}</th>
+				<th style="text-align:center;">{$vo.phone}</th>
+				<th style="text-align:center;">{$vo.date}</th>
+         	</tr>
+         	</volist>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+       </div>
+  </div>
+  
+<!--底部-->
+<include file="Public/login/footer" />

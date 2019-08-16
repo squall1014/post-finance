@@ -132,48 +132,40 @@
 <!-- 内容主体区域 -->
 <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
     <br />
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户查询</legend>
-		</fieldset>
-			<div class="layui-card-body">
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 100%">
+    
+    <br />
+        <form action="<?php echo U('jrperspointupsuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<input type="hidden" name="gonghao" value="<?php echo ($data[0]['gonghao']); ?>">
          	<tr>
+         		<th style="text-align:center;">单位</th>
+         		<th style="text-align:center;">职务</th>
          		<th style="text-align:center;">姓名</th>
-         		<th style="text-align:center;">身份证</th>
-         		<th style="text-align:center;">电话</th>
-         		<th style="text-align:center;">地址</th>
-         		<th style="text-align:center;">村社</th>
-         		<th style="text-align:center;">客户来源</th>
-         		<th style="text-align:center;">维护方式</th>
-         		<th style="text-align:center;">意向产品</th>
-         		<th style="text-align:center;">加入时间</th>
-         		<th style="text-align:center;">备注</th>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">分值</th>
+         		<th style="text-align:center;">业绩</th>
+         		<th style="text-align:center;">总分</th>
          	</tr>
-         	<?php if(is_array($jwrr)): $i = 0; $__LIST__ = $jwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
-         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Admin/whitecustmodify/sfz/<?php echo ($vo["sfz"]); ?>"><font color="#FF0000"><?php echo ($vo["sfz"]); ?></font></a></th>
-         		<th style="text-align:center;"><?php echo ($vo["phone"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["address"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["villages"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["sources"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["maintenances"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["products"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["date"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["beizhu"]); ?></th>
+         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<input type="hidden" name="pointsumid[]" value="<?php echo ($vo["pointsumid"]); ?>">
+         		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["zhiwu"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["persname"]); ?></th>
+         		<td style="text-align:center;"><?php echo ($vo["content"]); ?></td>
+         		<td style="text-align:center;"><?php echo ($vo["score"]); ?></td>
+         		<td style="text-align:center;"><?php echo ($vo["point"]); ?></td>
+         		<td style="text-align:center;"><?php echo ($vo["sum"]); ?></td>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
          </table>
          <br />
          <div class="layui-form-item" style="margin-left:300px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即审核</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
            </div>
          </div>
         </form>
-       </div>
   </div>
-  
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
