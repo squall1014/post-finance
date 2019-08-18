@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    <form class="layui-form" action="{:U('applyproductzerosuc')}" name="formibs" method="post" style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 60%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="5%">
+					       <col width="20%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>请领数量</td>
+								<!--<td>库存总量</td>-->
+								<!--<td>状态</td>-->
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<input type="hidden" name="productid[]" value="{$vo.productid}">
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.productdwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unit}</td>
+								<td><input type="text" name="quantity[]" id="a{$vo.productid}" onblur="c{$vo.productid}()" lay-verify="" placeholder="请输入申请数量" autocomplete="off" class="layui-input"></td>
+								<script type="text/javascript">
+			         		function c{$vo.productid}(){
+			         			var total = document.getElementById("a{$vo.productid}").value;
+			         			var reg = /^[0-9]+\.?[0-9]*$/;
+			         			
+			         			if(!total.match(reg)){
+			         				if(!total){
+			         					
+			         				}else{
+			         					alert('请输入正确的数字');
+			         					document.getElementById("a{$vo.productid}").value = null;
+			         				}
+			         					
+			         			}else{
+			         				
+			         			}
+			         			
+			         		}
+			         	</script>
+							</tr>
+					</volist>
+					</table>
+					<br />
+ 				<div class="layui-input-block" style="margin-left:360px;">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		    </form>
+</div> 
+</body>
+</html>
+<!--<include file="Public/footer" />-->

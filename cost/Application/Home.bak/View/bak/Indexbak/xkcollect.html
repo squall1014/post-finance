@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>数据分析</h1></div>
+    
+    <h2>网点数据分析</h2>
+    
+    <hr class="layui-bg-red">
+        <table class="layui-table" style="width: 100%">
+          <colgroup>
+            <col width="120">
+            <col width="80">
+            <col width="120">
+            <col width="120">
+            <col width="80">
+            <col width="120" />
+            <col width="120">
+          </colgroup>
+          <thead>
+        	<tr>
+        		<th>汇总</th>
+        	</tr>
+        	</thead>
+        	<thead>
+        	<tr>
+        		<th>机构名称</th>
+        		<th>机构号</th>
+        		<th>蓄客数</th>
+        		<th>新蓄客数</th>
+        		<th>新蓄客占比</th>
+        		<th>蓄客回收数</th>
+        		<th>定期金额</th>
+        		
+        	</tr>
+        	</thead>
+        	<volist name="collect" id="vo">
+        		<tr>
+        			<td>{$vo.dwname}</td>
+        			<td>{$vo.jgh}</td>
+        			<td>{$vo.countjgh}</td>
+        			<td>{$vo.newcountjgh}</td>
+        			<td>{$vo.bl}%</td>
+        			<td>{$vo.yuecountjgh}</td>
+        			<td>{$vo.sumzyue}</td>
+        		</tr>
+        	</volist>
+        </table>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

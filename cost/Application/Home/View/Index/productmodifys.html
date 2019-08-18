@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+        <form action="{:U('productmodifysuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 90%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品信息修改</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	<input type="hidden" name="productid" value="{$cprr[0]['productid']}">
+         	<tr>
+         	 <th>产品名称</th>
+         	 <td><input type="text" name="productname" value="{$cprr[0]['productname']}" lay-verify="required" required placeholder="请输入产品名称" autocomplete="off" class="layui-input"> </td>
+         	 
+         	 <th>产品单位</th>
+         	 <td><input type="text" name="unit" value="{$cprr[0]['unit']}" lay-verify="required" required placeholder="请输入产品名称" autocomplete="off" class="layui-input"> </td>
+         	 
+         	 <th>产品类型</th>
+         	 <td>
+         	 	<select name="producttype" lay-verify="required">
+         	 		<option value="{$cprr[0]['producttype']}">{$cprr[0]['producttypename']}</option>
+         	 		<volist name="cptrr" id="vo">
+              <option value="{$vo.producttypeid}">{$vo.producttype}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" value="{$cprr[0]['beizhu']}" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	 <th>状态</th>
+         	 <td>
+         	 	<if condition="$cprr[0]['stats'] eq 0">
+				      <input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" checked="true">
+				    <else />
+				    	<input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" >
+				    </if>
+         	 </td>
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

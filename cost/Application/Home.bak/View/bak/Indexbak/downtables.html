@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>exl上传</title>
+	</head>
+	<body>
+		<h4>附件上传</h4>
+        <form action="{:U('xcuploads')}" enctype="multipart/form-data" method="post" >
+        <input type="file" name="exl" />
+        <input type="submit" value="上传">
+        </form>
+        
+        <table border="" cellspacing="" cellpadding="">
+        	<tr>
+        		<th>新增</th>
+        	</tr>
+        	<tr>
+        		<th>姓名</th>
+        		<th>总余额</th>
+        		<th>定期</th>
+        	</tr>
+        	<volist name="purr" id="vo">
+        	<tr>
+        		<td>{$vo.name}</td>
+        		<td>{$vo.zyue}</td>
+        		<td>{$vo.dingqi}</td>
+        	</tr>
+        	</volist>
+        	<tr>
+        		<th>总计</th>
+        		<th>{$zyue}</th>
+        		<th>{$dingqi}</th>
+        	</tr>
+        	<tr>
+        		<th>流失</th>
+        	</tr>
+        	<tr>
+        		<th>姓名</th>
+        		<th>总余额</th>
+        		<th>定期</th>
+        	</tr>
+        	<volist name="pdrr" id="vo1">
+        	<tr>
+        		<td>{$vo1.name}</td>
+        		<td>{$vo1.zyue}</td>
+        		<td>{$vo1.dingqi}</td>
+        	</tr>
+        	</volist>
+        	<tr>
+        		<th>总计</th>
+        		<th>{$zyued}</th>
+        		<th>{$dingqid}</th>
+        	</tr>
+        </table>
+        </form>
+	</body>
+</html>

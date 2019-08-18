@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>车险客户信息查询</h1></div>
+    
+    <h2>信息查询</h2>
+    
+    <hr class="layui-bg-red">
+     <form action="{:U('carpersinfomodifycx')}" enctype="multipart/form-data" method="post" class="layui-form">
+        <table class="layui-table" lay-size="" style="width: 900px;">
+        	<tr>
+        		<th>客户姓名查询</th>
+        		<td>
+        			<select name="kh" lay-verify="" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="ckh" id="vo">
+              <option value="{$vo.kh}">{$vo.kh}</option>
+              </volist>
+              </select>
+        		</td>
+        		<th>客户车牌查询</th>
+        		<td>
+        			<select name="chepai" lay-verify="" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="ccp" id="vo">
+              <option value="{$vo.chepai}">{$vo.chepai}</option>
+              </volist>
+              </select>
+        		</td>
+        	  <td><button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button></td>
+        	</tr>
+        </div>
+        </form>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

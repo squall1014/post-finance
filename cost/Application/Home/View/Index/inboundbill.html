@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>仓库名称</td>
+								<td>产品名称</td>
+								<td>产品单价</td>
+								<td>申请数量</td>
+								<td>实际数量</td>
+								<td>预估税率(%)</td>
+								<td>税率补足(%)</td>
+								<td>发票编号</td>
+								<td>申请日期</td>
+								<td>入库状态</td>
+								<td>操作</td>
+							</tr>
+							<volist name="data" id="vo">
+							<form class="layui-form" action="inboundbills" method="post"  style="width: 100%;">
+							<tr>
+								<input type="hidden" name="inboundid" value="{$vo.inboundid}">
+								<input type="hidden" name="unitprice" value="{$vo.unitprice}">
+								<input type="hidden" name="sjquantity" value="{$vo.sjquantity}">
+								<input type="hidden" name="vatprice" value="{$vo.vatprice}">
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.dwname}</td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unitprice}</td>
+								<td>{$vo.quantity}</td>
+								<td>{$vo.sjquantity}</td>
+								<td>{$vo.vatprice}</td>
+								<td><input type="text" class="layui-input" name="vatfill" value="{$vo.vatfill}"></td>
+								<td><input type="text" class="layui-input" name="vat" value="{$vo.vat}"></td>
+								<td>{$vo.date}</td>
+								<td>{$vo.shenhe}</td>
+								<td><input type="submit" value="提交" class="layui-btn layui-btn-normal"></td>
+							</tr>
+							</form>
+							</volist>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

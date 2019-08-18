@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								
+								<td>申请数量</td>
+								<td>备注</td>
+								<td>请领时间</td>
+								<td>操作(部分审核-到货部分)</td>
+							</tr>
+							<volist name="data" id="vo">
+							<form class="layui-form" name="formib" method="post" style="width: 100%;">
+							<tr>
+								<input type="hidden" name="productid" value="{$vo.productid}">
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.applydwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.applyquantity}</td>
+								<td>{$vo.remark}</td>
+								<td>{$vo.date}</td>
+								<td><a href="__URL__/outbounds/productid/{$vo.productid}/applydwname/{$vo.applydwname}/applyid/{$vo.applyid}/applyquantity/{$vo.applyquantity}/pwid/{$vo.pwid}">出库分配</a></td>
+							</tr>
+					  <div class="layui-form-item">
+					    <!--<div class="layui-input-block">
+					      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+					      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					    </div>-->
+		  			</div>
+		 
+  
+<script type="text/javascript">
+      function a{$vo.id}(){
+      	document.getElementById("a{$vo.id}").action = 'inboundshs';
+        //document.formibs.action = {:U('inboundshs')};
+        document.getElementById("a{$vo.id}").submit()
+	    }
+      function b{$vo.id}() {
+      	document.getElementById("a{$vo.id}").action = 'inboundshsuc';
+        //document.formibs.action = {:U('inboundshs')};
+        document.getElementById("a{$vo.id}").submit()
+      }
+</script>
+</form>
+</volist>
+</table>
+</div> 
+</body>
+</html>
+<!--<include file="Public/footer" />-->

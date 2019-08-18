@@ -1,0 +1,73 @@
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">余杭<span>邮政</span></h1>
+            <span class="slogan">人力资源系统</span>
+            <div class="search">
+            	<form action="" method="post">
+                	<input type="text" name="keyword" id="keyword" value="Enter keyword(s)" />
+                    <button class="submitbutton"></button>
+                </form>
+            </div><!--search-->
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+        <div class="right">
+        	<!--<div class="notification">
+                <a class="count" href="notifications.html"><span>9</span></a>
+        	</div>
+			-->
+            <div class="userinfo">
+            	<img src="/public/images/thumbs/avatar.png" alt="" />
+                <span>{$dwname['user']}</span>
+            </div><!--userinfo-->
+            <div class="userinfodrop">
+            	<div class="avatar">
+                	<a href=""><img src="/public/images/thumbs/avatarbig.png" alt="" /></a>
+                    <div class="changetheme">
+                    	<a class="default"></a>
+                        <a class="blueline"></a>
+                        <a class="greenline"></a>
+                        <a class="contrast"></a>
+                        <a class="custombg"></a>
+                    </div>
+                </div><!--avatar-->
+                <div class="userdata">
+                	<h4>{$dwname['user']}</h4>
+                    <span class="email"></span>
+                    <ul>
+                    	<li><a href="__URL__/passwordedit">密码修改</a></li>
+                    	<li><a href="">个人信息</a></li>
+                    	<li><a href="">上传文件</a></li>
+                        <li><a href="">帮助</a></li>
+                        <li><a href="__URL__/logout">登出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+   </div><!--topheader-->
+    <div class="header">
+    	<ul class="headermenu">
+        	<li><a href="__URL__/qingjia"><span class="icon icon-flatscreen"></span>员工请假</a></li>
+        	<li><a href=""><span class="icon icon-flatscreen"></span>金融类积分</a></li>
+            <li><a href=""><span class="icon icon-pencil"></span>邮务类积分</a></li>
+       </ul>
+        <div class="headerwidget">
+        	<div class="earnings">
+            	<div class="one_half">
+                	<h4 align="center">YEAR</h4>
+                    <h2 align="center">{$datey}</h2>
+                </div><!--one_half-->
+                <div class="one_half last alignright">
+                	<h4 align="center">  MOON  </h4>
+                    <h2 align="center">{$datem}</h2>
+                </div><!--one_half last-->
+            </div><!--earnings-->
+        </div><!--headerwidget-->
+        
+    </div><!--header-->
+        <div class="pageheader notab">
+            <h1 class="pagetitle">{$dwname['user']} | 欢迎您使用人力资源系统</h1>
+        </div><!--pageheader-->

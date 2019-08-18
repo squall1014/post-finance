@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>数据分析</h1></div>
+    
+    <h2>网点数据分析</h2>
+    
+    <hr class="layui-bg-red">
+        <table class="layui-table" style="width: 80%">
+          <colgroup>
+            <col width="120">
+            <col width="80">
+            <col width="120">
+            <col width="100">
+            <col width="100">
+            <col width="100">
+            <col width="80">
+            <col width="100">
+          </colgroup>
+          <thead>
+        	<tr>
+        		<th>汇总</th>
+        	</tr>
+        	</thead>
+        	<thead>
+        	<tr>
+        		<th>机构名称</th>
+        		<th>机构号</th>
+        		<th>流失数</th>
+        		<th>到期金额</th>
+        		<th>流失金额</th>
+        		<th>流失率</th>
+        		<th>下载状态</th>
+        		<th>操作</th>
+        	</tr>
+        	</thead>
+        	<volist name="drr" id="vo">
+        		<tr>
+        			<td>{$vo.dwname}</td>
+        			<td>{$vo.jgh}</td>
+        			<td>{$vo.countjgh}</td>
+        			<td>{$vo.lszyue}</td>
+        			<td>{$vo.sumzyue}</td>
+        			<td>{$vo.lsl}%</td>
+        			<td><if condition="$vo.zcsave eq 0"><else /><font color="#CC0000">已下载</font></if></td>
+        		  <td><a href="__URL__/zcperskhlsdl/jgh/{$vo.jgh}">数据导出</a></td>
+        		</tr>
+        	</volist>
+        </table>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

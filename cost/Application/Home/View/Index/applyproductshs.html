@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    <form action="{:U('applyproductshsucs')}" class="layui-form" method="post" enctype="multipart/form-data">
+						<table class="layui-table" style="text-align: center; width: 95%;">
+					    <tr>
+								<td>申请部门</td>
+								<td>申请产品</td>
+								<td>产品单位</td>
+								<td>产品仓库</td>
+								<td>申请数量</td>
+								<td>申请部门实际库存</td>
+								<td>申请日期</td>
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<input type="hidden" value="{$vo.applyid}" name="applyid[]" />
+								<td>{$vo.applydwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unit}</td>
+								<td>{$vo.warehouse}</td>
+								<td><input type="text" name="applyquantity[]" value="{$vo.applyquantity}" class="layui-input"></td>
+								<td>{$vo.sumkcapplyquantity}</td>
+								<td>{$vo.date}</td>
+							</tr>
+							</volist>
+					  </table>
+					  <br />
+					  <div class="layui-form-item">
+			    	<div class="layui-input-block">
+			      	<button class="layui-btn" style="margin-left:360px;">批量审批</button>
+			      	<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			    	</div>
+			  </div>
+			  </form>
+  	</div>
+
+<!--底部-->
+<include file="Public/footer" />

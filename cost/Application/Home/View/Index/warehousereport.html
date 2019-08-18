@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    <form class="layui-form" action="selectss" method="get"  style="width: 60%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品仓库</td>
+								<td>产品单位</td>
+								<td>数量合计</td>
+								
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.applydwname}</td>
+								<td><a href="__URL__/dwoutbounds/productid/{$vo.productid}/warehouseid/{$vo.warehouseid}">{$vo.productname}</a></td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.unit}</td>
+								<td>{$vo.sumkcapplyquantity}</td>
+							</tr>
+							</volist>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

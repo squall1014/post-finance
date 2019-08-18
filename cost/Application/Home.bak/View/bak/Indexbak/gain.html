@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>获取数据</h1></div>
+    
+    <h2>获取客户新增数据</h2>
+    
+    <hr class="layui-bg-red">
+    <br />
+        <form action="{:U('up')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">立即获取</button>
+        </form>
+    <br />
+    <h2>获取客户流失数据</h2>
+    
+    <hr class="layui-bg-orange">
+    <br />
+        <form action="{:U('down')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">立即获取</button>
+        </form>
+    <br />
+        <h2>获取村社数据</h2>
+    
+    <hr class="layui-bg-orange">
+    <br />
+        <form action="{:U('perscs')}" enctype="multipart/form-data" method="post" >
+        
+        <button class="layui-btn" lay-submit lay-filter="formDemo">立即获取</button>
+        </form>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

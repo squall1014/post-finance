@@ -1,0 +1,46 @@
+[ 2019-08-17T16:20:54+08:00 ] ::1 /cost/index.php/Home/Index/productedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000583s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `hr_costproduct` WHERE `productdwname` = '28'  [ RunTime:0.0023s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0019s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costproduct` WHERE `productdwname` = '28' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000475s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000641s ]
+
+[ 2019-08-17T16:23:17+08:00 ] ::1 /cost/index.php/Home/Index/productedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0018s ]
+SQL: SELECT * FROM `hr_costproduct` WHERE `productdwname` = '28'  [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costproduct` WHERE `productdwname` = '28' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000330s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000489s ]
+
+[ 2019-08-17T16:24:16+08:00 ] ::1 /cost/index.php/Home/Admin/pointcardwdfinancelist.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000567s ]
+NOTIC: [8] Undefined index: card /Library/WebServer/Documents/cost/Application/Home/Controller/AdminController.class.php 第 1591 行.
+NOTIC: [8] Undefined index: jgh /Library/WebServer/Documents/cost/Application/Home/Controller/AdminController.class.php 第 1592 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/AdminController.class.php 第 1593 行.
+SQL: SHOW COLUMNS FROM `hr_costcardout` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `hr_costcardout` WHERE `stats` = 2 LIMIT 0,20   [ RunTime:0.0095s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_danwei` WHERE ( jiagou = 'A1' )  [ RunTime:0.0009s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costcardout` WHERE `stats` = 2 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000369s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000497s ]
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>仓库名称</td>
+								
+								<td>申请数量</td>
+								<td>实际收到数量</td>
+								<td>出库时间</td>
+								<td>操作</td>
+							</tr>
+							<volist name="data" id="vo">
+							<form class="layui-form" name="formib" action="{:U(outbounderror)}" method="post" id="formib" style="width: 100%; ">
+							<tr>
+								<input type="hidden" name="applyquantity" id="applyquantity">
+								<input type="hidden" name="sumsjapplyquantity" value="{$vo.sumsjapplyquantity}">
+								<input type="hidden" name="applyid" value="{$vo.applyid}" >
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$dwname.user}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unit}</td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.applyquantity}</td>
+								<td><if condition="$vo.sumsjapplyquantity egt $vo.applyquantity"><font color="#CC0000">{$vo.sumsjapplyquantity}</font><else />{$vo.sumsjapplyquantity}</if></td>
+								<td>{$vo.date}</td>
+								<td><if condition="$vo.date lt $today">已入库<else /><input type="submit" class="layui-btn-danger" value="提出疑议" onclick="a{$vo.applyid}()"></if></td>
+							</tr>
+					  <div class="layui-form-item">
+		    <!--<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>-->
+		  </div>
+<script type="text/javascript">
+      function a{$vo.applyid}(){
+      	var applyquantity = prompt("请输入正确的入库数量","");
+      	//var password = prompt('请输入密码',"");
+      	document.getElementById('applyquantity').value = applyquantity;
+      	
+      }
+</script>
+</form>
+</volist>
+</table>
+</div> 
+</body>
+</html>
+<!--<include file="Public/footer" />-->

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    <div style="padding: 10px;">
+    <table class="layui-table" style="text-align: center; width: 95%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="5%">
+					       <col width="20%">
+					      </colgroup>-->
+					    <tr>
+					    	<td>调拨单位</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>仓库名称</td>
+								<td>调拨数量</td>
+								<td>调拨状态</td>
+								<td>操作</td>
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<input type="hidden" name="productid[]" value="{$vo.productid}">
+								<input type="hidden" name="warehouseid[]" value="{$vo.warehouseid}">
+								<input type="hidden" name="sumkcquantity[]" id="b{$vo.productid}" value="{$vo.sumkcquantity}">
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.applydwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unit}</td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.kcapplyquantity}</td>
+								<td>{$vo.shenhe}</td>
+								<td><a href="__URL__/dwinallotsuc/outallotid/{$vo.outallotid}">同意接收</a> | <a href="__URL__/dwinalloterr/outallotid/{$vo.outallotid}"><font color="#CC0000">取消</font></a></td>
+							</tr>
+					  <div class="layui-form-item">
+		  </div>
+<script type="text/javascript">
+      function c{$vo.productid}(){
+      	var apply = parseInt(document.getElementById("a{$vo.productid}").value);
+      	
+      	var sum = parseInt(document.getElementById("b{$vo.productid}").value);
+      	
+      	if(apply <= sum){
+      		document.getElementById("d{$vo.productid}").value = '通过';
+      	}else{
+      		document.getElementById("d{$vo.productid}").value = '超过总量';
+      		document.getElementById("a{$vo.productid}").value = 0;
+      	}
+        //document.formibs.action = {:U('inboundshs')};
+        //document.getElementById("a{$vo.id}").submit()
+	    }
+</script>
+</volist>
+</table>
+</div>
+</div> 
+</body>
+</html>
+<!--<include file="Public/footer" />-->

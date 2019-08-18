@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    <div class="layui-card" style="width: 90%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品入库明细查询</font>
+    			</div>
+        <div class="layui-card-body">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								
+								<td>含税单价(元)</td>
+								<td>申请入库数量</td>
+								<td>实际入库数量</td>
+								<td>实际库存数量</td>
+								<td>入库时间</td>
+							</tr>
+							<volist name="data" id="vo">
+							
+							<tr>
+								<td>{$vo.dwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.unitprice}</td>
+								<td>{$vo.quantity}</td>
+								<td>{$vo.sjquantity}</td>
+								<td>{$vo.kcquantity}</td>
+								<td>{$vo.datesh}</td>
+							</tr>
+							</volist>
+							</table>
+							</div>
+							</div>
+</body>
+</html>
+<include file="Public/footer" />

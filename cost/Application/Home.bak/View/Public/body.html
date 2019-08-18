@@ -1,0 +1,168 @@
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">余杭区邮政存货管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item">
+        <a href="javascript:;">控制台</a>
+        <dl class="layui-nav-child">
+          <if condition="$user.username eq jrywb">
+          	<if condition="$user.jrywbqx eq 1">
+          		<dd><a href="__URL__/jrywbqxsuc">0库存申请开放</a></dd>
+          	<else />
+          		<dd><a href="__URL__/jrywbqxerr">0库存申请关闭</a></dd>
+          	</if>
+          <else />
+          	
+          </if>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/ceshi">管理</a></li>
+      <li class="layui-nav-item"><a href="">用户管理</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="../../../../../HR/index.php/home/login/login">人力资源系统</a></dd>
+          <dd><a href="../../../../../jrhr/index.php/home/login/login">金融考核系统</a></dd>
+          <!--<dd><a href="../../../../../cost/index.php/home/login/login">费用分摊系统</a></dd>-->
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                      {$user.user}
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="__URL__/passwordedit">密码修改</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/logout">退了</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+      	<li class="layui-nav-item"><a href="__URL__/index">首页</a></li>
+        <if condition="$user.qx egt 8"><li class="layui-nav-item"><a href="__URL__/backlog">待办事项</a></li><else /></if>
+        
+        
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">产品请领管理</a><else /></if>
+          <dl class="layui-nav-child">
+          	
+            <dd><a href="__URL__/applyproduct">单位产品请领</a></dd>
+            <dd><a href="__URL__/applyproductmodify">产品请领数量修改</a></dd>
+            <dd><a href="__URL__/applyproductsearch">产品请领查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">产品出入库管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/dwoutbound">单位产品出库</a></dd>
+            <dd><a href="__URL__/dwoutboundmodify">单位产品出库修改</a></dd>
+            <dd><a href="__URL__/dwoutboundsearch">单位产品出库查询</a></dd>
+            <dd><a href="__URL__/applyproductconfirm">产品入库确认</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">产品调拨管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/dwoutallot">单位产品调拨出库</a></dd>
+            <dd><a href="__URL__/dwinallot">单位产品调拨入库</a></dd>
+            <dd><a href="__URL__/dwallotsearch">产品调拨出入库查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">库存管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/warehousereport">库存报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.jrywbqx eq 0 and $user.qx eq 5"><a class="" href="javascript:;">0库存产品申请</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/applyproductzero">0库存产品申请</a></dd>
+            <dd><a href="__URL__/applyproductzeromodify">0库存产品修改</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<if condition="$user.qx egt 8"><a class="" href="javascript:;">产品信息编辑</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/productadd">产品信息新增</a></dd>
+            <dd><a href="__URL__/productmodify">产品信息编辑</a></dd>
+            <dd><a href="__URL__/productsearch">产品信息查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">仓库信息编辑</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/warehouseadd">仓库信息新增</a></dd>
+            <dd><a href="__URL__/warehousemodify">仓库信息编辑</a></dd>
+            <dd><a href="__URL__/warehousemodify">仓库信息查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">产品入库操作</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/inbound">产品入库新增</a></dd>
+            <dd><a href="__URL__/inboundzero">0库存产品入库新增</a></dd>
+            <dd><a href="__URL__/inboundmodify">产品入库修改</a></dd>
+            <dd><a href="__URL__/inboundsearch">产品入库查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">产品确认操作</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/inboundsh">产品确认入库</a></dd>
+            <dd><a href="__URL__/applyproductsh">产品申请确认</a></dd>
+            <dd><a href="__URL__/outbound">产品确认出库</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">产品确认查询</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/inboundshsearch">产品确认入库查询</a></dd>
+            <dd><a href="__URL__/applyproductshsearch">产品申请确认查询</a></dd>
+            <dd><a href="__URL__/outboundsearch">产品确认出库查询</a></dd>
+            <dd><a href="__URL__/outboundsearchpt">产品出库查询（透视表）</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">产品发票管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/inboundbill">产品发票补足</a></dd>
+            <dd><a href="__URL__/inboundbill">产品发票冲正</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">产品库存管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/warehouseall">本部门产品库存报表</a></dd>
+            <dd><a href="__URL__/productall">本部门仓库库存报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 9"><a class="" href="javascript:;">财务报表</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/financereport">按单位财务报表</a></dd>
+            <dd><a href="__URL__/financereportall">按单位礼品报表</a></dd>
+            <dd><a href="__URL__/financewarehouse">按产品库存报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 9"><a class="" href="javascript:;">导出数据</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/tablepers">导出报表</a></dd>
+          </dl>
+        </li>
+        <!--<li class="layui-nav-item"><a href="__URL__/qingjiacounts">JSON数据测试</a></li>-->
+      </ul>
+    </div>
+  </div>
+  

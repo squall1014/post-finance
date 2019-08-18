@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    	
+    	<form class="layui-form" action="{:U('dwoutallots')}" method="get" style="width: 80%;">
+    		
+    		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				  <legend>{$dwname.user}</legend>
+				</fieldset>
+    		<table class="layui-table">
+    			<div class="layui-input-inline">
+    			<volist name="data" id="vo">
+    				<div class="layui-input-inline" style="margin: 5px;">
+		      	<input type="checkbox" name="{$vo.productid}" value="{$vo.productid}" title="{$vo.productname}">
+		      	</div>
+    			</volist>
+		     </div>
+      	</table>
+      	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				  <legend>请选择调拨的机构</legend>
+				</fieldset>
+				<table class="layui-table" style="width: 40%;">
+					<tr>
+         	 <th>机构名称</th>
+         	 <td>
+         	 	<select name="jgh" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="drr" id="vo">
+              <option value="{$vo.jgh}">{$vo.dwname}</option>
+             </volist>
+            </select>
+         	 </td>
+         </tr>
+				</table>
+      	<br />
+      	<br />
+      
+		  <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		  </div>
+		  
+      </form>
+      
+    </div>
+      
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

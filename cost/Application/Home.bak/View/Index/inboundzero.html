@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    			<table class="layui-table" style="text-align: center; width: 95%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								<td>请领数量</td>
+								<td>含税单价(元)</td>
+								<td>税率</td>
+								<td>发票编号</td>
+								<td>入库单号</td>
+								<td>操作</td>
+							</tr>
+							<volist name="cazrr" id="vo">
+							<form class="layui-form" name="formib" action="{:U('inboundzerosuc')}" method="post" style="width: 100%;">
+							<tr>
+								<input type="hidden" name="productid" value="{$vo.productid}">
+								<input type="hidden" name="quantity" value="{$vo.sumquantity}">
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td><a href="__URL__/inboundzeros/productid/{$vo.productid}"><font color="#CC0000">{$vo.productname}</font></a></td>
+								
+								<td>
+									<select name="warehouseid" lay-verify="required" lay-search>
+			         	 		<option value="1">渠道平台库</option>
+			         	 		<volist name="cwrr" id="vow">
+			              <option value="{$vow.warehouseid}">{$vow.warehouse}</option>
+			             </volist>
+			            </select>
+								</td>
+								<td>{$vo.sumquantity}</td>
+								<td><input type="text" name="unitprice" required lay-verify="required" value="" placeholder="请输入单价" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="vatprice" required lay-verify="required" value="" placeholder="请输入税率" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="vat" value="" placeholder="发票编号" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="inboundnum" value="" placeholder="请输入库单号" autocomplete="off" class="layui-input"></td>
+								<td><button class="layui-btn" lay-submit="" lay-filter="demo1">入库</button></td>
+							</tr>
+							</form>
+							</volist>
+		  		</table>
+</div> 
+</body>
+</html>
+<!--<include file="Public/footer" />-->

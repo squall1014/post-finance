@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    				<form class="layui-form" action="{:U('applyproductshs')}" method="post"  style="width: 90%;">
+    					<button class="layui-btn" lay-submit="" lay-filter="demo1">批量审批</button>
+    				</form>
+						<table class="layui-table" style="text-align: center; width: 80%;">
+					    <tr>
+								<td>申请部门</td>
+								<td>申请产品</td>
+								<td>产品仓库</td>
+								<td>申请数量</td>
+								<td>申请部门实际库存</td>
+								<td>申请日期</td>
+								<td>操作</td>
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<form action="{:U('applyproductshsuc')}" class="layui-form" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="applyid" value="{$vo.applyid}" />
+								<input type="hidden" name="remark" id="remark">
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.applydwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.warehouse}</td>
+								<td><input type="text" name="applyquantity" value="{$vo.applyquantity}" class="layui-input"></td>
+								<td>{$vo.sumkcapplyquantity}</td>
+								<td>{$vo.date}</td>
+								<td><input type="submit" name="shenhe" value="审核通过" class="layui-btn"><input type="submit" name="shenhe" value="作废" onclick="a{$vo.applyid}()" class="layui-btn layui-btn-danger"></td>
+								<script type="text/javascript">
+							      function a{$vo.applyid}(){
+							      	var remark = prompt("作废申请单的原因是","");
+							      	//var password = prompt('请输入密码',"");
+							      	document.getElementById('remark').value = remark;
+							      	
+							      }
+							</script>
+								</form>
+							</tr>
+							
+							</volist>
+					  </table>
+  	</div>
+
+<!--底部-->
+<include file="Public/footer" />

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>网点村社数据分析</h1></div>
+    
+    <h2>网点村社数据分析</h2>
+    
+    <hr class="layui-bg-red">
+        <table class="layui-table" style="width: 100%">
+          <colgroup>
+            <col width="200">
+            <col width="80">
+            <col width="120">
+            <col width="120">
+            <col width="80">
+            <col width="120" />
+            <col width="120">
+            <col width="120">
+            <col width="120">
+            <col width="80">
+            <col width="120">
+            <col width="120">
+          </colgroup>
+          <thead>
+        	<tr>
+        		<th>汇总</th>
+        	</tr>
+        	</thead>
+        	<thead>
+        	<tr>
+        		<th>机构名称</th>
+        		<th>村社名称</th>
+        		<th>客户数</th>
+        		<th>新增余额</th>
+        		<th>新增定期</th>
+        		<th>客户数</th>
+        		<th>流失余额</th>
+        		<th>流失定期</th>
+        		<th>总存量</th>
+        		<th>总存量定期</th>
+        		<th>客户数</th>
+        		<th>总余额</th>
+        		<th>总定期</th>
+        	</tr>
+        	</thead>
+        	<volist name="collect" id="vo">
+        		<tr>
+        			<td>{$vo.dwname}</td>
+        			<td>{$vo.cs}</td>
+        			<td>{$vo.upcountjgh}</td>
+        			<td>{$vo.upzyue}</td>
+        			<td>{$vo.updingqi}</td>
+        			<td>{$vo.downcountjgh}</td>
+        			<td>{$vo.downzyue}</td>
+        			<td>{$vo.downdingqi}</td>
+        			<td>{$vo.clyue}</td>
+        			<td>{$vo.cldingqi}</td>
+        			<td>{$vo.countjgh}</td>
+        			<td>{$vo.sumzyue}</td>
+        			<td>{$vo.sumdingqi}</td>
+        		</tr>
+        	</volist>
+        	<!--<tr>
+        		<td>总计</td>
+        		<td>{$collects.upcountjgh}</td>
+        		<td>{$collects.upzyue}</td>
+        		<td>{$collects.updingqi}</td>
+        		<td>{$collects.downcountjgh}</td>
+        		<td>{$collects.downzyue}</td>
+        		<td>{$collects.downdingqi}</td>
+        		<td>{$collects.clyue}</td>
+        		<td>{$collects.cldingqi}</td>
+        		<td>{$collects.countjgh}</td>
+        		<td>{$collects.sumzyue}</td>
+        		<td>{$collects.sumdingqi}</td>
+        	</tr>-->
+        </table>
+        <form action="{:U('csdl')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">立即导出</button>
+        </form>
+  </div>
+<!--底部-->
+<include file="Public/footer" />
