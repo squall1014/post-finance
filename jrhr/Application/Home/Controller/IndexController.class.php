@@ -2419,7 +2419,141 @@ class IndexController extends Controller {
 		$this->assign('data',$jer);
 		$this->display();
 	}
-	
+	public function jrtenthouinfooldups(){
+    	$files = $_FILES['exl'];
+    	$upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     209715200 ;// 设置附件上传大小
+        $upload->exts      =     array('xls','xlsx','csv','txt');// 设置附件上传类型
+        $upload->rootPath  =     './Public/Uploads/'; // 设置附件上传根目录
+        $upload->savePath  =     'EXCEL/'; //设置附件上传（子）目录
+        //$upload->subName   =     array('date', 'Ym');
+        $upload->subName   =     '';
+        // 上传文件  
+		$info   =   $upload->upload();
+		
+        $file_name =  $upload->rootPath.$info['exl']['savepath'].$info['exl']['savename'];
+        $handle = fopen ( $file_name, 'r' );
+        //去表头，取第一行开始；
+//      var_dump($file_name);
+        $i = 0;
+		$z = 0;
+		$tenthou = $_POST['tenthou'];
+        // $cust = M('jrclienttenthouold');
+        while($data = fgets($handle)){
+			$data = explode("\t",iconv('gbk','utf-8',$data));
+			if(trim($data[4]) < $tenthou){
+				
+				continue;
+				
+			}else{
+				$arr[$z]['jgh'] = $data[0];
+				$arr[$z]['sfz'] = $data[2];
+				$arr[$z]['zyue'] = $data[4];
+				$arr[$z]['huoqi'] = $data[5];
+				$arr[$z]['dingqi'] = $data[6];
+				$arr[$z]['jghsfz'] = $data[0].$data[2];
+	        	$i = $i + 1;
+	        	$z = $z + 1;
+			}
+			
+        	// if($i == 0){
+        		
+        	// 	$i = $i + 1;
+        		
+        	// }else{
+        		
+        	// 	// $data = explode("\t",iconv('gbk','utf-8',$data));
+			// 	$arr[$z]['jgh'] = $data[0];
+			// 	$arr[$z]['sfz'] = $data[2];
+			// 	$arr[$z]['zyue'] = $data[4];
+			// 	$arr[$z]['huoqi'] = $data[5];
+			// 	$arr[$z]['dingqi'] = $data[6];
+			// 	$arr[$z]['jghsfz'] = $data[0].$data[2];
+	        // 	$i = $i + 1;
+	        // 	$z = $z + 1;
+			// }
+			
+        	if($z == 700){
+        		$custr = $cust -> addall($arr);
+        		unset($arr);
+        		$z = 0;
+        	}
+		}
+		var_dump($arr);
+        // $custrr = $cust -> addall($arr);
+        // $custr = $custr + $custrr;
+        
+        // if($custr > 0){
+        // 	$this->success('数据导入成功');
+		// }
+	}
+		public function jrtenthouinfoups(){
+			$files = $_FILES['exl'];
+			$upload = new \Think\Upload();// 实例化上传类
+			$upload->maxSize   =     209715200 ;// 设置附件上传大小
+			$upload->exts      =     array('xls','xlsx','csv','txt');// 设置附件上传类型
+			$upload->rootPath  =     './Public/Uploads/'; // 设置附件上传根目录
+			$upload->savePath  =     'EXCEL/'; //设置附件上传（子）目录
+			//$upload->subName   =     array('date', 'Ym');
+			$upload->subName   =     '';
+			// 上传文件  
+			$info   =   $upload->upload();
+			
+			$file_name =  $upload->rootPath.$info['exl']['savepath'].$info['exl']['savename'];
+			$handle = fopen ( $file_name, 'r' );
+			//去表头，取第一行开始；
+	//      var_dump($file_name);
+			$i = 0;
+			$z = 0;
+			$tenthou = $_POST['tenthou'];
+			$cust = M('jrclienttenthou');
+			while($data = fgets($handle)){
+				$data = explode("\t",iconv('gbk','utf-8',$data));
+				if(trim($data[4]) < $tenthou){
+					
+					continue;
+					
+				}else{
+					$arr[$z]['jgh'] = $data[0];
+					$arr[$z]['sfz'] = $data[2];
+					$arr[$z]['zyue'] = $data[4];
+					$arr[$z]['huoqi'] = $data[5];
+					$arr[$z]['dingqi'] = $data[6];
+					$arr[$z]['jghsfz'] = $data[0].$data[2];
+					$i = $i + 1;
+					$z = $z + 1;
+				}
+				
+				// if($i == 0){
+					
+				// 	$i = $i + 1;
+					
+				// }else{
+					
+				// 	// $data = explode("\t",iconv('gbk','utf-8',$data));
+				// 	$arr[$z]['jgh'] = $data[0];
+				// 	$arr[$z]['sfz'] = $data[2];
+				// 	$arr[$z]['zyue'] = $data[4];
+				// 	$arr[$z]['huoqi'] = $data[5];
+				// 	$arr[$z]['dingqi'] = $data[6];
+				// 	$arr[$z]['jghsfz'] = $data[0].$data[2];
+				// 	$i = $i + 1;
+				// 	$z = $z + 1;
+				// }
+				
+				if($z == 700){
+					$custr = $cust -> addall($arr);
+					unset($arr);
+					$z = 0;
+				}
+			}
+			$custrr = $cust -> addall($arr);
+			$custr = $custr + $custrr;
+			
+			if($custr > 0){
+				$this->success('数据导入成功');
+			}
+	}
 
 
 

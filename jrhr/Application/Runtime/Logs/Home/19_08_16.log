@@ -13,3 +13,32 @@ ERR: 非法操作:jgh
 [ 2019-08-16T10:07:33+08:00 ] ::1 /jrhr/index.php/Home/Index/jgh/64/date/
 ERR: 非法操作:jgh
 
+[ 2019-08-16T17:15:19+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfoup
+ERR: syntax error, unexpected 'public' (T_PUBLIC), expecting end of file
+
+[ 2019-08-16T17:15:22+08:00 ] ::1 /jrhr/index.php/Home/Index/jraccountinfoclean
+ERR: syntax error, unexpected 'public' (T_PUBLIC), expecting end of file
+
+[ 2019-08-16T17:15:24+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfoup
+ERR: syntax error, unexpected 'public' (T_PUBLIC), expecting end of file
+
+[ 2019-08-16T17:19:41+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfooldups.html
+ERR: 1146:Table 'posthr.hr_jrclienttenthouold' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jrclienttenthouold`
+
+[ 2019-08-16T17:21:22+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfooldups.html
+ERR: 1146:Table 'posthr.hr_jrclienttenthouold' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jrclienttenthouold`
+
+[ 2019-08-16T17:24:58+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfooldups.html
+ERR: 1146:Table 'posthr.hr_jrclienttenthouold' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jrclienttenthouold`
+
+[ 2019-08-16T17:25:56+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfooldups.html
+ERR: 1146:Table 'posthr.hr_jrclienttenthouold' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jrclienttenthouold`
+
+[ 2019-08-16T17:26:01+08:00 ] ::1 /jrhr/index.php/Home/Index/jrtenthouinfooldups.html
+ERR: 1146:Table 'posthr.hr_jrclienttenthouold' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `hr_jrclienttenthouold`
+

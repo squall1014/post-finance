@@ -82,17 +82,17 @@
           </dl>
         </li>
         <li class="layui-nav-item">
-        	<a class="" href="javascript:;">日爆点午巡活动管理分析</a>
+        	<a class="" href="javascript:;">每日午巡活动管理分析</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdate/activecontentid/1">日爆点午巡活动日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdatefw/activecontentid/1">日爆点午巡活动统计报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdate/activecontentid/1">每日午巡活动日报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdatefw/activecontentid/1">每日午巡活动统计报表</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
-        	<a class="" href="javascript:;">日爆点日终活动管理分析</a>
+        	<a class="" href="javascript:;">每日日终活动管理分析</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdate/activecontentid/2">日爆点日终活动日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdatefw/activecontentid/2">日爆点日终活动统计报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdate/activecontentid/2">每日日终活动日报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jractivedwdatefw/activecontentid/2">每日日终活动统计报表</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -100,6 +100,13 @@
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Index/jractivebxdate/activecontentid/3">厅堂联动及网沙上报日报表</a></dd>
             <dd><a href="/jrhr/index.php/Home/Index/jractivebxdatefw/activecontentid/3">厅堂联动及网沙上报统计报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<a class="" href="javascript:;">万上客户情况统计</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoup">开户信息上传</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jraccountinfoclean">开户信息清空</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">

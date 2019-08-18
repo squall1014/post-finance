@@ -100,6 +100,7 @@
             <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/3">厅堂联动及网沙审核</a></dd>
           </dl>
        </li>
+       
        <li class="layui-nav-item">
         	<a class="" href="javascript:;">白名单客户管理</a>
           <dl class="layui-nav-child">
