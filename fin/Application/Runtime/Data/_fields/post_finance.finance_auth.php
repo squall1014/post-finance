@@ -1,0 +1,1 @@
+a:8:{i:0;s:6:"authid";i:1;s:4:"auth";i:2;s:3:"exp";i:3;s:6:"beizhu";i:4;s:5:"stats";i:5;s:4:"sort";s:3:"_pk";s:6:"authid";s:5:"_type";a:6:{s:6:"authid";s:8:"int(255)";s:4:"auth";s:12:"varchar(100)";s:3:"exp";s:12:"varchar(100)";s:6:"beizhu";s:12:"varchar(100)";s:5:"stats";s:11:"varchar(11)";s:4:"sort";s:8:"int(100)";}}
