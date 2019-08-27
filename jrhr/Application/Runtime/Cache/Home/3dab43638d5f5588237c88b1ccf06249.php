@@ -106,6 +106,7 @@
         	<a class="" href="javascript:;">万上客户情况统计</a>
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoup">开户信息上传</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jrtenthoupt">万元客户情况统计</a></dd>
             <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoclean">开户信息清空</a></dd>
           </dl>
         </li>
@@ -141,40 +142,38 @@
       </ul>
     </div>
   </div>
+
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <div style="padding: 15px;"><h1>开户信息上传</h1></div>
-    
-    <h2>万上客户信息前上传</h2>
-    
-    <hr class="layui-bg-red">
-        <form action="<?php echo U('jrtenthouinfooldups');?>" enctype="multipart/form-data" method="post" class="layui-form">
-        <div class="layui-card" style="width: 10%;">
-        <input type="file" name="exl" />
-        <br />
-        <br />
-        <input type="text" name="tenthouold" id=""  required lay-verify="number" placeholder="请输入客户存款金额" autocomplete="off" class="layui-input">
-        <br />
-         <button class="layui-btn" lay-submit lay-filter="formDemo">信息上传</button>
-        </div>
+    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>按网点万上客户统计</legend>
+    </fieldset>
+    <div class="layui-card-body">
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 40%">
+         	<tr>
+         		<th style="text-align:center;">网点</th>
+            <th style="text-align:center;">范围前统计</th>
+            <th style="text-align:center;">范围后统计</th>
+            <th style="text-align:center;">范围差</th>
+         	</tr>
+         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
+             <th style="text-align:center;"><?php echo ($vo["counto"]); ?></th>
+             <th style="text-align:center;"><?php echo ($vo["count"]); ?></th>
+             <th style="text-align:center;"><?php echo ($vo["countc"]); ?></th>
+         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:100px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
         </form>
-        <br />
-        <br />
-    <h2>万上客户信息后上传</h2>
-    
-    <hr class="layui-bg-red">
-        <form action="<?php echo U('jrtenthouinfoups');?>" enctype="multipart/form-data" method="post" class="layui-form" >
-        <div class="layui-card" style="width: 10%;">
-        <input type="file" name="exl" />
-        <br /><br />
-        <input type="text" name="tenthou" id=""  required lay-verify="" placeholder="请输入客户存款金额" autocomplete="off" class="layui-input">
-        <br /><br />
-         <button class="layui-btn" lay-submit lay-filter="formDemo">信息上传</button>
-        </div>
-        </form>
-        <br />
-        <br />
-
+      </div>
   </div>
 <!--底部-->
   <div class="layui-footer">

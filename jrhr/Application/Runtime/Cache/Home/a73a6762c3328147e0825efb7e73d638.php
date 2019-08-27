@@ -106,6 +106,7 @@
         	<a class="" href="javascript:;">万上客户情况统计</a>
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoup">开户信息上传</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jrtenthoupt">万元客户情况统计</a></dd>
             <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoclean">开户信息清空</a></dd>
           </dl>
         </li>
@@ -145,36 +146,25 @@
     <!-- 内容主体区域 -->
     <div style="padding: 15px;"><h1>开户信息上传</h1></div>
     
-    <h2>万上客户信息前上传</h2>
+    
+    <h2>万上客户信息前清空</h2>
     
     <hr class="layui-bg-red">
-        <form action="<?php echo U('jrtenthouinfooldups');?>" enctype="multipart/form-data" method="post" class="layui-form">
-        <div class="layui-card" style="width: 10%;">
-        <input type="file" name="exl" />
-        <br />
-        <br />
-        <input type="text" name="tenthouold" id=""  required lay-verify="number" placeholder="请输入客户存款金额" autocomplete="off" class="layui-input">
-        <br />
-         <button class="layui-btn" lay-submit lay-filter="formDemo">信息上传</button>
-        </div>
+        <form action="<?php echo U('jrtenthouinfooldcleans');?>" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">信息清空</button>
         </form>
         <br />
         <br />
-    <h2>万上客户信息后上传</h2>
+    <h2>万上客户信息后清空</h2>
     
     <hr class="layui-bg-red">
-        <form action="<?php echo U('jrtenthouinfoups');?>" enctype="multipart/form-data" method="post" class="layui-form" >
-        <div class="layui-card" style="width: 10%;">
-        <input type="file" name="exl" />
-        <br /><br />
-        <input type="text" name="tenthou" id=""  required lay-verify="" placeholder="请输入客户存款金额" autocomplete="off" class="layui-input">
-        <br /><br />
-         <button class="layui-btn" lay-submit lay-filter="formDemo">信息上传</button>
-        </div>
+        <form action="<?php echo U('jrtenthouinfocleans');?>" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">信息清空</button>
         </form>
         <br />
         <br />
-
   </div>
 <!--底部-->
   <div class="layui-footer">

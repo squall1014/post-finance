@@ -10,25 +10,25 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>按机构网点白名单统计</legend>
+			<legend>按网点万上客户统计</legend>
     </fieldset>
     <div class="layui-card-body">
         <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
          <table class="layui-table" lay-size="" style="width: 40%">
          	<tr>
          		<th style="text-align:center;">网点</th>
-         		<th style="text-align:center;">数量</th>
+            <th style="text-align:center;">范围前统计</th>
+            <th style="text-align:center;">范围后统计</th>
+            <th style="text-align:center;">范围差</th>
          	</tr>
-         	<volist name="jwrr" id="vo">
+         	<volist name="data" id="vo">
          	<tr>
-         		<th style="text-align:center;"><a href="__URL__/jrwhitedwdatedetail/jgh/{$vo.jgh}/date/{$date.date}/dates/{$date.dates}">{$vo.dwname}</th>
-         		<th style="text-align:center;">{$vo.countid}</th>
+         		<th style="text-align:center;">{$vo.dwname}</th>
+             <th style="text-align:center;">{$vo.counto}</th>
+             <th style="text-align:center;">{$vo.count}</th>
+             <th style="text-align:center;">{$vo.countc}</th>
          	</tr>
          	</volist>
-					<tr>
-						<th style="text-align:center;"><a href="__URL__/jrwhitedwdatedetail/date/{$date.date}/dates/{$date.dates}">总计</a></th>
-						<th style="text-align:center;">{$count}</th>
-					</tr>
          </table>
          <br />
          <div class="layui-form-item" style="margin-left:100px;">

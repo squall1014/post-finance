@@ -2437,8 +2437,8 @@ class IndexController extends Controller {
 //      var_dump($file_name);
         $i = 0;
 		$z = 0;
-		$tenthou = $_POST['tenthou'];
-        // $cust = M('jrclienttenthouold');
+		$tenthou = $_POST['tenthouold'];
+        $cust = M('jrclienttenthouold');
         while($data = fgets($handle)){
 			$data = explode("\t",iconv('gbk','utf-8',$data));
 			if(trim($data[4]) < $tenthou){
@@ -2479,13 +2479,13 @@ class IndexController extends Controller {
         		$z = 0;
         	}
 		}
-		var_dump($arr);
-        // $custrr = $cust -> addall($arr);
-        // $custr = $custr + $custrr;
+		// var_dump($arr);
+        $custrr = $cust -> addall($arr);
+        $custr = $custr + $custrr;
         
-        // if($custr > 0){
-        // 	$this->success('数据导入成功');
-		// }
+        if($custr > 0){
+        	$this->success('数据导入成功');
+		}
 	}
 		public function jrtenthouinfoups(){
 			$files = $_FILES['exl'];
@@ -2547,6 +2547,7 @@ class IndexController extends Controller {
 					$z = 0;
 				}
 			}
+			// var_dump($arr);
 			$custrr = $cust -> addall($arr);
 			$custr = $custr + $custrr;
 			
@@ -2554,8 +2555,57 @@ class IndexController extends Controller {
 				$this->success('数据导入成功');
 			}
 	}
+	public function jrtenthoupt(){
+		$jto = M('jrclienttenthouold');
 
+		$jtor = $jto -> field('jgh,count(sfz) as counto') -> group('jgh') -> select();
 
+		$jt = M('jrclienttenthou');
+
+		$jtr = $jt -> field('jgh,count(sfz) as count') -> group('jgh') -> select();
+
+		$jd = M('jrdanwei');
+
+		$jdr = $jd -> where("jiagou = 'A1'") -> select();
+
+		foreach($jdr as &$value){
+
+			foreach($jtor as &$val){
+
+				if($value['dwnames'] == $val['jgh']){
+
+					$value['counto'] = $val['counto'];
+					break;
+				}
+			}
+		}
+
+		foreach($jdr as &$value){
+
+			foreach($jtr as &$val){
+
+				if($value['dwnames'] == $val['jgh']){
+
+					$value['count'] = $val['count'];
+					$value['countc'] = $value['counto'] - val['count'];
+					break;
+				}
+			}
+		}
+
+		$this->assign('data',$jdr);
+		$this->display();
+	}
+	public function jrtenthouinfooldcleans(){
+		$p=D('');
+    	$p->execute("truncate table hr_jrclienttenthouold");
+    	$this->success('数据已清空，请继续操作');
+	}
+	public function jrtenthouinfocleans(){
+		$p=D('');
+    	$p->execute("truncate table hr_jrclienttenthou");
+    	$this->success('数据已清空，请继续操作');
+	}
 
 
     

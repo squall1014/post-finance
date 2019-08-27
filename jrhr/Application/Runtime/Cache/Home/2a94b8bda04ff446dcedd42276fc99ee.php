@@ -106,7 +106,7 @@
         	<a class="" href="javascript:;">万上客户情况统计</a>
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoup">开户信息上传</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Index/jraccountinfoclean">开户信息清空</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Index/jrtenthouinfoclean">开户信息清空</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
