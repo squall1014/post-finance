@@ -141,30 +141,66 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">丽水市金融积分考核系统</div></h1>
     
-    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>积分审核开放期限设置</legend>
-			</fieldset>
-    	<form class="layui-form layui-form-pane" action="<?php echo U('jrpointshtimes');?>" method="post">
-    		<input type="hidden" value="<?php echo ($dwnameid); ?>" name="dwnameid">
-    		<div class="layui-form-item" style="margin-left:50px;">
-			    <div class="layui-inline">
-			      <label class="layui-form-label">天数(1-10)</label>
-			      <div class="layui-input-block">
-			      	<!-- <input type="hidden" name="dateauthid" value="<?php echo ($data[0]['dateauthid']); ?>" /> -->
-			        <input type="text" name="dateauth" lay-verify="number" value="<?php echo ($drr['dateauth']); ?>" autocomplete="off" class="layui-input">
-			      </div>
-			    </div>
-    		</div>
-    		<br />
-    		<br />
-    		<div class="layui-form-item" style="margin-left:50px;">
+    <br />
+    <div class="layui-card-body">
+        <form action="<?php echo U('persmodifysuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="">
+         	<input type="hidden" name="id" value="<?php echo ($data['id']); ?>">
+         	<tr>
+         	 <th>单位</th>
+         	 <td>
+         	 	<select name="dwname" lay-verify="required" lay-search>
+         	 		<option value="<?php echo ($data['dwnameid']); ?>"><?php echo ($data['dwname']); ?></option>
+         	 		<?php if(is_array($drr)): $i = 0; $__LIST__ = $drr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["dwnameid"]); ?>"><?php echo ($vo["dwname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th>职务</th>
+         	 <td>
+         	 	<select name="zhiwu" lay-verify="required" lay-search>
+         	 		<option value="<?php echo ($data['zhiwuid']); ?>"><?php echo ($data['zhiwu']); ?></option>
+         	 		<?php if(is_array($zrr)): $i = 0; $__LIST__ = $zrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["zhiwuid"]); ?>"><?php echo ($vo["zhiwu"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th>工种</th>
+         	 <td>
+         	 	<select name="gongzhong" lay-verify="required" lay-search >
+         	 		<option value="<?php echo ($data['gongzhongid']); ?>"><?php echo ($data['gongzhong']); ?></option>
+         	 		<?php if(is_array($grr)): $i = 0; $__LIST__ = $grr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["gongzhongid"]); ?>"><?php echo ($vo["gongzhong"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th>调动说明</th>
+         	 	<td><input type="text" name="beizhu" placeholder="请输入调动说明" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<tr>
+         	 <th>员工姓名</th>
+         	 <td><input type="text" name="persname" value="<?php echo ($data['persname']); ?>" required lay-verify="required" placeholder="请输入员工姓名" autocomplete="off" class="layui-input"> </td>
+         	 <th>人力编号</th>
+         	 <td><input type="text" name="gonghao" value="<?php echo ($data['gonghao']); ?>" required lay-verify="number" placeholder="请输入人力编号" autocomplete="off" class="layui-input"></td>
+         	 <th>调动日期</th>
+         	 <td>
+         	 	<input type="text" name="date" id="date" placeholder="请点击选择日期" autocomplete="off" required lay-verify="" class="layui-input">
+         	 </td>
+         	 <th>员工状态</th>
+         	 <td>
+         	 	<select name="stats" lay-verify="required" id="stats" lay-search >
+         	 		<option value="0">在岗</option>
+              <option value="2">待岗、离岗</option>
+              <option value="1">离职</option>
+             	</volist>
+            </select>
+         	 </td>
+         	 	</tr>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
            <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">数据重置</button>
            </div>
          </div>
-      </form>
+        </form>
   </div>
-  
+  </div>
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

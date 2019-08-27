@@ -609,7 +609,7 @@ class IndexController extends Controller {
 		$bl = M('bonuslist');
 		$data = $bl -> where("bonuslistid = '$bonuslistid'") -> select();
 
-		$d = M('danwei');
+		$d = M('danwei');
 		$drr = $d -> select();
 
 		foreach($data as &$value){

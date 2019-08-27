@@ -257,13 +257,18 @@ class AdminController extends Controller {
     public function jrpointupmodify(){
 		$dwname = cookie('dwname');
 		$where['districtid'] = $dwname['districtid'];
-    	$dateauth = M('dateauth');
-    	$dauth = $dateauth -> where($where) -> find();
-    	$y = $dauth['dateauth'];
+		$jgh['dwnameid'] = $dwname['jgh'];
+    	// $dateauth = M('dateauth');
+    	// $dauth = $dateauth -> where($where) -> find();
+		// $y = $dauth['dateauth'];
+		
+		$d = M('danwei');
+		$drr = $d -> where($jgh) -> select();
+		$y = $drr[0]['dateauth'];
     	for($i = $y-1; $i >= 0; $i--){
     		$date[]['date'] = date('Y-m-d',mktime(0,0,0,date("m"),date("d")-$i,date("Y")));
     	}
-		// var_dump($dauth);
+		// var_dump($dwname,$y);
 		$this->assign('data',$date);
 		$this->display();
     }
@@ -303,11 +308,12 @@ class AdminController extends Controller {
     	}
     }
     public function jrpointupsh(){
-    	$dateauth = M('dateauth');
     	$dwname = cookie('dwname');
     	$where['districtid'] = $dwname['districtid'];
-    	$dauth = $dateauth -> where($where) -> find();
-    	$y = $dauth['dateauth'];
+    	$jgh['dwnameid'] = $dwname['jgh'];
+		$d = M('danwei');
+		$drr = $d -> where($jgh) -> select();
+		$y = $drr[0]['dateauth'];
     	for($i = $y-1; $i >= 0; $i--){
     		$date[]['date'] = date('Y-m-d',mktime(0,0,0,date("m"),date("d")-$i,date("Y")));
     	}
