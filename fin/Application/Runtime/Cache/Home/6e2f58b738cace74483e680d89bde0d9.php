@@ -167,7 +167,7 @@
 			<label class="layui-form-label">分值类型</label>
 			<div class="layui-input-block">
 				<select name="point_sum" id="point_sum" lay-verify="required" lay-search>
-					<option value="score">业绩</option>
+					<option value="point">业绩</option>
 					<option value="sum">总分</option>
 				</select>
 			</div>
