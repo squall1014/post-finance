@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinshesis')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险客户犹豫期操作</font>
+        	</div>
+        <div class="layui-card-body">
+        
+         <table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+					    	<td>姓名</td>
+								<td>购买险种</td>
+								<td>保险公司</td>
+								<td>缴费方式</td>
+								<td>最低退保</td>
+								<td>投保金额</td>
+								<td>出单渠道</td>
+								<td>促成方式</td>
+								<td>投保日期</td>
+								<td>到期日期</td>
+								<td>销售人员</td>
+								<td>操作</td>
+							</tr>
+							<volist name="irr" id="vo">
+							<tr>
+								<td>{$vo.client}</td>
+								<td>{$vo.type}</td>
+								<td>{$vo.insurance}</td>
+								<td>{$vo.payment}年</td>
+								<td>{$vo.duration}年</td>
+								<td>{$vo.money}万</td>
+								<td>{$vo.channels}</td>
+								<td>{$vo.facilitates}</td>
+								<td>{$vo.insdate}</td>
+								<td>{$vo.insdates}</td>
+								<td>{$vo.service}({$vo.percentages})|{$vo.servicebak}({$vo.percentagebaks})</td>
+								<td><a href="__URL__/clientinshesiconfirm/recordid/{$vo.recordid}"><font color="#BB0000">退保</font></a></td>
+							</tr>
+							</volist>
+					  </table>
+         </div>
+         </div>
+         <br />
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+
+	
+</script>
+<!--底部-->
+</body>
+</html>

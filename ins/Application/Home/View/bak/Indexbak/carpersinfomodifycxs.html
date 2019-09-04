@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>车险客户信息修改</h1></div>
+    <div style="padding: 10px;">
+    <h2>修改</h2>
+    </div>
+    <hr class="layui-bg-red">
+        <form action="{:U('carpersinfomodifycxssuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="">
+         	<input type="hidden" name="id" value="{$crr.id}">
+         	<tr>
+         	 <th>单位</th>
+         	 <td>
+         	 	<select name="dwname" lay-verify="required" lay-search>
+         	 		<option value="{$crr.dwname}">{$crr.dwname}</option>
+         	 		<volist name="dwname" id="vo">
+              <option value="{$vo.jgh}">{$vo.dwname}</option>
+             </volist>
+            </select>
+         	 </td>
+         	</tr>
+         	<tr>
+         	 <th>业务员</th>
+         	 <td><input type="text" name="ywy" value="{$crr.ywy}" required lay-verify="required" placeholder="请输入业务员姓名" autocomplete="off" class="layui-input"> </td>
+         	 <th>联系电话</th>
+         	 <td><input type="text" name="ywyphone" value="{$crr.ywyphone}" lay-verify="" placeholder="请输入业务员电话" autocomplete="off" class="layui-input"> </td>
+         	 <th>客户姓名</th>
+         	 <td><input type="text" name="kh" value="{$crr.kh}" required lay-verify="required" placeholder="请输入客户姓名" autocomplete="off" class="layui-input"> </td>
+         	 <th>联系电话</th>
+         	 <td><input type="text" name="khphone" value="{$crr.khphone}" lay-verify="" placeholder="请输入客户电话" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<tr>
+         		<th>车牌</th>
+         		<td><input type="text" name="chepai" value="{$crr.chepai}" required lay-verify="required" placeholder="浙A" autocomplete="off" class="layui-input"></td>
+         		<th>交强险</th>
+         		<td><input type="text" name="jqx" value="{$crr.jqx}" required lay-verify="required" placeholder="请输入交强险" autocomplete="off" class="layui-input"></td>
+         		<th>车船税</th>
+         		<td><input type="text" name="ccs" value="{$crr.ccs}" required lay-verify="required" placeholder="请输入车船税" autocomplete="off" class="layui-input"></td>
+         		<th>商业险</th>
+         		<td><input type="text" name="syx" value="{$crr.syx}" required lay-verify="required" placeholder="请输入商业险" autocomplete="off" class="layui-input"></td>
+         	</tr>
+         	<tr>
+         		<th>保险到期日</th>
+         		<td><input type="text" name="bxdq" id="dates" value="{$crr.bxdq}" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input"></td>
+         		<th>投保保险公司</th>
+         		<td>
+         			<select name="insur" lay-verify="required" lay-search>
+         	 		<option value="{$crr.insur}">{$crr.insur}</option>
+         	 		<volist name="insur" id="vo">
+              <option value="{$vo.id}">{$vo.name}</option>
+             </volist>
+            </select>
+         		</td>
+         		<th>基础返点百分比</th>
+         		<td>
+         			<select name="rebate" lay-verify="required" lay-search>
+         	 		<option value="{$crr.rebate}">{$crr.rebate}</option>
+         	 		<volist name="rebate" id="vo">
+              <option value="{$vo.rebate}">{$vo.rebates}%</option>
+             </volist>
+            </select>
+         		</td>
+         		<th>保险公司返点百分比</th>
+         		<td>
+         			<select name="irebate" lay-verify="required" lay-search>
+         	 		<option value="{$crr.irebate}">{$crr.irebate}</option>
+         	 		<volist name="rebate" id="vo">
+              <option value="{$vo.rebate}">{$vo.rebates}%</option>
+             </volist>
+            </select>
+         		</td>
+         		</tr>
+         </table>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

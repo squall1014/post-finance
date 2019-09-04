@@ -1,0 +1,133 @@
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">邮政保险理财客户管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item">
+        <a href="javascript:;">控制台</a>
+        <dl class="layui-nav-child">
+        	<!--管理部门权限设置-->
+          <if condition="$user.username eq jrywb">
+          	<if condition="$user.jrywbqx eq 1">
+          		
+          	<else />
+          	
+          	</if>
+          <else />
+          	
+          </if>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/ceshi">管理</a></li>
+      <li class="layui-nav-item"><a href="">用户管理</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="../../../../../jrhr/index.php/home/login/login">金融考核系统</a></dd>
+          <!--<dd><a href="../../../../../cost/index.php/home/login/login">费用分摊系统</a></dd>-->
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                      {$user.user}
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="__URL__/passwordedit">密码修改</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="__URL__/logout">退了</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+      	<li class="layui-nav-item"><a href="__URL__/index">首页</a></li>
+        <if condition="$user.qx egt 8"><li class="layui-nav-item"><a href="__URL__/backlog">待办事项</a></li><else /></if>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">客户信息管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/clientinfoadd">客户信息新增</a></dd>
+            <dd><a href="__URL__/clientinfosearch">客户信息查询</a></dd>
+          </dl>
+        </li>
+        
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">保险客户管理</a><else /></if>
+          <dl class="layui-nav-child">
+          	
+            <dd><a href="__URL__/clientinfoadd">保险客户新增</a></dd>
+            <dd><a href="__URL__/clientinssearch">保险客户查询</a></dd>
+            <dd><a href="__URL__/clientinsreport">保险客户报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">保险客户操作管理</a><else /></if>
+          <dl class="layui-nav-child">
+          	
+            <dd><a href="__URL__/clientinshesi">保险客户犹豫期退保</a></dd>
+            <dd><a href="__URL__/clientinsadv">保险客户中途退保</a></dd>
+            <dd><a href="__URL__/clientinsexp">保险客户满期给付</a></dd>
+            <dd><a href="__URL__/clientinsdel">保险客户信息删除</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">保险白名单客户</a><else /></if>
+          <dl class="layui-nav-child">
+          	
+            <dd><a href="__URL__/clientinswhiteadd">保险白名单客户新增</a></dd>
+            <dd><a href="__URL__/clientinswhitesearch">保险白名单客户查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">理财客户管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/clientfinadd">理财客户新增</a></dd>
+            <dd><a href="__URL__/clientfinsearch">理财客户查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">2019年前帐套</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/clientoldrecord">老资料-没事儿别点</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<if condition="$user.qx egt 8"><a class="" href="javascript:;">基础信息编辑</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/refundedit">资金去向信息编辑</a></dd>
+            <dd><a href="__URL__/channeledit">渠道信息编辑</a></dd>
+            <dd><a href="__URL__/facilitateedit">促成方式信息编辑</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<if condition="$user.qx egt 8"><a class="" href="javascript:;">保险产品信息编辑</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/insuranceedit">保险产品信息编辑</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+        	<if condition="$user.qx egt 8"><a class="" href="javascript:;">保险产品信息报表</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/inswdreport">按网点取数报表</a></dd>
+            <dd><a href="__URL__/inspersreport">按员工取数报表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx egt 8"><a class="" href="javascript:;">保险客户信息报表</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/insclientreport">保险客户报表按投保日</a></dd>
+            <dd><a href="__URL__/tablepers">保险客户报表按到期日</a></dd>
+          </dl>
+        </li>
+        <!--<li class="layui-nav-item"><a href="__URL__/qingjiacounts">JSON数据测试</a></li>-->
+      </ul>
+    </div>
+  </div>
+  

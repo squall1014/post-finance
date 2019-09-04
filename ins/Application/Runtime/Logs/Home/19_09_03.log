@@ -1,0 +1,12 @@
+[ 2019-09-03T11:23:08+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhitesearch
+ERR: Think\Model:wehre方法不存在！
+
+[ 2019-09-03T11:42:16+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhitemodify/whitecustid/1
+ERR: 非法操作:clientinswhitemodify
+
+[ 2019-09-03T17:02:01+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhitemodify/whitecustid/1
+ERR: Call to a member function where() on null
+
+[ 2019-09-03T17:15:18+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhitemodifysuc.html
+ERR: 非法操作:clientinswhitemodifysuc
+

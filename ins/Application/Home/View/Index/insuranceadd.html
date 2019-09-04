@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+        <form id="form1" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 75%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险产品信息新增</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	 <th>保险公司</th>
+         	 <td><input type="text" name="insurance" lay-verify="required" required placeholder="请输入保险公司" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<tr>
+         	 <th>保险种类</th>
+         	 <td><input type="text" name="types" lay-verify="required" required placeholder="请输入保险种类" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<tr>
+         	 <th>购买年限</th>
+         	 <td>
+         	 	<input type="text" name="pay" lay-verify="required" required placeholder="请输入购买年限" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	<tr>
+         	 <th>保险期限</th>
+         	 <td>
+         	 	<input type="text" name="dur" lay-verify="required" required placeholder="请输入保险期限" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	<tr>
+         	 <th>手续费</th>
+         	 <td>
+         	 	<input type="text" name="remun" lay-verify="required" required placeholder="请输入手续费" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	<tr>
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	 
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-filter="formDemo" id="submit1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+        
+        <script src="/ins/Public/layui.all.js"></script>
+        <script src="/ins/Public/jquery-1.12.4.min.js"></script>
+        
+        <script>
+        	$("#submit1").click(function(){
+        		
+        		$.ajax({
+        			type:"post",
+        			url:'{:U("insuranceaddsuc")}',
+        			data : $("#form1").serialize(),
+        			
+        			success:function(result){
+        				alert("添加成功，请继续");
+        				
+        			},
+        			error:function(result){
+        				alert("失败，请检查数据");
+        			},
+        			
+        		});
+        		
+        	});
+        </script>
+</body>
+</html>
+<!--底部-->

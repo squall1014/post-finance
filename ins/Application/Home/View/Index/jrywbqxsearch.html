@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+				<legend>0库存申请查询记录</legend>
+		</fieldset>
+    		<table class="layui-table" style="text-align: center; width: 95%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+					    	<td>序号</td>
+					    	<td>申请日期</td>
+								<td>截止日期</td>
+								<td>状态</td>
+								<td>操作</td>
+							</tr>
+							<volist name="czrr" id="vo">
+							<tr>
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.zeroid}</td>
+								<td>{$vo.date}</td>
+								<td>{$vo.dateo}</td>
+								<td>
+									<if condition="$vo.stats eq 1">
+										<font color="#CC0000">完成</font>
+									<else />
+										待完成
+									</if>
+								</td>
+								<td><a href="__URL__/jrywbqxsearchs/date/{$vo.date}/dateo/{$vo.dateo}"><font color="#CC0000">查询</font></a></td>
+							</tr>
+							</volist>
+					  </table>
+  				</div>
+  
+<!--底部-->
+<include file="Public/footer" />

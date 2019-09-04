@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinswhitemodifysuc')}" id="form" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险白名单客户维护</font>
+        	</div>
+        <div class="layui-card-body">
+		<table class="layui-table" lay-size="">
+			<input type="hidden" value="{$data[0]['whitecustid']}" name="whitecustid">
+			<input type="hidden" value="{$data[0]['record']}" name="record">
+			<tr>
+				<th>客户姓名</th>
+				<td>
+					<input type="text" name="whitecust" value="{$data[0]['whitecust']}" required lay-verify="required"
+						placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+				</td>
+				<th>客户身份证</th>
+				<td>
+					<input type="text" name="sfz" value="{$data[0]['sfz']}" required lay-verify="identity" placeholder="请输入客户身份证"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>客户电话</th>
+				<td>
+					<input type="text" name="phone" value="{$data[0]['phone']}" required lay-verify="phone" placeholder="请输入客户电话"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>客户地址</th>
+				<td>
+					<input type="text" name="address" value="{$data[0]['address']}" required lay-verify="required" placeholder="请输入客户居住地址" autocomplete="off"
+						class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<th>保险意向</th>
+				<td>
+					<select name="intention" lay-search>
+						<option value="{$data[0]['intention']}">{$data[0]['intentions']}</option>
+						<volist name="ittrr" id="vo">
+							<option value="{$vo.intentionid}">{$vo.intention}</option>
+						</volist>
+					</select>
+				</td>
+				<th>录入日期</th>
+				<td>
+					<input type="text" name="insdate" value="{$data[0]['insdate']}" id="date" placeholder="请选择日期"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>销售人员</th>
+				<td>
+					<select name="service" lay-verify="required" lay-search>
+						<option value="{$data[0]['service']}">{$data[0]['service']}</option>
+						<volist name="lrr" id="vo">
+							<option value="{$vo.persname}">{$vo.persname}</option>
+						</volist>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table class="layui-table" lay-size="">
+			<tr>
+				<th>意向产品</th>
+				<td>
+					<select name="product_one" placeholder="请输入意向产品" lay-search>
+						<option value="{$data[0]['product_one']}">{$data[0]['product_ones']}</option>
+						<volist name="ittr" id="vo">
+							<option value="{$vo.intentionid}">{$vo.intention}</option>
+						</volist>
+					</select>
+				</td>
+				<th>意向金额</th>
+				<td>
+					<input type="text" name="money_one" value="{$data[0]['money_one']}" placeholder="请输入意向金额"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>意向产品</th>
+				<td>
+					<select name="product_two" placeholder="请输入意向产品" lay-search>
+						<option value="{$data[0]['product_two']}">{$data[0]['product_twos']}</option>
+						<volist name="ittr" id="vo">
+							<option value="{$vo.intentionid}">{$vo.intention}</option>
+						</volist>
+					</select>
+				</td>
+				<th>意向金额</th>
+				<td>
+					<input type="text" name="money_two" value="{$data[0]['money_two']}" placeholder="请输入意向金额"
+						autocomplete="off" class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<th>资金所处状态</th>
+				<td>
+					<select name="capital" id="capital" lay-filter="select_capital" lay-search>
+						<option value="{$data[0]['capital']}">{$data[0]['capitals']}</option>
+						<volist name="icrr" id="vo">
+							<option value="{$vo.capitalid}">{$vo.capital}</option>
+						</volist>
+					</select>
+				</td>
+				<th>维护形式</th>
+				<td>
+					<select name="facilitate" lay-search>
+						<option value="{$data[0]['facilitate']}">{$data[0]['facilitates']}</option>
+						<volist name="flrr" id="vo">
+							<option value="{$vo.facilitateid}">{$vo.facilitate}</option>
+						</volist>
+					</select>
+				</td>
+				<th>维护日期</th>
+				<td>
+					<input type="text" name="insdates" value="{$data[0]['insdates']}" id="date1" placeholder="请选择日期" autocomplete="off" class="layui-input">
+				</td>
+				<th>手机网银是否开通</th>
+				<td>
+					<select name="phonebank" lay-search>
+						<option value="{$data[0]['phonebank']}">{$data[0]['phonebanks']}</option>
+						<option value="2">否</option>
+						<option value="1">是</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr id="tr1" style="visibility: hidden">
+				<th>资金到位日期</th>
+				<td>
+					<input type="text" name="expdate" value="{$data[0]['expdate']}" id="date2" placeholder="请选择日期" autocomplete="off"
+						class="layui-input">
+				</td>
+				<th>备注说明</th>
+				<td>
+					<input type="text" id="exp" name="exp" value="{$data[0]['exp']}" placeholder="资金到位备注" autocomplete="off"
+						class="layui-input">
+				</td>
+			</tr>
+		</table>
+         </div>
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+	layui.use('element', function(){
+  	var element = layui.element;
+  
+	});
+
+	layui.use('form', function(){
+	  var form = layui.form;
+	  var captials = document.getElementById("capital").value;
+	  if(captials == null){
+		  
+	  }else if(captials == 1){
+
+	  }else{
+		document.getElementById("tr1").style.visibility = "visible";
+	  }
+	  
+		
+
+	  //获取types1控件中的数据
+		form.on('select(select_capital)', function(){
+			if(document.getElementById("capital").value == 1){
+				document.getElementById("tr1").style.visibility = "hidden";
+				document.getElementById("date2").value = "";
+				document.getElementById("exp").value = "";
+			}else{
+				document.getElementById("tr1").style.visibility = "visible";
+
+			}
+		});
+  
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	    elem: '#date1' //指定元素
+	  });
+	  laydate.render({
+	    elem: '#date2' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+</script>
+<!--底部-->
+</body>
+</html>

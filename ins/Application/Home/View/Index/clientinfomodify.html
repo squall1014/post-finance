@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+				
+        <form action="{:U('clientinfomodifysuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险理财客户修改</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	<input type="hidden" name="clientid" value="{$icrr[0]['clientid']}">
+         	<tr>
+         	 <th>客户身份证</th>
+         	 <td>
+         	 	<input type="text" name="sfz" id="sfz" value="{$icrr[0]['sfz']}" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户姓名</th>
+         	 <td>
+         	 	<input type="text" name="client" value="{$icrr[0]['client']}" placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	 <th>客户电话</th>
+         	 <td>
+         	 	<input type="text" name="phone" value="{$icrr[0]['phone']}" lay-verify="phone" placeholder="请输入客户电话" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户地址</th>
+         	 <td>
+         	 	<input type="text" name="address" value="{$icrr[0]['address']}" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	
+         	
+         </table>
+         </div>
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+<!--底部-->
+</body>
+</html>

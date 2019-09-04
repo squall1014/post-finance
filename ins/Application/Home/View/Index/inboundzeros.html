@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    <form class="layui-form" name="formib" method="post" style="width: 100%;">
+    			<table class="layui-table" style="text-align: center; width: 95%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+					    	<td>产品所属单位</td>
+					    	<td>网点</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>请领数量</td>
+								<td>请领时间</td>
+							</tr>
+							<volist name="cazrr" id="vo">
+							<tr>
+								<!--<input type="hidden" name="inboundid" value="{$vo.inboundid}">-->
+								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
+								<td>{$vo.productdwname}</td>
+								<td>{$vo.applydwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unit}</td>
+								<td>{$vo.quantity}</td>
+								<td>{$vo.date}</td>
+							</tr>
+							</volist>
+		  		</table>
+			</form>
+</div> 
+</body>
+</html>
+<!--<include file="Public/footer" />-->

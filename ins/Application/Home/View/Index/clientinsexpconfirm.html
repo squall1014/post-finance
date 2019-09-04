@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinsexpconfirmsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险客户满期给付</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	<input type="hidden" name="recordid" value="{$irr[0]['recordid']}">
+         	<tr>
+         	 <th>客户姓名</th>
+         	 <td>
+         	 	
+         	 	<input type="text" name="client" value="{$icrr.client}" disabled="disabled" placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户身份证</th>
+         	 <td>
+         	 	
+         	 	<input type="text" name="sfz" value="{$icrr.sfz}" disabled="disabled" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户电话</th>
+         	 <td>
+         	 	<input type="text" name="phone" value="{$icrr.phone}" disabled="disabled" placeholder="请输入客户电话" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户地址</th>
+         	 <td>
+         	 	<input type="text" name="address" value="{$icrr.address}" disabled="disabled" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	<tr>
+         	
+         	 <th>购买险种</th>
+         	 <td>
+         	 	<input type="text" name="type" value="{$irr[0]['type']}" disabled="disabled" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>保险公司</th>
+         	 <td>
+         	 	<input type="text" name="insurance" value="{$irr[0]['insurance']}" disabled="disabled" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 
+         	 </td>
+         	 
+         	 <th>缴费方式</th>
+         	 <td>
+         	 	<input type="text" value="{$irr[0]['payment']}年" disabled="disabled" lay-filter="payment1" placeholder="请输入缴费方式" autocomplete="off" class="layui-input">
+         	 	
+         	 </td>
+         	 
+         	 <th>最低退保期限</th>
+         	 <td>
+         	 	<input type="text" value="{$irr[0]['duration']}年" disabled="disabled" lay-filter="duration1" placeholder="请输入最低退保期限" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	</tr>
+         	<tr>
+         	 <th>投保金额(万元)</th>
+         	 <td><input type="text" name="money" value="{$irr[0]['money']}" disabled="disabled" placeholder="(万元)" autocomplete="off" class="layui-input"> </td>
+         	 <th>出单渠道</th>
+         	 <td>
+         	 	<input type="text" name="channel" value="{$irr[0]['channels']}" disabled="disabled" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 
+         	 </td>
+	         	<th>促成方式</th>
+         	 <td>
+         	 	<input type="text" name="facilitate" value="{$irr[0]['facilitates']}" disabled="disabled" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 
+         	 </td>
+         	 <th>投保日期</th>
+         	 <td>
+         	 	<input type="text" name="insdate" value="{$irr[0]['insdate']}" disabled="disabled" placeholder="请选择保险日期" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	 </tr>
+         	 <tr>
+         	 <th>到期日期</th>
+         	 <td>
+         	 	<input type="text" name="insdates" value="{$irr[0]['insdates']}" disabled="disabled" placeholder="请选择保险日期" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>销售人员</th>
+         	 <td>
+         	 	<input type="text" name="service" value="{$irr[0]['service']}" disabled="disabled" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 
+         	 </td>
+         	 <th>销售人员备</th>
+         	 <td>
+         	 	<input type="text" name="servicebak" value="{$irr[0]['servicebak']}" disabled="disabled" placeholder="无" autocomplete="off" class="layui-input">
+         	 
+         	 </td>
+         	 
+         	 </tr>
+         	 <tr>
+         	 <th>退保日期</th>
+         	 <td>
+         	 	<input type="text" name="exitdate" id="date" required lay-verify="required" placeholder="请选择退保日期" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>退保款项去向</th>
+         	 <td>
+         	 	<select name="refund" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="irfrr" id="vo">
+              <option value="{$vo.refund}">{$vo.refund}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 
+         	</tr>
+         	<tr>
+         		<th>
+         			原因
+         		</th>
+         		<td colspan="7">
+         			<textarea name="reason" required="required" placeholder="请输入内容" class="layui-textarea"></textarea>
+         		</td>
+         	</tr>
+         </table>
+         </div>
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即给付</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<!--底部-->
+<include file="Public/footer" />

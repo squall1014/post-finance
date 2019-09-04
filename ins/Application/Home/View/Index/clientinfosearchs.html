@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinfosearchs')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险客户2019前帐套</font>
+        	</div>
+        <div class="layui-card-body">
+        
+         <table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+					    	<td>姓名</td>
+								<td>身份证</td>
+								<td>电话</td>
+								<td>地址</td>
+								<td>操作</td>
+							</tr>
+							<volist name="icrr" id="vo">
+							<tr>
+								<td>{$vo.client}</td>
+								<td>{$vo.sfz}</td>
+								<td>{$vo.phone}</td>
+								<td>{$vo.address}</td>
+								<td><a href="__URL__/clientinfomodify/sfz/{$vo.sfz}"><font color="#BB0000">修改</font></a></td>
+							</tr>
+							</volist>
+					  </table>
+         </div>
+         </div>
+         <br />
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+
+	
+</script>
+<!--底部-->
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinfosearchs')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险理财客户查询</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	 <th>客户身份证</th>
+         	 <td>
+         	 	<input type="text" name="sfz" id="sfz" onblur="sfzob()" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户姓名</th>
+         	 <td>
+         	 	<input type="text" name="client" placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	 <th>客户电话</th>
+         	 <td>
+         	 	<input type="text" name="phone" placeholder="请输入客户电话" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户地址</th>
+         	 <td>
+         	 	<input type="text" name="address" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	
+         	
+         </table>
+         </div>
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+	var arr = {$sfz};
+	
+	function isInArray(arr,value){
+	    for(var i = 0; i < arr.length; i++){
+	        if(value == arr[i]){
+	        	
+	        	//alert('此用户已存在');
+	        	
+	        	if(confirm("此客户已存在,是否继续添加详细信息?")){
+	        	
+            window.location= "clientinfomodify?sfz="+arr[i]+"";
+            }else{
+            	document.getElementById("sfz").value = '';
+            }
+	            //return true;
+	        }
+	            //return true;
+	    }
+	}
+	function sfzob(){
+		
+		var sfzs = document.getElementById("sfz").value;
+		isInArray(arr,sfzs);
+	}
+	
+	layui.use('element', function(){
+  var element = layui.element;
+  
+	});
+	
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+</script>
+<!--底部-->
+</body>
+</html>

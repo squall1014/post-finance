@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品申请确认明细查询（透视表）</font>
+    			</div>
+        <div class="layui-card-body">
+        	<div id="myprint" style="overflow-x: auto; overflow-y: auto;">
+        		
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>网点名称</td>
+								<volist name="productname" id="vo">
+									<td>{$vo.productname}</td>
+								</volist>
+							</tr>
+							<volist name="data" id="vo">
+							
+							<tr>
+								<td>{$vo.applydwname}</td>
+								<volist name="productname" id="vos">
+									<td>{$vo[$vos['productid']]}</td>
+								</volist>
+							</tr>
+							</volist>
+							</table>
+							</div>
+							<br />
+							<div class="layui-form-item" style="margin-left:300px;">
+			          <div class="layui-input-block">
+			           <button class="layui-btn" id="prt" lay-submit lay-filter="formDemo">打印</button>
+			          </div>
+			        </div>
+			        <script type="text/javascript">
+			        	var pt = document.getElementById("prt");
+			        	pt.onclick = function printpage(myprint){
+									var newstr = document.getElementById("myprint").innerHTML;
+									var oldstr = document.body.innerHTML; 
+									document.body.innerHTML = newstr; 
+									window.print(); 
+									document.body.innerHTML = oldstr; 
+									return false; 
+								}
+			        </script>
+							</div>
+							</div>
+</body>
+</html>
+<include file="Public/footer" />

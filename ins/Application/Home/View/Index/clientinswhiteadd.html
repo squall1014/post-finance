@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinswhiteaddsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险白名单客户新增</font>
+        	</div>
+        <div class="layui-card-body">
+		<table class="layui-table" lay-size="">
+		
+			<tr>
+				<th>客户姓名</th>
+				<td>
+		
+					<input type="text" name="whitecust" required lay-verify="required"
+						placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+				</td>
+				<th>客户身份证</th>
+				<td>
+					<input type="text" name="sfz" required lay-verify="identity" placeholder="请输入客户身份证"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>客户电话</th>
+				<td>
+					<input type="text" name="phone" required lay-verify="phone" placeholder="请输入客户电话"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>客户地址</th>
+				<td>
+					<input type="text" name="address" required lay-verify="required" placeholder="请输入客户居住地址" autocomplete="off"
+						class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<th>保险意向</th>
+				<td>
+					<select name="intention" lay-verify="required" lay-search>
+						<option value=""></option>
+						<volist name="ittr" id="vo">
+							<option value="{$vo.intentionid}">{$vo.intention}</option>
+						</volist>
+					</select>
+				</td>
+				<th>录入日期</th>
+				<td>
+					<input type="text" name="insdate" id="date" placeholder="请选择日期"
+						autocomplete="off" class="layui-input">
+				</td>
+				<th>销售人员</th>
+				<td>
+					<select name="service" lay-verify="required" lay-search>
+						<option value=""></option>
+						<volist name="lrr" id="vo">
+							<option value="{$vo.persname}">{$vo.persname}</option>
+						</volist>
+					</select>
+				</td>
+			</tr>
+		</table>
+         </div>
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+	layui.use('element', function(){
+  var element = layui.element;
+  
+	});
+	
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+</script>
+<!--底部-->
+</body>
+</html>

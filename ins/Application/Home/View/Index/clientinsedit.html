@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+<hr class="layui-bg-red">
+    <div class="layui-card-body">
+    <div class="demoTable">
+    	搜索客户：
+    <div class="layui-inline">
+      <form class="layui-form">
+  		<select name="client" id="clientReload" lay-verify="" lay-search>
+  			<option value="">请选择一个客户</option>
+  			<volist name="crr" id="vo">
+  				<option value="{$vo.kh}">{$vo.kh}</option>
+  			</volist>
+  		</select>
+  		</form>
+    </div>
+    	搜索电话:
+  	<div class="layui-inline">
+  		<!--<input class="layui-input" name="dwname" id="dwnameReload" autocomplete="off">-->
+  		<form class="layui-form">
+  		<select name="phone" id="phoneReload" lay-verify="" lay-search>
+  			<option value="">请选择一个身份证</option>
+  			<volist name="crr" id="vo">
+  				<option value="{$vo.chepai}">{$vo.chepai}</option>
+  			</volist>
+  		</select>
+  		</form>
+  	</div>
+  		<button class="layui-btn" data-type="reload">搜索</button>
+		</div>
+		
+ 		<table class="layui-hide" id="demo" lay-filter="user"></table>
+    </div> 
+          
+<script src="/ds/Public/layui.all.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+  
+  //展示已知数据
+  table.render({
+    elem: '#demo'
+    ,url: '{:U("carinfomanage")}'
+    ,cols: [[ //标题栏
+      {field: 'id', title: 'ID', width: 80, sort: true,edit: 'text'}
+      ,{field: 'client', title: '客户', width: 120}
+      ,{field: 'sfz', title: '身份证', minWidth: 80, sort: true,edit: 'text'}
+      ,{field: 'types', title: '险种', minWidth: 80, sort: true,edit: 'text'}
+      ,{field: 'money', title: '保费', minWidth: 80, sort: true,edit: 'text'}
+      ,{field: 'insdate', title: '交保日期', minWidth: 80, sort: true,edit: 'text'}
+      ,{field: 'insdates', title: '保险到期日', minWidth: 80, sort: true}
+      ,{field: 'channel', title: '出单渠道', minWidth: 80, sort: true,edit: 'text'}
+      ,{field: 'facilitate', title: '促成方式', minWidth: 80, sort: true,edit: 'text'}
+      ,{title: '操作', minWidth: 160, toolbar: '#barDemo'}
+    ]]
+    //,method: 'post'
+//  response: {
+//  	 code: 0,
+//     msg: "",
+//     count: 96,
+//     data: {$drrr}
+//  }
+    //,skin: 'line' //表格风格
+    //,even: true
+    ,id: 'testReload'
+    ,page: true //是否显示分页
+    //,limits: [10, 20, 30]
+    ,limit: 20 //每页默认显示的数量
+  });
+  
+  var $ = layui.$, active = {
+       reload: function(){
+       var khReload = $('#khReload');
+       var chepaiReload = $('#chepaiReload');
+        table.reload('testReload', {
+              where: {
+                 kh: khReload.val(),
+                 chepai: chepaiReload.val()
+                 }
+            });
+          }
+       };
+    $('.demoTable .layui-btn').on('click', function(){    
+	        var type = $(this).data('type');
+          active[type] ? active[type].call(this) : '';
+     });
+     
+    table.on('edit(user)', function(obj){
+    var value = obj.value //得到修改后的值
+    ,data = obj.data //得到所在行所有键值
+    ,field = obj.field; //得到字段
+    layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+    });
+    
+    //监听工具条
+  table.on('tool(user)', function(obj){
+    var data = obj.data;
+    if(obj.event === 'detail'){
+      layer.msg('ID：'+ data.id + ' 的查看操作');
+    } else if(obj.event === 'del'){
+      layer.confirm('真的删除行么', function(index){
+        obj.del();
+        $.post(
+        	"datadel",
+        	data,
+        )
+        layer.close(index);
+      });
+    } else if(obj.event === 'edit'){
+      $.post(
+    		"dataedit",
+    		data,
+    	)
+      layer.alert('修改成功')
+    }
+  });
+});
+</script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>

@@ -1,0 +1,21 @@
+[ 2019-09-02T15:23:49+08:00 ] ::1 /ins/index.php/Home/Index/clientfinadd
+ERR: 非法操作:clientfinadd
+
+[ 2019-09-02T16:48:19+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhiteadd
+ERR: Think\Controller:dispaly方法不存在！
+
+[ 2019-09-02T17:21:25+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhiteaddsuc.html
+ERR: 1364:Field 'instate' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `hr_inswhitecust` (`whitecust`,`phone`,`address`,`intention`,`service`,`stats`,`record`) VALUES ('吴宗耀','13757177679','南苑街道','1','冯立','0','0')
+
+[ 2019-09-02T17:25:19+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhiteaddsuc.html
+ERR: 1364:Field 'dwname' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `hr_inswhitecust` (`whitecust`,`sfz`,`phone`,`address`,`intention`,`insdate`,`service`,`stats`,`record`) VALUES ('吴宗耀','330105198510141015','13757177679','南苑街道','1','','冯立','0','0')
+
+[ 2019-09-02T17:26:18+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhiteaddsuc.html
+ERR: Think\Controller:sussucc方法不存在！
+
+[ 2019-09-02T17:29:01+08:00 ] ::1 /ins/index.php/Home/Index/clientinswhiteaddsuc.html
+ERR: 1062:Duplicate entry '330105198510141015-40' for key 'sfz'
+ [ SQL语句 ] : INSERT INTO `hr_inswhitecust` (`whitecust`,`sfz`,`phone`,`address`,`intention`,`insdate`,`service`,`stats`,`record`,`dwname`,`jgh`) VALUES ('吴宗耀','330105198510141015','13757177679','南苑街道','2','2019-09-02','陆苏萍','0','0','33001454','40')
+

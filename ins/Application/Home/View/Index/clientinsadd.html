@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        <form action="{:U('clientinsaddsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险客户新增</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	 <th>客户姓名</th>
+         	 <td>
+         	 	
+         	 	<input type="text" name="client" required lay-verify="required" disabled="disabled" value="{$iclrr.client}" placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户身份证</th>
+         	 <td>
+         	 	<input type="hidden" name="clientid" value="{$iclrr.clientid}"/>
+         	 	<input type="text" name="sfz" required lay-verify="identity" disabled="disabled" value="{$iclrr.sfz}" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户电话</th>
+         	 <td>
+         	 	<input type="text" name="phone" required lay-verify="phone" disabled="disabled" value="{$iclrr.phone}" placeholder="请输入客户电话" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th>客户地址</th>
+         	 <td>
+         	 	<input type="text" name="address" placeholder="请输入客户地址" disabled="disabled" value="{$iclrr.address}" autocomplete="off" class="layui-input">
+         	 </td>
+         	</tr>
+         	<tr>
+         	<div class="layui-form-item">
+         	 <th>购买险种</th>
+         	 <td>
+         	 	<select name="types" lay-filter="types1" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="insrr" id="vo">
+              <option value="{$vo.insuranceid}">{$vo.types}</option>
+             </volist>
+            </select>
+         	 </td>
+         	</div>
+         	<th>保险公司</th>
+         	 <td>
+         	 	<input type="text" id="insurance2" disabled="disabled" lay-filter="insurance1" required lay-verify="required" placeholder="请输入保险公司" autocomplete="off" class="layui-input">
+         	 	
+         	 </td>
+         	 <th>缴费方式</th>
+         	 <td>
+         	 	<input type="text" id="payment2" disabled="disabled" lay-filter="payment1" required lay-verify="required" placeholder="请输入缴费方式" autocomplete="off" class="layui-input">
+         	 	
+         	 </td>
+         	 
+         	 <th>最低退保期限</th>
+         	 <td>
+         	 	<input type="text" id="duration2" disabled="disabled" lay-filter="duration1" required lay-verify="required" placeholder="请输入最低退保期限" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	</tr>
+         	<tr>
+         	 <th>投保金额(万元)</th>
+         	 <td><input type="text" name="money" required lay-verify="required" placeholder="(万元)" autocomplete="off" class="layui-input"> </td>
+         	 <th>出单渠道</th>
+         	 <td>
+         	 	<select name="channel" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="calrr" id="vo">
+              <option value="{$vo.channelid}">{$vo.channel}</option>
+             </volist>
+            </select>
+         	 </td>
+	         	<th>促成方式</th>
+         	 <td>
+         	 	<select name="facilitate" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="flrr" id="vo">
+              <option value="{$vo.facilitateid}">{$vo.facilitate}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 
+         	 
+         	 <th>投保日期</th>
+         	 <td>
+         	 	<input type="text" name="insdate" id="date" required lay-verify="required" placeholder="请选择保险日期" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	 </tr>
+         	 <tr>
+         	 <th>销售人员</th>
+         	 <td>
+         	 	<select name="service" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="lgrr" id="vo">
+              <option value="{$vo.persname}">{$vo.persname}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" placeholder="备注、记要可选填" autocomplete="off" class="layui-input"></td>
+         	 <th>销售人员备</th>
+         	 <td>
+         	 	<select name="servicebak" lay-filter="servicebak1" id="servicebak" lay-search>
+         	 		<option value="">NULL</option>
+         	 		<volist name="lgrrr" id="vo">
+              <option value="{$vo.persname}">{$vo.persname}</option>
+             </volist>
+            </select>
+         	 </td>
+         	 <th style="visibility: hidden;" id="xszb">销售占比</th>
+         	 <td style="visibility: hidden;" id="xszb1">
+         	 	<select name="percentagebak" id="percentagebak" lay-verify="required" lay-search>
+         	 		<option value="0"></option>
+              <option value="0.1">10%</option>
+              <option value="0.2">20%</option>
+              <option value="0.3">30%</option>
+              <option value="0.4">40%</option>
+              <option value="0.5">50%</option>
+              <option value="0.6">60%</option>
+              <option value="0.7">70%</option>
+              <option value="0.8">80%</option>
+              <option value="0.9">90%</option>
+              <option value="1">100%</option>
+            </select>
+         	 </td>
+         	</tr>
+         	
+         </table>
+         </div>
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+	layui.use('element', function(){
+  var element = layui.element;
+  
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(types1)', function(data){
+			var datas = eval({$insr});
+			for(i = 0 ; i < datas.length ; i++){
+				
+				if(data.value == datas[i].insuranceid){
+					document.getElementById("payment2").value = datas[i].pay + '年';
+					
+					document.getElementById("duration2").value = datas[i].dur + '年';
+					
+					document.getElementById("insurance2").value = datas[i].insurance;
+					
+					//alert(datas[i].dur);
+					break;
+				}
+			}
+			
+		});
+  
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(servicebak1)', function(data){
+			if(document.getElementById("xszb").style.visibility == "visible"){
+				
+			}else{
+				document.getElementById("xszb").style.visibility = "visible";
+				document.getElementById("xszb1").style.visibility = "visible";
+				document.getElementById("percentagebak").value = "0.5";
+			}
+			
+			
+		});
+  
+	});
+	
+</script>
+<!--底部-->
+</body>
+</html>

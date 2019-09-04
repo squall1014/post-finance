@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>仓库名称</td>
+								<td>出库数量</td>
+								<td>出库日期</td>
+							</tr>
+							<volist name="data" id="vo">
+							<tr>
+								<td>{$vo.outdwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.unit}</td>
+								<td>{$vo.warehouse}</td>
+								<td>{$vo.outquantity}</td>
+								<td>{$vo.date}</td>
+							</tr>
+							</volist>
+						</table>
+					<br />
+		    </form>
+</div>
+</body>
+</html>
+<!--<include file="Public/footer" />-->

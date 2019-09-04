@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政保险理财客户管理系统</div></h1>
+    
+    <br />
+    <div class="layui-card-header">
+       <font size="4">待办事项</font>
+    </div>
+    <br />
+    <div style="padding: 20px; background-color: #F2F2F2; width: 60%;">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6">
+          <div class="layui-card">
+            <div class="layui-card-header">近两周保险到期客户</div>
+            <div class="layui-card-body">
+            	<form action="{:U('clientinsalmost')}" enctype="multipart/form-data" method="post" class="layui-form" >
+              	<button class="layui-btn">未处理消息<span class="layui-badge layui-bg-gray">{$inscount}</span></button>
+             </form>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md6">
+          <div class="layui-card">
+            <div class="layui-card-header">近两周理财到期客户</div>
+            <div class="layui-card-body">
+            	<form action="{:U('inboundsh')}" enctype="multipart/form-data" method="post" class="layui-form" >
+	              <button class="layui-btn">未处理消息<span class="layui-badge layui-bg-gray">{$inboundcount}</span></button>
+	            </form>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md6">
+          <div class="layui-card">
+            <div class="layui-card-header">公告</div>
+            <div class="layui-card-body">
+            	<form action="{:U('outbound')}" enctype="multipart/form-data" method="post" class="layui-form" >
+              	<button class="layui-btn">未处理消息<span class="layui-badge layui-bg-gray">{$outboundcount}</span></button>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    	
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

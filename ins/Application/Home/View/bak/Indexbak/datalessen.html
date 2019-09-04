@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>数据分析</h1></div>
+    
+    <h2>网点流失客户</h2>
+    
+    <hr class="layui-bg-red">
+        <table class="layui-table" style="width: 50%">
+          <colgroup>
+            <col width="200">
+            <col width="120">
+            <col width="120">
+            <col width="120" />
+          </colgroup>
+          <thead>
+        	<tr>
+        		<th>流失</th>
+        	</tr>
+        	</thead>
+        	<thead>
+        	<tr>
+        		<th>网点</th>
+        		<th>姓名</th>
+        		<th>总余额</th>
+        		<th>定期</th>
+        	</tr>
+        	</thead>
+        	<volist name="pdrr" id="vo">
+        	<tr>
+        		<td>{$vo.dwname}</td>
+        		<td>{$vo.name}</td>
+        		<td>{$vo.zyue}</td>
+        		<td>{$vo.dingqi}</td>
+        	</tr>
+        	</volist>
+        	<tr>
+        		<th></th>
+        		<th>总计</th>
+        		<th>{$zyued}</th>
+        		<th>{$dingqid}</th>
+        	</tr>
+        </table>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+	<include file="Public/title" />
+
+        <form action="{:U('clientsearchsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险客户报表生成（个人）</font>
+        	</div>
+        <div class="layui-card-body" style="overflow: scroll;">
+        
+         
+         <table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+					    	<td rowspan="2">姓名</td>
+								<volist name="insurance" id="vo">
+								<td colspan="2">{$vo.types}</td>
+								</volist>
+								
+								<td colspan="2">实收保费合计</td>
+								<td colspan="2">折算标保合计</td>
+							</tr>
+							<tr>
+								<volist name="insurance" id="vo">
+								<td>本期发生</td>
+								<td>本年累计</td>
+								</volist>
+								<td>本期发生</td>
+								<td>本年累计</td>
+								<td>本期发生</td>
+								<td>本年累计</td>
+							</tr>
+							<volist name="data" id="vo">
+								<tr>
+									<td>{$vo.persname}</td>
+									<volist name="insurance" id="vos">
+										<td>{$vo[$vos['insuranceid']]['summoney']}</td>
+										<td>{$vo[$vos['insuranceid']]['allmoney']}</td>
+									</volist>
+									<td>{$vo.realmoney}</td>
+									<td>{$vo.allrealmoney}</td>
+									<td>{$vo.convertsummoney}</td>
+									<td>{$vo.convertallmoney}</td>
+								</tr>
+							</volist>
+							<tr>
+								
+							</tr>
+					  </table>
+         </div>
+         </div>
+         <br />
+        </form>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+
+<script>
+	
+	layui.use('element', function(){
+  var element = layui.element;
+  
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(types1)', function(data){
+			var datas = eval({$insr});
+			for(i = 0 ; i < datas.length ; i++){
+				
+				if(data.value == datas[i].insuranceid){
+					document.getElementById("payment2").value = datas[i].pay + '年';
+					
+					document.getElementById("duration2").value = datas[i].dur + '年';
+					
+					//alert(datas[i].dur);
+					break;
+				}
+			}
+			
+		});
+  
+	});
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  //执行一个laydate实例
+	  laydate.render({
+	    elem: '#date' //指定元素
+	  });
+	  laydate.render({
+	  	elem: '#test6'
+	  	,range: true
+		});
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(servicebak1)', function(data){
+			if(document.getElementById("xszb").style.visibility == "visible"){
+				
+			}else{
+				document.getElementById("xszb").style.visibility = "visible";
+				document.getElementById("xszb1").style.visibility = "visible";
+				document.getElementById("percentagebak").value = "0.5";
+			}
+			
+			
+		});
+  
+	});
+	
+</script>
+<!--底部-->
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>车险客户信息查询</h1></div>
+    
+    <h2>信息查询</h2>
+    
+    <hr class="layui-bg-red">
+        <form action="{:U('carpersinfodlsuc')}" enctype="multipart/form-data" method="post" class="layui-form">
+        <table class="layui-table" lay-size="" style="width: 350px;">
+        	<tr>
+        		<th>年份选择</th>
+        		<td>
+        			<select name="year" lay-verify="" lay-search>
+         	 		<option value=""></option>
+         	 		<volist name="yrr" id="vo">
+              <option value="{$vo.year}">{$vo.year}</option>
+              </volist>
+              </select>
+        		</td>
+        	  <td><button class="layui-btn" lay-submit lay-filter="formDemo">立即导出</button></td>
+        	</tr>
+        </div>
+        </form>
+        
+        <!--<form action="{:U('carpersinfodqtscx')}" enctype="multipart/form-data" method="post" class="layui-form">
+        <table class="layui-table" lay-size="" style="width: 400px;">
+        	<tr>
+        		<th>到期天数</th>
+        		<td><input type="text" name="dqts" required  lay-verify="required" placeholder="请输入天数" autocomplete="off" class="layui-input" style="width: 100px;"></td>
+        	  <td><button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button></td>
+        	</tr>
+        </div>
+        </form>-->
+  </div>
+<!--底部-->
+<include file="Public/footer" />

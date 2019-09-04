@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>数据分析</h1></div>
+    
+    <h2>网点数据分析</h2>
+    
+    <hr class="layui-bg-red">
+        <table class="layui-table" style="width: 100%" >
+          <colgroup>
+            <col width="80" align="middle">
+            <col width="200" align="middle">
+            <col width="120">
+            <col width="120">
+            <col width="100">
+            <col width="120" />
+            <col width="80">
+            <col width="80">
+            <col width="120">
+            <col width="100">
+            <col width="100">
+          </colgroup>
+          <thead>
+        	<tr>
+        		<td colspan="11" align="middle">“邮政喊你囤年货啦”活动情况表（截止1月17日11点30分）</td>
+        	</tr>
+        	<tr>
+        		<td colspan="2" rowspan="2" align="middle">单位</td>
+        		<td colspan="6" rowspan="1" align="middle">定增情况</td>
+        		<td colspan="3" rowspan="1" align="middle">业绩分析</td>
+        	</tr>
+        	</thead>
+        	<thead>
+        	<tr>
+        		<td align="middle">片区</td>
+        		<td align="middle">机构名称</td>
+        		<td align="middle">总户数</td>
+        		<td align="middle">开户总额</td>
+        		<td align="middle">他行策反</td>
+        		<td align="middle">转存</td>
+        		<td align="middle">销户</td>
+        		<td align="middle">流失</td>
+        		<td align="middle">定期预测净增</td>
+        		<td align="middle">到期转存率</td>
+        		<td align="middle">他行策反率</td>
+        	</tr>
+        	</thead>
+        	<volist name="collect" id="vo">
+        		<tr>
+        			<td align="middle">{$vo.pianqu}</td>
+        			<td align="middle">{$vo.dwname}</td>
+        			<td align="middle">{$vo.hushu}</td>
+        			<td align="middle">{$vo.dingqi}</td>
+        			<td align="middle">{$vo.cefan}</td>
+        			<td align="middle">{$vo.zhuancun}</td>
+        			<td align="middle">{$vo.xiaohu}</td>
+        			<td align="middle">{$vo.liushi}</td>
+        			<td align="middle">{$vo.dingqijz}</td>
+        			<td align="middle">{$vo.zhuancunl}</td>
+        			<td align="middle">{$vo.cefanl}</td>
+        		</tr>
+        	</volist>
+        </table>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

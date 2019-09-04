@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>数据分析</h1></div>
+    
+    <h2>网点数据分析</h2>
+    
+    <hr class="layui-bg-red">
+        <table class="layui-table" style="width: 100%">
+          <colgroup>
+            <col width="210">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80" />
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+          </colgroup>
+          <thead>
+        	<tr>
+        		<th>汇总</th>
+        	</tr>
+        	</thead>
+        	<thead>
+        	<tr>
+        		<th>机构名称</th>
+        		<th>函件</th>
+        		<th>国际小包</th>
+        		<th>包件</th>
+        		<th>标快</th>
+        		<th>快递包裹</th>
+        		<th>汇票</th>
+        		<th>报刊</th>
+        		<th>储蓄</th>
+        		<th>集邮</th>
+        		<th>机要</th>
+        		<th>短信清分</th>
+        		<th>信息收入</th>
+        		<th>分销收入</th>
+        		<th>出售品</th>
+        		<th>合计</th>
+        		<th>其他业务收入</th>
+        		<th>本月合计</th>
+        		<th>速递合计</th>
+        	</tr>
+        	</thead>
+        	<volist name="collect" id="vo">
+        		<tr>
+        			<td>{$vo.dwname}</td>
+        			<td>{$vo.hj}</td>
+        			<td></td>
+        			<td>{$vo.bg}</td>
+        			<td>{$vo.sd}</td>
+        			<td>{$vo.sdkdbg}</td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td>{$vo.csp}</td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        		</tr>
+        	</volist>
+        	<tr>
+        		<td>总计</td>
+        		<td>{$collects.upcountjgh}</td>
+        		<td>{$collects.upzyue}</td>
+        		<td>{$collects.updingqi}</td>
+        		<td>{$collects.downcountjgh}</td>
+        		<td>{$collects.downzyue}</td>
+        		<td>{$collects.downdingqi}</td>
+        		<td>{$collects.clyue}</td>
+        		<td>{$collects.cldingqi}</td>
+        		<td>{$collects.countjgh}</td>
+        		<td>{$collects.sumzyue}</td>
+        		<td>{$collects.sumdingqi}</td>
+        	</tr>
+        </table>
+        <br />
+        <form action="{:U('datacollectsdl')}" enctype="multipart/form-data" method="post" >
+        
+         <button class="layui-btn" lay-submit lay-filter="formDemo">立即导出</button>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

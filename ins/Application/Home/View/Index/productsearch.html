@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
+    
+    <br />
+    <div class="layui-card" style="width: 75%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品信息查询</font>
+        		
+        		<form class="layui-form layui-form-pane" >
+    				<label class="layui-form-label">产品单位</label>
+    				<label class="layui-form-label" style="width: 200px;">{$data[0]['productdwname']}</label>
+    			</form>
+        	</div>
+    			<br  />
+					<br  />
+        	<div class="layui-card-body">
+					
+    			<form class="layui-form" action="">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+					    	
+								<td>产品单位</td>
+								<td>产品名称</td>
+								<td>产品类型</td>
+								<td>供应商</td>
+								<td>备注</td>
+								<td>状态</td>
+								
+							</tr>
+							
+							<volist name="data" id="vo">
+							
+							<tr>
+								<input type="hidden" name="dwname" value="{$dwname}">
+								<!--<td><input type="checkbox" name="inboundid[]" id="b{$vo.inboundid}" value="{$vo.inboundid}" lay-skin="primary"></td>-->
+								<td>{$vo.productdwname}</td>
+								<td>{$vo.productname}</td>
+								<td>{$vo.producttypename}</td>
+								<td>{$vo.supplier}</td>
+								<td>{$vo.beizhu}</td>
+								<!--<td><input type="text" class="layui-radio" readonly="" name="{$vo.inboundid}" id="c{$vo.inboundid}" value="0" onblur="a{$vo.inboundid}()" onclick="e{$vo.inboundid}()" lay-verify="" placeholder="请输入实际入库数量" autocomplete="off" ></td>-->
+								<td>
+									<if condition="$vo.stats eq 0">启用<else /><font color="#CC0000">停用</font></if>
+								</td>
+							</tr>
+							</volist>
+		    		</table>
+		    	</div>
+			</div>
+
+
+<include file="Public/footer" />

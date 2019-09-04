@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+
+        
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">保险理财客户查询</font>
+        	</div>
+        <div class="layui-card-body">
+        
+        
+         <!--<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+					    	<td>姓名</td>
+								<td>身份证</td>
+								<td>电话</td>
+								<td>地址</td>
+								<td>操作</td>
+							</tr>
+							<tr v-for="cor in corr">
+								<td>{{cor.client}}</td>
+								<td>{{cor.sfz}}</td>
+								<td>{{cor.phone}}</td>
+								<td>{{cor.address}}</td>
+								<td><button v-on:click="addinfo">查看</button></td>
+							</tr>
+					  </table>-->
+					  <table class="layui-table" lay-data="{url:'{:U("clientoldrecords")}', id:'test3'}" lay-filter="test3">
+						  <thead>
+						    <tr>
+						      <th lay-data="{type:'checkbox'}">ID</th>
+						      <th lay-data="{field:'oldrecordid', width:80, sort: true}">ID</th>
+						      <th lay-data="{field:'client', width:80, sort: true}">姓名</th>
+						      <th lay-data="{field:'sfz', width:80, sort: true}">身份证</th>
+						      <th lay-data="{field:'address', width:80, sort: true}">地址</th>
+						      <th lay-data="{field:'insurance', width:120, sort: true, edit: 'text'}">保险公司</th>
+						      <th lay-data="{field:'types', edit: 'text', minWidth: 150}">险种</th>
+						      <th lay-data="{field:'money', width:80, edit: 'text'}">购买金额</th>
+						      <th lay-data="{field:'date', edit: 'text', minWidth: 100}">购买日期</th>
+						      <th lay-data="{field:'dates', sort: true, edit: 'text'}">到期日期</th>
+						    </tr>
+						  </thead>
+						</table>
+					 
+         </div>
+         </div>
+         <br />
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政保险理财客户管理
+  </div>
+<script src="/ins/Public/layui.all.js"></script>
+<script src="/ins/Public/jquery-1.12.4.min.js"></script>
+<script src="/ins/Public/vue.js"></script>
+
+<script>
+	layui.use('table', function(){
+	  var table = layui.table;
+	  
+	  //监听单元格编辑
+	  table.on('edit(test3)', function(obj){
+	    var value = obj.value //得到修改后的值
+	    ,data = obj.data //得到所在行所有键值
+	    ,field = obj.field; //得到字段
+	    layer.msg('[ID: '+ data.clientid +'] ' + field + ' 字段更改为：'+ value);
+	    
+	    $.ajax({
+	    	type:"post",
+	    	data:{
+	    		
+	    		clientid : data.clientid,
+	    		insurance : data.insurance,
+	    		types:data.types,
+	    		money:data.money,
+	    		date:data.date,
+	    		dates:data.dates,
+	    		
+	    	},
+	    	url:'{:U("clientoldedit")}',
+	    	
+	    	success: function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	  
+	});
+	new Vue({
+		el:"#vue-app",
+		data:{
+			corr: {$corr},
+		},
+	
+		methods:{
+			
+			addinfo:function(){
+				
+				$.ajax({
+					type:"get",
+					url:"addinfo",
+					async:true,
+					success:function(){
+						console.log();
+					},
+					error:function(){
+						console.log();
+					}
+				});
+			}
+			
+		}
+	})
+</script>
+<!--底部-->
+</body>
+</html>

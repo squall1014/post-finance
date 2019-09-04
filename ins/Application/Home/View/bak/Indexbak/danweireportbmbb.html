@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;"><h1>按分局、部室通报报表</h1></div>
+    
+    <h2>报表</h2>
+    
+    <hr class="layui-bg-red">
+        <table lay-filter="tablecx" class="layui-table" style="width: 60%">
+        	<thead>
+        	<tr>
+        		<th>序号</th>
+        		<th>单位(部门)</th>
+        		<th>发展会员目标(户)</th>
+        		<th>一季度出单(户)</th>
+        		<th>完成率</th>
+        		<th>实现收入</th>
+        	</tr>
+        	</thead>
+        	<volist name="dwname" id="vo">
+        	<tr>
+        		<td>{$vo.id}</td>
+        		<td>{$vo.dwname}</td>
+        		<td>{$vo.target}</td>
+        		<td>{$vo.countkh}</td>
+        		<td>{$vo.bl}%</td>
+        		<td>{$vo.sumiremun}</td>
+        		<!--<td><font color="#CC0000">删除(谨慎)</font></td>-->
+        	</tr>
+        	</volist>
+        		<tr>
+        			<td></td>
+        			<td>总计</td>
+        			<td>{$count.target}</td>
+        			<td>{$count.count}</td>
+        			<td>{$count.bl}%</td>
+        			<td>{$count.sumiremun}</td>
+        		</tr>
+        </table>
+  </div>
+<!--底部-->
+<include file="Public/footer" />

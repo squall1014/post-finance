@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>exl上传</title>
+	</head>
+	<body>
+		<h4>附件上传</h4>
+        <form action="{:U('xcuploads')}" enctype="multipart/form-data" method="post" >
+        <input type="file" name="exl" />
+        <input type="submit" value="上传">
+        </form>
+        
+        <table border="" cellspacing="" cellpadding="">
+        	<tr>
+        		<th>汇总</th>
+        	</tr>
+        	<tr>
+        		<th>机构名称</th>
+        		<th>新增余额</th>
+        		<th>新增定期</th>
+        		<th>流失余额</th>
+        		<th>流失定期</th>
+        		<th>总存量</th>
+        		<th>总存量定期</th>
+        		<th>总余额</th>
+        		<th>总定期</th>
+        	</tr>
+        	<volist name="collect" id="vo">
+        		<tr>
+        			<td>{$vo.dwname}</td>
+        			<td>{$vo.upzyue}</td>
+        			<td>{$vo.updingqi}</td>
+        			<td>{$vo.downzyue}</td>
+        			<td>{$vo.downdingqi}</td>
+        			<td>{$vo.clyue}</td>
+        			<td>{$vo.cldingqi}</td>
+        			<td>{$vo.sumzyue}</td>
+        			<td>{$vo.sumdingqi}</td>
+        		</tr>
+        	</volist>
+        </table>
+        </form>
+	</body>
+</html>
