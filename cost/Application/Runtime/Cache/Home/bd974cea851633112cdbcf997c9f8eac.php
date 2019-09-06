@@ -78,6 +78,8 @@
           <?php if($user["qx"] >= 9): ?><a class="" href="javascript:;">导出数据</a><?php else: endif; ?>
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Admin/tablepers">导出报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Admin/indextest">导出报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Admin/test">导出报表</a></dd>
           </dl>
         </li>
         <!--<li class="layui-nav-item"><a href="/cost/index.php/Home/Admin/select">测试</a></li>-->

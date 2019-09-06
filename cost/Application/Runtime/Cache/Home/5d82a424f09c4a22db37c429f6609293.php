@@ -190,89 +190,63 @@
 
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
+    <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
-    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>网点积分卡请领</legend>
-			</fieldset>
-    	<form class="layui-form layui-form-pane" action="<?php echo U('pointcardins');?>" method="post">
-    		<input type="hidden" name="jgh" value="<?php echo ($dwname['jgh']); ?>" />
-    		<input type="hidden" name="min" value="<?php echo ($min); ?>" >
-    		<input type="hidden" name="max" value="<?php echo ($max); ?>" >
-    		<div class="layui-form-item" style="margin-left:50px; margin-top:50px;">
-        	<label class="layui-form-label">入库网点</label>
-        	<div class="layui-inline">
-        	<select name="selectin" lay-verify="required" id="selectin" lay-filter="selectin" lay-search>
-         	 		
-         	 		<option value="1">批量领卡</option>
-         	 		<option value="2">单张领卡</option>
-         	 		</volist>
-         	 		
-           </select>
-           </div>
-        </div>
-        <div class="batch" style="display: show;">
-	        <div class="layui-form-item" style="margin-left:50px;">
-	        	<label class="layui-form-label">卡号范围</label>
-				      <div class="layui-input-inline" style="width: 200px;">
-				        <input type="text" name="price_min" id="price_min" value="<?php echo ($min); ?>" placeholder="<?php echo ($min); ?>" autocomplete="off" class="layui-input">
-				      </div>
-				      <div class="layui-form-mid">-</div>
-				      <div class="layui-input-inline" style="width: 200px;">
-				        <input type="text" name="price_max" placeholder="<?php echo ($max); ?>" autocomplete="off" class="layui-input">
-				      </div>
-				    
-	        </div>
-        </div>
-        <div class="single" style="display: none;">
-	        <div class="layui-form-item" style="margin-left:50px;">
-	        	<label class="layui-form-label">卡号</label>
-				      <div class="layui-input-inline" style="width: 200px;">
-				        <input type="text" name="price" placeholder="<?php echo ($min); ?>" autocomplete="off" class="layui-input">
-				      </div>
-				    
-	        </div>
-        </div>
-    		<br />
-    		<br />
-    		<div class="layui-form-item" style="margin-left:50px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即请领</button>
-           </div>
-         </div>
-      </form>
+    <br />
+    <form class="layui-form" action="selectss" method="get"  style="width: 60%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品仓库</td>
+								<td>产品单位</td>
+								<td>数量合计</td>
+								
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["applydwname"]); ?></td>
+								<td><a href="/cost/index.php/Home/Index/dwoutbounds/productid/<?php echo ($vo["productid"]); ?>/warehouseid/<?php echo ($vo["warehouseid"]); ?>"><?php echo ($vo["productname"]); ?></a></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><?php echo ($vo["unit"]); ?></td>
+								<td><?php echo ($vo["sumkcapplyquantity"]); ?></td>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  </form>
   </div>
   
-
+<!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
 </div>
 <script src="/cost/Public/layui.all.js"></script>
-<script src="/cost/Public/jquery-1.12.4.min.js"></script>
+
 <script>
 //JavaScript代码区域
 layui.use('element', function(){
   var element = layui.element;
   
-});
-layui.use('form',function(){
-	var batch  = layui.$(".batch");
-	var single = layui.$(".single");
-	var selectin = layui.$("#selectin");
-	var form = layui.form;
-	form.on('select(selectin)',function(){
-	
-		if(selectin.val() == 1){
-			batch.show();
-			single.hide();
-		}else{
-			batch.hide();
-			single.show();
-		}
-		
-	})
 });
 layui.use('laydate', function(){
   var laydate = layui.laydate;

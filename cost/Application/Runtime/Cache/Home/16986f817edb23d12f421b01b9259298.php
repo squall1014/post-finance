@@ -91,32 +91,59 @@
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
     
-    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>网点积分卡入库 | <?php echo ($drr[0]['dwname']); ?></legend>
-			</fieldset>
-    	<form class="layui-form layui-form-pane" action="<?php echo U('pointcardwdsuc');?>" method="post">
-    		<input type="hidden" name="jgh" value="<?php echo ($drr[0]['jgh']); ?>">
-    		<input type="hidden" name="dwname" value="<?php echo ($drr[0]['dwnames']); ?>">
-    		<div class="layui-form-item" style="margin-left:50px; margin-top: 50px;">
-        	<label class="layui-form-label">卡号范围</label>
-			      <div class="layui-input-inline" style="width: 200px;">
-			        <input type="text" name="price_min" value="<?php echo ($clrr[0][username]); ?>" required lay-verify="number" placeholder="<?php echo ($clrr[0][username]); ?>" autocomplete="off" class="layui-input">
-			      </div>
-			      <div class="layui-form-mid">-</div>
-			      <div class="layui-input-inline" style="width: 200px;">
-			        <input type="text" name="price_max" required lay-verify="number" placeholder="<?php echo ($clrr[0][username]); ?>" autocomplete="off" class="layui-input">
-			      </div>
-			    
-        </div>
-    		<br />
-    		<br />
-    		<div class="layui-form-item" style="margin-left:50px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即入库</button>
-           </div>
-         </div>
-         </div>
-      </form>
+    <br />
+    <form class="layui-form" action="selectss" method="get"  style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>期初库存不含税</td>
+								<td>期初库存含税</td>
+								<td>本期出库不含税</td>
+								<td>本期出库含税</td>
+								<td>本期入库不含税</td>
+								<td>本期入库含税</td>
+								<td>本期调拨出库不含税</td>
+								<td>本期调拨出库含税</td>
+								<td>期末结余不含税</td>
+								<td>期末结余含税</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["dwname"]); ?></td>
+								<td><?php echo ($vo["first"]); ?></td>
+								<td><?php echo ($vo["vatfirst"]); ?></td>
+								<!--<td><?php echo ($vo["current"]); ?></td>
+								<td><?php echo ($vo["vatcurrent"]); ?></td>-->
+								<td><?php echo ($vo["out"]); ?></td>
+								<td><?php echo ($vo["vatout"]); ?></td>
+								<td><?php echo ($vo["in"]); ?></td>
+								<td><?php echo ($vo["vatin"]); ?></td>
+								<td><?php echo ($vo["outoa"]); ?></td>
+								<td><?php echo ($vo["vatoutoa"]); ?></td>
+								<td><?php echo ($vo["end"]); ?></td>
+								<td><?php echo ($vo["vatend"]); ?></td>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  </form>
   </div>
   
 <!--底部-->

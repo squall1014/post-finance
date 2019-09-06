@@ -92,29 +92,24 @@
     <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
     
     	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			  <legend>网点积分卡入库 | <?php echo ($drr[0]['dwname']); ?></legend>
+			  <legend>按仓库财务报表</legend>
 			</fieldset>
-    	<form class="layui-form layui-form-pane" action="<?php echo U('pointcardwdsuc');?>" method="post">
-    		<input type="hidden" name="jgh" value="<?php echo ($drr[0]['jgh']); ?>">
-    		<input type="hidden" name="dwname" value="<?php echo ($drr[0]['dwnames']); ?>">
-    		<div class="layui-form-item" style="margin-left:50px; margin-top: 50px;">
-        	<label class="layui-form-label">卡号范围</label>
-			      <div class="layui-input-inline" style="width: 200px;">
-			        <input type="text" name="price_min" value="<?php echo ($clrr[0][username]); ?>" required lay-verify="number" placeholder="<?php echo ($clrr[0][username]); ?>" autocomplete="off" class="layui-input">
+    	<form class="layui-form layui-form-pane" action="<?php echo U('financewhreport');?>" method="post">
+    		
+    		<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">日期选择</label>
+			      <div class="layui-input-block">
+			        <input type="text" name="date_date" id="test6" autocomplete="off" class="layui-input">
 			      </div>
-			      <div class="layui-form-mid">-</div>
-			      <div class="layui-input-inline" style="width: 200px;">
-			        <input type="text" name="price_max" required lay-verify="number" placeholder="<?php echo ($clrr[0][username]); ?>" autocomplete="off" class="layui-input">
-			      </div>
-			    
-        </div>
+			    </div>
+    		</div>
     		<br />
     		<br />
     		<div class="layui-form-item" style="margin-left:50px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即入库</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
            </div>
-         </div>
          </div>
       </form>
   </div>

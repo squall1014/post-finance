@@ -75,7 +75,102 @@ class AdminController extends Controller {
     		}
     	}
     	return $data;
-    }
+	}
+	public function costinfos($data){
+		//费用分摊对数据批量处理;
+		
+    	$cp = M('costproduct');
+    	$cprr = $cp -> select();
+    	foreach($data as &$value){
+    		foreach($cprr as &$valued){
+    			if($value['productid'] == $valued['productid']){
+    				$value['productname'] = $valued['productname'];
+    				$value['productdwname'] = $valued['productdwname'];
+    				$value['producttype'] = $valued['producttype'];
+    				$value['unit'] = $valued['unit'];
+    				continue;
+    			}
+    		}
+    	}
+    	
+    	$cw = M('costwarehouse');
+    	$cwrr = $cw -> select();
+    	foreach($data as &$value){
+    		foreach($cwrr as &$valued){
+    			if($value['warehouseid'] == $valued['warehouseid']){
+    				$value['warehouse'] = $valued['warehouse'];
+    				$value['warehousedwname'] = $valued['warehousedwname'];
+    				
+    				continue;
+    			}
+    		}
+    	}
+    	
+    	$d = M('danwei');
+    	$drr = $d -> select();
+    	foreach($data as &$value){
+    		foreach($drr as &$valued){
+    			if($value['applyjgh'] == $valued['jgh']){
+    				$value['applydwname'] = $valued['dwname'];
+    				continue;
+    			}
+    			if($value['tojgh'] == $valued['jgh']){
+    				$value['applytodwname'] = $valued['dwname'];
+    				continue;
+    			}
+    		}
+    	}
+    	foreach($data as &$value){
+    		foreach($drr as &$valued){
+    			if($value['dwname'] == $valued['jgh']){
+    				$value['dwname'] = $valued['dwname'];
+    				$value['jgh'] = $valued['jgh'];
+    				continue;
+    			}
+    		}
+    	}
+    	foreach($data as &$value){
+    		foreach($drr as &$valued){
+    			if($value['outjgh'] == $valued['jgh']){
+    				$value['outdwname'] = $valued['dwname'];
+    				$value['outjgh'] = $valued['jgh'];
+    				continue;
+    			}
+    		}
+    	}
+    	foreach($data as &$value){
+    		foreach($drr as &$valued){
+    			if($value['productdwname'] == $valued['jgh']){
+    				$value['productdwname'] = $valued['dwname'];
+    				$value['productjgh'] = $valued['jgh'];
+    				continue;
+    			}
+    		}
+    	}
+		foreach($data as &$value){
+    		foreach($drr as &$valued){
+    			if($value['warehousedwname'] == $valued['jgh']){
+    				$value['warehousedwname'] = $valued['dwname'];
+    				$value['warehousejgh'] = $valued['jgh'];
+    				continue;
+    			}
+    		}
+    	}
+    	
+    	
+    	$cpt = M('costproducttype');
+    	$cptrr = $cpt -> select();
+    	foreach($data as &$value){
+    		foreach($cptrr as &$valued){
+    			if($value['producttype'] == $valued['producttypeid']){
+    				$value['producttypename'] = $valued['producttype'];
+    				
+    				continue;
+    			}
+    		}
+    	}
+    	return $data;
+	}
     public function financereports(){
     	//2是礼品;出库后才能算费用;
     	$wherecp['producttype'] = array('neq',2);
@@ -988,7 +1083,29 @@ class AdminController extends Controller {
     	$this->assign('data',$data);
     	$this->display();
     }
-    
+	public function warehousedwreport(){
+		$where['kcapplyquantity'] = array('gt',0);
+    	$where['shenhe'] = '出库中';
+    	$co = M('costoutbound');
+    	$data = $co -> where($where) -> order('applyjgh asc') -> field('applyjgh,productid,warehouseid,pwid,sum(kcapplyquantity) as sumkcapplyquantity') -> group('productid,warehouseid,applyjgh,pwid') -> select();
+    	
+    	$data = $this->costinfos($data);
+    	
+    	$this->assign('data',$data);
+		$this->display();
+		// var_dump($data);
+	}
+	
+
+
+
+
+
+
+
+
+
+
     
     
     

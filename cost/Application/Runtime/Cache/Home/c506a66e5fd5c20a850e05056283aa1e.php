@@ -69,7 +69,7 @@
             <dd><a href="/cost/index.php/Home/Admin/financedwreportdate">按单位库存财务报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/financewhreportdate">按仓库库存财务报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/inboundreportdate">按日期入库库存财务报表</a></dd>
-            <dd><a href="/cost/index.php/Home/Admin/">库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Admin/warehousedwreport">库存报表</a></dd>
             <!--<dd><a href="/cost/index.php/Home/Admin/financereportall">按单位礼品报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/financewarehouse">按单位消耗品报表</a></dd>-->
           </dl>
@@ -92,10 +92,6 @@
     <h1><div style="padding: 15px;">余杭区费用分摊管理系统</div></h1>
     
     <br />
-    <div>
-      <input id="keyword" type="textbox" value="酒店" class="layui-input">
-      <input type="button" value="搜索" onclick="searchKeyword()" class="layui-button">
-  </div>
     	
   </div>
   
