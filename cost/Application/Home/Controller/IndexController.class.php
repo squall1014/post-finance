@@ -2266,6 +2266,18 @@ class IndexController extends Controller {
     		if($value['stats'] == 6){
     			$value['status'] = '挂失';
     			continue;
+			}
+			if($value['stats'] == 7){
+    			$value['status'] = '充值进行中';
+    			continue;
+			}
+			if($value['stats'] == 8){
+    			$value['status'] = '充值成功';
+    			continue;
+			}
+			if($value['stats'] == 9){
+    			$value['status'] = '充值失败';
+    			continue;
     		}
     	}
     	return $data;
@@ -2386,6 +2398,11 @@ class IndexController extends Controller {
 		
 		$this->assign('ccir',$ccir);
 		
+		$ccs = M('costcardstats');
+		$ccsr = $ccs -> where("stats = 0") -> select();
+
+		$this->assign('ccsr',$ccsr);
+
     	$this->display();
     }
     public function pointcardedits(){
@@ -2590,7 +2607,7 @@ class IndexController extends Controller {
     	}
     	
     	if($kh == null){
-    		
+    		$where['stats'] = 2;
     	}else{
     		$where['stats'] = $kh;
     	}
@@ -2604,7 +2621,7 @@ class IndexController extends Controller {
     	$where['jgh'] = $dwname['jgh'];
     	$cci = M('costcardout');
 //  	$where['jgh'] = $jgh;
-    	$where['stats'] = 2;
+    	// $where['stats'] = 2;
     	$ccir = $cci -> limit($first,$limit) -> where($where) -> select();
     	
     	$d = M('danwei');
@@ -2676,7 +2693,30 @@ class IndexController extends Controller {
     	
     	$this -> display();
     }
-    
+    public function pointcarddetail(){
+		// var_dump($_GET);
+		$data = $_GET['cardid'];
+		// $datas[] = array();
+		$datas = explode(',',$data);
+
+		$where['cardid'] = array('in' , $datas);
+
+		$cco = M('costcardout');
+
+		$ccor = $cco -> where($where) -> select();
+
+		$data = $this->pcistats($ccor);
+
+		foreach($data as &$value){
+
+			$value['point'] = $value['rule'] * $value['money'];
+
+		}
+
+		$this->assign('data',$data);
+
+		$this->display();
+	}
     
     
     

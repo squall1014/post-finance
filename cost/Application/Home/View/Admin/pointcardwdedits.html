@@ -21,14 +21,12 @@
 		    <div class="layui-inline">
 		      <form class="layui-form">
 		  		<select name="kh" id="khReload" lay-verify="" lay-search>
-		  			<option value="">请选择状态</option>
-		  			<option value="0">可领</option>
-		  			<option value="1">停用</option>
-		  			<option value="2">已使用</option>
-		  			<option value="3">挂失申请</option>
-		  			<option value="4">待审</option>
-		  			<option value="5">已审</option>
-		  			<option value="6">挂失</option>
+					<option value="">请选择状态</option>
+					<volist name="ccsr" id="vo">
+						<option value="{$vo.statsid}">{$vo.cardstats}</option>
+					</volist>
+		  			
+		  			
 		  		</select>
 		  		</form>
 		    </div>
@@ -61,9 +59,7 @@
 					
 					<script type="text/html" id="toolbarDemo">
 					  <div class="layui-btn-container">
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">查看产品</button>
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">添加产品</button>
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量停用</button>
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量查看</button>
 					  </div>
 					</script>
 					
@@ -179,23 +175,29 @@
 		      });
 	      break;
 	      case 'getCheckstats':
-	        var data = table.checkStatus(obj.config.id);
-	        location.reload();
-	        $.ajax({
-	        	type:"post",
-	        	url:'{:U("productbatchstats")}',
-	        	async:true,
-	        	data : {
-	        		productid : data.data,
-	        	},
-	        	success:function(result){
-	        		alert("共有" + result + "条已停用");
-	        		
-	        	},
-	        });
-	        
-	        
-	        
+		  var data = table.checkStatus(obj.config.id);
+		  var datas = new Array();
+		  len = data.data.length;
+			for(i = 0; i < len; i++){
+				console.log(data.data);
+				datas[i] = data.data[i]['cardid'];
+			}
+		  console.log(datas);
+		  layer.open({
+			  type: 2
+			  ,title: '明细查看'
+			  ,area: ['1000px' , '400px']
+			  ,shade: 0
+			  ,maxmin: true
+			  ,content: 'pointcarddetail.html?cardid='+datas
+			  ,cancel: function(index, layero){ 
+				if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+					layer.close(index);
+					window.location.reload();
+					}
+					return false; 
+				}
+		  })
 	      break;
 	      
 	      case 'isAll':

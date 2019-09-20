@@ -1140,6 +1140,18 @@ class AdminController extends Controller {
     		if($value['stats'] == 6){
     			$value['status'] = '挂失';
     			continue;
+			}
+			if($value['stats'] == 7){
+    			$value['status'] = '充值进行中';
+    			continue;
+			}
+			if($value['stats'] == 8){
+    			$value['status'] = '充值成功';
+    			continue;
+			}
+			if($value['stats'] == 9){
+    			$value['status'] = '充值失败';
+    			continue;
     		}
     	}
     	return $data;
@@ -1428,9 +1440,14 @@ class AdminController extends Controller {
     public function pointcardwdedits(){
     	$d = M('danwei');
     	$drr = $d -> where("jiagou = 'A1'") -> select();
-    	
+		
     	$this->assign('drr',$drr);
-    	
+		
+		$ccs = M('costcardstats');
+		$ccsr = $ccs -> where("stats = 0") -> select();
+		$this->assign('ccsr',$ccsr);
+		
+
     	$this->display();
     }
     public function pointcardwdeditlist(){
@@ -1696,15 +1713,20 @@ class AdminController extends Controller {
     	$d = M('danwei');
     	$drr = $d -> where("jiagou = 'A1'") -> select();
     	
-    	$this->assign('drr',$drr);
-    	
+		$this->assign('drr',$drr);
+		
+    	$ccs = M('costcardstats');
+		$ccsr = $ccs -> where("stats = 0") -> select();
+
+		$this->assign('ccsr',$ccsr);
+
     	$this->display();
     }
     public function pointcardwdfinancelist(){
     	$limit = $_GET['limit'];
     	$page = $_GET['page'];
     	$first = $limit * ($page-1);
-    	
+    	$st = $_GET['stats'];
     	$kh = $_GET['card'];
     	$wd = $_GET['jgh'];
     	$date_date = $_GET['date'];
@@ -1719,7 +1741,11 @@ class AdminController extends Controller {
     	}else{
     		$where['card'] = $kh;
     	}
-    	
+    	if($st == null){
+			$where['stats'] = 8;
+		}else{
+			$where['stats'] = $st;
+		}
     	if($date_date == null){
     		
     	}else{
@@ -1727,7 +1753,7 @@ class AdminController extends Controller {
     		$dates = substr($date_date,-10,10);
     		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
     	}
-    	$where['stats'] = 2;
+    	// $where['stats'] = 2;
     	
     	$cc = M('costcardout');
     	
@@ -1760,5 +1786,148 @@ class AdminController extends Controller {
     	$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
     	
     	echo $json;
+	}
+	public function pointcardwdinvest(){
+    	$d = M('danwei');
+    	$drr = $d -> where("jiagou = 'A1'") -> select();
+    	
+		$this->assign('drr',$drr);
+		
+    	$ccs = M('costcardstats');
+		$ccsr = $ccs -> where("stats = 0") -> select();
+
+		$this->assign('ccsr',$ccsr);
+
+    	$this->display();
     }
+	public function pointcardwdinvestlist(){
+    	$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+    	$st = $_GET['stats'];
+    	$kh = $_GET['card'];
+    	$wd = $_GET['jgh'];
+    	$date_date = $_GET['date'];
+    	if($wd == null){
+    		
+    	}else{
+    		$where['jgh'] = $wd;
+    	}
+    	
+    	if($kh == null){
+    		
+    	}else{
+    		$where['card'] = $kh;
+    	}
+    	if($st == null){
+			$where['stats'] = 2;
+		}else{
+			$where['stats'] = $st;
+		}
+    	if($date_date == null){
+    		
+    	}else{
+    		$date = substr($date_date,0,10);
+    		$dates = substr($date_date,-10,10);
+    		$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+    	}
+    	// $where['stats'] = 2;
+    	
+    	$cc = M('costcardout');
+    	
+    	$ccr = $cc -> limit($first,$limit) -> where($where) -> select();
+    	
+    	foreach($ccr as &$value){
+    		$value['sum'] = $value['rule'] * $value['money'];
+    	}
+    	
+    	$ccr = $this -> pcstats($ccr);
+    	$d = M('danwei');
+    	$drr = $d -> where("jiagou = 'A1'") -> select();
+    	
+    	foreach($ccr as &$value){
+    		
+    		foreach($drr as &$val){
+    			
+    			if($value['jgh'] == $val['jgh']){
+    				
+    				$value['dwnames'] = $val['dwname'];
+    				break;
+    			}
+    		}
+    		
+    	}
+//  	var_dump($ccr);
+    	$count = $cc -> where($where) -> count();
+    	
+    	$data = json_encode($ccr);
+    	$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+    	
+    	echo $json;
+	}
+	public function pointcardinvest(){
+		$pro = $_POST['cardoutid'];
+		$cco = M('costcardout');
+		$cc = M('costcard');
+		$cci = M('costcardin');
+    	$where['stats'] = 7;
+    	foreach($pro as &$value){
+    		$cardoutid = $value['cardoutid'];
+			$ccor = $cco -> where("cardoutid = '$cardoutid'") -> save($where);
+			
+			$cardid = $value['cardid'];
+			$ccr = $cc -> where("cardid = '$cardid'") -> save($where);
+
+			$cardinid = $value['cardinid'];
+			$ccir = $cci -> where("cardinid = '$cardinid'") -> save($where);
+
+    		$count = $count + $ccor;
+    	}
+    	
+    	echo $count;
+	}
+	public function pointcardover(){
+		$pro = $_POST['cardoutid'];
+		$cco = M('costcardout');
+		$cc = M('costcard');
+		$cci = M('costcardin');
+    	$where['stats'] = 8;
+    	foreach($pro as &$value){
+    		$cardoutid = $value['cardoutid'];
+    		$ccor = $cco -> where("cardoutid = '$cardoutid'") -> save($where);
+			$count = $count + $ccor;
+			
+			$cardid = $value['cardid'];
+			$ccr = $cc -> where("cardid = '$cardid'") -> save($where);
+
+			$cardinid = $value['cardinid'];
+			$ccir = $cci -> where("cardinid = '$cardinid'") -> save($where);
+    	}
+    	
+    	echo $count;
+	}
+	public function pointcarddetail(){
+		// var_dump($_GET);
+		$data = $_GET['cardid'];
+		// $datas[] = array();
+		$datas = explode(',',$data);
+
+		$where['cardid'] = array('in' , $datas);
+
+		$cco = M('costcardout');
+
+		$ccor = $cco -> where($where) -> select();
+
+		$data = $this->pcstats($ccor);
+
+		foreach($data as &$value){
+
+			$value['point'] = $value['rule'] * $value['money'];
+
+		}
+
+		$this->assign('data',$data);
+
+		$this->display();
+	}
 }

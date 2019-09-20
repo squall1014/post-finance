@@ -11,7 +11,7 @@
     <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
     	<div class="layui-card" style="width: 100%;">
         	<div class="layui-card-header">
-        		<font size="4">网点积分卡管理</font>
+        		<font size="4">网点积分卡充值</font>
         	</div>
         <div class="layui-card-body">
         <hr class="layui-bg-red">
@@ -22,9 +22,9 @@
 		      <form class="layui-form">
 		  		<select name="kh" id="khReload" lay-verify="" lay-search>
 		  			<option value="">请选择状态</option>
-		  			<volist name="ccsr" id="vo">
-						<option value="{$vo.statsid}">{$vo.cardstats}</option>
-					</volist>
+					<option value="2">已使用</option>
+					<option value="7">充值进行中</option>
+
 		  		</select>
 		  		</form>
 		    </div>
@@ -57,9 +57,8 @@
 					
 					<script type="text/html" id="toolbarDemo">
 					  <div class="layui-btn-container">
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">查看产品</button>
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">添加产品</button>
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量停用</button>
+						<button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量充值</button>
+						<button class="layui-btn layui-btn-sm" lay-event="getCheckover">批量充值完成</button>
 					  </div>
 					</script>
 					
@@ -83,7 +82,7 @@
   var form = layui.form;
   table.render({
     elem: '#test'
-    ,url:'{:U("pointcardwdfinancelist")}'
+    ,url:'{:U("pointcardwdinvestlist")}'
     ,toolbar: '#toolbarDemo'
     ,title: '用户数据表'
     ,cols: [[
@@ -101,7 +100,7 @@
     ]]
     ,id: 'testReload'
     ,page: true
-    ,limits: [20, 200, 2000]
+    ,limits: [10, 200, 2000]
     ,limit: 20 //每页默认显示的数量
   });
   	var $ = layui.$, active = {
@@ -181,15 +180,16 @@
 	      case 'getCheckstats':
 	        var data = table.checkStatus(obj.config.id);
 	        location.reload();
+			console.log(data.data);
 	        $.ajax({
 	        	type:"post",
-	        	url:'{:U("productbatchstats")}',
+	        	url:'{:U("pointcardinvest")}',
 	        	async:true,
 	        	data : {
-	        		productid : data.data,
+	        		cardoutid : data.data,
 	        	},
 	        	success:function(result){
-	        		alert("共有" + result + "条已停用");
+	        		alert("共有" + result + "进行充值");
 	        		
 	        	},
 	        });
@@ -197,7 +197,22 @@
 	        
 	        
 	      break;
-	      
+	      case 'getCheckover':
+	        var data = table.checkStatus(obj.config.id);
+	        location.reload();
+			console.log(data);
+	        $.ajax({
+	        	type:"post",
+	        	url:'{:U("pointcardover")}',
+	        	async:true,
+	        	data : {
+	        		cardoutid : data.data,
+	        	},
+	        	success:function(result){
+	        		alert("共有" + result + "充值完成");
+	        		
+	        	},
+	        });
 	      case 'isAll':
 	        layer.msg(checkStatus.isAll ? '全选': '未全选');
 	      break;

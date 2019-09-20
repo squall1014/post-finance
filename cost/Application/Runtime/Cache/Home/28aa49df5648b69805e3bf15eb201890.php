@@ -204,13 +204,7 @@
 		      <form class="layui-form">
 		  		<select name="kh" id="khReload" lay-verify="" lay-search>
 		  			<option value="">请选择状态</option>
-		  			<option value="0">可领</option>
-		  			<option value="1">停用</option>
-		  			<option value="2">已使用</option>
-		  			<option value="3">挂失申请</option>
-		  			<option value="4">待审</option>
-		  			<option value="5">已审</option>
-		  			<option value="6">挂失</option>
+		  			<?php if(is_array($ccsr)): $i = 0; $__LIST__ = $ccsr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["statsid"]); ?>"><?php echo ($vo["cardstats"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 		  		</select>
 		  		</form>
 		    </div>
@@ -274,7 +268,7 @@
       ,{field:'card', title:'卡号', width:240, sort: true}
       ,{field:'dwnames', title:'单位', width:120,sort: true}
       ,{field:'date', title:'入库日期', width:120,sort: true}
-			,{field:'status', title:'状态', width:100, sort: true}
+	  ,{field:'status', title:'状态', width:100, sort: true}
       ,{field:'beizhu', title:'备注', width:400, edit: 'text', sort: true}
     ]]
     ,id: 'testReload'
@@ -357,20 +351,64 @@
 		      });
 	      break;
 	      case 'getCheckstats':
-	        var data = table.checkStatus(obj.config.id);
-	        location.reload();
-	        $.ajax({
-	        	type:"post",
-	        	url:'<?php echo U("productbatchstats");?>',
-	        	async:true,
-	        	data : {
-	        		productid : data.data,
-	        	},
-	        	success:function(result){
-	        		alert("共有" + result + "条已停用");
-	        		
-	        	},
-	        });
+		  var data = table.checkStatus(obj.config.id);
+		  var datas = new Array();
+		  len = data.data.length;
+			for(i = 0; i < len; i++){
+				console.log(data.data);
+				datas[i] = data.data[i]['cardid'];
+			}
+		  console.log(datas);
+		  layer.open({
+			  type: 2
+			  ,title: '明细查看'
+			  ,area: ['1000px' , '400px']
+			  ,shade: 0
+			  ,maxmin: true
+			  ,content: 'pointcarddetail.html?cardid='+datas
+			  ,cancel: function(index, layero){ 
+				if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+					layer.close(index);
+					window.location.reload();
+					}
+					return false; 
+				}
+		  })
+	        // if(data.data.length > 1){
+			// 	      //配置一个透明的询问框
+			// 	      layer.msg('每次操作只能办理一张积分卡', {
+			// 	        time: 10000, //20s后自动关闭
+			// 	        btn: ['明白了',]
+			// 	      });
+	        // }else{
+	        // 		datas = data.data[0]['cardid'];
+	        // 		datass = data.data[0]['cardinid'];
+	        // 		datasss = data.data[0]['card'];
+		    //     	layer.open({
+			// 	        type: 2 //此处以iframe举例
+			// 	        ,title: '发卡'
+			// 	        ,area: ['800px', '600px']
+			// 	        ,shade: 0
+			// 	        ,maxmin: true
+				        
+			// 	        ,content: 'pointcardhair.html?cardid='+datas+'&cardinid='+datass+'&card='+datasss
+				        
+			// 	        ,btn2: function(){
+			// 	          layer.closeAll();
+			// 	        }
+			// 	        ,cancel: function(index, layero){ 
+			// 					  if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+			// 					    layer.close(index);
+			// 					    window.location.reload();
+			// 					  }
+			// 					  return false; 
+			// 					}    
+			// 	        ,zIndex: layer.zIndex //重点1
+			// 	        ,success: function(layero){
+			// 	          layer.setTop(layero); //重点2
+			// 	        }
+			//       });
+	        // }
 	        
 	        
 	        

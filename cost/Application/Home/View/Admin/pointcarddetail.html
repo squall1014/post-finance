@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/Admin/head" />
+    <!-- 内容主体区域 -->
+    <div class="layui-card" style="width: 100%;">
+		<div class="layui-card-header">
+			<font size="4">网点积分卡管理</font>
+		</div>
+    <br />
+	<form class="layui-form" action="selectss" method="get" style="width: 100%;">
+		<table class="layui-table" style="text-align: center; width: 95%;">
+			<tr>
+				<td>卡号</td>
+				<td>存单</td>
+				<td>客户</td>
+				<td>身份证</td>
+				<td>联系电话</td>
+				<td>出库日期</td>
+				<td>存款金额</td>
+				<td>积分</td>
+				<td>状态</td>
+				<td>备注</td>
+			</tr>
+			<volist name="data" id="vo">
+				<tr>
+					<td>{$vo.card}</td>
+					<td>{$vo.cundan}</td>
+					<td>{$vo.client}</td>
+					<td>{$vo.sfz}</td>
+					<td>{$vo.phone}</td>
+					<td>{$vo.date}</td>
+					<td>{$vo.money}</td>
+					<td>{$vo.point}</td>
+					<td>{$vo.status}</td>
+					<td>{$vo.beizhu}</td>
+				</tr>
+			</volist>
+		</table>
+	</form>
+  </div>
+  
+<!--底部-->
+<include file="Public/Admin/footer" />

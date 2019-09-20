@@ -221,7 +221,6 @@
 				      <div class="layui-input-inline" style="width: 200px;">
 				        <input type="text" name="price_max" placeholder="<?php echo ($max); ?>" autocomplete="off" class="layui-input">
 				      </div>
-				    
 	        </div>
         </div>
         <div class="single" style="display: none;">
@@ -230,7 +229,6 @@
 				      <div class="layui-input-inline" style="width: 200px;">
 				        <input type="text" name="price" placeholder="<?php echo ($min); ?>" autocomplete="off" class="layui-input">
 				      </div>
-				    
 	        </div>
         </div>
     		<br />

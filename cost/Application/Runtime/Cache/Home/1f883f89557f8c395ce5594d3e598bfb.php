@@ -93,7 +93,7 @@
     <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
     	<div class="layui-card" style="width: 100%;">
         	<div class="layui-card-header">
-        		<font size="4">网点积分卡管理</font>
+        		<font size="4">网点积分卡充值</font>
         	</div>
         <div class="layui-card-body">
         <hr class="layui-bg-red">
@@ -103,10 +103,10 @@
 		    <div class="layui-inline">
 		      <form class="layui-form">
 		  		<select name="kh" id="khReload" lay-verify="" lay-search>
-					<option value="">请选择状态</option>
-					<?php if(is_array($ccsr)): $i = 0; $__LIST__ = $ccsr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["statsid"]); ?>"><?php echo ($vo["cardstats"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-		  			
-		  			
+		  			<option value="">请选择状态</option>
+					<option value="2">已使用</option>
+					<option value="7">充值进行中</option>
+
 		  		</select>
 		  		</form>
 		    </div>
@@ -123,7 +123,7 @@
 		  		搜索日期：
 		    <div class="layui-inline">
 		      <form class="layui-form">
-			        <input type="text" name="date" id="date" autocomplete="off" class="layui-input">
+			        <input type="text" name="date_date" id="test6" autocomplete="off" class="layui-input">
 		  		</form>
 		    </div>
 		  		<button class="layui-btn" data-type="reload">搜索</button>
@@ -137,7 +137,8 @@
 					
 					<script type="text/html" id="toolbarDemo">
 					  <div class="layui-btn-container">
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量查看</button>
+						<button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量充值</button>
+						<button class="layui-btn layui-btn-sm" lay-event="getCheckover">批量充值完成</button>
 					  </div>
 					</script>
 					
@@ -161,28 +162,32 @@
   var form = layui.form;
   table.render({
     elem: '#test'
-    ,url:'<?php echo U("pointcardwdeditlist");?>'
+    ,url:'<?php echo U("pointcardwdinvestlist");?>'
     ,toolbar: '#toolbarDemo'
     ,title: '用户数据表'
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
-      ,{field:'cardid', title:'ID', width:120, fixed: 'left', unresize: true, sort: true}
-      ,{field:'card', title:'卡号', width:240, sort: true}
+      ,{field:'cardid', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+      ,{field:'card', title:'卡号', width:180, sort: true}
       ,{field:'dwnames', title:'单位', width:120,sort: true}
-      ,{field:'date', title:'入库日期', width:120,sort: true}
+      ,{field:'date', title:'兑换日期', width:120,sort: true}
+      ,{field:'rule', title:'基数', width:80,sort: true}
+      ,{field:'money', title:'存款金额', width:80,sort: true}
+      ,{field:'sum', title:'兑换金额', width:120,sort: true}
+      ,{field:'cundan', title:'存单号', width:120,sort: true}
       ,{field:'status', title:'状态', width:85,sort: true}
       ,{field:'beizhu', title:'备注', width:400, edit: 'text', sort: true}
     ]]
     ,id: 'testReload'
     ,page: true
-    //,limits: [10, 20, 30]
+    ,limits: [10, 200, 2000]
     ,limit: 20 //每页默认显示的数量
   });
   	var $ = layui.$, active = {
        reload: function(){
        var khReload = $('#khReload');
        var wdReload = $('#wdReload');
-       var dateReload = $('#date');
+       var dateReload = $('#test6');
         table.reload('testReload', {
               where: {
                  stats: khReload.val(),
@@ -253,31 +258,41 @@
 		      });
 	      break;
 	      case 'getCheckstats':
-		  var data = table.checkStatus(obj.config.id);
-		  var datas = new Array();
-		  len = data.data.length;
-			for(i = 0; i < len; i++){
-				console.log(data.data);
-				datas[i] = data.data[i]['cardid'];
-			}
-		  console.log(datas);
-		  layer.open({
-			  type: 2
-			  ,title: '明细查看'
-			  ,area: ['1000px' , '400px']
-			  ,shade: 0
-			  ,maxmin: true
-			  ,content: 'pointcarddetail.html?cardid='+datas
-			  ,cancel: function(index, layero){ 
-				if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
-					layer.close(index);
-					window.location.reload();
-					}
-					return false; 
-				}
-		  })
+	        var data = table.checkStatus(obj.config.id);
+	        location.reload();
+			console.log(data.data);
+	        $.ajax({
+	        	type:"post",
+	        	url:'<?php echo U("pointcardinvest");?>',
+	        	async:true,
+	        	data : {
+	        		cardoutid : data.data,
+	        	},
+	        	success:function(result){
+	        		alert("共有" + result + "进行充值");
+	        		
+	        	},
+	        });
+	        
+	        
+	        
 	      break;
-	      
+	      case 'getCheckover':
+	        var data = table.checkStatus(obj.config.id);
+	        location.reload();
+			console.log(data);
+	        $.ajax({
+	        	type:"post",
+	        	url:'<?php echo U("pointcardover");?>',
+	        	async:true,
+	        	data : {
+	        		cardoutid : data.data,
+	        	},
+	        	success:function(result){
+	        		alert("共有" + result + "充值完成");
+	        		
+	        	},
+	        });
 	      case 'isAll':
 	        layer.msg(checkStatus.isAll ? '全选': '未全选');
 	      break;

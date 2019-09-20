@@ -60,6 +60,7 @@
         <li class="layui-nav-item">
           <?php if($user["qx"] >= 9): ?><a class="" href="javascript:;">积分卡对账管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
+            <dd><a href="/cost/index.php/Home/Admin/pointcardwdinvest">积分卡按网点进行充值</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/pointcardwdfinance">积分卡按网点对账管理</a></dd>
           </dl>
         </li>
@@ -69,7 +70,7 @@
             <dd><a href="/cost/index.php/Home/Admin/financedwreportdate">按单位库存财务报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/financewhreportdate">按仓库库存财务报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/inboundreportdate">按日期入库库存财务报表</a></dd>
-            <dd><a href="/cost/index.php/Home/Admin/">库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Admin/warehousedwreport">库存报表</a></dd>
             <!--<dd><a href="/cost/index.php/Home/Admin/financereportall">按单位礼品报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/financewarehouse">按单位消耗品报表</a></dd>-->
           </dl>
@@ -103,13 +104,7 @@
 		      <form class="layui-form">
 		  		<select name="kh" id="khReload" lay-verify="" lay-search>
 		  			<option value="">请选择状态</option>
-		  			<option value="0">可领</option>
-		  			<option value="1">停用</option>
-		  			<option value="2">已使用</option>
-		  			<option value="3">挂失申请</option>
-		  			<option value="4">待审</option>
-		  			<option value="5">已审</option>
-		  			<option value="6">挂失</option>
+		  			<?php if(is_array($ccsr)): $i = 0; $__LIST__ = $ccsr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["statsid"]); ?>"><?php echo ($vo["cardstats"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 		  		</select>
 		  		</form>
 		    </div>
@@ -184,7 +179,7 @@
     ]]
     ,id: 'testReload'
     ,page: true
-    //,limits: [10, 20, 30]
+    ,limits: [20, 200, 2000]
     ,limit: 20 //每页默认显示的数量
   });
   	var $ = layui.$, active = {
