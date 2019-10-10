@@ -77,19 +77,19 @@
           </dl>
        </li>
        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">日爆点午巡活动上报</a>
+        	<a class="" href="javascript:;">每日午巡活动上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/1">日爆点午巡活动上报</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/1">日爆点午巡活动修改</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/1">日爆点午巡活动审核</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/1">每日午巡活动上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/1">每日午巡活动修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/1">每日午巡活动审核</a></dd>
           </dl>
        </li>
        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">日爆点日终活动上报</a>
+        	<a class="" href="javascript:;">每日日终活动上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/2">日爆点日终活动上报</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/2">日爆点日终活动修改</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/2">日爆点日终活动审核</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/2">每日日终活动上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/2">每日日终活动修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/2">每日日终活动审核</a></dd>
           </dl>
        </li>
        <li class="layui-nav-item">
@@ -100,11 +100,14 @@
             <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/3">厅堂联动及网沙审核</a></dd>
           </dl>
        </li>
+       
        <li class="layui-nav-item">
         	<a class="" href="javascript:;">白名单客户管理</a>
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustadd">白名单客户录入</a></dd>
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustsearch">白名单客户查询</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/whitecustinfoperspt">白名单有效存款情况</a></dd>
+            
           </dl>
        </li>
        <li class="layui-nav-item">
@@ -112,6 +115,7 @@
         <dl class="layui-nav-child">
           <dd><a href="/jrhr/index.php/Home/Admin/etccustadd">ETC客户录入</a></dd>
           <dd><a href="/jrhr/index.php/Home/Admin/etccustsearch">ETC客户查询</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustdelete">ETC客户车辆解约</a></dd>
           <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereeadd">ETC客户引荐客户录入</a></dd>
           <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereesearch">ETC引荐客户查询</a></dd>
         </dl>
@@ -132,75 +136,94 @@
 <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
     <br />
 
-        <form action="<?php echo U('etccustrefereemodifysuc');?>" id="form" enctype="multipart/form-data" method="post" class="layui-form" >
+        <form action="<?php echo U('whitecustmodifysuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
         <div class="layui-card" style="width: 100%;">
         	<div class="layui-card-header">
-        		<font size="4">ETC客户引荐修改</font>
+        		<font size="4">白名单客户修改</font>
         	</div>
         <div class="layui-card-body">
-		<table class="layui-table" lay-size="">
-			<input type="hidden" name="etcrefereeid" value="<?php echo ($data[0]['etcrefereeid']); ?>">
-			<tr>
-				<th>
-					<font color="#FF0000">*</font>车主车牌
-				</th>
-				<td>
-					<input type="text" name="carcard" value="<?php echo ($data[0]['carcard']); ?>" id="carcard" required lay-verify=""
-						placeholder="请输入行驶证车牌" autocomplete="off" class="layui-input">
-				</td>
-				<th>
-					<font color="#FF0000">*</font>车主联系电话
-				</th>
-				<td>
-					<input type="text" name="carphone" id="carphone" value="<?php echo ($data[0]['carphone']); ?>" required
-						lay-verify="required" placeholder="请输入客户银行卡号" autocomplete="off" class="layui-input">
-				</td>
-				<th>
-					行驶证车主姓名
-				</th>
-				<td>
-					<input type="text" name="carcustname" value="<?php echo ($data[0]['carcustname']); ?>" id="carcustname"
-					 placeholder="请输入行驶证车主姓名" autocomplete="off" class="layui-input">
-				</td>
-				<th>
-					行驶证车主身份证
-				</th>
-				<td>
-					<input type="text" name="carsfz" id="carsfz" value="<?php echo ($data[0]['carsfz']); ?>"
-					 placeholder="请输入行驶证车主身份证" autocomplete="off" class="layui-input">
-				</td>
-		
-		
-		
-			</tr>
-			<tr>
-		
-				<th>
-					<font color="#FF0000">*</font>引荐人
-				</th>
-				<td>
-					<input type="text" name="referee" value="<?php echo ($data[0]['referee']); ?>" id="referee" disabled="disabled" required lay-verify="required"
-						placeholder="请输入客户引荐人姓名" autocomplete="off" class="layui-input">
-				</td>
-				<th>
-					<font color="#FF0000">*</font>引荐日期
-				</th>
-				<td>
-					<input type="text" name="date" id="date" value="<?php echo ($data[0]['date']); ?>" placeholder="请点击选择日期" autocomplete="off"
-						required lay-verify="" class="layui-input">
-				</td>
-			</tr>
-			</tr>
-			<tr>
-				<th>备注</th>
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	<input type="hidden" value="<?php echo ($jwrr[0]['whitecustid']); ?>" name="whitecustid" />
+         	 <th><font color="#FF0000">*</font>身份证</th>
+         	 <td>
+         	 	<input type="text" name="sfz" id="sfz" value="<?php echo ($jwrr[0]['sfz']); ?>" required lay-verify="identity" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th><font color="#FF0000">*</font>客户姓名</th>
+         	 <td>
+         	 	<input type="text" name="custname" value="<?php echo ($jwrr[0]['custname']); ?>" required lay-verify="required" placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th><font color="#FF0000">*</font>联系电话</th>
+         	 <td>
+         	 	<input type="text" name="phone" value="<?php echo ($jwrr[0]['phone']); ?>" required lay-verify="number" placeholder="请输入客户联系方式" autocomplete="off" class="layui-input">
+         	 </td>
+         	 <th><font color="#FF0000">*</font>客户地址</th>
+         	 <td>
+         	 	<input type="text" name="address" value="<?php echo ($jwrr[0]['address']); ?>" required lay-verify="required" placeholder="请输入客户地址" autocomplete="off" class="layui-input">
+         	 </td>
+         	 </tr>
+         	 	
+         	 <tr>
+         	 <th><font color="#FF0000">*</font>村社名称</th>
+         	 <td>
+         	 	<select name="village" lay-verify="required" lay-search>
+         	 		<option value="<?php echo ($jwrr[0]['village']); ?>"><?php echo ($jwrr[0]['villages']); ?></option>
+         	 		<?php if(is_array($jvrr)): $i = 0; $__LIST__ = $jvrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["villageid"]); ?>"><?php echo ($vo["village"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th><font color="#FF0000">*</font>客户来源</th>
+         	 <td>
+         	 	<select name="source" lay-verify="required" lay-search>
+         	 		<option value="<?php echo ($jwrr[0]['source']); ?>"><?php echo ($jwrr[0]['sources']); ?></option>
+         	 		<?php if(is_array($jsrr)): $i = 0; $__LIST__ = $jsrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["sourceid"]); ?>"><?php echo ($vo["source"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+			  </td>
+			</td>
+			<th><font color="#FF0000">*</font>资金来源</th>
+			<td>
+				<select name="fundsource" lay-verify="required" lay-search>
+					<option value="<?php echo ($jwrr[0]['fundsource']); ?>"><?php echo ($jwrr[0]['fundsources']); ?></option>
+					<?php if(is_array($jfsr)): $i = 0; $__LIST__ = $jfsr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["fundsourceid"]); ?>"><?php echo ($vo["fundsource"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+		  </select>
+			</td>
+         	 <th>维护方式</th>
+         	 <td>
+         	 	<select name="maintenance" lay-search>
+         	 		<option value="<?php echo ($jwrr[0]['maintenance']); ?>"><?php echo ($jwrr[0]['maintenances']); ?></option>
+         	 		<?php if(is_array($jmrr)): $i = 0; $__LIST__ = $jmrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["maintenanceid"]); ?>"><?php echo ($vo["maintenance"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 
+         	 
+         	 
+         	 
+         	</tr>
+         	
+         	 <tr>
+				<th>意向产品</th>
 				<td colspan="7">
-					<textarea placeholder="请输入需要备注的内容" class="layui-textarea" name="beizhu"></textarea>
+					<?php if(is_array($jprr)): $i = 0; $__LIST__ = $jprr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo["status"] == 1): ?><input type="checkbox" name="product[<?php echo ($vo["productid"]); ?>]" title="<?php echo ($vo["product"]); ?>" checked="">
+								
+							<?php else: ?>
+								<input type="checkbox" name="product[<?php echo ($vo["productid"]); ?>]" title="<?php echo ($vo["product"]); ?>"><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+						
+					</volist>
 				</td>
-		
 			</tr>
-		</table>
-    	</div>
-    </div>
+			<tr>
+
+			
+         	 <th>备注</th>
+         	 <td colspan="7">
+					<input type="text" name="beizhu" value="<?php echo ($jwrr[0]['beizhu']); ?>" placeholder="备注" autocomplete="off" class="layui-input">
+				</td>
+         	 
+         	</tr>
+         	
+         </table>
+         </div>
+         
+         </div>
          <br />
          <div class="layui-form-item" style="margin-left:360px;">
            <div class="layui-input-block">
@@ -217,7 +240,33 @@
 <script src="/jrhr/Public/layui.all.js"></script>
 
 <script>
-
+	layui.use('element', function(){
+  var element = layui.element;
+  
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(types1)', function(data){
+			var datas = eval(<?php echo ($insr); ?>);
+			for(i = 0 ; i < datas.length ; i++){
+				
+				if(data.value == datas[i].insuranceid){
+					document.getElementById("payment2").value = datas[i].pay + '年';
+					
+					document.getElementById("duration2").value = datas[i].dur + '年';
+					
+					document.getElementById("insurance2").value = datas[i].insurance;
+					
+					//alert(datas[i].dur);
+					break;
+				}
+			}
+			
+		});
+  
+	});
 	layui.use('laydate', function(){
 	  var laydate = layui.laydate;
 	  
@@ -226,30 +275,27 @@
 	    elem: '#date' //指定元素
 	  });
 	  laydate.render({
-	    elem: '#date1' //指定元素
-	  });
-	  laydate.render({
 	  	elem: '#test6'
 	  	,range: true
 		});
 	});
 	
-	// layui.use('form', function(){
-	//   var form = layui.form;
-	//   //获取types1控件中的数据
-	// 	form.on('select(servicebak1)', function(data){
-	// 		if(document.getElementById("xszb").style.visibility == "visible"){
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(servicebak1)', function(data){
+			if(document.getElementById("xszb").style.visibility == "visible"){
 				
-	// 		}else{
-	// 			document.getElementById("xszb").style.visibility = "visible";
-	// 			document.getElementById("xszb1").style.visibility = "visible";
-	// 			document.getElementById("percentagebak").value = "0.5";
-	// 		}
+			}else{
+				document.getElementById("xszb").style.visibility = "visible";
+				document.getElementById("xszb1").style.visibility = "visible";
+				document.getElementById("percentagebak").value = "0.5";
+			}
 			
 			
-	// 	});
+		});
   
-	// });
+	});
 	
 </script>
 <!--底部-->

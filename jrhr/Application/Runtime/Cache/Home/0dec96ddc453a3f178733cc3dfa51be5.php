@@ -29,7 +29,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-            	金融业务部
+                      <?php echo ($dwname['user']); ?>--<?php echo ($dwname['dwname']); ?>--<?php echo ($dwname['zhiwu']); ?>
         </a>
         <dl class="layui-nav-child">
           <dd><a href="">基本资料</a></dd>
@@ -44,93 +44,88 @@
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
       	<li class="layui-nav-item"><a href="/jrhr/index.php/Home/Admin/index">首页</a></li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">积分项目管理</a>
+      	<li class="layui-nav-item">
+        	<a class="" href="javascript:;">金融每日积分操作</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/pointitemedit">积分项目大类管理</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/pointcontentedit">积分项目管理</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">机构网点积分报表管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdate">按机构网点日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdatesh">按机构网点未审核明细</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jrpointup">每日积分上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jrpointupmodify">每日积分修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jrpointupsearch">每日积分查询</a></dd>
+            <!--<dd><a href="/jrhr/index.php/Home/Admin/jrpointuptj">每日积分统计查询</a></dd>-->
+            <?php if($dwname["zhiwud"] == 75): ?><dd><a href="/jrhr/index.php/Home/Admin/jrpointsupsearch">本网点积分查询</a></dd><?php else: endif; ?>
+            <?php if($dwname["zhiwud"] == 75): ?><dd><a href="/jrhr/index.php/Home/Admin/jrpointupsh">每日积分审核</a></dd><?php else: endif; ?>
             
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdatetb">按机构网点日报表通报</a></dd>
-            
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdatefw">按机构网点范围报表汇总</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdatefwdt">按机构网点范围报表明细</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdatefwtb">按机构网点范围报表通报</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointperspay">按员工奖金池月报报表</a></dd>
           </dl>
-        </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">机构网点积分报表分析</a>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">金融每日行为量上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwitemdate">按机构网点按项目报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwitemsdate">按机构网点按大类报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwicdate">按机构网点大类项目混合报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jrpointdwdatetb">按机构网点日报表通报</a></dd>
+          	<dd><a href="/jrhr/index.php/Home/Admin/jractups">每日行为量选报项目</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractup">每日行为量必报项目</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupmodifys">每日行为量选报项目修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupmodify">每日行为量必报项目修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupsearch">每日行为量查询</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupsh">每日行为量项目审核</a></dd>
           </dl>
-        </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">机构网点行为量管理分析</a>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">每日日终行为量上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractdwdate">粽情端午节行为量日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractdwdatefw">粽情端午节行为量统计</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractup">每日行为量必报项目</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupmodify">每日行为量必报项目修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupsearch">每日行为量查询</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractupsh">每日行为量项目审核</a></dd>
           </dl>
-        </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">每日午巡活动管理分析</a>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">每日午巡活动上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractivedwdate/activecontentid/1">每日午巡活动日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractivedwdatefw/activecontentid/1">每日午巡活动统计报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/1">每日午巡活动上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/1">每日午巡活动修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/1">每日午巡活动审核</a></dd>
           </dl>
-        </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">每日日终活动管理分析</a>
+       </li>
+       <li class="layui-nav-item">
+        	<a class="" href="javascript:;">每日日终活动上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractivedwdate/activecontentid/2">每日日终活动日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractivedwdatefw/activecontentid/2">每日日终活动统计报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/2">每日日终活动上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/2">每日日终活动修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/2">每日日终活动审核</a></dd>
           </dl>
-        </li>
-        <li class="layui-nav-item">
+       </li>
+       <li class="layui-nav-item">
         	<a class="" href="javascript:;">厅堂联动及网沙行为量</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractivebxdate/activecontentid/3">厅堂联动及网沙上报日报表</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractivebxdatefw/activecontentid/3">厅堂联动及网沙上报统计报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/3">厅堂联动及网沙上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/3">厅堂联动及网沙修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/3">厅堂联动及网沙审核</a></dd>
           </dl>
-        </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">白名单客户统计</a>
-          <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jrwhitedwdate">白名单录入情况统计</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jraccountinfopt">白名单定期存款情况</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
+       </li>
+       
+       <li class="layui-nav-item">
         	<a class="" href="javascript:;">白名单客户管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jraccountinfoup">开户信息上传</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jraccountinfoclean">开户信息清空</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/whitecustadd">白名单客户录入</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/whitecustsearch">白名单客户查询</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/whitecustinfoperspt">白名单有效存款情况</a></dd>
+            
           </dl>
-        </li>
+       </li>
+       <li class="layui-nav-item">
+        <a class="" href="javascript:;">ETC客户管理</a>
+        <dl class="layui-nav-child">
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustadd">ETC客户录入</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustsearch">ETC客户查询</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustdelete">ETC客户车辆解约</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereeadd">ETC客户引荐客户录入</a></dd>
+          <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereesearch">ETC引荐客户查询</a></dd>
+        </dl>
+     </li>
         <li class="layui-nav-item">
-        	<a class="" href="javascript:;">ETC客户管理</a>
+          <?php if($user["qx"] == 9): ?><a class="" href="javascript:;">导出数据</a><?php else: endif; ?>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jretccustpt">ETC客户情况报表</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/tablepers"></a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">轮岗记录查询</a>
-          <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jrlgtransferdate">轮岗记录查询</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item"><a href="/jrhr/index.php/Home/Admin/qingjiacounts">JSON数据测试</a></li>
-        <li class="layui-nav-item"><a href="/jrhr/index.php/Home/Admin/select">测试</a></li>
-        <!--<li class="layui-nav-item"><a href="/jrhr/index.php/Home/Admin/select1">测试1</a></li>-->
       </ul>
     </div>
   </div>
@@ -194,10 +189,6 @@ layui.use('laydate', function(){
   //执行一个laydate实例
   laydate.render({
     elem: '#date' //指定元素
-  });
-  
-    laydate.render({
-    elem: '#date1' //指定元素
   });
   
   laydate.render({

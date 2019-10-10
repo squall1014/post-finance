@@ -2587,7 +2587,7 @@ class IndexController extends Controller {
 				if($value['dwnames'] == $val['jgh']){
 
 					$value['count'] = $val['count'];
-					$value['countc'] = $value['counto'] - val['count'];
+					$value['countc'] = $value['counto'] - $val['count'];
 					break;
 				}
 			}

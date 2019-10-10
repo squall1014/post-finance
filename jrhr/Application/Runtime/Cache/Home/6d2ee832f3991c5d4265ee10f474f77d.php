@@ -77,19 +77,19 @@
           </dl>
        </li>
        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">日爆点午巡活动上报</a>
+        	<a class="" href="javascript:;">每日午巡活动上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/1">日爆点午巡活动上报</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/1">日爆点午巡活动修改</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/1">日爆点午巡活动审核</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/1">每日午巡活动上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/1">每日午巡活动修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/1">每日午巡活动审核</a></dd>
           </dl>
        </li>
        <li class="layui-nav-item">
-        	<a class="" href="javascript:;">日爆点日终活动上报</a>
+        	<a class="" href="javascript:;">每日日终活动上报</a>
           <dl class="layui-nav-child">
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/2">日爆点日终活动上报</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/2">日爆点日终活动修改</a></dd>
-            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/2">日爆点日终活动审核</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveup/activecontentid/2">每日日终活动上报</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupmodify/activecontentid/2">每日日终活动修改</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/2">每日日终活动审核</a></dd>
           </dl>
        </li>
        <li class="layui-nav-item">
@@ -100,11 +100,14 @@
             <dd><a href="/jrhr/index.php/Home/Admin/jractiveupsh/activecontentid/3">厅堂联动及网沙审核</a></dd>
           </dl>
        </li>
+       
        <li class="layui-nav-item">
         	<a class="" href="javascript:;">白名单客户管理</a>
           <dl class="layui-nav-child">
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustadd">白名单客户录入</a></dd>
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustsearch">白名单客户查询</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/whitecustinfoperspt">白名单有效存款情况</a></dd>
+            
           </dl>
        </li>
        <li class="layui-nav-item">
@@ -158,7 +161,7 @@
          		<th style="text-align:center;"><?php echo ($vo["villages"]); ?></th>
          		<th style="text-align:center;"><?php echo ($vo["sources"]); ?></th>
          		<th style="text-align:center;"><?php echo ($vo["maintenances"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["products"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["product_s"]); ?></th>
          		<th style="text-align:center;"><?php echo ($vo["date"]); ?></th>
          		<th style="text-align:center;"><?php echo ($vo["beizhu"]); ?></th>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>

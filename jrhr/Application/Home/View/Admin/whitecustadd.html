@@ -21,7 +21,7 @@
          	<tr>
          	 <th><font color="#FF0000">*</font>身份证</th>
          	 <td>
-         	 	<input type="text" name="sfz" id="sfz" onblur="sfzs()" required lay-verify="identity" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
+         	 	<input type="text" name="sfz" id="sfz" required lay-verify="identity" placeholder="请输入客户身份证" autocomplete="off" class="layui-input">
          	 </td>
          	 <th><font color="#FF0000">*</font>客户姓名</th>
          	 <td>
@@ -55,7 +55,17 @@
               <option value="{$vo.sourceid}">{$vo.source}</option>
              	</volist>
             </select>
-         	 </td>
+			  </td>
+			</td>
+			<th><font color="#FF0000">*</font>资金来源</th>
+			<td>
+				<select name="fundsource" lay-verify="required" lay-search>
+					<option value=""></option>
+					<volist name="jfsr" id="vo">
+			<option value="{$vo.fundsourceid}">{$vo.fundsource}</option>
+			   </volist>
+		  </select>
+         	</td>
          	 <th>维护方式</th>
          	 <td>
          	 	<select name="maintenance" lay-search>
@@ -64,26 +74,26 @@
               <option value="{$vo.maintenanceid}">{$vo.maintenance}</option>
              	</volist>
             </select>
-         	 </td>
-         	 <th>意向产品</th>
-         	 <td>
-         	 	<select name="product" lay-search>
-         	 		<option value=""></option>
-         	 		<volist name="jprr" id="vo">
-              <option value="{$vo.productid}">{$vo.product}</option>
-             	</volist>
-            </select>
-         	 </td>
+			  </td>
+			
          	 
          	 
          	 
          	</tr>
          	
          	 <tr>
-         	 
+				<th>意向产品</th>
+				<td colspan="7">
+						<volist name="jprr" id="vo">
+							
+							<input type="checkbox" name="product[{$vo.productid}]" title="{$vo.product}">
+						</volist>
+				</td>
+			</tr>
+			<tr>
          	 <th>备注</th>
          	 <td colspan="7">
-         	 	<textarea placeholder="请输入需要备注的内容" class="layui-textarea" name="beizhu"></textarea>
+				<input type="text" name="beizhu" placeholder="备注" autocomplete="off" class="layui-input">
          	 </td>
          	 
          	</tr>
@@ -192,8 +202,10 @@
 			
 			
 		});
-  
 	});
+	
+	
+
 	
 </script>
 <!--底部-->

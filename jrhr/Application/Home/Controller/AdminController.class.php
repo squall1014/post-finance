@@ -852,8 +852,23 @@ class AdminController extends Controller {
     				break;
     			}
     		}
-    	}
-    	
+		}
+		
+		
+		$jfs = M('jrfundsource');
+		$jfsr = $jfs -> select();
+
+		foreach($data as &$value){
+
+			foreach($jfsr as &$val){
+
+				if($value['fundsource'] == $val['fundsourceid']){
+
+					$value['fundsources'] = $val['fundsource'];
+					break;
+				}
+			}
+		}
     	return $data;
     }
     public function whitecustadd(){
@@ -881,7 +896,12 @@ class AdminController extends Controller {
     	$jprr = $jp -> where($stats) -> select();
     	
     	$this->assign('jprr',$jprr);
-    	
+		
+		$jfs = M('jrfundsource');
+		$jfsr = $jfs -> where($stats) -> select();
+		
+		$this->assign('jfsr',$jfsr);
+
     	$wherejw['jgh'] = $dwname['jgh'];
     	$wherejw['stats'] = 0;
     	$jw = M('jrwhitecust');
@@ -900,7 +920,7 @@ class AdminController extends Controller {
     public function whitecustaddsuc(){
     	$dwname = cookie('dwname');
     	$_POST['jgh'] = $dwname['jgh'];
-    	$_POST['stats'] = 0;
+    	
     	$_POST['date'] = date('Y-m-d');
     	$_POST['alterdate'] = date('Y-m-d');
     	
@@ -909,8 +929,17 @@ class AdminController extends Controller {
     	$jd = M('jrdanwei');
     	$jdr = $jd -> where("jgh = '$jgh'") -> find();
     	$_POST['dwname'] = $jdr['dwnames'];
-    	
-    	
+		
+		foreach($_POST['product'] as $key => $val){
+			if($val == 'on'){
+				$product[] = $key;
+				continue;
+			}
+		}
+		$products = implode(',' , $product);
+
+		$_POST['stats'] = 0;
+		$_POST['product'] = $products;
     	$jw = M('jrwhitecust');
     	$jwrr = $jw -> add($_POST);
     	
@@ -922,9 +951,9 @@ class AdminController extends Controller {
     }
     public function whitecustmodify(){
     	$dwname = cookie('dwname');
-    	$where['dwname'] = $dwname['jgh'];
+    	$where['jgh'] = $dwname['jgh'];
     	$where['sfz'] = $_GET['sfz'];
-    	
+
     	$jw = M('jrwhitecust');
     	$jwrr = $jw -> where($where) -> select();
     	
@@ -945,22 +974,55 @@ class AdminController extends Controller {
     	
     	$this->assign('jmrr',$jmrr);
     	
-    	$jp = M('jrproduct');
-    	$jprr = $jp -> where($stats) -> select();
     	
-    	$this->assign('jprr',$jprr);
-    	
+		
+		$jfs = M('jrfundsource');
+		$jfsr = $jfs -> where($stats) -> select();
+		
+		$this->assign('jfsr',$jfsr);
+
     	$jwrr = $this->whitecustinfo($jwrr);
-    	
-    	$this->assign('jwrr',$jwrr);
-    	
+		
+		$jp = M('jrproduct');
+    	$jprr = $jp -> where($stats) -> select();
+		
+		foreach($jwrr as &$value){
+			
+			$product = explode(',' , $value['product']); 
+		}
+		foreach($product as &$val){
+
+			foreach($jprr as &$value){
+
+				if($val == $value['productid']){
+
+					$value['status'] = 1;
+					break;
+				}
+			}
+			// var_dump($val);
+		}
+
+    	$this->assign('jprr',$jprr);
+
+		$this->assign('jwrr',$jwrr);
+		$this->assign('product',$product);
     	$this->display();
     }
     public function whitecustmodifysuc(){
     	$jw = M('jrwhitecust');
     	
     	$whitecustid = $_POST['whitecustid'];
-    	$_POST['alterdate'] = date('Y-m-d');
+		$_POST['alterdate'] = date('Y-m-d');
+		foreach($_POST['product'] as $key => $val){
+			if($val == 'on'){
+				$product[] = $key;
+				continue;
+			}
+		}
+		$products = implode(',' , $product);
+		$_POST['product'] = $products;
+		// var_dump($_POST);
     	$jwrr = $jw -> where("whitecustid = '$whitecustid'") -> save($_POST);
     	
     	if($jwrr > 0){
@@ -981,8 +1043,28 @@ class AdminController extends Controller {
     	$jwrr = $jw -> where($where) -> select();
     	
     	$jwrr = $this->whitecustinfo($jwrr);
-    	$this->assign('jwrr',$jwrr);
-    	
+		$jp = M('jrproduct');
+		$jprr = $jp -> select();
+		
+		foreach($jwrr as &$value){
+
+			$product = explode(',' , $value['product']);
+
+			foreach($product as &$val){
+
+				foreach($jprr as &$vals){
+
+					if($val == $vals['productid']){
+
+						$products[] = $vals['product'];
+					}
+				}
+			}
+
+			$value['product_s'] = implode(',' , $products);
+			$products = null;
+		}
+		$this->assign('jwrr',$jwrr);
     	$this->display();
 	}
 	public function whitecustinfoperspt(){
