@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <include file="Public/login/title" />
+    
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			  <legend>奖金池分配奖励</legend>
+			</fieldset>
+    	<form class="layui-form layui-form-pane" action="{:U('bonussearchs')}" method="post">
+    		
+    		<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">日期选择</label>
+			      <div class="layui-input-block">
+			        <input type="text" name="date" id="date3" autocomplete="off" class="layui-input">
+			      </div>
+			    </div>
+    		</div>
+    		<br />
+    		<br />
+    		<div class="layui-form-item" style="margin-left:50px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+           </div>
+         </div>
+      </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

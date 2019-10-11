@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+  
+    <!-- 内容主体区域 -->
+    <include file="Public/login/title" />
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>奖金池设置({$drr[0]['dwname']}共{$count}人考核)</legend>
+		</fieldset>
+		<div class="layui-card-body">
+        <form action="{:U('bonusaddsuc')}" enctype="multipart/form-data" id="form" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<tr>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">奖金(元)</th>
+         		<th style="text-align:center;">备注</th>
+         	</tr>
+         	<volist name="brr" id="vo">
+         	<tr>
+         		<th style="text-align:center;">{$vo.bonus}</th>
+         		<td><input type="text" name="{$vo.bonusid}" id="b{$vo.bonusid}" onblur="c{$vo.bonusid}()" lay-verify="number" required placeholder="" autocomplete="off" class="layui-input"> </td>
+         		<th style="text-align:center;">{$vo.beizhu}</th>
+         	</tr>
+         	<script type="text/javascript">
+         		function c{$vo.bonusid}(){
+					 var sums = 0;
+					 var f = document.getElementById("form");
+					 var g = f.getElementsByTagName("input");
+					 for(i = 0; i < g.length - 2; i++){
+						 sums = sums + Number(g[i].value);
+					 }
+					 document.getElementById("sum").innerHTML = sums;
+				 }
+         	</script>
+         	</volist>
+         	
+         	
+         	
+					<tr>
+         		<th style="text-align:center;">总计</th>
+         		<th>
+         			<label id="sum"></label>
+         		<th>
+         	</tr>
+         </table>
+         <script type="text/javascript">
+         	function sum2(){
+         		document.getElementById("sum1").value = document.getElementById("sum").innerHTML;
+         	}
+         </script>
+         <input type="hidden" id="sum1" name="sum" value="" />
+         <input type="hidden" name="dwname" value="{$drr[0]['dwnameid']}" />
+         <br />
+         <div class="layui-form-item" style="margin-left:300px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" onclick="sum2()" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+        </div>
+  </div>
+<!--底部-->
+<include file="Public/login/footer" />

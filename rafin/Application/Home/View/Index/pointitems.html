@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <include file="Public/login/title" />
+    
+    <br />
+        <form action="{:U('pointitemsuc')}" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 90%;">
+        	<div class="layui-card-header">
+        		<font size="4">积分项目大类管理</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	<input type="hidden" name="pointitemid" value="{$data[0]['pointitemid']}">
+         	<tr>
+         	  <th>项目编号</th>
+         	 <td>
+         	 	{$data[0]['pointitemid']}
+         	 </td>
+         	 
+         	 <th>项目名称</th>
+         	 <td>
+         	 	<input type="text" name="item" value="{$data[0]['item']}" lay-verify="required" required placeholder="请输入产品名称" autocomplete="off" class="layui-input">
+         	 </td>
+         	 
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" value="{$data[0]['beizhu']}" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	 <th>状态</th>
+         	 <td>
+         	 	<if condition="$data[0]['stats'] eq 0">
+				      <input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" checked="true">
+				    <else />
+				    	<input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" >
+				    </if>
+         	 </td>
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
+  </div>
+  
+<!--底部-->
+<include file="Public/footer" />

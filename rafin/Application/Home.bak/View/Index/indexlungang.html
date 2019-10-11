@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <include file="Public/login/title" />
+    	<div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">网点信息明细表</font>
+        	</div>
+      <div class="layui-card-body">
+	     <form action="{:U('persadd')}" enctype="multipart/form-data" method="post" class="layui-form" >
+	    	<button class="layui-btn" lay-submit lay-filter="formDemo">员工新增</button>
+	     </form>
+      <table class="layui-table" style="width: 100%">
+       <tr>
+       	<th>地区</th>
+       	<th>片区</th>
+				<th>单位名称</th>
+				<th>在岗人数</th>
+				<th>网点负责人</th>
+				<th>综合柜员</th>
+				<th>理财经理</th>
+				<th>普通柜员</th>
+				<th>大堂经理</th>
+			</tr>
+			<volist name="data" id="vo">
+			<tr>
+				<td>{$vo.districts}</td>
+				<td>{$vo.pianquname}</td>
+				<td><a href="__URL__/persjgh/jgh/{$vo.dwnameid}">{$vo.dwname}</a></td>
+				<td><a href="__URL__/persjgh/jgh/{$vo.dwnameid}">{$vo.count}</a></td>
+				<td><volist name="vo.wdfzr" id="vo6"><a href="__URL__/persmodify/id/{$vo6.id}">{$vo6.persname}</a>({$vo6.gongzhong})|</volist></td>
+				<td><volist name="vo.zhgy" id="vo5"><a href="__URL__/persmodify/id/{$vo5.id}">{$vo5.persname}</a>({$vo5['gongzhong']})|</volist></td>
+				<td><volist name="vo.lcjl" id="vo4"><a href="__URL__/persmodify/id/{$vo4.id}">{$vo4.persname}</a>({$vo4['gongzhong']})|</volist></td>
+				<td><volist name="vo.ptgy" id="vo3"><a href="__URL__/persmodify/id/{$vo3.id}">{$vo3.persname}</a>({$vo3['gongzhong']})|</volist></td>
+				<td><volist name="vo.dtjl" id="vo2"><a href="__URL__/persmodify/id/{$vo2.id}">{$vo2.persname}</a>({$vo2['gongzhong']})|</volist></td>
+			</tr>
+			
+			</volist>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>总计</td>
+				<td>{$count.counts}</td>
+				<td>{$count.wdfzr}</td>
+				<td>{$count.zhgy}</td>
+				<td>{$count.lcjl}</td>
+				<td>{$count.dtjl}</td>
+				<td>{$count.khjl}</td>
+				<td>{$count.ptgy}</td>
+			</tr>
+      </table>
+     </div>
+  	</div>
+  	
+  
+<!--底部-->
+<include file="Public/footer" />
