@@ -1527,3 +1527,63 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000607s ]
 
+[ 2019-10-11T14:36:54+08:00 ] ::1 /rafin/index.php/Home/Index/persjghmodifys.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000621s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2116 行.
+NOTIC: [8] Undefined index: pointcontentid /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2117 行.
+SQL: SHOW COLUMNS FROM `finance_jrpointsum` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `finance_jrpointsum` WHERE `gonghao` = '01023198' AND `shenhe` = 1 LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `finance_jrpointcontent` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `finance_jrpointcontent`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `finance_jrpointsum` WHERE `gonghao` = '01023198' AND `shenhe` = 1 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000506s ]
+
+[ 2019-10-11T14:36:57+08:00 ] ::1 /rafin/index.php/Home/Index/persjghmodifys.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2116 行.
+NOTIC: [8] Undefined index: pointcontentid /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2117 行.
+SQL: SHOW COLUMNS FROM `finance_jrpointsum` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `finance_jrpointsum` WHERE `gonghao` = 'pointcarddetail' AND `shenhe` = 1 LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `finance_jrpointcontent` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `finance_jrpointcontent`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `finance_jrpointsum` WHERE `gonghao` = 'pointcarddetail' AND `shenhe` = 1 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000521s ]
+
+[ 2019-10-11T14:37:00+08:00 ] ::1 /rafin/index.php/Home/Index/persjghmodifys.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2116 行.
+NOTIC: [8] Undefined index: pointcontentid /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2117 行.
+SQL: SHOW COLUMNS FROM `finance_jrpointsum` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `finance_jrpointsum` WHERE `gonghao` = '01023198' AND `shenhe` = 1 LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `finance_jrpointcontent` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `finance_jrpointcontent`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `finance_jrpointsum` WHERE `gonghao` = '01023198' AND `shenhe` = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000467s ]
+
+[ 2019-10-11T14:37:27+08:00 ] ::1 /rafin/index.php/Home/Index/persjghmodifys.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000630s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2116 行.
+NOTIC: [8] Undefined index: pointcontentid /Library/WebServer/Documents/rafin/Application/Home/Controller/IndexController.class.php 第 2117 行.
+SQL: SHOW COLUMNS FROM `finance_jrpointsum` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `finance_jrpointsum` WHERE `gonghao` = '01023198' AND `shenhe` = 1 LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `finance_jrpointcontent` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `finance_jrpointcontent`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `finance_jrpointsum` WHERE `gonghao` = '01023198' AND `shenhe` = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000335s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000501s ]
+

@@ -47,7 +47,7 @@
         
         <script type="text/html" id="toolbarDemo">
           <div class="layui-btn-container">
-            <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">查看</button>
+            <!-- <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">查看</button> -->
           </div>
         </script>
         
