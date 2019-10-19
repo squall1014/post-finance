@@ -130,6 +130,12 @@
             <dd><a href="/ins/index.php/Home/Index/tablepers">保险客户报表按到期日</a></dd>
           </dl>
         </li>
+        <li class="layui-nav-item">
+          <?php if($user["qx"] >= 8): ?><a class="" href="javascript:;">保险客户白名单报表</a><?php else: endif; ?>
+          <dl class="layui-nav-child">
+            <dd><a href="/ins/index.php/Home/Index/inswhitecustreport">保险客户白名单客户报表</a></dd>
+          </dl>
+        </li>
         <!--<li class="layui-nav-item"><a href="/ins/index.php/Home/Index/qingjiacounts">JSON数据测试</a></li>-->
       </ul>
     </div>

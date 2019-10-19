@@ -160,7 +160,7 @@
 				</td>
 				<th>客户身份证</th>
 				<td>
-					<input type="text" name="sfz" required lay-verify="identity" placeholder="请输入客户身份证"
+					<input type="text" name="sfz" placeholder="请输入客户身份证"
 						autocomplete="off" class="layui-input">
 				</td>
 				<th>客户电话</th>
@@ -182,12 +182,12 @@
 						<?php if(is_array($ittr)): $i = 0; $__LIST__ = $ittr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["intentionid"]); ?>"><?php echo ($vo["intention"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 					</select>
 				</td>
-				<th>录入日期</th>
+				<th>收集日期</th>
 				<td>
 					<input type="text" name="insdate" id="date" placeholder="请选择日期"
 						autocomplete="off" class="layui-input">
 				</td>
-				<th>销售人员</th>
+				<th>客户经理</th>
 				<td>
 					<select name="service" lay-verify="required" lay-search>
 						<option value=""></option>

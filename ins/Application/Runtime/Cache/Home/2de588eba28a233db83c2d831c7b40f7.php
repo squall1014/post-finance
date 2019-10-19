@@ -130,6 +130,13 @@
             <dd><a href="/ins/index.php/Home/Index/tablepers">保险客户报表按到期日</a></dd>
           </dl>
         </li>
+        <li class="layui-nav-item">
+          <?php if($user["qx"] >= 8): ?><a class="" href="javascript:;">保险客户白名单报表</a><?php else: endif; ?>
+          <dl class="layui-nav-child">
+            <dd><a href="/ins/index.php/Home/Index/inswhitecustreport">保险客户白名单客户报表</a></dd>
+            <dd><a href="/ins/index.php/Home/Index/inswhitecustreports">保险客户白名单客户报表</a></dd>
+          </dl>
+        </li>
         <!--<li class="layui-nav-item"><a href="/ins/index.php/Home/Index/qingjiacounts">JSON数据测试</a></li>-->
       </ul>
     </div>
@@ -143,138 +150,43 @@
 <h1><div style="padding: 15px;">余杭区邮政保险理财客户管理系统</div></h1>
     <br />
 
-        <form action="<?php echo U('clientinswhitemodifysuc');?>" id="form" enctype="multipart/form-data" method="post" class="layui-form" >
+        <form action="<?php echo U('clientsearchsuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
         <div class="layui-card" style="width: 100%;">
         	<div class="layui-card-header">
-        		<font size="4">保险白名单客户维护</font>
+        		<font size="4">保险客户汇总查询</font>
         	</div>
-        <div class="layui-card-body">
-		<table class="layui-table" lay-size="">
-			<input type="hidden" value="<?php echo ($data[0]['whitecustid']); ?>" name="whitecustid">
-			<input type="hidden" value="<?php echo ($data[0]['record']); ?>" name="record">
-			<tr>
-				<th>客户姓名</th>
-				<td>
-					<input type="text" name="whitecust" value="<?php echo ($data[0]['whitecust']); ?>" required lay-verify="required"
-						placeholder="请输入客户姓名" autocomplete="off" class="layui-input">
-				</td>
-				<th>客户身份证</th>
-				<td>
-					<input type="text" name="sfz" value="<?php echo ($data[0]['sfz']); ?>" placeholder="请输入客户身份证"
-						autocomplete="off" class="layui-input">
-				</td>
-				<th>客户电话</th>
-				<td>
-					<input type="text" name="phone" value="<?php echo ($data[0]['phone']); ?>" required lay-verify="phone" placeholder="请输入客户电话"
-						autocomplete="off" class="layui-input">
-				</td>
-				<th>客户地址</th>
-				<td>
-					<input type="text" name="address" value="<?php echo ($data[0]['address']); ?>" required lay-verify="required" placeholder="请输入客户居住地址" autocomplete="off"
-						class="layui-input">
-				</td>
-			</tr>
-			<tr>
-				<th>保险意向</th>
-				<td>
-					<select name="intention" lay-search>
-						<option value="<?php echo ($data[0]['intention']); ?>"><?php echo ($data[0]['intentions']); ?></option>
-						<?php if(is_array($ittrr)): $i = 0; $__LIST__ = $ittrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["intentionid"]); ?>"><?php echo ($vo["intention"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-					</select>
-				</td>
-				<th>收集日期</th>
-				<td>
-					<input type="text" name="insdate" value="<?php echo ($data[0]['insdate']); ?>" id="date" placeholder="请选择日期"
-						autocomplete="off" class="layui-input">
-				</td>
-				<th>客户经理</th>
-				<td>
-					<select name="service" lay-verify="required" lay-search>
-						<option value="<?php echo ($data[0]['service']); ?>"><?php echo ($data[0]['service']); ?></option>
-						<?php if(is_array($lrr)): $i = 0; $__LIST__ = $lrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["persname"]); ?>"><?php echo ($vo["persname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<table class="layui-table" lay-size="">
-			<tr>
-				<th>意向产品</th>
-				<td>
-					<select name="product_one" placeholder="请输入意向产品" lay-search>
-						<option value="<?php echo ($data[0]['product_one']); ?>"><?php echo ($data[0]['product_ones']); ?></option>
-						<?php if(is_array($ittr)): $i = 0; $__LIST__ = $ittr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["intentionid"]); ?>"><?php echo ($vo["intention"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-					</select>
-				</td>
-				<th>意向金额</th>
-				<td>
-					<input type="text" name="money_one" value="<?php echo ($data[0]['money_one']); ?>" placeholder="请输入意向金额"
-						autocomplete="off" class="layui-input">
-				</td>
-				<th>意向产品</th>
-				<td>
-					<select name="product_two" placeholder="请输入意向产品" lay-search>
-						<option value="<?php echo ($data[0]['product_two']); ?>"><?php echo ($data[0]['product_twos']); ?></option>
-						<?php if(is_array($ittr)): $i = 0; $__LIST__ = $ittr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["intentionid"]); ?>"><?php echo ($vo["intention"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-					</select>
-				</td>
-				<th>意向金额</th>
-				<td>
-					<input type="text" name="money_two" value="<?php echo ($data[0]['money_two']); ?>" placeholder="请输入意向金额"
-						autocomplete="off" class="layui-input">
-				</td>
-			</tr>
-			<tr>
-				<th>资金所处状态</th>
-				<td>
-					<select name="capital" id="capital" lay-filter="select_capital" lay-search>
-						<option value="<?php echo ($data[0]['capital']); ?>"><?php echo ($data[0]['capitals']); ?></option>
-						<?php if(is_array($icrr)): $i = 0; $__LIST__ = $icrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["capitalid"]); ?>"><?php echo ($vo["capital"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-					</select>
-				</td>
-				<th>维护形式</th>
-				<td>
-					<select name="facilitate" lay-search>
-						<option value="<?php echo ($data[0]['facilitate']); ?>"><?php echo ($data[0]['facilitates']); ?></option>
-						<?php if(is_array($flrr)): $i = 0; $__LIST__ = $flrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["facilitateid"]); ?>"><?php echo ($vo["facilitate"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-					</select>
-				</td>
-				<th>维护日期</th>
-				<td>
-					<input type="text" name="insdates" value="<?php echo ($data[0]['insdates']); ?>" id="date1" placeholder="请选择日期" autocomplete="off" class="layui-input">
-				</td>
-				<th>手机网银是否开通</th>
-				<td>
-					<select name="phonebank" lay-search>
-						<option value="<?php echo ($data[0]['phonebank']); ?>"><?php echo ($data[0]['phonebanks']); ?></option>
-						<option value="2">否</option>
-						<option value="1">是</option>
-					</select>
-				</td>
-			</tr>
-			
-			<tr id="tr1" style="visibility: hidden">
-				<th>资金到位日期</th>
-				<td>
-					<input type="text" name="expdate" value="<?php echo ($data[0]['expdate']); ?>" id="date2" placeholder="请选择日期" autocomplete="off"
-						class="layui-input">
-				</td>
-				<th>备注说明</th>
-				<td>
-					<input type="text" id="exp" name="exp" value="<?php echo ($data[0]['exp']); ?>" placeholder="资金到位备注" autocomplete="off"
-						class="layui-input">
-				</td>
-			</tr>
-		</table>
+		<div class="layui-card-body">
+		
+			<table class="layui-table" style="text-align: center; width: 60%;">
+				<!-- <colgroup>
+					<col width="10%">
+					<col width="10%">
+					<col width="7%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="8%">
+					<col width="8%">
+					<col width="15%">
+					<col width="8%">
+					<col width="10%">
+				</colgroup> -->
+				<tr>
+					<td>网点</td>
+					<td>客户数</td>
+					<td>操作</td>
+				</tr>
+				<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+						<td><?php echo ($vo["dwname"]); ?></td>
+						<td><?php echo ($vo["sums"]); ?></td>
+						<td><a href="/ins/index.php/Home/Index/inswhitecustreports/jgh/<?php echo ($vo["jgh"]); ?>">
+								<font color="#BB0000">查看明细</font>
+							</a></td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+			</table>
          </div>
          </div>
          <br />
-         <div class="layui-form-item" style="margin-left:360px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-           </div>
-         </div>
         </form>
   </div>
   <div class="layui-footer">
@@ -286,33 +198,27 @@
 <script>
 	
 	layui.use('element', function(){
-  	var element = layui.element;
+  var element = layui.element;
   
 	});
-
+	
 	layui.use('form', function(){
 	  var form = layui.form;
-	  var captials = document.getElementById("capital").value;
-	  if(captials == null){
-		  
-	  }else if(captials == 1){
-
-	  }else{
-		document.getElementById("tr1").style.visibility = "visible";
-	  }
-	  
-		
-
 	  //获取types1控件中的数据
-		form.on('select(select_capital)', function(){
-			if(document.getElementById("capital").value == 1){
-				document.getElementById("tr1").style.visibility = "hidden";
-				document.getElementById("date2").value = "";
-				document.getElementById("exp").value = "";
-			}else{
-				document.getElementById("tr1").style.visibility = "visible";
-
+		form.on('select(types1)', function(data){
+			var datas = eval(<?php echo ($insr); ?>);
+			for(i = 0 ; i < datas.length ; i++){
+				
+				if(data.value == datas[i].insuranceid){
+					document.getElementById("payment2").value = datas[i].pay + '年';
+					
+					document.getElementById("duration2").value = datas[i].dur + '年';
+					
+					//alert(datas[i].dur);
+					break;
+				}
 			}
+			
 		});
   
 	});
@@ -324,15 +230,26 @@
 	    elem: '#date' //指定元素
 	  });
 	  laydate.render({
-	    elem: '#date1' //指定元素
-	  });
-	  laydate.render({
-	    elem: '#date2' //指定元素
-	  });
-	  laydate.render({
 	  	elem: '#test6'
 	  	,range: true
 		});
+	});
+	
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //获取types1控件中的数据
+		form.on('select(servicebak1)', function(data){
+			if(document.getElementById("xszb").style.visibility == "visible"){
+				
+			}else{
+				document.getElementById("xszb").style.visibility = "visible";
+				document.getElementById("xszb1").style.visibility = "visible";
+				document.getElementById("percentagebak").value = "0.5";
+			}
+			
+			
+		});
+  
 	});
 	
 </script>

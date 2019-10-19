@@ -1985,7 +1985,51 @@ class IndexController extends Controller {
 			$this->error('保险白名单客户维护失败，请检查数据');
 		}
 	}
-    
+	
+	
+	public function inswhitecustreport(){
+		$where['stats'] = 0;
+
+		$iwc = M('inswhitecust');
+
+		$iwcr = $iwc -> where($where) ->field('jgh , count(whitecustid) as sums') -> group('jgh') -> select();
+
+		$jd = M('jrdanwei');
+		$jdr = $jd -> where("jiagou = 'A1'") -> select();
+
+		foreach($iwcr as &$value){
+
+			foreach($jdr as &$val){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$value['dwname'] = $val['dwname'];
+					break;
+				}
+			}
+		}
+
+		$this->assign('data',$iwcr);
+		$this->display();
+	}
+	public function inswhitecustreports(){
+		if(!$_GET){
+			
+		}else{
+			$where['jgh'] = $_GET['jgh'];
+		}
+		$where['stats'] = 0;
+
+		$iwc = M('inswhitecust');
+
+		$iwcr = $iwc -> where($where) -> select();
+
+		
+		$data = $this->clientinswhiteinfos($iwcr);
+		$this->assign('data',$data);
+		// var_dump($data);
+		$this->display();
+	}
     
     
     
