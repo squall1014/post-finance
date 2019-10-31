@@ -133,44 +133,63 @@
 
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+<!-- 内容主体区域 -->
+<h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    <br />
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
+			<legend>积分修改</legend>
 		</fieldset>
-		<div class="layui-card-body">
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
+			<div class="layui-card-body">
+        <form action="<?php echo U('jrpointupmodifysuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
          	<tr>
-				<th style="text-align:center;">网点</th>
-				<th style="text-align:center;">客户姓名</th>
-				<th style="text-align:center;">联系方式</th>
-				<th style="text-align:center;">地址</th>
-         		<th style="text-align:center;">自跨塞后总金额变化</th>
-         		<th style="text-align:center;">自跨塞后定期变化</th>
-         		<th style="text-align:center;">自跨塞后活期变化</th>
-         		<th style="text-align:center;">区间内开户金额</th>
+         		<th style="text-align:center;">网点</th>
+         		<th style="text-align:center;">职务</th>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">单位</th>
+         		<th style="text-align:center;">分值</th>
+         		<th style="text-align:center;">业绩</th>
          	</tr>
          	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
          		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['phone']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['address']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+         		<th style="text-align:center;"><?php echo ($vo["zhiwu"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["content"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["unit"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["score"]); ?></th>
+         		<td><input type="text" name="<?php echo ($vo["pointsumid"]); ?>" value="<?php echo ($vo["point"]); ?>" id="b<?php echo ($vo["pointcontentid"]); ?>" onblur="a<?php echo ($vo["pointcontentid"]); ?>()" placeholder="" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	<script type="text/javascript">
+         		function a<?php echo ($vo["pointcontentid"]); ?>(){
+         			var total = document.getElementById("b<?php echo ($vo["pointcontentid"]); ?>").value;
+         			var reg = /^[0-9]+\.?[0-9]*$/;
+         			
+         			if(!total.match(reg)){
+         				if(!total){
+         					
+         				}else{
+         					alert('请输入正确的数字');
+         					document.getElementById("b<?php echo ($vo["pointcontentid"]); ?>").value = null;
+         				}
+         					
+         			}else{
+         				
+         			}
+         			
+         		}
+         	</script><?php endforeach; endif; else: echo "" ;endif; ?>
+
          </table>
          <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
+         <div class="layui-form-item" style="margin-left:300px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
            </div>
-         </div>-->
-		</form>
-	</div>
+         </div>
+        </form>
+        </div>
   </div>
+  
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

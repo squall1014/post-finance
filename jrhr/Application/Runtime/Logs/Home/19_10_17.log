@@ -1,0 +1,64 @@
+[ 2019-10-17T10:23:10+08:00 ] ::1 /jrhr/index.php/Home/Index/pointitemedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000793s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointitem` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000435s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000611s ]
+
+[ 2019-10-17T10:23:12+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000811s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointitem` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrpointitem`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_jrpointcontent`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_jrpointcontent` LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000522s ]
+
+[ 2019-10-17T10:23:20+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontenteditsuc.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000640s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0015s ]
+SQL: UPDATE `hr_jrpointcontent` SET `content`='定活两便11',`unit`='万元',`score`='3.5',`beizhu`='' WHERE ( pointcontentid = '1' ) [ RunTime:0.0014s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000572s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000773s ]
+
+[ 2019-10-17T10:23:24+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontenteditsuc.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0015s ]
+SQL: UPDATE `hr_jrpointcontent` SET `content`='趸交3年期111',`unit`='万元',`score`='10',`beizhu`='' WHERE ( pointcontentid = '6' ) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000376s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000564s ]
+
+[ 2019-10-17T10:23:31+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000719s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0014s ]
+SQL: UPDATE `hr_jrpointcontent` SET `stats`='1' WHERE ( pointcontentid = '6' ) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000366s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000545s ]
+
+[ 2019-10-17T10:23:43+08:00 ] ::1 /jrhr/index.php/Home/Index/pointcontentstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000795s ]
+SQL: SHOW COLUMNS FROM `hr_jrpointcontent` [ RunTime:0.0014s ]
+SQL: UPDATE `hr_jrpointcontent` SET `stats`='0' WHERE ( pointcontentid = '6' ) [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000375s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000552s ]
+

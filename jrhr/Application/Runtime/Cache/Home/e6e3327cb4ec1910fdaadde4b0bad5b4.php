@@ -121,6 +121,13 @@
           <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereesearch">ETC引荐客户查询</a></dd>
         </dl>
      </li>
+     <li class="layui-nav-item">
+      <a class="" href="javascript:;">定期客户转存管理</a>
+      <dl class="layui-nav-child">
+        <dd><a href="/jrhr/index.php/Home/Admin/tfcustoperate">三、五年存单操作</a></dd>
+        <dd><a href="/jrhr/index.php/Home/Admin/tfcustoperatept">三、五年存单操作</a></dd>
+      </dl>
+   </li>
         <li class="layui-nav-item">
           <?php if($user["qx"] == 9): ?><a class="" href="javascript:;">导出数据</a><?php else: endif; ?>
           <dl class="layui-nav-child">
@@ -133,44 +140,64 @@
 
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+<!-- 内容主体区域 -->
+<h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    <br />
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
+			<legend>定期开户明细查询</legend>
 		</fieldset>
-		<div class="layui-card-body">
+			<div class="layui-card-body">
         <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
+			<div class="layui-form-item">
+				<label class="layui-form-label" >姓名：</label>
+				<div class="layui-input-inline">
+					<label class="layui-form-label" ><?php echo ($data[0]['custname']); ?></label>
+				</div>
+				</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" >存单号：</label>
+				<div class="layui-input-inline">
+					<label class="layui-form-label" ><?php echo ($data[0]['saveid']); ?></label>
+				</div>
+				</div>
+				
+					<div class="layui-form-item">
+						<label class="layui-form-label" >身份证：</label>
+						<div class="layui-input-inline">
+							<label class="layui-form-label" ><?php echo ($data[0]['sfz']); ?></label>
+						</div>
+						</div>
+		<table class="layui-table" lay-size="" style="width: 99%">
          	<tr>
-				<th style="text-align:center;">网点</th>
-				<th style="text-align:center;">客户姓名</th>
-				<th style="text-align:center;">联系方式</th>
-				<th style="text-align:center;">地址</th>
-         		<th style="text-align:center;">自跨塞后总金额变化</th>
-         		<th style="text-align:center;">自跨塞后定期变化</th>
-         		<th style="text-align:center;">自跨塞后活期变化</th>
-         		<th style="text-align:center;">区间内开户金额</th>
+         		<th style="text-align:center;">开户网点</th>
+         		<!-- <th style="text-align:center;">客户姓名</th>
+         		<th style="text-align:center;">身份证</th>
+         		<th style="text-align:center;">电话号码</th> -->
+         		<!-- <th style="text-align:center;">存单号</th> -->
+				<th style="text-align:center;">存期</th>
+         		<th style="text-align:center;">金额</th>
+				 
+         		<th style="text-align:center;">到期日期</th>
+         		<th style="text-align:center;">操作</th>
          	</tr>
          	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
          		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['phone']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['address']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
+         		<!-- <th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["sfz"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["mobile"]); ?></th> -->
+         		<!-- <th style="text-align:center;"><?php echo ($vo["saveid"]); ?></th> -->
+         		<th style="text-align:center;"><?php echo ($vo["period"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["money"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["closedate"]); ?></th>
+         		<th style="text-align:center;"><a href="/jrhr/index.php/Home/Admin/tfcustoperatemodify/ic/1"><font color="#0000FF">转存</font></a>｜<a href="/jrhr/index.php/Home/Admin/tfcustoperatemodify/ic/3"><font color="#0000FF">非完全流失</font></a>｜<a href="/jrhr/index.php/Home/Admin/tfcustoperatemodify/ic/1"><font color="#0000FF">完全流失</font></a></th>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
          </table>
          <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-           </div>
-         </div>-->
-		</form>
-	</div>
+         </div>
+        </form>
+       </div>
   </div>
+  
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

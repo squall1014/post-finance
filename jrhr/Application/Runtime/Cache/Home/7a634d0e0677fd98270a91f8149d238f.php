@@ -134,82 +134,245 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
-		</fieldset>
-		<div class="layui-card-body">
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
-         	<tr>
-				<th style="text-align:center;">网点</th>
-				<th style="text-align:center;">客户姓名</th>
-				<th style="text-align:center;">联系方式</th>
-				<th style="text-align:center;">地址</th>
-         		<th style="text-align:center;">自跨塞后总金额变化</th>
-         		<th style="text-align:center;">自跨塞后定期变化</th>
-         		<th style="text-align:center;">自跨塞后活期变化</th>
-         		<th style="text-align:center;">区间内开户金额</th>
-         	</tr>
-         	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-         		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['phone']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['address']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
-         	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-         </table>
-         <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-           </div>
-         </div>-->
-		</form>
-	</div>
+    
+    <br />
+    <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">白名单有效存款情况</font>
+        	</div>
+        <div class="layui-card-body">
+        
+					<table class="layui-hide" id="test" lay-filter="test"></table>
+					
+					<script type="text/html" id="switchTpl">
+					  <!-- 这里的 checked 的状态只是演示 -->
+					  <input type="checkbox" id="{{d.pointitemid}}" name="stats" value="{{d.pointitemid}}" lay-skin="switch" lay-text="启用|停用" lay-filter="sexDemo" {{ d.stats == 0 ? 'checked' : '' }}>
+					</script>
+					
+					<script type="text/html" id="toolbarDemo">
+					  <!-- <div class="layui-btn-container">
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">查看项目</button>
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">添加项目</button>
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量停用</button>
+					  </div> -->
+					</script>
+					
+					<script type="text/html" id="barDemo">
+					  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+					  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+					</script>
+         </div>
+        </div>
   </div>
-<!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区金融积分考核系统
   </div>
-</div>
-<script src="/jrhr/Public/layui.all.js"></script>
-<script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
-  
-});
-layui.use('laydate', function(){
-  var laydate = layui.laydate;
-  
-  //执行一个laydate实例
-  laydate.render({
-    elem: '#date' //指定元素
-  });
-  
-  laydate.render({
-  	elem: '#test6'
-  	,range: true
-});
-});
-</script>
-<!--<script>
+<script src="/ins/Public/layui.all.js"></script>
+<script src="/ins/Public/jquery-1.12.4.min.js"></script>
 
-</script>
 <script>
-layui.use('laydate', function(){
-  var laydate = layui.laydate;
-  
-  //执行一个laydate实例
-  laydate.render({
-    elem: '#datea' //指定元素
+  layui.use('table', function(){
+  var table = layui.table;
+  var form = layui.form;
+  table.render({
+    elem: '#test'
+	,toolbar: '#toolbarDemo'
+    ,cols: [[ //标题栏
+      {field: 'id', title: 'ID', width: 80, sort: true}
+      ,{field: 'custname', title: '姓名', width: 120}
+      ,{field: 'sfz', title: '身份证', minWidth: 120}
+      ,{field: 'phone', title: '联系电话', minWidth: 110}
+      ,{field: 'address', title: '地址', width: 80}
+      ,{field: 'zyue', title: '总余额', width: 110}
+      ,{field: 'dingqi', title: '定期', width: 110, sort: true}
+	  ,{field: 'huoqi', title: '活期', width: 110, sort: true}
+	  ,{field: 'kaihu', title: '开户金额', width: 110, sort: true}
+    ]]
+    ,data: <?php echo ($data); ?>
+    //,skin: 'line' //表格风格
+    ,even: true
+    ,page: true //是否显示分页
+    ,limits: [5, 7, 10]
+    //,limit: 5 //每页默认显示的数量
   });
+  table.on('row(test)', function(obj){
+    var data = obj.data;
+    
+	console.log(data);
+
+    // layer.alert(JSON.stringify(data), {
+    //   title: '当前行数据：'
+    // });
+    layer.open({
+		type: 2 //此处以iframe举例
+		,title: '当前数据'
+		,area: ['1000px', '600px']
+		,shade: 0
+		,maxmin: true
+		        
+		,content: '/jrhr/index.php/Home/Admin/whitecustinfopers?jgh='+data.jgh+'&sfz='+data.sfz
+		,btn: ['全部关闭'] //只是为了演示
+		        
+		,btn2: function(){
+		    layer.closeAll();
+		}
+		        
+		,zIndex: layer.zIndex //重点1
+		,success: function(layero){
+		    layer.setTop(layero); //重点2
+		}
+	});
+    //标注选中样式
+    obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+  });
+//   table.render({
+//     elem: '#test'
+//     ,url:'http://10.138.30.40:8080/wcvalid/getlist?jgh='+<?php echo ($dw); ?>
+//     ,toolbar: '#toolbarDemo'
+//     ,title: '用户数据表'
+//     ,cols: [[
+//       {type: 'checkbox', fixed: 'left'}
+//       ,{field:'phone', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+//       ,{field:'custname', title:'姓名', width:300, edit: 'text',sort: true}
+//       ,{field:'sfz', title:'身份证', width:200, edit: 'text', sort: true}
+//       ,{field:'phone', title:'联系方式', width:200, edit: 'text', sort: true}
+//       ,{field:'jgh', title:'状态', width:85, templet: '#switchTpl', unresize: true}
+      
+//     ]]
+// 	,limit: 90
+//     ,page: true
+//   });
+  
+	  //监听单元格编辑
+	  table.on('edit(test)', function(obj){
+	    var value = obj.value //得到修改后的值
+	    ,data = obj.data //得到所在行所有键值
+	    ,field = obj.field;//得到字段
+	    
+	    layer.msg('[ID: '+ data.pointitemid +'] ' + field + ' 字段更改为：'+ value);
+	    
+	    $.ajax({
+	    	type:"post",
+	    	data:{
+	    		pointitemid : data.pointitemid,
+	    		item : data.item,
+	    		beizhu:data.beizhu,
+	    	},
+	    	url:'<?php echo U("pointitemeditsuc");?>',
+	    	
+	    	success: function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	  //头工具栏事件
+  	table.on('toolbar(test)', function(obj){
+	  	var checkStatus = table.checkStatus(obj.config.id);
+	    switch(obj.event){
+	      case 'getCheckData':
+	        var data = checkStatus.data;
+	        layer.alert(JSON.stringify(data));
+	      break;
+	      case 'getCheckLength':
+	        layer.open({
+		        type: 2 //此处以iframe举例
+		        ,title: '积分项目大类添加'
+		        ,area: ['800px', '600px']
+		        ,shade: 0
+		        ,maxmin: true
+		        
+		        ,content: 'pointitemadd.html'
+		        ,btn: ['全部关闭'] //只是为了演示
+		        
+		        ,btn2: function(){
+		          layer.closeAll();
+		        }
+		        
+		        ,zIndex: layer.zIndex //重点1
+		        ,success: function(layero){
+		          layer.setTop(layero); //重点2
+		        }
+		      });
+	      break;
+	      case 'getCheckstats':
+	        var data = table.checkStatus(obj.config.id);
+	        location.reload();
+	        $.ajax({
+	        	type:"post",
+	        	url:'<?php echo U("pointitembatchstats");?>',
+	        	async:true,
+	        	data : {
+	        		pointitemid : data.data,
+	        	},
+	        	success:function(result){
+	        		alert("共有" + result + "条已停用");
+	        		
+	        	},
+	        });
+	        
+	        
+	        
+	      break;
+	      
+	      case 'isAll':
+	        layer.msg(checkStatus.isAll ? '全选': '未全选');
+	      break;
+	      
+	    };
+	  	
+	  	
+	  });
+	  
+	  //监听性别操作
+	  form.on('switch(sexDemo)', function(obj){
+	    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+	    console.log(obj);
+	    $.ajax({
+	    	type:"post",
+	    	
+	    	url:'<?php echo U("pointitemstats");?>',
+	    	
+	    	async:true,
+	    	
+	    	data:{
+	    		pointitemid : this.value,
+	    		stats : obj.elem.checked,
+	    	},
+	    	
+	    	success:function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	 	//监听行工具事件
+	  table.on('tool(test)', function(obj){
+	    var data = obj.data;
+	    //console.log(obj)
+	    if(obj.event === 'del'){
+	      layer.confirm('真的删除行么', function(index){
+	        obj.del();
+	        layer.close(index);
+	      });
+	    } else if(obj.event === 'edit'){
+	      layer.prompt({
+	        formType: 2
+	        ,value: data.email
+	      }, function(value, index){
+	        obj.update({
+	          email: value
+	        });
+	        layer.close(index);
+	      });
+	    }
+	  });
+	 
 });
-</script>-->
+</script>
+<!--底部-->
 </body>
 </html>

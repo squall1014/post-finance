@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/login/head" />
+
+<!--前左导航-->
+<include file="Public/login/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+<include file="Public/title" />
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+			<legend>定期开户明细查询</legend>
+		</fieldset>
+			<div class="layui-card-body">
+        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
+		<table class="layui-table" lay-size="" style="width: 99%">
+         	<tr>
+         		<th style="text-align:center;">开户网点</th>
+         		<th style="text-align:center;">客户姓名</th>
+         		<th style="text-align:center;">身份证</th>
+         		<th style="text-align:center;">电话号码</th>
+         		<th style="text-align:center;">存单号</th>
+				<th style="text-align:center;">存期</th>
+         		<th style="text-align:center;">金额</th>
+				 
+         		<th style="text-align:center;">到期日期</th>
+         		<th style="text-align:center;">操作</th>
+         	</tr>
+         	<volist name="data" id="vo">
+         	<tr>
+         		<th style="text-align:center;">{$vo.dwname}</th>
+         		<th style="text-align:center;">{$vo.custname}</th>
+         		<th style="text-align:center;">{$vo.sfz}</th>
+         		<th style="text-align:center;">{$vo.mobile}</th>
+         		<th style="text-align:center;">{$vo.saveid}</th>
+         		<th style="text-align:center;">{$vo.period}</th>
+         		<th style="text-align:center;">{$vo.money}</th>
+         		<th style="text-align:center;">{$vo.closedate}</th>
+         		<th style="text-align:center;">转入白名单 | 完全流失</th>
+         	</tr>
+         	</volist>
+         </table>
+         <br />
+         </div>
+        </form>
+       </div>
+  </div>
+  
+<!--底部-->
+<include file="Public/login/footer" />

@@ -107,6 +107,7 @@
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustadd">白名单客户录入</a></dd>
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustsearch">白名单客户查询</a></dd>
             <dd><a href="/jrhr/index.php/Home/Admin/whitecustinfoperspt">白名单有效存款情况</a></dd>
+            <dd><a href="/jrhr/index.php/Home/Admin/whitecustinfoperspts">白名单有效存款情况(测试)</a></dd>
             
           </dl>
        </li>
@@ -120,6 +121,12 @@
           <dd><a href="/jrhr/index.php/Home/Admin/etccustrefereesearch">ETC引荐客户查询</a></dd>
         </dl>
      </li>
+     <li class="layui-nav-item">
+      <a class="" href="javascript:;">定期客户转存管理</a>
+      <dl class="layui-nav-child">
+        <dd><a href="/jrhr/index.php/Home/Admin/tfcustoperate">三、五年存单操作</a></dd>
+      </dl>
+   </li>
         <li class="layui-nav-item">
           <?php if($user["qx"] == 9): ?><a class="" href="javascript:;">导出数据</a><?php else: endif; ?>
           <dl class="layui-nav-child">

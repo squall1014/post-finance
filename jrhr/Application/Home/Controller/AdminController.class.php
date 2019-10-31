@@ -1067,6 +1067,9 @@ class AdminController extends Controller {
 		$this->assign('jwrr',$jwrr);
     	$this->display();
 	}
+	public function whitecustaction(){
+
+	}
 	public function whitecustinfoperspt(){
 		$dwname = cookie('dwname');
 
@@ -1155,8 +1158,49 @@ class AdminController extends Controller {
 		// var_dump($data_cl);
 		
 	}
+	public function whitecustinfoperspts(){
+		$aurl = M('apiurl');
+		$aurlr = $aurl -> find();
+		$apiurl = $aurlr['apiurl'];
+		$dwname = cookie('dwname');
+		$jgh = $dwname['jgh'];
+		$jd = M('jrdanwei');
+		$jdr = $jd -> where("jgh = '$jgh'") -> find();
+		$dw = $jdr['dwnames'];
+		
+		$url = $apiurl.'/wcvalid/getlist1?jgh='.$dw;
+		$data = file_get_contents($url);
+		// var_dump($url,$data);
+		$this->assign('data',$data);
+		$this->display();
 
-
+		// $count = 0;
+		// $json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		// echo $json;
+	}
+	public function whitecustinfopers(){
+		$jgh = $_GET['jgh'];
+		$sfz = $_GET['sfz'];
+		$aurl = M('apiurl');
+		$aurlr = $aurl -> find();
+		$apiurl = $aurlr['apiurl'];
+		$url = $apiurl.'/wcvalid/showDetail?jgh='.$jgh.'&sfz='.$sfz;
+		$data = file_get_contents($url);
+		$this->assign('data',$data);
+		// var_dump($data);
+		$this->display();
+	}
+	// public function whitecustinfoperspts(){
+	// 	$dwname = cookie('dwname');
+	// 	// var_dump($dwname);
+	// 	$jgh = $dwname['jgh'];
+	// 	$jd = M('jrdanwei');
+	// 	$jdr = $jd -> where("jgh = '$jgh'") -> find();
+	// 	$dw = $jdr['dwnames'];
+	// 	// var_dump($dw);
+	// 	$this->assign('dw',$dw);
+	// 	$this->display();
+	// }
     public function etccustadd(){
 		$je = M('jretccust');
 		$where['stats'] = 0;
@@ -1411,6 +1455,87 @@ class AdminController extends Controller {
 		}else{
 			$this->error('ETC客户解约失败，请检查数据');
 		}
+	}
+	public function tfcustoperates(){
+		// $saveid = $_POST['saveid'];
+		// // var_dump($saveid);
+		// $api = M('apiurl');
+		// $apiurl = $api -> select();
+		// $url = $apiurl[0]['apiurl'];
+		// $urls = $url.'/wcvalid/findDKcustBySaveID?saveid='.$saveid;
+		// $data = file_get_contents($urls);
+		// $data = json_decode($data , true);
+
+		$saveid = $_POST['saveid'];
+		$dqkh = M('jrdingqikaihu');
+		$data = $dqkh -> where("saveid = '$saveid'") -> select();
+		session('data',$data);
+		$this->assign('data',$data);
+		$this->display();
+		// var_dump($data);
+	}
+	public function tfcustoperatemodify(){
+		$where['ic'] = $_GET['ic'];
+		$where['stats'] = 0;
+		$jdi = M('jrdingqiitem');
+		$jdirr = $jdi -> where($where) -> select();
+		$ic = $_GET['ic'];
+		session('ic' , $ic);
+		$data = session('data');
+		$this->assign('data',$data);
+		$this->assign('jdirr',$jdirr);
+
+		$this->display();
+
+	}
+	public function tfcustoperatemodifys(){
+		$where['itemid'] = $_POST['itemid'];
+		$where['stats'] = 0;
+		$jdc = M('jrdingqicontent');
+		$jdcrr = $jdc -> where($where) -> select();
+
+		$data = session('data');
+		$this->assign('data',$data);
+		$this->assign('jdcrr',$jdcrr);
+
+
+
+		$this->display();
+	}
+	public function tfcustoperatemodifysuc(){
+		$data = session('data');
+
+		$ic = session('ic');
+		session('data' , null);
+		session('ic' , null);
+		$dwname = cookie('dwname');
+		
+		$datas = $_POST;
+		$_POST = $data[0];
+		$_POST['moneys'] = $datas['moneys'];
+		$_POST['contentid'] = $datas['contentid'];
+		$_POST['jghsec'] = $dwname['jgh']; 
+		$jds = M('jrdingqisec');
+		
+
+		if($ic == 3){
+			$_POST['stats'] = 2;
+			$jdsr = $jds -> add($_POST);
+			$this->success('该客户待二次开发',U('admin/tfcustoperate'));
+		}else{
+			$jdsr = $jds -> add($_POST);
+			$this->success('该客户操作完成，请继续',U('admin/tfcustoperate'));
+		}
+	}
+	public function tfcustoperatept(){
+		$dwname = cookie('dwname');
+		$where['jghsec'] = $dwname['jgh'];
+		$where['stats'] = 2;
+	
+		$jds = M('jrdingqisec');
+		$data = $jds -> where($where) -> select();
+		$this->assign('data',$data);
+		$this->display();
 	}
 
 

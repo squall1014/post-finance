@@ -1,0 +1,45 @@
+[ 2019-10-14T11:45:29+08:00 ] ::1 /jrhr/index.php/Home/Admin/whitecustinfopersptss.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000636s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001160s ]
+NOTIC: [8] Undefined variable: count /Library/WebServer/Documents/jrhr/Application/Home/Controller/AdminController.class.php 第 1164 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000935s ]
+
+[ 2019-10-14T11:45:38+08:00 ] ::1 /jrhr/index.php/Home/Admin/whitecustinfopersptss.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000643s ]
+NOTIC: [8] Undefined variable: count /Library/WebServer/Documents/jrhr/Application/Home/Controller/AdminController.class.php 第 1164 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000691s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001036s ]
+
+[ 2019-10-14T11:46:25+08:00 ] ::1 /jrhr/index.php/Home/Admin/whitecustinfopersptss.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001239s ]
+NOTIC: [8] Undefined variable: count /Library/WebServer/Documents/jrhr/Application/Home/Controller/AdminController.class.php 第 1164 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000881s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001227s ]
+
+[ 2019-10-14T11:46:55+08:00 ] ::1 /jrhr/index.php/Home/Admin/whitecustinfopersptss.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000633s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000896s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001250s ]
+
+[ 2019-10-14T15:49:34+08:00 ] ::1 /jrhr/index.php/Home/Admin/pointitemstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+
+[ 2019-10-14T15:49:36+08:00 ] ::1 /jrhr/index.php/Home/Admin/pointitemstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000923s ]
+

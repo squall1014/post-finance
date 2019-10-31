@@ -133,43 +133,42 @@
 
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-			<legend>白名单客户分析报表</legend>
-		</fieldset>
-		<div class="layui-card-body">
-        <form action="" enctype="multipart/form-data" method="post" class="layui-form" >
-         <table class="layui-table" lay-size="" style="width: 98%">
+<!-- 内容主体区域 -->
+<h1><div style="padding: 15px;">余杭区金融积分考核系统</div></h1>
+    <br />
+    
+    <br />
+        <form action="<?php echo U('jrperspointupsuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+         <table class="layui-table" lay-size="" style="width: 60%">
+         	<input type="hidden" name="gonghao" value="<?php echo ($data[0]['gonghao']); ?>">
          	<tr>
-				<th style="text-align:center;">网点</th>
-				<th style="text-align:center;">客户姓名</th>
-				<th style="text-align:center;">联系方式</th>
-				<th style="text-align:center;">地址</th>
-         		<th style="text-align:center;">自跨塞后总金额变化</th>
-         		<th style="text-align:center;">自跨塞后定期变化</th>
-         		<th style="text-align:center;">自跨塞后活期变化</th>
-         		<th style="text-align:center;">区间内开户金额</th>
+         		<th style="text-align:center;">单位</th>
+         		<th style="text-align:center;">职务</th>
+         		<th style="text-align:center;">姓名</th>
+         		<th style="text-align:center;">项目</th>
+         		<th style="text-align:center;">分值</th>
+         		<th style="text-align:center;">业绩</th>
+         		<th style="text-align:center;">总分</th>
          	</tr>
          	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+         		<input type="hidden" name="pointsumid[]" value="<?php echo ($vo["pointsumid"]); ?>">
          		<th style="text-align:center;"><?php echo ($vo["dwname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo["custname"]); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['phone']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['address']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['zyue']); ?></th>
-         		<th style="text-align:center;"><?php echo ($vo['dingqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['huoqi']); ?></th>
-				<th style="text-align:center;"><?php echo ($vo['money']); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["zhiwu"]); ?></th>
+         		<th style="text-align:center;"><?php echo ($vo["persname"]); ?></th>
+         		<td style="text-align:center;"><?php echo ($vo["content"]); ?></td>
+         		<td style="text-align:center;"><?php echo ($vo["score"]); ?></td>
+         		<td style="text-align:center;"><?php echo ($vo["point"]); ?></td>
+         		<td style="text-align:center;"><?php echo ($vo["sum"]); ?></td>
          	</tr><?php endforeach; endif; else: echo "" ;endif; ?>
          </table>
          <br />
-         <!--<div class="layui-form-item" style="margin-left:100px;">
+         <div class="layui-form-item" style="margin-left:300px;">
            <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">导出</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即审核</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
            </div>
-         </div>-->
-		</form>
-	</div>
+         </div>
+        </form>
   </div>
 <!--底部-->
   <div class="layui-footer">
