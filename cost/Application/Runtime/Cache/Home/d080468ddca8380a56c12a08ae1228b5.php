@@ -202,10 +202,44 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
+    				<form class="layui-form" action="<?php echo U('applyproductshs');?>" method="post"  style="width: 90%;">
+    					<button class="layui-btn" lay-submit="" lay-filter="demo1">批量审批</button>
+    				</form>
+						<table class="layui-table" style="text-align: center; width: 80%;">
+					    <tr>
+								<td>申请部门</td>
+								<td>申请产品</td>
+								<td>产品仓库</td>
+								<td>申请数量</td>
+								<td>申请部门实际库存</td>
+								<td>申请日期</td>
+								<td>操作</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<form action="<?php echo U('applyproductshsuc');?>" class="layui-form" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="applyid" value="<?php echo ($vo["applyid"]); ?>" />
+								<input type="hidden" name="remark" id="remark">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["applydwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><input type="text" name="applyquantity" value="<?php echo ($vo["applyquantity"]); ?>" class="layui-input"></td>
+								<td><?php echo ($vo["sumkcapplyquantity"]); ?></td>
+								<td><?php echo ($vo["date"]); ?></td>
+								<td><input type="submit" name="shenhe" value="审核通过" class="layui-btn"><input type="submit" name="shenhe" value="作废" onclick="a<?php echo ($vo["applyid"]); ?>()" class="layui-btn layui-btn-danger"></td>
+								<script type="text/javascript">
+							      function a<?php echo ($vo["applyid"]); ?>(){
+							      	var remark = prompt("作废申请单的原因是","");
+							      	//var password = prompt('请输入密码',"");
+							      	document.getElementById('remark').value = remark;
+							      	
+							      }
+							</script>
+								</form>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+  	</div>
+
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

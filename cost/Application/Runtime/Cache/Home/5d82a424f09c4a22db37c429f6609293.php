@@ -70,6 +70,15 @@
           </dl>
         </li>
         <li class="layui-nav-item">
+          <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">产品请领管理新版</a><?php else: endif; ?>
+          <dl class="layui-nav-child">
+          	
+            <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
+            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
+          </dl>
+        </li>
+        <li class="layui-nav-item">
           <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">产品出入库管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/dwoutbound">单位产品出库</a></dd>

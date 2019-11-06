@@ -202,8 +202,64 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+    
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>仓库名称</td>
+								<td>产品名称</td>
+								<td>产品单价</td>
+								<td>申请数量</td>
+								<td>实际数量</td>
+								<td>预估税率(%)</td>
+								<td>税率补足(%)</td>
+								<td>发票编号</td>
+								<td>申请日期</td>
+								<td>入库状态</td>
+								<td>操作</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><form class="layui-form" action="inboundbills" method="post"  style="width: 100%;">
+							<tr>
+								<input type="hidden" name="inboundid" value="<?php echo ($vo["inboundid"]); ?>">
+								<input type="hidden" name="unitprice" value="<?php echo ($vo["unitprice"]); ?>">
+								<input type="hidden" name="sjquantity" value="<?php echo ($vo["sjquantity"]); ?>">
+								<input type="hidden" name="vatprice" value="<?php echo ($vo["vatprice"]); ?>">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["dwname"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["unitprice"]); ?></td>
+								<td><?php echo ($vo["quantity"]); ?></td>
+								<td><?php echo ($vo["sjquantity"]); ?></td>
+								<td><?php echo ($vo["vatprice"]); ?></td>
+								<td><input type="text" class="layui-input" name="vatfill" value="<?php echo ($vo["vatfill"]); ?>"></td>
+								<td><input type="text" class="layui-input" name="vat" value="<?php echo ($vo["vat"]); ?>"></td>
+								<td><?php echo ($vo["date"]); ?></td>
+								<td><?php echo ($vo["shenhe"]); ?></td>
+								<td><input type="submit" value="提交" class="layui-btn layui-btn-normal"></td>
+							</tr>
+							</form><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  
   </div>
   
 <!--底部-->

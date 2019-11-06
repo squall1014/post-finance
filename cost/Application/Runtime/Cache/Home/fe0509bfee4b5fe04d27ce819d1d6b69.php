@@ -60,6 +60,7 @@
         <li class="layui-nav-item">
           <?php if($user["qx"] >= 9): ?><a class="" href="javascript:;">积分卡对账管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
+            <dd><a href="/cost/index.php/Home/Admin/pointcardwdinvest">积分卡按网点进行充值</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/pointcardwdfinance">积分卡按网点对账管理</a></dd>
           </dl>
         </li>
@@ -69,7 +70,7 @@
             <dd><a href="/cost/index.php/Home/Admin/financedwreportdate">按单位库存财务报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/financewhreportdate">按仓库库存财务报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/inboundreportdate">按日期入库库存财务报表</a></dd>
-            <dd><a href="/cost/index.php/Home/Admin/">库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Admin/warehousedwreport">库存报表</a></dd>
             <!--<dd><a href="/cost/index.php/Home/Admin/financereportall">按单位礼品报表</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/financewarehouse">按单位消耗品报表</a></dd>-->
           </dl>

@@ -202,12 +202,66 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
+    
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								
+								<td>申请数量</td>
+								<td>备注</td>
+								<td>请领时间</td>
+								<td>操作(部分审核-到货部分)</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><form class="layui-form" name="formib" method="post" style="width: 100%;">
+							<tr>
+								<input type="hidden" name="productid" value="<?php echo ($vo["productid"]); ?>">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["applydwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><?php echo ($vo["applyquantity"]); ?></td>
+								<td><?php echo ($vo["remark"]); ?></td>
+								<td><?php echo ($vo["date"]); ?></td>
+								<td><a href="/cost/index.php/Home/Index/outbounds/productid/<?php echo ($vo["productid"]); ?>/applydwname/<?php echo ($vo["applydwname"]); ?>/applyid/<?php echo ($vo["applyid"]); ?>/applyquantity/<?php echo ($vo["applyquantity"]); ?>/pwid/<?php echo ($vo["pwid"]); ?>">出库分配</a></td>
+							</tr>
+					  <div class="layui-form-item">
+					    <!--<div class="layui-input-block">
+					      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+					      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					    </div>-->
+		  			</div>
+		 
   
-<!--底部-->
-  <div class="layui-footer">
+<script type="text/javascript">
+      function a<?php echo ($vo["id"]); ?>(){
+      	document.getElementById("a<?php echo ($vo["id"]); ?>").action = 'inboundshs';
+        //document.formibs.action = <?php echo U('inboundshs');?>;
+        document.getElementById("a<?php echo ($vo["id"]); ?>").submit()
+	    }
+      function b<?php echo ($vo["id"]); ?>() {
+      	document.getElementById("a<?php echo ($vo["id"]); ?>").action = 'inboundshsuc';
+        //document.formibs.action = <?php echo U('inboundshs');?>;
+        document.getElementById("a<?php echo ($vo["id"]); ?>").submit()
+      }
+</script>
+</form><?php endforeach; endif; else: echo "" ;endif; ?>
+</table>
+</div> 
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -247,4 +301,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

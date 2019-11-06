@@ -74,8 +74,8 @@
           <dl class="layui-nav-child">
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
-            <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
-            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
+            <dd><a href="/cost/index.php/Home/Index/applyproductmodify">产品请领数量修改</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -202,10 +202,36 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+        <form action="<?php echo U('inboundzeropts');?>" enctype="multipart/form-data" method="post" class="layui-form layui-form-pane" >
+        <div class="layui-card" style="width: 60%;">
+        	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+					  <legend>0库存产品入库（透视表）</legend>
+					</fieldset>
+        <div class="layui-card-body">
+        <div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">批次选择</label>
+			      <div class="layui-input-block">
+			        <select name="zeroid" lay-verify="required" lay-search>
+	         	 		<option value="<?php echo ($czrr[0]['zeroid']); ?>"><?php echo ($czrr[0]['date']); ?></option>
+	         	 		<?php if(is_array($czrrr)): $i = 0; $__LIST__ = $czrrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["zeroid"]); ?>"><?php echo ($vo["date"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+	            </select>
+			      </div>
+			    </div>
+    		</div>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:100px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
   </div>
-  
+
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

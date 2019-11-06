@@ -1,0 +1,365 @@
+[ 2019-11-05T21:04:03+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000643s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0017s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0019s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0026s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0074s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000467s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2019-11-05T21:04:10+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20&warehouseid=1&product=&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000715s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0018s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `warehouseid` = '1' AND `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0017s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0014s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0052s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `warehouseid` = '1' AND `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000499s ]
+
+[ 2019-11-05T21:04:13+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20&warehouseid=2&product=&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0018s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `warehouseid` = '2' AND `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0015s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0052s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `warehouseid` = '2' AND `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000332s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000478s ]
+
+[ 2019-11-05T21:04:17+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20&warehouseid=3&product=&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0017s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `warehouseid` = '3' AND `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0012s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0053s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `warehouseid` = '3' AND `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000374s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000527s ]
+
+[ 2019-11-05T21:04:26+08:00 ] ::1 /cost/index.php/Home/Index/applyproductsuc_up.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000728s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0017s ]
+SQL: INSERT INTO `hr_costapply` (`productid`,`warehouseid`,`pwid`,`jgh`,`applyquantity`,`applyjgh`,`date`,`shenhe`) VALUES ('213','3','2133','2','10','72','2019-11-05','未审核') [ RunTime:0.0031s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000505s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000687s ]
+
+[ 2019-11-05T21:04:27+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000620s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0018s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0014s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0052s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000424s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000575s ]
+
+[ 2019-11-05T21:04:31+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20&warehouseid=3&product=&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000784s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0016s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `warehouseid` = '3' AND `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0012s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0051s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `warehouseid` = '3' AND `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000357s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000509s ]
+
+[ 2019-11-05T21:30:03+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000853s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0015s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0016s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0054s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000381s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2019-11-05T21:30:10+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20&warehouseid=&product=%E6%9C%88%E9%A5%BC&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0016s ]
+SQL: SELECT `productid` FROM `hr_costproduct` WHERE `productname` LIKE '%月饼%'  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0013s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `productid` IN ('214') AND `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0015s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0055s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `productid` IN ('214') AND `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000378s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000541s ]
+
+[ 2019-11-05T21:32:48+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001031s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0015s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0014s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0058s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000397s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000565s ]
+
+[ 2019-11-05T21:32:55+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20&warehouseid=&product=%E6%9C%88%E9%A5%BC&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0013s ]
+SQL: SELECT `productid` FROM `hr_costproduct` WHERE `productname` LIKE '%月饼%'  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0012s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `productid` IN ('214') AND `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0015s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0055s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `productid` IN ('214') AND `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000572s ]
+
+[ 2019-11-05T21:33:00+08:00 ] ::1 /cost/index.php/Home/Index/applyproductsuc_up.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0014s ]
+SQL: INSERT INTO `hr_costapply` (`productid`,`warehouseid`,`pwid`,`jgh`,`applyquantity`,`applyjgh`,`date`,`shenhe`) VALUES ('214','1','2141','28','15','72','2019-11-05','未审核') [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000520s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000689s ]
+
+[ 2019-11-05T21:33:02+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0015s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0015s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0054s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000431s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000589s ]
+
+[ 2019-11-05T21:38:34+08:00 ] ::1 /cost/index.php/Home/Index/dwoutbounds/
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `shenhe` = '出库中' AND `kcapplyquantity` > 0 ORDER BY productid asc' at line 1
+ [ SQL语句 ] : SELECT * FROM `hr_costoutbound` WHERE `applyjgh` = '72' AND `productid` IN () AND `shenhe` = '出库中' AND `kcapplyquantity` > 0 ORDER BY productid asc 
+
+[ 2019-11-05T21:40:23+08:00 ] ::1 /cost/index.php/Home/Index/productedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000724s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproduct` WHERE `productdwname` = '2'  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costproduct` WHERE `productdwname` = '2' LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000394s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000594s ]
+
+[ 2019-11-05T21:41:06+08:00 ] ::1 /cost/index.php/Home/Index/productedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000701s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_costproduct` WHERE `productdwname` = '2'  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costproduct` WHERE `productdwname` = '2' LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000387s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000552s ]
+
+[ 2019-11-05T21:41:26+08:00 ] ::1 /cost/index.php/Home/Index/producteditsuc.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000654s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0013s ]
+SQL: UPDATE `hr_costproduct` SET `productname`='硒鼓388',`unit`='个',`supplier`='',`beizhu`='' WHERE ( productid = '213' ) [ RunTime:0.0015s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000569s ]
+
+[ 2019-11-05T21:41:30+08:00 ] ::1 /cost/index.php/Home/Index/productedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000779s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costproduct` WHERE `productdwname` = '2'  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 166 行.
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costproduct` WHERE `productdwname` = '2' LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2019-11-05T21:41:35+08:00 ] ::1 /cost/index.php/Home/Index/productstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0014s ]
+SQL: UPDATE `hr_costproduct` SET `stats`='1' WHERE ( productid = '213' ) [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000477s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000651s ]
+
+[ 2019-11-05T21:41:36+08:00 ] ::1 /cost/index.php/Home/Index/productstats.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0016s ]
+SQL: UPDATE `hr_costproduct` SET `stats`='0' WHERE ( productid = '213' ) [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000420s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000607s ]
+

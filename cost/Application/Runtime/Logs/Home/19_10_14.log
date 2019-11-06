@@ -1,0 +1,15 @@
+[ 2019-10-14T09:25:41+08:00 ] ::1 /cost/index.php/Home/Index/productedits.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002930s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0018s ]
+SQL: SELECT * FROM `hr_costproduct` WHERE `productdwname` = '58'  [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_danwei` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_danwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costproduct` WHERE `productdwname` = '58' LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000375s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000530s ]
+

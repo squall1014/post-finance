@@ -74,8 +74,8 @@
           <dl class="layui-nav-child">
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
-            <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
-            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
+            <dd><a href="/cost/index.php/Home/Index/applyproductmodify">产品请领数量修改</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -202,11 +202,57 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
-<!--底部-->
+    <div class="layui-card" style="width: 75%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品信息修改</font>
+        		
+        		<form class="layui-form layui-form-pane" >
+    				<label class="layui-form-label">产品单位</label>
+    				<label class="layui-form-label" style="width: 200px;"><?php echo ($data[0]['productdwname']); ?></label>
+    			</form>
+        	</div>
+    			<br  />
+					<br  />
+        	<div class="layui-card-body">
+					
+    			<form class="layui-form" action="">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+					    	
+								<td>产品单位</td>
+								<td>产品名称</td>
+								<td>单位</td>
+								<td>产品类型</td>
+								<td>供应商</td>
+								<td>备注</td>
+								<td>状态</td>
+								<td>操作</td>
+								
+							</tr>
+							
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<input type="hidden" name="dwname" value="<?php echo ($dwname); ?>">
+								<!--<td><input type="checkbox" name="inboundid[]" id="b<?php echo ($vo["inboundid"]); ?>" value="<?php echo ($vo["inboundid"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["productdwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["unit"]); ?></td>
+								<td><?php echo ($vo["producttypename"]); ?></td>
+								<td><?php echo ($vo["supplier"]); ?></td>
+								<td><?php echo ($vo["beizhu"]); ?></td>
+								<td>
+									<?php if($vo["stats"] == 0): ?>启用<?php else: ?><font color="#CC0000">停用</font><?php endif; ?>
+								</td>
+								<!--<td><input type="text" class="layui-radio" readonly="" name="<?php echo ($vo["inboundid"]); ?>" id="c<?php echo ($vo["inboundid"]); ?>" value="0" onblur="a<?php echo ($vo["inboundid"]); ?>()" onclick="e<?php echo ($vo["inboundid"]); ?>()" lay-verify="" placeholder="请输入实际入库数量" autocomplete="off" ></td>-->
+								<td>
+							      <a href="/cost/index.php/Home/Index/productmodifys/productid/<?php echo ($vo["productid"]); ?>">修改</a>
+							    
+								</td>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+		    		</table>
+		    	</div>
+			</div>
+
+
   <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统

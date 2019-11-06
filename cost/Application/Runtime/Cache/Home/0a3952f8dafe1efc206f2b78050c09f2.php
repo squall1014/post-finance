@@ -74,8 +74,8 @@
           <dl class="layui-nav-child">
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
-            <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
-            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
+            <dd><a href="/cost/index.php/Home/Index/applyproductmodify">产品请领数量修改</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -202,12 +202,62 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
-<!--底部-->
-  <div class="layui-footer">
+    <form class="layui-form" action="<?php echo U('applyproductzerosuc');?>" name="formibs" method="post" style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 60%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="5%">
+					       <col width="20%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>请领数量</td>
+								<!--<td>库存总量</td>-->
+								<!--<td>状态</td>-->
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<input type="hidden" name="productid[]" value="<?php echo ($vo["productid"]); ?>">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["productdwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["unit"]); ?></td>
+								<td><input type="text" name="quantity[]" id="a<?php echo ($vo["productid"]); ?>" onblur="c<?php echo ($vo["productid"]); ?>()" lay-verify="" placeholder="请输入申请数量" autocomplete="off" class="layui-input"></td>
+								<script type="text/javascript">
+			         		function c<?php echo ($vo["productid"]); ?>(){
+			         			var total = document.getElementById("a<?php echo ($vo["productid"]); ?>").value;
+			         			var reg = /^[0-9]+\.?[0-9]*$/;
+			         			
+			         			if(!total.match(reg)){
+			         				if(!total){
+			         					
+			         				}else{
+			         					alert('请输入正确的数字');
+			         					document.getElementById("a<?php echo ($vo["productid"]); ?>").value = null;
+			         				}
+			         					
+			         			}else{
+			         				
+			         			}
+			         			
+			         		}
+			         	</script>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					</table>
+					<br />
+ 				<div class="layui-input-block" style="margin-left:360px;">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		    </form>
+</div> 
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -247,4 +297,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

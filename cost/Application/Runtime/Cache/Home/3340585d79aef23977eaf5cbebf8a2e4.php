@@ -202,8 +202,40 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+    <form class="layui-form" action="selectss" method="get"  style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>产品名称</td>
+								<td>总计</td>
+								<?php if(is_array($cwrr)): $i = 0; $__LIST__ = $cwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vow): $mod = ($i % 2 );++$i;?><td><?php echo ($vow["warehouse"]); ?></td><?php endforeach; endif; else: echo "" ;endif; ?>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["total"]); ?></td>
+								<?php if(is_array($ware)): $i = 0; $__LIST__ = $ware;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vow): $mod = ($i % 2 );++$i;?><td><?php echo ($vo[$vow]); ?></td><?php endforeach; endif; else: echo "" ;endif; ?>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  </form>
   </div>
   
 <!--底部-->

@@ -74,8 +74,8 @@
           <dl class="layui-nav-child">
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
-            <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
-            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
+            <dd><a href="/cost/index.php/Home/Index/applyproductmodify">产品请领数量修改</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -202,12 +202,53 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
-<!--底部-->
-  <div class="layui-footer">
+    			<table class="layui-table" style="text-align: center; width: 95%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								<td>请领数量</td>
+								<td>含税单价(元)</td>
+								<td>税率</td>
+								<td>发票编号</td>
+								<td>入库单号</td>
+								<td>操作</td>
+							</tr>
+							<?php if(is_array($cazrr)): $i = 0; $__LIST__ = $cazrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><form class="layui-form" name="formib" action="<?php echo U('inboundzerosuc');?>" method="post" style="width: 100%;">
+							<tr>
+								<input type="hidden" name="productid" value="<?php echo ($vo["productid"]); ?>">
+								<input type="hidden" name="quantity" value="<?php echo ($vo["sumquantity"]); ?>">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><a href="/cost/index.php/Home/Index/inboundzeros/productid/<?php echo ($vo["productid"]); ?>"><font color="#CC0000"><?php echo ($vo["productname"]); ?></font></a></td>
+								
+								<td>
+									<select name="warehouseid" lay-verify="required" lay-search>
+			         	 		<option value="1">渠道平台库</option>
+			         	 		<?php if(is_array($cwrr)): $i = 0; $__LIST__ = $cwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vow): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vow["warehouseid"]); ?>"><?php echo ($vow["warehouse"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+			            </select>
+								</td>
+								<td><?php echo ($vo["sumquantity"]); ?></td>
+								<td><input type="text" name="unitprice" required lay-verify="required" value="" placeholder="请输入单价" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="vatprice" required lay-verify="required" value="" placeholder="请输入税率" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="vat" value="" placeholder="发票编号" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="inboundnum" value="" placeholder="请输入库单号" autocomplete="off" class="layui-input"></td>
+								<td><button class="layui-btn" lay-submit="" lay-filter="demo1">入库</button></td>
+							</tr>
+							</form><?php endforeach; endif; else: echo "" ;endif; ?>
+		  		</table>
+</div> 
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -247,4 +288,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

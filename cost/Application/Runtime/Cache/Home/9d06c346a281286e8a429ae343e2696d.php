@@ -60,6 +60,7 @@
         <li class="layui-nav-item">
           <?php if($user["qx"] >= 9): ?><a class="" href="javascript:;">积分卡对账管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
+            <dd><a href="/cost/index.php/Home/Admin/pointcardwdinvest">积分卡按网点进行充值</a></dd>
             <dd><a href="/cost/index.php/Home/Admin/pointcardwdfinance">积分卡按网点对账管理</a></dd>
           </dl>
         </li>

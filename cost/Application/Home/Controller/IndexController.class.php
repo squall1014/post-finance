@@ -145,6 +145,33 @@ class IndexController extends Controller {
     	return $data;
     }
     public function costinfos($data){
+		$cp = M('costproduct');
+    	$cprr = $cp -> select();
+    	foreach($data as &$value){
+    		foreach($cprr as &$valued){
+    			if($value['productid'] == $valued['productid']){
+    				$value['productname'] = $valued['productname'];
+    				$value['productdwname'] = $valued['productdwname'];
+    				$value['producttype'] = $valued['producttype'];
+    				$value['unit'] = $valued['unit'];
+    				continue;
+    			}
+    		}
+    	}
+
+		$cw = M('costwarehouse');
+    	$cwrr = $cw -> select();
+    	foreach($data as &$value){
+    		foreach($cwrr as &$valued){
+    			if($value['warehouseid'] == $valued['warehouseid']){
+    				$value['warehouse'] = $valued['warehouse'];
+    				$value['warehousedwname'] = $valued['warehousedwname'];
+    				
+    				continue;
+    			}
+    		}
+		}
+		
     	$cpt = M('costproducttype');
     	$cptrr = $cpt -> select();
     	foreach($data as &$value){
@@ -955,7 +982,86 @@ class IndexController extends Controller {
     	$this->assign('datas',$datas);
     	//var_dump($datas);
     	$this->display();
-    }
+	}
+	public function applyproduct_up(){
+		$cw = M('costwarehouse');
+		$cwrr = $cw -> select();
+		
+		$ci = M('costinbound');
+		//判断是否入库;
+    	$where['sjquantity'] = array('gt',0);
+    	$where['kcquantity'] = array('gt',0);
+    	// //是否需要增加未审核;
+    	$data = $ci -> field('productid,warehouseid') -> group('productid,warehouseid') -> order('warehouseid asc') -> where($where) -> select();
+    	$data = $this -> costinfos($data);
+		// var_dump($data);
+		$this->assign('data',$data);
+
+		$this->assign('cwrr',$cwrr);
+		$this->display();
+	}
+	public function applyproduct_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+		
+    	$wh = $_GET['warehouseid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$where['warehouseid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$where['date'] = $date;
+    	}
+
+		$ci = M('costinbound');
+    	$where['sjquantity'] = array('gt',0);
+		$where['kcquantity'] = array('gt',0);
+		
+    	//是否需要增加未审核;
+    	$data = $ci -> field('productid,warehouseid,pwid,sum(kcquantity) as sumkcquantity') -> group('productid,pwid,warehouseid') -> limit($first,$limit) -> where($where) -> order('warehouseid asc') -> select();
+		$ca = M('costapply');
+    	
+    	$whereca['shenhe'] = array('in','未审核,审核同意');
+    	$carr = $ca -> where($whereca) -> field('pwid,sum(applyquantity) as sumapplyquantity') -> group('pwid') -> select();
+    	foreach($data as &$value){
+    		foreach($carr as &$valueca){
+    			if($value['pwid'] == $valueca['pwid']){
+    				$value['sumkcquantity'] = $value['sumkcquantity'] - $valueca['sumapplyquantity'];
+    			}
+    		}
+    	}
+		
+		$data = $this -> costinfos($data);
+		
+    	$count = $ci -> where($where) -> count();
+    	
+    	$data = json_encode($data);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+
     public function applyproducts(){
     	$cp = M('costproduct');
     	$cprr = $cp -> select();
@@ -1015,7 +1121,65 @@ class IndexController extends Controller {
     	}
     	$this -> assign('data',$data);
     	$this->display();
-    }
+	}
+	
+	public function applyproducts_up(){
+		// var_dump($_GET);
+		$productid = $_GET['productid'];
+		session('applyproductid',$productid);
+		$this->display();
+	}
+	public function applyproducts_ups(){
+		$productid = session('applyproductid');
+		
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+		$first = $limit * ($page-1);
+		
+		$ci = M('costinbound');
+		$where['sjquantity'] = array('gt',0);
+		$where['kcquantity'] = array('gt',0);
+		$where['productid'] = array('in',$productid);
+		
+    	//是否需要增加未审核;
+		$data = $ci -> field('productid,warehouseid,pwid,sum(kcquantity) as sumkcquantity') -> group('productid,warehouseid,pwid') -> limit($first,$limit) -> where($where) -> order('warehouseid asc') -> select();
+		// var_dump($where);
+
+		$ca = M('costapply');
+    	
+    	$whereca['shenhe'] = array('in','未审核,审核同意');
+    	$carr = $ca -> where($whereca) -> field('pwid,sum(applyquantity) as sumapplyquantity') -> group('pwid') -> select();
+    	foreach($data as &$value){
+    		foreach($carr as &$valueca){
+    			if($value['pwid'] == $valueca['pwid']){
+    				$value['sumkcquantity'] = $value['sumkcquantity'] - $valueca['sumapplyquantity'];
+    			}
+    		}
+    	}
+		$data = $this -> costinfos($data);
+		
+    	$count = $ci -> where($where) -> count();
+    	
+    	$data = json_encode($data);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+	public function applyproductsuc_up(){
+		$dwname = cookie('dwname');
+		// var_dump($_POST , $dwname);
+
+		$_POST['applyjgh'] = $dwname['jgh'];
+		$_POST['date'] = date('Y-m-d');
+		$_POST['shenhe'] = '未审核';
+
+		$ca = M('costapply');
+		$carr = $ca -> add($_POST);
+		if($carr > 0){
+			echo "产品请领成功，请继续";
+		}else{
+			echo "产品请领失败，请检查数据";
+		}
+	}
     public function applyproductsuc(){
     	$dwname = cookie('dwname');
     	$id = $_POST;
@@ -1051,7 +1215,7 @@ class IndexController extends Controller {
     public function applyproductmodify(){
     	$dwname = cookie('dwname');
     	$jgh = $dwname['jgh'];
-    	
+
     	$where['applyjgh'] = $jgh;
     	$where['shenhe'] = '未审核';
     	$where['applyquantity'] = array('gt',0);
@@ -1098,7 +1262,133 @@ class IndexController extends Controller {
     	$this->assign('data',$data);
     	$this->display();
     	//var_dump($cirr,$carr,$data);
-    }
+	}
+	public function applyproductmodify_up(){
+		$dwname = cookie('dwname');
+    	$jgh = $dwname['jgh'];
+		
+		$cw = M('costwarehouse');
+		$cwrr = $cw -> select();
+		$this->assign('cwrr',$cwrr);
+
+    	$where['applyjgh'] = $jgh;
+    	$where['shenhe'] = '未审核';
+    	$where['applyquantity'] = array('gt',0);
+    	
+    	$ca = M('costapply');
+    	$data = $ca -> field('productid') -> distinct('productid') -> where($where) -> select();
+    	$data = $this->costinfos($data);
+    	//var_dump($data);
+    	$this->assign('data',$data);
+    	$this->display();
+	}
+	public function applyproductmodify_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+		
+    	$wh = $_GET['warehouseid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$where['warehouseid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$where['date'] = $date;
+    	}
+
+		$dwname = cookie('dwname');
+    	$jgh = $dwname['jgh'];
+
+    	$where['applyjgh'] = $jgh;
+    	$where['shenhe'] = '未审核';
+    	$where['applyquantity'] = array('gt',0);
+    	
+    	$ca = M('costapply');
+		$data = $ca -> where($where) -> select();
+		
+		$pwid = $ca -> where($where) -> field('pwid') -> distinct('pwid') -> select();
+		// $pwids = array();
+		foreach($pwid as &$value){
+			$pwids[] = $value['pwid'];
+		}
+
+		// var_dump($data,$pwids);
+
+		$data = $this->costinfo($data);
+		
+		$whereci['pwid'] = array('in' , $pwids);
+    	$whereci['kcquantity'] = array('gt',0);
+    	$whereci['shenhe'] = array('neq','未审核');
+    	$ci = M('costinbound');
+    	$cirr = $ci -> field('productid,warehouseid,pwid,sum(kcquantity) as sumkcquantity') -> where($whereci) -> group('productid,warehouseid,pwid') -> select();
+		
+    	$whereca['shenhe'] = array('in','未审核,审核同意');
+    	// $whereca['applyid'] = array('notin',$applyid);
+    	$whereca['pwid'] = array('in' , $pwids);
+    	$carr = $ca -> where($whereca) -> field('productid,warehouseid,pwid,sum(applyquantity) as sumapplyquantity') -> group('productid,pwid,warehouseid') -> select();
+    	foreach($data as &$value){
+
+    		foreach($cirr as &$valueci){
+    			$value['kcquantity'] = $valueci['sumkcquantity'];
+    			foreach($carr as &$valueca){
+    				
+    				if($value['pwid'] == $valueci['pwid'] and $value['pwid'] == $valueca['pwid']){
+    				//if($value['pwid'] == $valueca['pwid']){
+						$value['kcquantity'] = $valueci['sumkcquantity'] - $valueca['sumapplyquantity'];
+						$value['sjkcquantity'] = $value['kcquantity'] + $value['applyquantity'];
+    				}
+    			}
+    		}
+    	}
+
+    	// $count = $ci -> where($where) -> count();
+    	$count = 0;
+    	$data = json_encode($data);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+	public function applyproductmodifysuc_up(){
+		// var_dump($_POST);
+
+		$applyid = $_POST['applyid'];
+		$where['applyquantity'] = $_POST['applyquantity'];
+
+		$ca = M('costapply');
+		$carr = $ca -> where("applyid = '$applyid'") -> save($where);
+
+		if($carr > 0){
+			echo "申请数量修改成功";
+		}else{
+			echo "申请数量修改失败，请检查数据";
+		}
+	}
+
+
+
+
+
+
     public function applyproductmodifysuc(){
     	//var_dump($_POST);
     	$applyid = $_POST['applyid'];

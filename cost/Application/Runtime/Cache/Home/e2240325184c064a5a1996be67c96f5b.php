@@ -202,10 +202,33 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+        <form action="<?php echo U('inboundsearchs');?>" enctype="multipart/form-data" method="post" class="layui-form layui-form-pane" >
+        <div class="layui-card" style="width: 60%;">
+        	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+					  <legend>产品申请查询</legend>
+					</fieldset>
+        <div class="layui-card-body">
+        <div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">日期选择</label>
+			      <div class="layui-input-block">
+			        <input type="text" name="date_date" id="test6" autocomplete="off" class="layui-input">
+			      </div>
+			    </div>
+    		</div>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:100px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
   </div>
-  
+
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

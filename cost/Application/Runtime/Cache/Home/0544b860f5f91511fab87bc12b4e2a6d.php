@@ -202,12 +202,80 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
-<!--底部-->
-  <div class="layui-footer">
+    <form class="layui-form" action="<?php echo U('dwoutboundsuc');?>" name="formibs" method="post" style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+					    	<td>选择</td>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>仓库名称</td>
+								<td>出库数量</td>
+								<td>库存总量</td>
+								<td>状态</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<input type="hidden" name="productid[]" value="<?php echo ($vo["productid"]); ?>">
+								<input type="hidden" name="warehouseid[]" value="<?php echo ($vo["warehouseid"]); ?>">
+								<input type="hidden" name="kcapplyquantity[]" id="f<?php echo ($vo["kcapplyquantity"]); ?>" value="<?php echo ($vo["kcapplyquantity"]); ?>">
+								<td><input type="checkbox" name="outboundid[]" id="b<?php echo ($vo["outboundid"]); ?>" value="<?php echo ($vo["outboundid"]); ?>" lay-skin="primary"></td>
+								<td><?php echo ($vo["applydwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["unit"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><input type="text" name="<?php echo ($vo["outboundid"]); ?>" readonly="" id="c<?php echo ($vo["outboundid"]); ?>" onclick="e<?php echo ($vo["outboundid"]); ?>()" onblur="a<?php echo ($vo["outboundid"]); ?>()" lay-verify="" placeholder="请输入实际入库数量" autocomplete="off" class="layui-input"></td>
+								<td><?php echo ($vo["kcapplyquantity"]); ?></td>
+								<td><input class="layui-input" type="text" id="d<?php echo ($vo["outboundid"]); ?>" readonly="true"></td>
+							</tr>
+					  <div class="layui-form-item">
+		  </div>
+	<script src="/cost/Public/layui.js"></script>
+	<script src="/cost/Public/jquery-1.12.4.min.js"></script>
+	<script src="/cost/Public/jSignature.js"></script>
+	<script type="text/javascript">
+			function e<?php echo ($vo["outboundid"]); ?>(){
+				
+				<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$voi): $mod = ($i % 2 );++$i;?>if(document.getElementById("b<?php echo ($voi["outboundid"]); ?>").checked){
+					
+					document.getElementById("c<?php echo ($voi["outboundid"]); ?>").removeAttribute("readonly");
+				}else{
+					document.getElementById("c<?php echo ($voi["outboundid"]); ?>").readOnly = 'true';
+				}<?php endforeach; endif; else: echo "" ;endif; ?>
+			}
+      function a<?php echo ($vo["outboundid"]); ?>(){
+      	<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$voi): $mod = ($i % 2 );++$i;?>if(document.getElementById("b<?php echo ($voi["outboundid"]); ?>").checked){
+      			var outapplyquantity = parseInt(document.getElementById("c<?php echo ($voi["outboundid"]); ?>").value);
+      			var kcapplyquantity = parseInt(document.getElementById("f<?php echo ($voi["kcapplyquantity"]); ?>").value);
+      			if(outapplyquantity <= kcapplyquantity){
+      				document.getElementById("d<?php echo ($voi["outboundid"]); ?>").value = '通过';
+      				
+      			}else{
+      				//alert(outapplyquantity);
+      				//alert(kcapplyquantity);
+      				document.getElementById("d<?php echo ($voi["outboundid"]); ?>").value = '超过库存数';
+      				document.getElementById("c<?php echo ($voi["outboundid"]); ?>").value = 0;
+      			}
+      		}<?php endforeach; endif; else: echo "" ;endif; ?>
+	    }
+</script>
+<script type="text/javascript">
+	function graph(){
+		window.open("autograph.html", "newwindow", "height=768, width=1024, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no");
+	}
+</script><?php endforeach; endif; else: echo "" ;endif; ?>
+</table>
+<br />
+ 				<div class="layui-input-block" style="margin-left:360px;">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		    </form>
+		    <!--<button class="layui-btn" id="images" onclick="graph()">添加签名</button>-->
+</div>
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -247,4 +315,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

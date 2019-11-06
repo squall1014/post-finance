@@ -202,10 +202,39 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
+    <form action="<?php echo U('applyproductshsucs');?>" class="layui-form" method="post" enctype="multipart/form-data">
+						<table class="layui-table" style="text-align: center; width: 95%;">
+					    <tr>
+								<td>申请部门</td>
+								<td>申请产品</td>
+								<td>产品单位</td>
+								<td>产品仓库</td>
+								<td>申请数量</td>
+								<td>申请部门实际库存</td>
+								<td>申请日期</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<input type="hidden" value="<?php echo ($vo["applyid"]); ?>" name="applyid[]" />
+								<td><?php echo ($vo["applydwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["unit"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><input type="text" name="applyquantity[]" value="<?php echo ($vo["applyquantity"]); ?>" class="layui-input"></td>
+								<td><?php echo ($vo["sumkcapplyquantity"]); ?></td>
+								<td><?php echo ($vo["date"]); ?></td>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+					  <br />
+					  <div class="layui-form-item">
+			    	<div class="layui-input-block">
+			      	<button class="layui-btn" style="margin-left:360px;">批量审批</button>
+			      	<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			    	</div>
+			  </div>
+			  </form>
+  	</div>
+
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

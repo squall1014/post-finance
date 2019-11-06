@@ -200,10 +200,54 @@
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
-    
-    <br />
-    	&nbsp&nbsp&nbsp
-    	
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+				<legend>产品入库查询</legend>
+		</fieldset>
+    <form class="layui-form" action="selectss" method="get"  style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="8%">
+					       <col width="15%">
+					       <col width="8%">
+					       <col width="10%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								<td>单价</td>
+								<td>申请数量</td>
+								<td>实际到货数量</td>
+								<td>现库存数量</td>
+								<td>申请日期</td>
+								
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["dwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><?php echo ($vo["unitprice"]); ?></td>
+								<td><?php echo ($vo["quantity"]); ?></td>
+								<td><?php echo ($vo["sjquantity"]); ?></td>
+								<td><?php echo ($vo["kcquantity"]); ?></td>
+								<td><?php echo ($vo["date"]); ?></td>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+		<!--<div class="layui-form-item">
+		    	<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    	</div>
+		  	</div>-->
+		  </form>
   </div>
   
 <!--底部-->

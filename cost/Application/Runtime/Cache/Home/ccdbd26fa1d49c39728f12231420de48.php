@@ -202,8 +202,46 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+        <form action="<?php echo U('productaddsuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 75%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品信息新增</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	 <th>产品名称</th>
+         	 <td><input type="text" name="productname" lay-verify="required" required placeholder="请输入产品名称" autocomplete="off" class="layui-input"> </td>
+         	 
+         	 <th>产品单位</th>
+         	 <td><input type="text" name="unit" lay-verify="required" required placeholder="请输入产品单位" autocomplete="off" class="layui-input"> </td>
+         	 
+         	 <th>产品类型</th>
+         	 <td>
+         	 	<select name="producttype" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<?php if(is_array($cptrr)): $i = 0; $__LIST__ = $cptrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["producttypeid"]); ?>"><?php echo ($vo["producttype"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	 
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即添加</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
   </div>
   
 <!--底部-->

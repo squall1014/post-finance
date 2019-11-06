@@ -196,14 +196,49 @@
   </div>
   
 
-
-  <div class="layui-body">
+<div class="layui-body">
     <!-- 内容主体区域 -->
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+    <div class="layui-card-header">
+       <font size="4">待办事项</font>
+    </div>
+    <br />
+    <div style="padding: 20px; background-color: #F2F2F2; width: 60%;">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6">
+          <div class="layui-card">
+            <div class="layui-card-header">产品申请确认</div>
+            <div class="layui-card-body">
+            	<form action="<?php echo U('applyproductsh');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+              	<button class="layui-btn">未处理消息<span class="layui-badge layui-bg-gray"><?php echo ($applycount); ?></span></button>
+             </form>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md6">
+          <div class="layui-card">
+            <div class="layui-card-header">产品确认入库</div>
+            <div class="layui-card-body">
+            	<form action="<?php echo U('inboundsh');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+	              <button class="layui-btn">未处理消息<span class="layui-badge layui-bg-gray"><?php echo ($inboundcount); ?></span></button>
+	            </form>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md6">
+          <div class="layui-card">
+            <div class="layui-card-header">产品确认出库</div>
+            <div class="layui-card-body">
+            	<form action="<?php echo U('outbound');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+              	<button class="layui-btn">未处理消息<span class="layui-badge layui-bg-gray"><?php echo ($outboundcount); ?></span></button>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
 <!--底部-->

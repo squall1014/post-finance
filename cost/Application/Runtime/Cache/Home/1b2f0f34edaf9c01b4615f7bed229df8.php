@@ -202,12 +202,95 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
-<!--底部-->
-  <div class="layui-footer">
+    
+    			<form class="layui-form layui-form-pane" >
+    				<label class="layui-form-label">申请单位</label>
+    				<label class="layui-form-label"><?php echo ($dwname); ?></label>
+    				<label class="layui-form-label">申请数量</label>
+    				<label id="ap" class="layui-form-label"><?php echo ($apply); ?></label>
+    			</form>
+					<div style="padding: 25px;">
+					</div>
+    			<form class="layui-form" action="<?php echo U('outboundsuc');?>" name="formib" method="post" style="width: 100%;">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+					    	<td>选择</td>
+								<td>申请单位</td>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								
+								<td>申请数量</td>
+								<td>实际库存</td>
+								<td>入库时间</td>
+								<td>备注</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<input type="hidden" name="productid" value="<?php echo ($vo["productid"]); ?>">
+								<input type="hidden" name="applyid" value="<?php echo ($applyid); ?>">
+								<input type="hidden" name="dwname" value="<?php echo ($dwname); ?>">
+								<input type="hidden" name="kcquantity" id="d<?php echo ($vo["kcquantity"]); ?>" value="<?php echo ($vo["kcquantity"]); ?>">
+								<td><input type="checkbox" name="inboundid[]" id="b<?php echo ($vo["inboundid"]); ?>" value="<?php echo ($vo["inboundid"]); ?>" lay-skin="primary"></td>
+								<td><?php echo ($dwname); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><input type="text" class="layui-input" readonly="" name="<?php echo ($vo["inboundid"]); ?>" id="c<?php echo ($vo["inboundid"]); ?>" onblur="a<?php echo ($vo["inboundid"]); ?>()" onclick="e<?php echo ($vo["inboundid"]); ?>()" lay-verify="" placeholder="请输入实际入库数量" autocomplete="off" ></td>
+								<td><?php echo ($vo["kcquantity"]); ?></td>
+								<td><?php echo ($vo["datesh"]); ?></td>
+								<td></td>
+							</tr>
+							
+<script type="text/javascript">
+			function e<?php echo ($vo["inboundid"]); ?>(){
+				<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$voi): $mod = ($i % 2 );++$i;?>if(document.getElementById("b<?php echo ($voi["inboundid"]); ?>").checked){
+					document.getElementById("c<?php echo ($voi["inboundid"]); ?>").removeAttribute("readonly");
+				}else{
+					document.getElementById("c<?php echo ($voi["inboundid"]); ?>").readOnly = 'true';
+				}<?php endforeach; endif; else: echo "" ;endif; ?>
+			}
+				
+			function a<?php echo ($vo["inboundid"]); ?>(){
+				var apqt = 0;
+				var label = document.getElementById("ap").innerHTML;
+				var kcquantity = parseInt(document.getElementById("d<?php echo ($vo["kcquantity"]); ?>").value);
+				var otqt = parseInt(document.getElementById("c<?php echo ($vo["inboundid"]); ?>").value);
+				if(kcquantity < otqt){
+					alert("出库数量超出库存，请核对数据");
+					document.getElementById("c<?php echo ($vo["inboundid"]); ?>").value = 0;
+				}
+				<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$voi): $mod = ($i % 2 );++$i;?>if(document.getElementById("b<?php echo ($voi["inboundid"]); ?>").checked){
+					//document.getElementById("c<?php echo ($voi["inboundid"]); ?>").removeAttribute("disabled");
+					apqt += parseInt(document.getElementById("c<?php echo ($voi["inboundid"]); ?>").value);
+				}<?php endforeach; endif; else: echo "" ;endif; ?>
+				if(apqt > label){
+					alert("出库数量超出申请数量，请核对数据");
+					<?php if(is_array($datas)): $i = 0; $__LIST__ = $datas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$voi): $mod = ($i % 2 );++$i;?>document.getElementById("c<?php echo ($voi["inboundid"]); ?>").value = 0;<?php endforeach; endif; else: echo "" ;endif; ?>
+				}
+			}
+      
+</script><?php endforeach; endif; else: echo "" ;endif; ?>
+		    </table>
+		    <br />
+		    <div class="layui-input-block" style="margin-left:360px;">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+</form>
+
+
+</div> 
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -247,4 +330,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

@@ -74,8 +74,8 @@
           <dl class="layui-nav-child">
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
-            <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
-            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
+            <dd><a href="/cost/index.php/Home/Index/applyproductmodify">产品请领数量修改</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -202,8 +202,36 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
     	
+    	<form class="layui-form" action="<?php echo U('applyproductzeros');?>" method="post"  style="width: 80%;">
+    		
+    		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				  <legend>金融业务部礼品请领</legend>
+				  <!--<input type="hidden" name="warehouseid[]" value="<?php echo ($vo[0]['warehouseid']); ?>"  />-->
+				</fieldset>
+    		<table class="layui-table">
+    			<div class="layui-input-inline">
+    			<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="layui-input-inline" style="margin: 5px;">
+    				<input type="checkbox" name="<?php echo ($vo["productid"]); ?>" value="<?php echo ($vo["productid"]); ?>" title="<?php echo ($vo["productname"]); ?>">
+		      	<!--<input type="checkbox" name="<?php echo ($vos["id"]); ?>[]" value="<?php echo ($vos["productid"]); ?>" title="<?php echo ($vos["productname"]); ?>">-->
+		     		<!--<input type="checkbox" name="warehouseid[]" value="<?php echo ($vos["warehouseid"]); ?>">-->
+		      	</div><?php endforeach; endif; else: echo "" ;endif; ?>
+		     </div>
+      	</table>
+      	</volist>
+      	<br />
+      	<br />
+			  <div class="layui-form-item">
+			    <div class="layui-input-block" style="margin-left:420px;">
+			      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			    </div>
+			  </div>
+		  
+      </form>
+      
+    </div>
+      
   </div>
   
 <!--底部-->

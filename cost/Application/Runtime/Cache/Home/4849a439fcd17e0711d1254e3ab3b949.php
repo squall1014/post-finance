@@ -202,12 +202,75 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
+    			<table class="layui-table" style="text-align: center; width: 100%;">
+					      <!--<colgroup>
+					       <col width="12%">
+					       <col width="8%">
+					       <col width="10%">
+					       <col width="7%">
+					       <col width="5%">
+					       <col width="10%">
+					       <col width="8%">
+					       <col width="15%">
+					      </colgroup>-->
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>仓库名称</td>
+								
+								<td>含税单价(元)</td>
+								<td>入库数量</td>
+								<td>请领时间</td>
+								<td>操作</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><form class="layui-form" name="formib" id="a<?php echo ($vo["inboundid"]); ?>" method="post" style="width: 100%;">
+							<tr>
+								<input type="hidden" name="inboundid" value="<?php echo ($vo["inboundid"]); ?>">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["dwname"]); ?></td>
+								<td>
+									<select name="productid" lay-verify="required" lay-search>
+			         	 		<option value="<?php echo ($vo["productid"]); ?>"><?php echo ($vo["productname"]); ?></option>
+			         	 		<?php if(is_array($cprr)): $i = 0; $__LIST__ = $cprr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vop): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vop["productid"]); ?>"><?php echo ($vop["productname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+			            </select>
+								</td>
+								<td>
+									<select name="warehouseid" lay-verify="required" lay-search>
+			         	 		<option value="<?php echo ($vo["warehouseid"]); ?>"><?php echo ($vo["warehouse"]); ?></option>
+			         	 		<?php if(is_array($cwrr)): $i = 0; $__LIST__ = $cwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vow): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vow["warehouseid"]); ?>"><?php echo ($vow["warehouse"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+			            </select>
+								</td>
+								<td><input type="text" name="unitprice" required lay-verify="required" value="<?php echo ($vo["unitprice"]); ?>" placeholder="请输入单价" autocomplete="off" class="layui-input"></td>
+								<td><input type="text" name="quantity" required lay-verify="required" value="<?php echo ($vo["quantity"]); ?>" placeholder="请输入实际入库数量" autocomplete="off" class="layui-input"></td>
+								<td><?php echo ($vo["date"]); ?></td>
+								<td><input type="button" class="layui-btn" value="修改" onclick="a<?php echo ($vo["inboundid"]); ?>()" lay-submit=""><input type="button" class="layui-btn layui-btn-danger" onclick="b<?php echo ($vo["inboundid"]); ?>()" value="废弃" lay-submit=""></td>
+							</tr>
+					  <div class="layui-form-item">
+		    <!--<div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>-->
+		  </div>
+		 
   
-<!--底部-->
-  <div class="layui-footer">
+<script type="text/javascript">
+      function a<?php echo ($vo["inboundid"]); ?>(){
+      	document.getElementById("a<?php echo ($vo["inboundid"]); ?>").action = 'inboundmodifys';
+        //document.formibs.action = <?php echo U('inboundshs');?>;
+        document.getElementById("a<?php echo ($vo["inboundid"]); ?>").submit()
+	    }
+      function b<?php echo ($vo["inboundid"]); ?>(){
+      	document.getElementById("a<?php echo ($vo["inboundid"]); ?>").action = 'inbounddel';
+        //document.formibs.action = <?php echo U('inboundshs');?>;
+        document.getElementById("a<?php echo ($vo["inboundid"]); ?>").submit()
+      }
+</script>
+</form><?php endforeach; endif; else: echo "" ;endif; ?>
+</table>
+</div> 
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -247,4 +310,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

@@ -202,8 +202,33 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
     	
+    	<form class="layui-form" action="<?php echo U('dwoutbounds');?>" method="get" style="width: 80%;">
+    		
+    		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				  <legend><?php echo ($dwname["user"]); ?></legend>
+				</fieldset>
+    		<table class="layui-table">
+    			<div class="layui-input-inline">
+    			<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="layui-input-inline" style="margin: 5px;">
+		      	<input type="checkbox" name="<?php echo ($vo["productid"]); ?>" value="<?php echo ($vo["productid"]); ?>" title="<?php echo ($vo["productname"]); ?>">
+		      	</div><?php endforeach; endif; else: echo "" ;endif; ?>
+		     </div>
+      	</table>
+      	
+      	<br />
+      	<br />
+		  <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		  </div>
+		  
+      </form>
+      
+    </div>
+      
   </div>
   
 <!--底部-->
