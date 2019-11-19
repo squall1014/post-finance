@@ -46,7 +46,9 @@ class LoginController extends Controller {
         		$this->success('恭喜您'.$mrr['user'].',登录成功',U('Index/index'));
         	}else if($mrr['qx'] == '0'){
         		$this->success('恭喜您'.$mrr['user'].',登录成功',U('Admin/index'),2);
-        	}
+        	}else if($mrr['qx'] == '11'){
+				$this->success('恭喜您'.'信息中心管理员'.',登录成功',U('Ic/index'),2);
+			}
         }
         else{
     		$this->error('用户名密码错误');
