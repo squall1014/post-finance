@@ -245,17 +245,30 @@ class AdminController extends Controller {
     	$this->assign('data',$drr);
     	$this->display();
     }
-    
+    public function financedwreportdate(){
+		$cpt = M('costproducttype');
+		$cptrr = $cpt -> select();
+		$this->assign('cptrr' , $cptrr);
+
+		$jd = M('jrdanwei');
+		$jdr = $jd -> select();
+		$this->assign('jdr',$jdr);
+		$this->display();
+	}
     
     
     
     
     
     public function financedwreport(){
-    	//$dwname = cookie('dwname');
-    	$wherecp['producttype'] = array('eq',2);
+		//$dwname = cookie('dwname');
+		// var_dump($_POST['jgh']);
+		// var_dump($_POST['producttype']);
+		$wherecp['producttype'] = array('eq', $_POST['producttype']);
+		$wherecp['productdwname'] = array('eq' , $_POST['jgh']);
     	$cp = M('costproduct');
-    	$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+		$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+		// var_dump($cprr);
     	foreach($cprr as &$value){
     		$productid[] = $value['productid'];
     	}
@@ -323,7 +336,8 @@ class AdminController extends Controller {
     		}
     	}
     	$wherecoa['shenhe'] = '已调拨';
-    	$wherecoa['dateout'] = array('lt',$date);
+		$wherecoa['dateout'] = array('lt',$date);
+		$wherecoa['productid'] = array('in',$productid);
     	$coafirstrr = $coa -> where($wherecoa) -> field('applyjgh,inboundid,sum(sjapplyquantity) as sumsj') -> group('applyjgh,inboundid') -> select();
     	
     	foreach($coafirstrr as &$value){
@@ -495,7 +509,8 @@ class AdminController extends Controller {
     	}
       	
     	$wherecoa['shenhe'] = '已调拨';
-    	$wherecoa['dateout'] = array('elt',$dates);
+		$wherecoa['dateout'] = array('elt',$dates);
+		$wherecoa['productid'] = array('in',$productid);
     	$coaendrr = $coa -> where($wherecoa) -> field('applyjgh,inboundid,sum(sjapplyquantity) as sumsj') -> group('applyjgh,inboundid') -> select();
     	
     	foreach($coaendrr as &$value){
@@ -524,7 +539,8 @@ class AdminController extends Controller {
     	}
     	//调拨出库
     	$wherecoa['shenhe'] = '已调拨';
-    	$wherecoa['dateout'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		$wherecoa['dateout'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		$wherecoa['productid'] = array('in',$productid);
     	$coaoutrr = $coa -> where($wherecoa) -> field('applyjgh,inboundid,sum(sjapplyquantity) as sumsj') -> group('applyjgh,inboundid') -> select();
     	
     	foreach($coaoutrr as &$value){
@@ -553,8 +569,8 @@ class AdminController extends Controller {
     	}
     	//var_dump($coaendrr,$cirr);
     	
-    	$d = M('danwei');
-    	$drr = $d -> where($where) -> field('jgh,dwname,yjgh') -> order('yjgh asc') -> select();
+    	$d = M('jrdanwei');
+    	$drr = $d -> where($where) -> field('jgh,dwname,dwnameid') -> order('dwnameid asc') -> select();
     	//期初库存;
     	foreach($drr as &$value){
     		

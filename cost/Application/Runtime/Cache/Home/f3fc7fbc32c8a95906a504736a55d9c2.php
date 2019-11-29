@@ -211,8 +211,37 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+        <form action="<?php echo U('warehouseaddsuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 50%;">
+        	<div class="layui-card-header">
+        		<font size="4">仓库信息新增</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	  <th>仓库名称</th>
+         	 <td><input type="text" name="warehouse" lay-verify="required" required placeholder="请输入仓库名称" autocomplete="off" class="layui-input"> </td>
+         	 
+         	 
+         	 
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	 
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即添加</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
   </div>
   
 <!--底部-->

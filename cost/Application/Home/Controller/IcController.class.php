@@ -119,7 +119,7 @@ class IcController extends Controller {
 				if($value['disposeid'] == $val['disposeid']){
 					
 					//各种设备需要各种配置；
-					$value['dispose'] = '('.$val['cpu'] .'|'. $val['ram'] .'|'. $val['rom'].')';
+					$value['dispose'] = '('.$val['cpu'] . $val['ram'] . $val['rom'].')';
 					
 
 					break;
@@ -327,7 +327,9 @@ class IcController extends Controller {
 				}
  			}
 		}
-		// $data = $this->deviceapi($ieqr);
+
+
+		$data = $this->deviceapi($data);
 
 		
 		// $itm = M('ictablemat');
@@ -342,6 +344,31 @@ class IcController extends Controller {
 		$data = json_encode($data);
 		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
 		echo $json;
+	}
+	public function table_select(){
+		
+		$id = M('icdispose');
+		if(!$_GET['keyword']){
+			// $cpu['CPU'] = $_GET['keyword'];
+			$idr = $id -> where($cpu) -> select();
+		}else{
+			$cpu['CPU'] = $_GET['keyword'];
+			$idr = $id -> where($cpu) -> select();
+			
+		}
+		
+
+		$count = $id -> count();
+		$count = 1;
+		$json = json_encode($idr);
+
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$json.'}';
+
+		echo $json;
+	}
+
+	public function table_selects(){
+		var_dump($_POST);
 	}
 
 

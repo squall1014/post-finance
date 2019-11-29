@@ -211,12 +211,32 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
-  </div>
-  
-<!--底部-->
-  <div class="layui-footer">
+						<table class="layui-table" style="text-align: center; width: 100%;">
+					    <tr>
+								<td>单位名称</td>
+								<td>产品名称</td>
+								<td>产品单位</td>
+								<td>仓库名称</td>
+								<td>出库数量</td>
+								<td>出库日期</td>
+								<td>操作</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<td><?php echo ($vo["outdwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["unit"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><?php echo ($vo["outquantity"]); ?></td>
+								<td><?php echo ($vo["date"]); ?></td>
+								<td><a href="/cost/index.php/Home/Index/dwoutboundres/dwoutboundid/<?php echo ($vo["dwoutboundid"]); ?>">出库冲正申请</a></td>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+						</table>
+					<br />
+		    </form>
+</div>
+</body>
+</html>
+<!--  <div class="layui-footer">
     <!-- 底部固定区域 -->
     © 余杭区邮政存货管理系统
   </div>
@@ -256,4 +276,4 @@ layui.use('laydate', function(){
 });
 </script>-->
 </body>
-</html>
+</html>-->

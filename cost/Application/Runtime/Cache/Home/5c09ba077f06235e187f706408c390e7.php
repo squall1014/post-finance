@@ -211,8 +211,60 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+        <form action="<?php echo U('inbounds');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">产品入库新增</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	
+         	<tr>
+         	 <th>产品名称</th>
+         	 <td>
+         	 	<select name="productid" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<?php if(is_array($cprr)): $i = 0; $__LIST__ = $cprr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["productid"]); ?>"><?php echo ($vo["productname"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 <th>仓库名称</th>
+         	 <td>
+         	 	<select name="warehouseid" lay-verify="required" lay-search>
+         	 		<option value=""></option>
+         	 		<?php if(is_array($cwrr)): $i = 0; $__LIST__ = $cwrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["warehouseid"]); ?>"><?php echo ($vo["warehouse"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+         	 </td>
+         	 
+         	 <th>含税单价</th>
+         	 <td><input type="text" name="unitprice" required lay-verify="required" placeholder="请输入含税单价" autocomplete="off" class="layui-input"> </td>
+         	 <th>数量</th>
+         	 <td><input type="text" name="quantity" required lay-verify="" placeholder="请输入数量" autocomplete="off" class="layui-input"> </td>
+         	</tr>
+         	</tr>
+         	 <th>税率%</th>
+         	 <td><input type="text" name="vatprice" placeholder="%" autocomplete="off" class="layui-input"> </td>
+         	
+         	<th>税率补足%</th>
+         	 <td><input type="text" name="vatfill" placeholder="%" autocomplete="off" class="layui-input"> </td>
+         	<th>发票编号</th>
+         	 <td><input type="text" name="vat" placeholder="请输入发票编号" autocomplete="off" class="layui-input"> </td>
+         	<th>入库单号</th>
+         	 <td><input type="text" name="inboundnum" placeholder="请输入库单号" autocomplete="off" class="layui-input"> </td>
+         	
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
   </div>
   
 <!--底部-->

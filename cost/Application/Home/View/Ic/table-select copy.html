@@ -1,10 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>table下拉选择器</title>
-    <link rel="stylesheet" href="/cost/public/layuimini/lib/layui-v2.5.4/css/layui.css" media="all">
-    <link rel="stylesheet" href="/cost/public/layuimini/css/public.css" media="all">
+    <link rel="stylesheet" href="../lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
 </head>
 <body>
 <div class="layuimini-container">
@@ -55,8 +55,8 @@
     </div>
 </div>
 
-<script src="/cost/public/layuimini/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
-<script src="/cost/public/layuimini/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script src="../lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
     layui.use(['table', 'form', 'tableSelect'], function () {
         var $ = layui.jquery,
@@ -70,7 +70,7 @@
             checkedKey: 'id',
             searchPlaceholder: '自定义文字和name',
             table: {
-                url: '/cost/public/layuimini/api/tableSelect.json',
+                url: '../api/tableSelect.json',
                 cols: [[
                     { type: 'checkbox' },
                     { field: 'id', title: 'ID', width: 100 },
@@ -92,7 +92,7 @@
             elem: '#demo2',
             checkedKey: 'id',
             table: {
-                url: '/cost/public/layuimini/api/tableSelect.json',
+                url: '../api/tableSelect.json',
                 cols: [[
                     { type: 'radio' },
                     { field: 'id', title: 'ID' },

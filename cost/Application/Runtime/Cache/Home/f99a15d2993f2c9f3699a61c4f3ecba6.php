@@ -211,8 +211,48 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-    	&nbsp&nbsp&nbsp
-    	
+        <form action="<?php echo U('warehousemodifysuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
+        <div class="layui-card" style="width: 90%;">
+        	<div class="layui-card-header">
+        		<font size="4">仓库信息修改</font>
+        	</div>
+        <div class="layui-card-body">
+        <table class="layui-table" lay-size="">
+         	<input type="hidden" name="warehouseid" value="<?php echo ($data[0]['warehouseid']); ?>">
+         	<tr>
+         	  <th>仓库名称</th>
+         	 <td><input type="text" name="warehouse" value="<?php echo ($data[0]['warehouse']); ?>" lay-verify="required" required placeholder="请输入产品名称" autocomplete="off" class="layui-input"> </td>
+         	 
+         	 <th>仓库类型</th>
+         	 <td>
+         	 	<!--<select name="producttype" lay-verify="required">
+         	 		<option value="<?php echo ($cprr[0]['producttype']); ?>"><?php echo ($cprr[0]['producttypename']); ?></option>
+         	 		<?php if(is_array($cptrr)): $i = 0; $__LIST__ = $cptrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["producttypeid"]); ?>"><?php echo ($vo["producttype"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>-->
+         	 </td>
+         	 
+         	 <th>备注</th>
+         	 <td><input type="text" name="beizhu" value="<?php echo ($data[0]['beizhu']); ?>" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
+         	 <th>状态</th>
+         	 <td>
+         	 	<?php if($data[0]['stats'] == 0): ?><input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" checked="true">
+				    <?php else: ?>
+				    	<input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" ><?php endif; ?>
+         	 </td>
+         	</tr>
+         	
+         </table>
+         </div>	
+         
+         </div>
+         <br />
+         <div class="layui-form-item" style="margin-left:360px;">
+           <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+           </div>
+         </div>
+        </form>
   </div>
   
 <!--底部-->

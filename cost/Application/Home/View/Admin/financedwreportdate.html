@@ -15,11 +15,37 @@
 			</fieldset>
     	<form class="layui-form layui-form-pane" action="{:U('financedwreport')}" method="post">
     		
-    		<div class="layui-form-item" style="margin-left:50px;">
+			<div class="layui-form-item" style="margin-left:50px;">
 			    <div class="layui-inline">
 			      <label class="layui-form-label">日期选择</label>
 			      <div class="layui-input-block">
 			        <input type="text" name="date_date" id="test6" autocomplete="off" class="layui-input">
+			      </div>
+			    </div>
+			</div>
+			<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">产品类型</label>
+			      <div class="layui-input-block">
+			        <select name="producttype" lay-verify="" lay-search>
+						<option value="">请选择产品类型</option>
+						<volist name="cptrr" id="vo">
+							<option value="{$vo.producttypeid}">{$vo.producttype}</option>
+						</volist>
+					</select>
+			      </div>
+			    </div>
+			</div>
+			<div class="layui-form-item" style="margin-left:50px;">
+			    <div class="layui-inline">
+			      <label class="layui-form-label">产品单位</label>
+			      <div class="layui-input-block">
+			        <select name="jgh" lay-verify="" lay-search>
+						<option value="">请选择产品单位</option>
+						<volist name="jdr" id="vo">
+							<option value="{$vo.jgh}">{$vo.dwname}</option>
+						</volist>
+					</select>
 			      </div>
 			    </div>
     		</div>

@@ -82,6 +82,15 @@
           </dl>
         </li>
         <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">产品出库管理新版</a><else /></if>
+          <dl class="layui-nav-child">
+          	
+            <dd><a href="__URL__/dwoutbound_up">单位产品出库</a></dd>
+            <dd><a href="__URL__/dwoutboundmodify_up">产品出库数量编辑</a></dd>
+            <!-- <dd><a href="__URL__/applyproductsearch">产品请领查询</a></dd> -->
+          </dl>
+        </li>
+        <li class="layui-nav-item">
           <if condition="$user.qx eq 5"><a class="" href="javascript:;">产品调拨管理</a><else /></if>
           <dl class="layui-nav-child">
             <dd><a href="__URL__/dwoutallot">单位产品调拨出库</a></dd>

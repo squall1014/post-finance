@@ -997,7 +997,7 @@ class IndexController extends Controller {
 		// var_dump($data);
 		$this->assign('data',$data);
 
-		$this->assign('cwrr',$cwrr);
+		$this->assign('cwrr',$cwrr);
 		$this->display();
 	}
 	public function applyproduct_ups(){
@@ -1325,7 +1325,7 @@ class IndexController extends Controller {
     	$where['applyquantity'] = array('gt',0);
     	
     	$ca = M('costapply');
-		$data = $ca -> where($where) -> select();
+		$data = $ca -> where($where) -> limit($first,$limit) -> select();
 		
 		$pwid = $ca -> where($where) -> field('pwid') -> distinct('pwid') -> select();
 		// $pwids = array();
@@ -1819,7 +1819,228 @@ class IndexController extends Controller {
     	}else{
     		$this->error('发票补足失败,请检查数据');
     	}
-    }
+	}
+	
+
+
+
+	public function dwoutbound_up(){
+		$cw = M('costwarehouse');
+		$cwrr = $cw -> select();
+		
+		$wherecp['producttype'] = array('eq',2);
+    	$cp = M('costproduct');
+    	$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+    	foreach($cprr as &$value){
+    		$productid[] = $value['productid'];
+    	}
+    	$dwname = cookie('dwname');
+    	$whereco['applyjgh'] = $dwname['jgh'];
+		$whereco['productid'] = array('in',$productid);
+    	$whereco['kcapplyquantity'] = array('gt',0);
+		$whereco['shenhe'] = '出库中';
+		
+		$co = M('costoutbound');
+
+		$data = $co -> field('productid , warehouseid') -> group('productid , warehouseid') -> order('warehouseid asc') -> where($whereco) -> select();
+		
+		// $ci = M('costinbound');
+		//判断是否入库;
+    	// $where['sjquantity'] = array('gt',0);
+    	// $where['kcquantity'] = array('gt',0);
+    	// // //是否需要增加未审核;
+    	// $data = $ci -> field('productid,warehouseid') -> group('productid,warehouseid') -> order('warehouseid asc') -> where($where) -> select();
+    	$data = $this -> costinfos($data);
+		// var_dump($data);
+		$this->assign('data',$data);
+
+		$this->assign('cwrr',$cwrr);
+		$this->display();
+	}
+	public function dwoutbound_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+		
+    	$wh = $_GET['warehouseid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$whereco['warehouseid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$whereco['date'] = $date;
+    	}
+		$wherecp['producttype'] = array('eq',2);
+    	$cp = M('costproduct');
+    	$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+    	foreach($cprr as &$value){
+    		$productid[] = $value['productid'];
+    	}
+		$dwname = cookie('dwname');
+    	$whereco['applyjgh'] = $dwname['jgh'];
+		$whereco['productid'] = array('in',$productid);
+    	$whereco['kcapplyquantity'] = array('gt',0);
+		$whereco['shenhe'] = '出库中';
+		
+		$co = M('costoutbound');
+
+		$data = $co -> where($whereco) -> limit($first,$limit) -> select();
+		$data = $this -> costinfos($data);
+		// var_dump($data);
+		
+		$data = json_encode($data);
+		$count = $co -> where($whereco) -> count();
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+	public function dwoutboundsuc_up(){
+		$dwname = cookie('dwname');
+		$outboundid = $_POST['outboundid'];
+		$kcapplyquantity = $_POST['kcapplyquantity'];
+		$ck = $_POST['ck'];
+		$co = M('costoutbound');
+		$whereco['outboundid'] = $outboundid;
+		$save['kcapplyquantity'] = $kcapplyquantity - $ck;
+
+		$cor = $co -> where($whereco) -> save($save);
+
+		$wherecdo['outboundid'] = $outboundid;
+		$wherecdo['inboundid'] = $_POST['inboundid'];
+		$wherecdo['productid'] = $_POST['productid'];
+		$wherecdo['warehouseid'] = $_POST['warehouseid'];
+		$wherecdo['pwid'] = $_POST['pwid'];
+		$wherecdo['outjgh'] = $dwname['jgh'];
+		$wherecdo['outquantity'] = $ck;
+		$wherecdo['shenhe'] = '出库中';
+		$wherecdo['date'] = date('Y-m-d');
+		// var_dump($wherecdo);
+		$cdo = M('costdwoutbound');
+
+		$cdor = $cdo -> add($wherecdo);
+
+		if($cdor > 0){
+			echo "出库成功，请继续";
+		}else{
+			echo "出库失败，请检查数据";
+		}
+	}
+
+
+
+
+
+	public function dwoutboundmodify_up(){
+		$cw = M('costwarehouse');
+		$cwrr = $cw -> select();
+		
+    	$dwname = cookie('dwname');
+    	$wherecdo['outjgh'] = $dwname['jgh'];
+    	$wherecdo['outquantity'] = array('gt',0);
+		$wherecdo['shenhe'] = '出库中';
+		
+		$cdo = M('costdwoutbound');
+		
+		$data = $cdo -> field('productid , warehouseid') -> group('productid , warehouseid') -> order('warehouseid asc') -> where($wherecdo) -> select();
+		
+		$data = $this -> costinfos($data);
+
+		$this->assign('data',$data);
+
+		$this->assign('cwrr',$cwrr);
+		$this->display();
+	}
+	public function dwoutboundmodify_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$wherecdo['productid'] = array('in' , $cpr);
+			
+		}
+		
+    	$wh = $_GET['warehouseid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$wherecdo['warehouseid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$wherecdo['date'] = $date;
+    	}
+		// $wherecp['producttype'] = array('eq',2);
+    	// $cp = M('costproduct');
+    	// $cprr = $cp -> field('productid') -> where($wherecp) -> select();
+    	// foreach($cprr as &$value){
+    	// 	$productid[] = $value['productid'];
+    	// }
+		$dwname = cookie('dwname');
+    	$wherecdo['outjgh'] = $dwname['jgh'];
+		// $whereco['productid'] = array('in',$productid);
+    	$wherecdo['outquantity'] = array('gt',0);
+		$wherecdo['shenhe'] = '出库中';
+		
+		$cdo = M('costdwoutbound');
+
+		$data = $cdo -> where($wherecdo) -> limit($first,$limit) -> select();
+		$data = $this -> costinfos($data);
+		// var_dump($data);
+		
+		$data = json_encode($data);
+		$count = $cdo -> where($wherecdo) -> count();
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+	public function dwoutboundmodifysuc_up(){
+		// var_dump($_POST);
+		$dwoutboundid['dwoutboundid'] = $_POST['dwoutboundid'];
+		$cdo = M('costdwoutbound');
+		$wherecdo['shenhe'] = '未出库';
+		$cdor = $cdo -> where($dwoutboundid) -> save($wherecdo);
+
+		$outquantity = $_POST['outquantity'];
+		$co = M('costoutbound');
+		$outboundid['outboundid'] = $_POST['outboundid'];
+		$cor = $co -> where($outboundid) -> setInc('kcapplyquantity' , $outquantity);
+	}
+
+
     public function dwoutbound(){
     	$wherecp['producttype'] = array('eq',2);
     	$cp = M('costproduct');

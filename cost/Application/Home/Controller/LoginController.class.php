@@ -24,7 +24,7 @@ class LoginController extends Controller {
     	$i=$m->where($where)->count();
     	$mrr=$m->where($where)->find();
         if($i>0){
-        	$drr = M('danwei') -> select();
+        	$drr = M('jrdanwei') -> select();
         	foreach($drr as &$value){
         		if($mrr['jgh'] == $value['jgh']){
         			$mrr['user'] = $value['dwname'];
