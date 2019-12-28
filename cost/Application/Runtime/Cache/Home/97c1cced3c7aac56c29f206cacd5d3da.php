@@ -113,7 +113,9 @@
         <li class="layui-nav-item">
           <?php if($user["jrywbqx"] == 0 and $user["qx"] == 5): ?><a class="" href="javascript:;">0库存产品申请</a><?php else: endif; ?>
           <dl class="layui-nav-child">
-            <dd><a href="/cost/index.php/Home/Index/applyproductzero">0库存产品申请</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductzero/productdwname/28">0库存金融部产品申请</a></dd>
+            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductzero/productdwname/58">0库存市场部产品申请</a></dd> -->
+
             <dd><a href="/cost/index.php/Home/Index/applyproductzeromodify">0库存产品修改</a></dd>
           </dl>
         </li>
@@ -124,6 +126,14 @@
             <dd><a href="/cost/index.php/Home/Index/pointcardedit">积分卡管理</a></dd>
             <dd><a href="/cost/index.php/Home/Index/pointcardout">积分卡兑换</a></dd>
             <dd><a href="/cost/index.php/Home/Index/pointcardloss">积分卡挂失</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">本部门设备管理</a><?php else: endif; ?>
+          <dl class="layui-nav-child">
+            <dd><a href="/cost/index.php/Home/Index/equipmentup">设备维护更新申请</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/equipmentmodify">设备维护更新编辑</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/equipmentsearch">设备维护更新查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -159,6 +169,7 @@
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/outbounddwname_up">产品直接出库</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -482,8 +493,9 @@
 			,title: '请输入数量'
 	        // ,value: data.sumkcquantity
 	      }, function(value, index){
-			  if(value > data.sumkcquantity){
+			  if(parseInt(value) > parseInt(data.sumkcquantity)){
 				  alert("请领数量不能大于库存数量")
+				  
 			  }else{
 				$.ajax({
 					type:"post",

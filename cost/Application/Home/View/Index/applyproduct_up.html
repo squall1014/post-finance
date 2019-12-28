@@ -286,8 +286,9 @@
 			,title: '请输入数量'
 	        // ,value: data.sumkcquantity
 	      }, function(value, index){
-			  if(value > data.sumkcquantity){
+			  if(parseInt(value) > parseInt(data.sumkcquantity)){
 				  alert("请领数量不能大于库存数量")
+				  
 			  }else{
 				$.ajax({
 					type:"post",

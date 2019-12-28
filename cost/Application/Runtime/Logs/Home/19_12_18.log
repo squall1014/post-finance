@@ -1,0 +1,1681 @@
+[ 2019-12-18T22:46:54+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000750s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0025s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0034s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0019s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0068s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0027s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `hr_jrdanwei` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `hr_jrdanwei`  [ RunTime:0.0018s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000749s ]
+
+[ 2019-12-18T23:05:40+08:00 ] ::1 /cost/index.php/Home/Index/equipmentup
+ERR: syntax error, unexpected '");?>'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+
+[ 2019-12-18T23:06:01+08:00 ] ::1 /cost/index.php/Home/Index/equipmentup
+ERR: syntax error, unexpected '");?>'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+
+[ 2019-12-18T23:07:29+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000631s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid desc  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000370s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000545s ]
+
+[ 2019-12-18T23:08:08+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000645s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000381s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000595s ]
+
+[ 2019-12-18T23:08:19+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000640s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000297s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000457s ]
+
+[ 2019-12-18T23:08:51+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000357s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000518s ]
+
+[ 2019-12-18T23:09:39+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000607s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000377s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000537s ]
+
+[ 2019-12-18T23:09:53+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000513s ]
+
+[ 2019-12-18T23:09:57+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000518s ]
+
+[ 2019-12-18T23:10:09+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000350s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000500s ]
+
+[ 2019-12-18T23:10:12+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000772s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000402s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000559s ]
+
+[ 2019-12-18T23:11:25+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000743s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000433s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000601s ]
+
+[ 2019-12-18T23:11:34+08:00 ] ::1 /cost/index.php/Home/Index/applyproducts_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000875s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0013s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20' at line 1
+ [ SQL语句 ] : SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 AND `productid` IN () GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20' at line 1
+ [ SQL语句 ] : SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 AND `productid` IN () GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20  
+
+[ 2019-12-18T23:11:41+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000835s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2019-12-18T23:11:44+08:00 ] ::1 /cost/index.php/Home/Index/applyproducts_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000815s ]
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0015s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20' at line 1
+ [ SQL语句 ] : SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 AND `productid` IN () GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20' at line 1
+ [ SQL语句 ] : SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 AND `productid` IN () GROUP BY productid,warehouseid,pwid ORDER BY warehouseid asc LIMIT 0,20  
+
+[ 2019-12-18T23:11:50+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000860s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000602s ]
+
+[ 2019-12-18T23:12:00+08:00 ] ::1 /cost/index.php/Home/Index/applyproduct_ups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1008 行.
+NOTIC: [8] Undefined index: warehouseid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1023 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 1024 行.
+SQL: SHOW COLUMNS FROM `hr_costinbound` [ RunTime:0.0013s ]
+SQL: SELECT `productid`,`warehouseid`,`pwid`,sum(kcquantity) as sumkcquantity FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 GROUP BY productid,pwid,warehouseid ORDER BY warehouseid asc LIMIT 0,20   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_costapply` [ RunTime:0.0012s ]
+SQL: SELECT `pwid`,sum(applyquantity) as sumapplyquantity FROM `hr_costapply` WHERE `shenhe` IN ('未审核','审核同意') GROUP BY pwid  [ RunTime:0.0053s ]
+SQL: SHOW COLUMNS FROM `hr_costproduct` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costproduct`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `hr_costwarehouse` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `hr_costwarehouse`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_costproducttype` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_costproducttype`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_jrdanwei` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrdanwei`  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_costinbound` WHERE `sjquantity` > 0 AND `kcquantity` > 0 LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000381s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000538s ]
+
+[ 2019-12-18T23:12:08+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000702s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000597s ]
+
+[ 2019-12-18T23:23:04+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000621s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000356s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000511s ]
+
+[ 2019-12-18T23:25:25+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3425 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000527s ]
+
+[ 2019-12-18T23:25:32+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&warehouseid=1&product=&date=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000818s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3425 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000390s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000541s ]
+
+[ 2019-12-18T23:36:55+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000886s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3436 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000569s ]
+
+[ 2019-12-18T23:36:58+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=1&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000367s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000519s ]
+
+[ 2019-12-18T23:37:33+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000658s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3436 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0019s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000372s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000536s ]
+
+[ 2019-12-18T23:37:38+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=2&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000750s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000360s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000513s ]
+
+[ 2019-12-18T23:38:30+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000633s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3436 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000353s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000503s ]
+
+[ 2019-12-18T23:38:32+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=1&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `equipmentid` = 1 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000413s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2019-12-18T23:38:50+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001014s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3436 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000370s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2019-12-18T23:38:54+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=2&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000788s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `equipmentid` = 2 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000358s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000518s ]
+
+[ 2019-12-18T23:38:57+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=3&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `equipmentid` = 3 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000395s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000548s ]
+
+[ 2019-12-18T23:39:01+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=6&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+NOTIC: [8] Undefined index: product /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `equipmentid` = 6 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000429s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2019-12-18T23:43:31+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=1&device_class=&device_subid=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000469s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000907s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3437 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `equipmentid` = 1 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3460 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000511s ]
+
+[ 2019-12-18T23:46:29+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3443 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000535s ]
+
+[ 2019-12-18T23:47:31+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000587s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3443 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000407s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2019-12-18T23:50:11+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000575s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3443 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000534s ]
+
+[ 2019-12-18T23:50:17+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E5%AE%9E&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000807s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%实%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000429s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000597s ]
+
+[ 2019-12-18T23:50:17+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E5%AE%9E&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000708s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%实%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000520s ]
+
+[ 2019-12-18T23:50:20+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000597s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000392s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000541s ]
+
+[ 2019-12-18T23:50:24+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E6%9C%88&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000722s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%月%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:28+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=xx&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000613s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%xx%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:29+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=xx&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000746s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0015s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%xx%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:29+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=xx&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000749s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0016s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%xx%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:34+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=XX&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000771s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%XX%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:35+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=XX&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000465s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000945s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%XX%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:35+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=XX&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%XX%'  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: idcrr /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3432 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+NOTIC: [2] implode(): Invalid arguments passed /Library/WebServer/Documents/cost/ThinkPHP/Library/Think/Db/Driver.class.php 第 578 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN () 
+
+[ 2019-12-18T23:50:40+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E5%AE%9E&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%实%'  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000526s ]
+
+[ 2019-12-18T23:50:57+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E7%BB%88&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000718s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%终%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000382s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000533s ]
+
+[ 2019-12-18T23:50:58+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E7%BB%88&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%终%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0014s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000360s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000523s ]
+
+[ 2019-12-18T23:50:58+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E7%BB%88&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000805s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%终%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000356s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000513s ]
+
+[ 2019-12-18T23:50:58+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E7%BB%88&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%终%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000490s ]
+
+[ 2019-12-18T23:50:58+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E7%BB%88&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%终%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('1')  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('1') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000332s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000486s ]
+
+[ 2019-12-18T23:52:26+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000625s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3443 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000405s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000559s ]
+
+[ 2019-12-18T23:53:01+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3421 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3443 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000351s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000509s ]
+
+[ 2019-12-18T23:53:10+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E6%89%93%E5%8D%B0%E6%9C%BA&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%打印机%'  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('2')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('2') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000521s ]
+
+[ 2019-12-18T23:53:15+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=2&device_class=%E6%89%93%E5%8D%B0%E6%9C%BA&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000355s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000751s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0015s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%打印机%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('2')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('2') AND `equipmentid` = 2 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2019-12-18T23:53:27+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=1&device_class=%E6%89%93%E5%8D%B0%E6%9C%BA&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000859s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%打印机%'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('2')  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3444 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('2') AND `equipmentid` = 1 AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3467 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000386s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000543s ]
+
+[ 2019-12-18T23:55:32+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3423 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3445 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3446 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3469 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000369s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000530s ]
+
+[ 2019-12-18T23:55:39+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20&equipmentid=&device_class=%E9%92%88%E5%BC%8F&device_sub=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001024s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT `device_classid` FROM `hr_icdevice_class` WHERE `device_class` LIKE '%针式%'  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT `device_subid` FROM `hr_icdevice_sub` WHERE `device_classid` IN ('2')  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3446 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `device_subid` IN ('2') AND `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3469 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000383s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000547s ]
+
+[ 2019-12-18T23:55:54+08:00 ] ::1 /cost/index.php/Home/Index/equipmentups.html?page=1&limit=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+NOTIC: [8] Undefined index: device_class /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3423 行.
+NOTIC: [8] Undefined index: equipmentid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3445 行.
+NOTIC: [8] Undefined index: date /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3446 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001516' AND `stats` = 0 ORDER BY equipmentid asc LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `hr_icequipment`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3363 行.
+NOTIC: [8] Undefined variable: equipment /Library/WebServer/Documents/cost/Application/Home/Controller/IndexController.class.php 第 3469 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000417s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+

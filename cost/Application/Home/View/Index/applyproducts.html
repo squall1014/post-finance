@@ -37,6 +37,7 @@
 								<input type="hidden" name="warehouseid[]" value="{$vo.warehouseid}">
 								<input type="hidden" name="productjgh[]" value="{$vo.productjgh}">
 								<input type="hidden" name="sumkcquantity[]" id="b{$vo.pwid}" value="{$vo.sumkcquantity}">
+								<input type="hidden" name="status[]" value="1" id="e{$vo.pwid}">
 								<!--<td><input type="checkbox" name="id[]" value="{$vo.pianquname}" lay-skin="primary"></td>-->
 								<td>{$vo.productdwname}</td>
 								<td>{$vo.productname}</td>
@@ -56,11 +57,13 @@
       	var apply = parseInt(document.getElementById("a{$vo.pwid}").value);
       	
       	var sum = parseInt(document.getElementById("b{$vo.pwid}").value);
-      	
+      	// document.getElementById("e{$vo.pwid}").value = 1;
       	if(apply <= sum){
       		document.getElementById("d{$vo.pwid}").value = '通过';
+			  document.getElementById("e{$vo.pwid}").value = 0;
       	}else{
       		document.getElementById("d{$vo.pwid}").value = '超过总量';
+			
       		document.getElementById("a{$vo.pwid}").value = 0;
       	}
         //document.formibs.action = {:U('inboundshs')};

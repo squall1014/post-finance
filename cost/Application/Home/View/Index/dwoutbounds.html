@@ -28,6 +28,7 @@
 								<input type="hidden" name="productid[]" value="{$vo.productid}">
 								<input type="hidden" name="warehouseid[]" value="{$vo.warehouseid}">
 								<input type="hidden" name="kcapplyquantity[]" id="f{$vo.kcapplyquantity}" value="{$vo.kcapplyquantity}">
+								<input type="hidden" name="status[]" id="g{$vo.outboundid}">
 								<td><input type="checkbox" name="outboundid[]" id="b{$vo.outboundid}" value="{$vo.outboundid}" lay-skin="primary"></td>
 								<td>{$vo.applydwname}</td>
 								<td>{$vo.productname}</td>
@@ -49,6 +50,7 @@
 				if(document.getElementById("b{$voi.outboundid}").checked){
 					
 					document.getElementById("c{$voi.outboundid}").removeAttribute("readonly");
+					document.getElementById("g{$voi.outboundid}").value = 1;
 				}else{
 					document.getElementById("c{$voi.outboundid}").readOnly = 'true';
 				}
@@ -61,7 +63,7 @@
       			var kcapplyquantity = parseInt(document.getElementById("f{$voi.kcapplyquantity}").value);
       			if(outapplyquantity <= kcapplyquantity){
       				document.getElementById("d{$voi.outboundid}").value = '通过';
-      				
+      				document.getElementById("g{$voi.outboundid}").value = 0;
       			}else{
       				//alert(outapplyquantity);
       				//alert(kcapplyquantity);

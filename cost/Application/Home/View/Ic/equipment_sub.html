@@ -52,7 +52,7 @@
         </fieldset>
 
         <div class="layui-btn-group">
-            <button class="layui-btn data-add-btn">添加</button>
+            <button class="layui-btn data-add-btn" lay-event="device_add">添加</button>
             <button class="layui-btn layui-btn-danger data-delete-btn">删除</button>
         </div>
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
@@ -87,7 +87,8 @@
                 {field: 'device_sub', width: 200, title: '型号', sort: true},
                 {field: 'supplier', width: 200, title: '品牌', sort: true},
                 {field: 'maintenance', width: 200, title: '维保公司', sort: true},
-                {field: 'mianphone', width: 200, title: '维保电话', sort: true},
+                {field: 'mainman', width: 200, title: '维保联系人   ', sort: true},
+                {field: 'mainphone', width: 200, title: '维保电话', sort: true},
                 {field: 'purcha', width: 200, title: '采购', sort: true},
                 
             ]],
@@ -118,7 +119,15 @@
 
         // 监听添加操作
         $(".data-add-btn").on("click", function () {
-            layer.msg('添加数据');
+            
+            layer.open({
+            type: 2,
+            title: '设备添加',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['800px', '90%'],
+            content: 'http://10.138.34.188/device/addEquipmentSub2?jgh=' + {$jgh} + '&equipmentid=' + {$equipmentid}
+            });
         });
 
         // 监听删除操作

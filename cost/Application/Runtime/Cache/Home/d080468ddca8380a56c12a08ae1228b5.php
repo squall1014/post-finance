@@ -113,7 +113,9 @@
         <li class="layui-nav-item">
           <?php if($user["jrywbqx"] == 0 and $user["qx"] == 5): ?><a class="" href="javascript:;">0库存产品申请</a><?php else: endif; ?>
           <dl class="layui-nav-child">
-            <dd><a href="/cost/index.php/Home/Index/applyproductzero">0库存产品申请</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductzero/productdwname/28">0库存金融部产品申请</a></dd>
+            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductzero/productdwname/58">0库存市场部产品申请</a></dd> -->
+
             <dd><a href="/cost/index.php/Home/Index/applyproductzeromodify">0库存产品修改</a></dd>
           </dl>
         </li>
@@ -124,6 +126,14 @@
             <dd><a href="/cost/index.php/Home/Index/pointcardedit">积分卡管理</a></dd>
             <dd><a href="/cost/index.php/Home/Index/pointcardout">积分卡兑换</a></dd>
             <dd><a href="/cost/index.php/Home/Index/pointcardloss">积分卡挂失</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">本部门设备管理</a><?php else: endif; ?>
+          <dl class="layui-nav-child">
+            <dd><a href="/cost/index.php/Home/Index/equipmentup">设备维护更新申请</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/equipmentmodify">设备维护更新编辑</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/equipmentsearch">设备维护更新查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -159,6 +169,7 @@
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/outbounddwname_up">产品直接出库</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -211,50 +222,44 @@
     <h1><div style="padding: 15px;">余杭区邮政存货管理系统</div></h1>
     
     <br />
-        <form action="<?php echo U('warehousemodifysuc');?>" enctype="multipart/form-data" method="post" class="layui-form" >
-        <div class="layui-card" style="width: 90%;">
-        	<div class="layui-card-header">
-        		<font size="4">仓库信息修改</font>
-        	</div>
-        <div class="layui-card-body">
-        <table class="layui-table" lay-size="">
-         	<input type="hidden" name="warehouseid" value="<?php echo ($data[0]['warehouseid']); ?>">
-         	<tr>
-         	  <th>仓库名称</th>
-         	 <td><input type="text" name="warehouse" value="<?php echo ($data[0]['warehouse']); ?>" lay-verify="required" required placeholder="请输入产品名称" autocomplete="off" class="layui-input"> </td>
-         	 
-         	 <th>仓库类型</th>
-         	 <td>
-         	 	<!--<select name="producttype" lay-verify="required">
-         	 		<option value="<?php echo ($cprr[0]['producttype']); ?>"><?php echo ($cprr[0]['producttypename']); ?></option>
-         	 		<?php if(is_array($cptrr)): $i = 0; $__LIST__ = $cptrr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["producttypeid"]); ?>"><?php echo ($vo["producttype"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>-->
-         	 </td>
-         	 
-         	 <th>备注</th>
-         	 <td><input type="text" name="beizhu" value="<?php echo ($data[0]['beizhu']); ?>" placeholder="可选填" autocomplete="off" class="layui-input"> </td>
-         	 <th>状态</th>
-         	 <td>
-         	 	<?php if($data[0]['stats'] == 0): ?><input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" checked="true">
-				    <?php else: ?>
-				    	<input type="checkbox" name="stats" lay-skin="switch" lay-text="启用|禁用" ><?php endif; ?>
-         	 </td>
-         	</tr>
-         	
-         </table>
-         </div>	
-         
-         </div>
-         <br />
-         <div class="layui-form-item" style="margin-left:360px;">
-           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-           </div>
-         </div>
-        </form>
-  </div>
-  
+    				<form class="layui-form" action="<?php echo U('applyproductshs');?>" method="post"  style="width: 90%;">
+    					<button class="layui-btn" lay-submit="" lay-filter="demo1">批量审批</button>
+    				</form>
+						<table class="layui-table" style="text-align: center; width: 80%;">
+					    <tr>
+								<td>申请部门</td>
+								<td>申请产品</td>
+								<td>产品仓库</td>
+								<td>申请数量</td>
+								<td>申请部门实际库存</td>
+								<td>申请日期</td>
+								<td>操作</td>
+							</tr>
+							<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+								<form action="<?php echo U('applyproductshsuc');?>" class="layui-form" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="applyid" value="<?php echo ($vo["applyid"]); ?>" />
+								<input type="hidden" name="remark" id="remark">
+								<!--<td><input type="checkbox" name="id[]" value="<?php echo ($vo["pianquname"]); ?>" lay-skin="primary"></td>-->
+								<td><?php echo ($vo["applydwname"]); ?></td>
+								<td><?php echo ($vo["productname"]); ?></td>
+								<td><?php echo ($vo["warehouse"]); ?></td>
+								<td><input type="text" name="applyquantity" value="<?php echo ($vo["applyquantity"]); ?>" class="layui-input"></td>
+								<td><?php echo ($vo["sumkcapplyquantity"]); ?></td>
+								<td><?php echo ($vo["date"]); ?></td>
+								<td><input type="submit" name="shenhe" value="审核通过" class="layui-btn"><input type="submit" name="shenhe" value="作废" onclick="a<?php echo ($vo["applyid"]); ?>()" class="layui-btn layui-btn-danger"></td>
+								<script type="text/javascript">
+							      function a<?php echo ($vo["applyid"]); ?>(){
+							      	var remark = prompt("作废申请单的原因是","");
+							      	//var password = prompt('请输入密码',"");
+							      	document.getElementById('remark').value = remark;
+							      	
+							      }
+							</script>
+								</form>
+							</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+					  </table>
+  	</div>
+
 <!--底部-->
   <div class="layui-footer">
     <!-- 底部固定区域 -->

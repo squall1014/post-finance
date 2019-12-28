@@ -157,6 +157,7 @@
                     var tablemat = JSON.parse(tablemat_classids)
                     tablemat_classid = tablemat['tablemat_classid']
                     tablemat_url = tablemat['tablemat_url']
+                    tablemats = tablemat
                     
                 }
             })
@@ -164,21 +165,8 @@
             // parent.document.getElementById("layuiminiHomeTabIframe").innerHTML = '<iframe width="100%" height="100%" frameborder="0"  src="table"></iframe>'
             if(tablemat_classid > "0"){
                 parent.location.href = tablemat_url + "?jgh=" + data.dwnames + "&equipmentid=" + eve + "&tablemat_classid=" + tablemat_classid
-            }else if(tablemat_classid === "0"){
-                layer.prompt({
-                    formType: 2
-                    ,title: '修改 ID 为 ['+ data.id +'] 的用户签名'
-                    ,value: data.sign
-                }, function(value, index){
-                    layer.close(index);
-                    
-                    //这里一般是发送修改的Ajax请求
-                    
-                    //同步更新表格和缓存对应的值
-                    obj.update({
-                    sign: value
-                    });
-                });
+            }else{
+                parent.location.href = "equipment_other?jgh=" + data.dwnames + "&equipmentid=" + eve
             }
             
             

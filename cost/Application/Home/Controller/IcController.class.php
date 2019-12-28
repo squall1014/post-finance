@@ -38,6 +38,10 @@ class IcController extends Controller {
 
 		$itm = M('ictablemat_class');
 		$itmr = $itm -> where($data) -> find();
+		//如果是返回的值是null，传递到前端会出错；
+		if($itmr == null){
+			$itmr = 1;
+		}
 		$itmr = json_encode($itmr);
 		echo $itmr;
 	}
@@ -119,8 +123,10 @@ class IcController extends Controller {
 				if($value['disposeid'] == $val['disposeid']){
 					
 					//各种设备需要各种配置；
-					$value['dispose'] = '('.$val['cpu'] . $val['ram'] . $val['rom'].')';
-					
+					$value['dispose'] = '('.$val['dispose_one'] . $val['dispose_two'] . $val['dispose_three'].')';
+					$value['dispose_one'] = $val['dispose_one'];
+					$value['dispose_two'] = $val['dispose_two'];
+					$value['dispose_three'] = $val['dispose_three'];
 
 					break;
 				}
@@ -133,7 +139,7 @@ class IcController extends Controller {
 			foreach($idcr as &$val){
 
 				if($value['device_classid'] == $val['device_classid']){
-
+					$value['device_class'] = $val['device_class'];
 					$value['supplierid'] = $val['supplier'];
 					$value['maintenanceid'] = $val['maintenance'];
 
@@ -179,7 +185,7 @@ class IcController extends Controller {
 
 					$value['maintenance'] = $val['maintenance'];
 					$value['mainphone'] = $val['mainphone'];
-					$value['mainman'] = $val['mianman'];
+					$value['mainman'] = $val['mainman'];
 				break;
 				}
 			}
@@ -211,7 +217,7 @@ class IcController extends Controller {
 
 				if($value['dwnames'] == $val['jgh']){
 					
-					$value[$val['equipmentid']] = $val['device_sub'] . $val['dispose']. '|' . $value[$val['equipmentid']];
+					$value[$val['equipmentid']] = $val['device_sub'] . $val['dispose'] . $value[$val['equipmentid']];
 					// $whereieq['equipmentid'] = $val['equipmentid'];
 					// $ieqr = $ieq -> where($whereieq) -> select();
 
@@ -228,7 +234,11 @@ class IcController extends Controller {
 	}
 	public function equipment_sub(){
 		$equipment['jgh'] = $_GET['jgh'];
+		$jgh = $_GET['jgh'];
+		$this->assign('jgh' , $jgh);
 		$equipment['equipmentid'] = $_GET['equipmentid'];
+		$equipmentid = $_GET['equipmentid'];
+		$this->assign('equipmentid' , $equipmentid);
 		$equipment['stats'] = 0;
 		$where['tablemat_classid'] = $_GET['tablemat_classid'];
 		// $where['stats'] = 0;
@@ -281,7 +291,8 @@ class IcController extends Controller {
 					$value['device'] = $val['device'];
 					$value['supplier'] = $val['supplier'];
 					$value['maintenance'] = $val['maintenance'];
-					$value['mainphone'] = $val['mianphone'];
+					$value['mainman'] = $val['mainman'];
+					$value['mainphone'] = $val['mainphone'];
 					$value['purcha'] = $val['purcha'];
 					
 				break;
@@ -343,6 +354,44 @@ class IcController extends Controller {
 		$count = $ieq -> where($equipment) -> count();
 		$data = json_encode($data);
 		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+	public function equipment_other(){
+		$equipment['jgh'] = $_GET['jgh'];
+		$equipment['equipmentid'] = $_GET['equipmentid'];
+		$equipment['stats'] = 0;
+		$where['tablemat_classid'] = $_GET['tablemat_classid'];
+		$where['stats'] = 0;
+		$tablemat_classid = $_GET['tablemat_classid'];
+		// cookie('tablemat_classid' , $tablemat_classid);
+		cookie('equipment' , $equipment);
+		$this->display();
+	}
+	public function equipment_others(){
+		$equipment = cookie('equipment');
+		// var_dump($equipment);
+		// $where['tablemat_classid'] = cookie('tablemat_classid');
+		$where['stats'] = 0;
+		$ieq = M('icequipment_sub');
+		$ieqr = $ieq -> where($equipment) -> select();
+
+		foreach($ieqr as &$value){
+			$device_subid[] = $value['device_subid'];
+		}
+
+		$where['device_subid'] = array('in' , $device_subid);
+		$where['stats'] = 0;
+		// var_dump($where);
+		$ids = M('icdevice_sub');
+		$idsr = $ids -> where($where) -> select();
+
+		$data = $this->deviceapi($ieqr);
+		$idsr = $this->deviceapi($idsr);
+
+		// var_dump($ieqr);
+		$count = $ieq -> where($equipment) -> count();
+		$idsr = json_encode($idsr);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$idsr.'}';
 		echo $json;
 	}
 	public function table_select(){

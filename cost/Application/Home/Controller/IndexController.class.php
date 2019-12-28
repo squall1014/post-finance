@@ -79,7 +79,7 @@ class IndexController extends Controller {
     		}
     	}
     	
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> select();
     	foreach($data as &$value){
     		foreach($drr as &$valued){
@@ -183,7 +183,7 @@ class IndexController extends Controller {
     			}
     		}
     	}
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> select();
     	foreach($data as &$value){
     		foreach($drr as &$valued){
@@ -193,7 +193,19 @@ class IndexController extends Controller {
     				continue;
     			}
     		}
-    	}
+		}
+		foreach($data as &$value){
+
+			foreach($drr as &$valued){
+
+				if($value['applyjgh'] == $valued['jgh']){
+					$value['applydwname'] = $valued['dwname'];
+					$value['applydwnames'] = $valued['dwnames'];
+					continue;
+				}
+				
+			}
+		}
     	return $data;
     }
     public function jrywbqxsuc(){
@@ -856,7 +868,7 @@ class IndexController extends Controller {
     	
     	$stats['stats'] = 0;
     	$stats['producttype'] =2;
-    	$stats['productdwname'] = 28;
+    	$stats['productdwname'] = $_GET['productdwname'];
     	
     	$dwname = cookie('dwname');
     	$where['zeroid'] = $czrr['zeroid'];
@@ -872,9 +884,16 @@ class IndexController extends Controller {
     		
     	}else{
     		$stats['productid'] = array('notin',$productid);
-    	}
+		}
+		
+		// $productdwname = $cp -> where($stats) -> field('productdwname') -> distinct('productdwname') -> select();
+		$cw = M('costwarehouse');
+		$wherecw['warehousedwname'] = $_GET['productdwname'];
+		$cwrr = $cw -> where($wherecw) -> select();
+		$this->assign('cwrr' , $cwrr);
     	$cprr = $cp -> where($stats) -> select();
-    	$this->assign('data',$cprr);
+		$this->assign('data',$cprr);
+		// var_dump($productdwname , $cprr);
     	$this->display();
     }
     public function applyproductzeros(){
@@ -1183,12 +1202,19 @@ class IndexController extends Controller {
     public function applyproductsuc(){
     	$dwname = cookie('dwname');
     	$id = $_POST;
-    	$applyquantity = $_POST['applyquantity'];
+		$applyquantity = $_POST['applyquantity'];
+		$status = $_POST['status'];
+		var_dump($status);
     	foreach($applyquantity as &$value){
     		if($value <= 0){
     			$this->error('申请数量不能为0,请重新输入');
-    		}
-    	}
+			}
+		}
+		foreach($status as &$value){
+			if($value == 1){
+				$this->error('未审核通过，不能提交');
+			}
+		}
     	//var_dump($id);
     	for($i=0;$i<count($id['productid']);$i++){
     		$data[] = array(
@@ -1422,7 +1448,7 @@ class IndexController extends Controller {
     	$data = $ca -> where($where) -> order('date desc') -> select();
     	$data = $this->costinfo($data);
     	
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> select();
     	foreach($data as &$value){
     		foreach($drr as &$valued){
@@ -1457,7 +1483,7 @@ class IndexController extends Controller {
     	$data = $ca -> where($where) -> order('date desc') -> select();
     	$data = $this->costinfo($data);
     	
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> select();
     	foreach($data as &$value){
     		foreach($drr as &$valued){
@@ -1634,7 +1660,109 @@ class IndexController extends Controller {
     	$this -> assign('data',$data);
     	//var_dump($data);
     	$this -> display();
-    }
+	}
+	
+	public function outbound_up(){
+		$jd = M('jrdanwei');
+		$where['stats'] = 0;
+		$jdr = $jd -> where($where) -> select();
+		$this->assign('jdr',$jdr);
+
+		$dwname = cookie('dwname');
+		$cp = M('costproduct');
+		$wherecp['productdwname'] = $dwname['jgh'];
+		$cprr = $cp -> where($wherecp) -> select();
+		$this->assign('cprr' , $cprr);
+
+		$this->display();
+	}
+	public function outbound_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$jgh = $_GET['jgh'];
+		if($jgh == null){
+
+		}else{
+			$where['applyjgh'] = $jgh;
+		}
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+
+		$dwname = cookie('dwname');
+    	$jgh = $dwname['jgh'];
+    	$ca = M('costapply');
+    	$where['shenhe'] = '审核同意';
+    	
+    	$cw = M('costwarehouse');
+    	$cwrr = $cw -> field('warehouseid') -> where("warehousedwname = '$jgh'") -> select();
+    	foreach($cwrr as &$value){
+    		$cwr[] = $value['warehouseid'];
+    	}
+    	
+    	$where['warehouseid'] = array('in',$cwr);
+    	$data = $ca -> where($where) -> field('applyjgh,jgh,productid,pwid,warehouseid,sum(applyquantity) as sumapplyquantity') -> group('applyjgh,jgh,productid,warehouseid,pwid') -> order('jgh desc') -> select();
+		$ob = 1;
+		foreach($data as &$value){
+			$value['id'] = $ob;
+			$ob = $ob + 1;
+		}
+		// var_dump($data);
+		
+		$data = $this->costinfos($data);
+    	$count = $ca -> where($where) -> field('applyjgh,jgh,productid,pwid,warehouseid,sum(applyquantity) as sumapplyquantity') -> group('applyjgh,jgh,productid,warehouseid,pwid') -> order('jgh desc') -> count();
+    	$data = json_encode($data);
+    	$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		
+    	echo $json;
+	}
+
+	public function outbound_upsuc(){
+		$sjapplyquantity = $_POST['sjapplyquantity'];
+		$where['applyjgh'] = $_POST['applyjgh'];
+		$where['pwid'] = $_POST['pwid'];
+		$where['shenhe'] = '审核同意';
+		$ca = M('costapply');
+		$carr = $ca -> where($where) -> select();
+
+		// var_dump($carr);
+
+		foreach($carr as &$value){
+			$applyquantity = $value['applyquantity'];
+			if($applyquantity >= $sjapplyquantity){
+				
+				$applyid = $value['applyid'];
+				$whereca['sjapplyquantity'] = $sjapplyquantity;
+				$whereca['shenhe'] = '已出库';
+				$ca -> where("applyid = '$applyid'") -> save($whereca);
+				echo '出库成功';
+			break;
+
+			}else{
+
+				$applyid = $value['applyid'];
+				$whereca['sjapplyquantity'] = $applyquantity;
+				$whereca['shenhe'] = '已出库';
+				$ca -> where("applyid = '$applyid'") -> save($whereca);
+				$sjapplyquantity = $sjapplyquantity - $applyquantity;
+			}
+		}
+	}
+
     public function outbounds(){
     	$productid = $_GET['productid'];
     	$pwid = $_GET['pwid'];
@@ -1673,7 +1801,7 @@ class IndexController extends Controller {
     		$applyquantity[$i] = $_POST[$inboundids[$i]];
     	}
     	$dwname = $_POST['dwname'];
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$jgh = $d ->where("dwname = '$dwname'") -> find();
     	$applyid = $_POST['applyid'];
     	
@@ -1724,7 +1852,130 @@ class IndexController extends Controller {
     	}else{
     		$this->error('出库失败,请检查数据');
     	}
-    }
+	}
+	public function outbounddwname_up(){
+		$jd = M('jrdanwei');
+		$where['stats'] = 0;
+		$jdr = $jd -> where($where) -> select();
+		$this->assign('jdr',$jdr);
+
+		$this->display();
+	}
+	public function outbounddwname_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$jgh = $_GET['jgh'];
+		if($jgh == null){
+
+		}else{
+			$where['jgh'] = $jgh;
+		}
+		
+		$jd = M('jrdanwei');
+		$where['stats'] = 0;
+		$jdr = $jd -> where($where) -> limit($first,$limit) -> select();
+
+		$count = $jd -> where($where) -> count();
+    	
+    	$data = json_encode($jdr);
+    	$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		
+		
+    	D('')->execute("truncate table hr_costoutboundtemp");
+		
+    	echo $json;
+	}
+	public function outbounddwname_upout(){
+		if(!$_GET){
+			$this->error('不能直接访问此页面' , U('index/index'));
+		}
+
+		$dwname = cookie('dwname');
+		$wherecw['warehousedwname'] = $dwname['jgh'];
+		// $wherecw['stats'] = 0;
+		$cw = M('costwarehouse');
+		$cwrr = $cw -> where($wherecw) -> select();
+		$this->assign('cwrr' , $cwrr);
+		$wherecp['productdwname'] = $dwname['jgh'];
+		$cp = M('costproduct');
+		$cprr = $cp -> where($wherecp) -> select();
+		$this->assign('cprr' , $cprr);
+		$jgh = $_GET['jgh'];
+		$this->display();
+	}
+	public function outbounddwname_upouts(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+		$first = $limit * ($page-1);
+		$dwname = cookie('dwname');
+		//直接出库必须是本部门的产品
+		$where['dwname'] = $dwname['jgh'];
+
+		$cp = M('costproduct');
+		$product = $_GET['product'];
+
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+		
+    	$wh = $_GET['warehouseid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$where['warehouseid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$where['date'] = $date;
+    	}
+
+		$ci = M('costinbound');
+    	$where['sjquantity'] = array('gt',0);
+		$where['kcquantity'] = array('gt',0);
+		
+    	//是否需要增加未审核;
+    	$data = $ci -> field('productid,warehouseid,pwid,sum(kcquantity) as sumkcquantity') -> group('productid,pwid,warehouseid') -> limit($first,$limit) -> where($where) -> order('warehouseid asc') -> select();
+		$ca = M('costapply');
+    	
+    	$whereca['shenhe'] = array('in','未审核,审核同意');
+    	$carr = $ca -> where($whereca) -> field('pwid,sum(applyquantity) as sumapplyquantity') -> group('pwid') -> select();
+    	foreach($data as &$value){
+    		foreach($carr as &$valueca){
+    			if($value['pwid'] == $valueca['pwid']){
+    				$value['sumkcquantity'] = $value['sumkcquantity'] - $valueca['sumapplyquantity'];
+    			}
+    		}
+    	}
+		
+		$data = $this -> costinfos($data);
+		
+    	$count = $ci -> where($where) -> count();
+    	
+    	$data = json_encode($data);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
+	public function outbounddwname_upouttemp(){
+		
+	}
+
+
     public function applyproductconfirm(){
     	$dwname = cookie('dwname');
     	$this->assign('dwname',$dwname);
@@ -1914,6 +2165,8 @@ class IndexController extends Controller {
 		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
 		echo $json;
 	}
+
+
 	public function dwoutboundsuc_up(){
 		$dwname = cookie('dwname');
 		$outboundid = $_POST['outboundid'];
@@ -2091,7 +2344,13 @@ class IndexController extends Controller {
     	foreach($outboundid as &$value){
     		$dwoutboundid[] = $value;
     		$outquantity[] = $_POST[$value];
-    	}
+		}
+		$status = $_POST['status'];
+		foreach($status as &$value){
+			if($value == 1){
+				$this->error('未通过审核，不能出库');
+			}
+		}
     	$co = M('costoutbound');
     	$cdo = M('costdwoutbound');
     	//出库记录,减去实际库存,添加新的出库记录;
@@ -2152,7 +2411,7 @@ class IndexController extends Controller {
     	$data = $this -> costinfo($data);
     	$this -> assign('data',$data);
     	$this->display();
-    }
+	}
     public function dwoutboundres(){
     	$dwoutboundid = $_GET['dwoutboundid'];
     	//var_dump($dwoutboundid);
@@ -2173,7 +2432,7 @@ class IndexController extends Controller {
     	}
     }
     public function dwoutallot(){
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> where("jiagou = 'A1'") -> select();
     	$this->assign('drr',$drr);
     	
@@ -2495,7 +2754,7 @@ class IndexController extends Controller {
     		}
     	}
     	$where['jiagou'] = array('in','A1,A2,A5,A6');
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> where($where) -> order('yjgh asc') -> select();
     	//var_dump($drr);
     	
@@ -2560,7 +2819,7 @@ class IndexController extends Controller {
     	
     	
     	$where['jiagou'] = array('in','A1,A2,A5,A6');
-    	$d = M('danwei');
+    	$d = M('jrdanwei');
     	$drr = $d -> where($where) -> order('yjgh asc') -> select();
     	//var_dump($drr);
     	
@@ -3230,9 +3489,370 @@ class IndexController extends Controller {
 	}
     
     
-    
-    
-    
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	public function deviceapi($data){
+		$id = M('icdevice');
+		$idr = $id -> select();
+
+		$idc = M('icdevice_class');
+		$idcr = $idc -> select();
+
+		$idp = M('icdispose');
+		$idpr = $idp -> select();
+
+		$ids = M('icdevice_sub');
+		$idsr = $ids -> select();
+
+		$im = M('icmaintenance');
+		$imr = $im -> select();
+
+		$is = M('icsupplier');
+		$isr = $is -> select();
+
+		$ip = M('icpurcha');
+		$ipr = $ip -> select();
+
+		$ieq = M('icequipment');
+		$ieqr = $ieq -> select();
+
+		//device_sub,设备明细
+		foreach($data as &$value){
+
+			foreach($idsr as &$val){
+
+				if($value['device_subid'] == $val['device_subid']){
+					$value['device_sub'] = $val['device_sub'];
+					$value['disposeid'] = $val['dispose'];
+					$value['deviceid'] = $val['deviceid'];
+					$value['type'] = $val['type'];
+					// $value['dispose'] = $val['dispose'];
+					$value['device_classid'] = $val['device_classid'];
+					$value['status'] = $val['status'];
+					$value['beizhu'] = $val['beizhu'];
+
+					// $value = array(
+					// 	'device_sub' => $val['device_sub'],
+					// 	'disposeid' => $val['dispose'],
+					// );
+					
+					break;
+				}
+			}
+		}
+
+		//device,设备大类
+		foreach($data as &$value){
+
+			foreach($idr as &$val){
+
+				if($value['deviceid'] == $val['deviceid']){
+
+					$value['device'] = $val['device'];
+				break;
+				}
+			}
+		}
+
+		//dispose,设备配置
+		foreach($data as &$value){
+
+			foreach($idpr as &$val){
+
+				if($value['disposeid'] == $val['disposeid']){
+					
+					//各种设备需要各种配置；
+					$value['dispose'] = '('.$val['dispose_one'] . $val['dispose_two'] . $val['dispose_three'].')';
+					$value['dispose_one'] = $val['dispose_one'];
+					$value['dispose_two'] = $val['dispose_two'];
+					$value['dispose_three'] = $val['dispose_three'];
+
+					break;
+				}
+			}
+		}
+
+		//device_class,设备类型
+		foreach($data as &$value){
+
+			foreach($idcr as &$val){
+
+				if($value['device_classid'] == $val['device_classid']){
+					$value['device_class'] = $val['device_class'];
+					$value['supplierid'] = $val['supplier'];
+					$value['maintenanceid'] = $val['maintenance'];
+
+				break;
+				}
+			}
+		}
+
+		//supplier,供应商
+		foreach($data as &$value){
+
+			foreach($isr as &$val){
+
+				if($value['supplierid'] == $val['supplierid']){
+
+					$value['supplier'] = $val['supplier'];
+					$value['supplierphone'] = $val['phone'];
+					$value['purchaid'] = $val['purchaid'];
+				break;
+				}
+			}
+		}
+
+		//purcha,采购类型
+		foreach($data as &$value){
+
+			foreach($ipr as &$val){
+
+				if($value['purchaid'] == $val['purchaid']){
+
+					$value['purcha'] = $val['purcha'];
+					$value['purchaphone'] = $val['phone'];
+				break;
+				}
+			}
+		}
+		//maintenance , 维保公司 电话 联系人
+		foreach($data as &$value){
+
+			foreach($imr as &$val){
+
+				if($value['maintenanceid'] == $val['maintenanceid']){
+
+					$value['maintenance'] = $val['maintenance'];
+					$value['mainphone'] = $val['mainphone'];
+					$value['mainman'] = $val['mainman'];
+				break;
+				}
+			}
+		}
+
+		foreach($data as &$value){
+
+			foreach($ieqr as &$val){
+
+				if($value['equipmentid'] == $val['equipmentid']){
+
+					$value['equipment'] = $val['equipment'];
+				break;
+				}
+			}
+		}
+		return $data;
+	}
+
+	public function equipmentup(){
+		$dwname = cookie('dwname');
+		
+		$where['jgh'] = $dwname['username'];
+		$where['stats'] = 0;
+		$eqs = M('icequipment_sub');
+		$eqsr = $eqs -> where($where) -> order('equipmentid asc') -> select();
+		$data = $this->deviceapi($eqsr);
+
+		$ieq = M('icequipment');
+		$ieqr = $ieq -> select();
+		$this->assign('ieqr' , $ieqr);
+		// var_dump($data);
+		$this->display();
+
+	}
+	public function equipmentups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+
+		//通过查找设备大类，从而找到设备明细
+		$device_class = $_GET['device_class'];
+		if($device_class == null){
+
+		}else{
+			$device_classes = '%'.$device_class.'%';
+			$idc = M('icdevice_class');
+			$wherecp['device_class'] = array('like' , $device_classes);
+			$idcr = $idc -> field('device_classid') -> where($wherecp) -> select();
+			foreach($idcr as &$value){
+				$idcrr[] = $value['device_classid'];
+			}
+			$wheredc['device_classid'] = array('in' , $idcrr);
+
+
+			$ids = M('icdevice_sub');
+			$idsr = $ids -> field('device_subid') -> where($wheredc) -> select();
+			foreach($idsr as &$value){
+				$idsrr[] = $value['device_subid'];
+			}
+			$where['device_subid'] = array('in' , $idsrr);
+		}
+		
+    	$wh = $_GET['equipmentid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$where['equipmentid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$where['date'] = $date;
+    	}
+
+
+		$dwname = cookie('dwname');
+		//网点 和 状态为0显示，为1表示已经报故障；重点重点重点：后台在审批时需要修改这里的status
+		$where['dwname'] = $dwname['username'];
+		$where['status'] = 0;
+		$where['stats'] = 0;
+		$eqs = M('icequipment_sub');
+		$eqsr = $eqs -> where($where) -> order('equipmentid asc')-> limit($first,$limit) -> select();
+		// var_dump($eqsr);
+		$eqsr = $this->deviceapi($eqsr);
+		$count = $eqs -> where($equipment) -> count();
+		$eqsr = json_encode($eqsr);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$eqsr.'}';
+		echo $json;
+	}
+    public function equipmentupsuc(){
+		// var_dump($_POST);
+		$idb = M('icdevice_break');
+		$_POST['date'] = date('Y-m-d');
+		$idbr = $idb -> add($_POST);
+
+		if($idbr > 0){
+			$equipment_subid = $_POST['equipment_subid'];
+
+			$ieqs = M('icequipment_sub');
+
+			$where['status'] = 1;
+			$ieqs -> where("equipment_subid = '$equipment_subid'") -> save($where);
+
+			echo '报障成功';
+		}else{
+			echo '报障失败';
+		}
+	}
+    public function equipmentmodify(){
+		$this->display();
+
+
+	}
+	public function equipmentmodifys(){
+		$idb = M('icdevice_break');
+		
+		$dwname = cookie('dwname');
+		$where['dwname'] = $dwname['username'];
+		//状态是可用，没有被后台编辑；
+		$where['stats'] = 0;
+		$where['status'] = 0;
+		$idbr = $idb -> where($where) -> select();
+		$idbr = $this->deviceapi($idbr);
+		$count = $idb -> where($where) -> count();
+		$idbr = json_encode($idbr);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$idbr.'}';
+		echo $json;
+	}
+	public function equipmentmodifysuc(){
+		// var_dump($_POST);
+		$equipment_subid = $_POST['equipment_subid'];
+
+		$device_breakid = $_POST['device_breakid'];
+
+		$where['beizhu'] = $_POST['beizhu'];
+		$where['stats'] = 1;
+
+		$wheresub['status'] = 0;
+
+		$idb = M('icdevice_break');
+		$idbr = $idb -> where("device_breakid = '$device_breakid'") -> save($where);
+
+		$ieqs = M('icequipment_sub');
+
+		$ieqsr = $ieqs -> where("equipment_subid = '$equipment_subid'") -> save($wheresub);
+
+		if($ieqsr > 0){
+			echo "撤回成功，请继续";
+		}else{
+			echo "撤回失败，请检查";
+		}
+
+	}
+	public function equipmentsearch(){
+		$dwname = cookie('dwname');
+
+		$ieq = M('icequipment');
+		$ieqr = $ieq -> select();
+		$this->assign('ieqr' , $ieqr);
+		$this->display();
+	}
+	public function equipmentsearchs(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+
+		//通过查找设备大类，从而找到设备明细
+		$device_class = $_GET['device_class'];
+		if($device_class == null){
+
+		}else{
+			$device_classes = '%'.$device_class.'%';
+			$idc = M('icdevice_class');
+			$wherecp['device_class'] = array('like' , $device_classes);
+			$idcr = $idc -> field('device_classid') -> where($wherecp) -> select();
+			foreach($idcr as &$value){
+				$idcrr[] = $value['device_classid'];
+			}
+			$where['device_classid'] = array('in' , $idcrr);
+		}
+		
+    	$wh = $_GET['equipmentid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$where['equipmentid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$where['date'] = $date;
+    	}
+
+		$idb = M('icdevice_break');
+		
+		$dwname = cookie('dwname');
+		$where['dwname'] = $dwname['username'];
+		//状态是可用，没有被后台编辑；
+		$where['stats'] = 0;
+		$where['status'] = 0;
+		$idbr = $idb -> where($where) -> select();
+		$idbr = $this->deviceapi($idbr);
+		$count = $idb -> where($where) -> count();
+		$idbr = json_encode($idbr);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$idbr.'}';
+		echo $json;
+	}
     
     
     

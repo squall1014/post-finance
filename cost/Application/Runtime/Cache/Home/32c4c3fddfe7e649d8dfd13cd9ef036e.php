@@ -127,6 +127,14 @@
           </dl>
         </li>
         <li class="layui-nav-item">
+          <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">本部门设备管理</a><?php else: endif; ?>
+          <dl class="layui-nav-child">
+            <dd><a href="/cost/index.php/Home/Index/equipmentup">设备维护更新申请</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/equipmentmodify">设备维护更新编辑</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/equipmentsearch">设备维护更新查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
         	<?php if($user["qx"] >= 8): ?><a class="" href="javascript:;">产品信息编辑</a><?php else: endif; ?>
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/productadd">产品信息新增</a></dd>

@@ -107,7 +107,9 @@
         <li class="layui-nav-item">
           <if condition="$user.jrywbqx eq 0 and $user.qx eq 5"><a class="" href="javascript:;">0库存产品申请</a><else /></if>
           <dl class="layui-nav-child">
-            <dd><a href="__URL__/applyproductzero">0库存产品申请</a></dd>
+            <dd><a href="__URL__/applyproductzero/productdwname/28">0库存金融部产品申请</a></dd>
+            <!-- <dd><a href="__URL__/applyproductzero/productdwname/58">0库存市场部产品申请</a></dd> -->
+
             <dd><a href="__URL__/applyproductzeromodify">0库存产品修改</a></dd>
           </dl>
         </li>
@@ -118,6 +120,14 @@
             <dd><a href="__URL__/pointcardedit">积分卡管理</a></dd>
             <dd><a href="__URL__/pointcardout">积分卡兑换</a></dd>
             <dd><a href="__URL__/pointcardloss">积分卡挂失</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <if condition="$user.qx eq 5"><a class="" href="javascript:;">本部门设备管理</a><else /></if>
+          <dl class="layui-nav-child">
+            <dd><a href="__URL__/equipmentup">设备维护更新申请</a></dd>
+            <dd><a href="__URL__/equipmentmodify">设备维护更新编辑</a></dd>
+            <dd><a href="__URL__/equipmentsearch">设备维护更新查询</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -153,6 +163,9 @@
             <dd><a href="__URL__/inboundsh">产品确认入库</a></dd>
             <dd><a href="__URL__/applyproductsh">产品申请确认</a></dd>
             <dd><a href="__URL__/outbound">产品确认出库</a></dd>
+            <dd><a href="__URL__/outbound_up">产品确认出库(新版)</a></dd>
+
+            <dd><a href="__URL__/outbounddwname_up">产品直接出库</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">

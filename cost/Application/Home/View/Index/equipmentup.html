@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<!--大标题和JS-->
+<include file="Public/head" />
+
+<!--前左导航-->
+<include file="Public/body" />
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
+    	<div class="layui-card" style="width: 100%;">
+        	<div class="layui-card-header">
+        		<font size="4">本部门设备管理</font>
+        	</div>
+        <div class="layui-card-body">
+        <hr class="layui-bg-red">
+    		
+		    <div class="demoTable">
+		    	搜索设备所属：
+		    <div class="layui-inline">
+		      <form class="layui-form">
+		  		<select name="wh" id="whReload" lay-verify="" lay-search>
+		  			<option value="">请选择设备所属</option>
+		  			<volist name="ieqr" id="vo">
+						<option value="{$vo.equipmentid}">{$vo.equipment}</option>
+					</volist>
+		  		</select>
+		  		</form>
+		    </div>
+		    	搜索设备:
+		  	<div class="layui-inline">
+		  		<!--<input class="layui-input" name="dwname" id="dwnameReload" autocomplete="off">-->
+		  		<form class="layui-form">
+		  		<input type="text" name="pc" list="productid" id="pcReload" lay-verify="" class="layui-input">
+		  		<datalist id="productid">
+         	 		<volist name="data" id="vo">
+					    <option value="{$vo.productname}">{$vo.productname}</option>
+					    </volist>
+         	 	</datalist>
+		  		</form>
+		  	</div>
+		  		搜索日期：
+		    <div class="layui-inline">
+		      <form class="layui-form">
+			        <input type="text" name="date" id="date" autocomplete="off" class="layui-input">
+		  		</form>
+		    </div>
+		  		<button class="layui-btn" data-type="reload">搜索</button>
+				</div>
+					<table class="layui-hide" id="test" lay-filter="test"></table>
+					
+					<script type="text/html" id="switchTpl">
+					  <!-- 这里的 checked 的状态只是演示 -->
+					  <!--<input type="checkbox" id="{{d.cardid}}" name="stats" value="{{d.cardid}}" lay-skin="switch" lay-text="审核|未审核" lay-filter="sexDemo" {{ d.stats == 5 ? 'checked' : '' }}>-->
+					</script>
+					
+					<script type="text/html" id="toolbarDemo">
+					  <div class="layui-btn-container">
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">查看</button>
+					  </div>
+					</script>
+					
+					<script type="text/html" id="barDemo">
+					  <a class="layui-btn layui-btn-xs" lay-event="edit">申请维护</a>
+					  <!-- <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a> -->
+					</script>
+         </div>
+        </div>
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 余杭区邮政存货管理系统
+  </div>
+<script src="/cost/Public/layui.all.js"></script>
+<script src="/cost/Public/jquery-1.12.4.min.js"></script>
+
+<script>
+	layui.use('table', function(){
+  var table = layui.table;
+  var form = layui.form;
+  table.render({
+    elem: '#test'
+    ,url:'{:U("equipmentups")}'
+    ,toolbar: '#toolbarDemo'
+    ,title: '用户数据表'
+    ,cols: [[
+      {type: 'checkbox', fixed: 'left'}
+      ,{field:'equipment_subid', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+      ,{field:'equipment', title:'设备所属', width:120,sort: true}
+      ,{field:'device_class', title:'设备大类', width:180, unresize: true, sort: true}
+      ,{field:'device_sub', title:'设备名称', width:120,sort: true}
+	  ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:100}
+    //   ,{field:'sumkcquantity', title:'库存', width:400, edit: 'text', sort: true}
+    ]]
+    ,id: 'testReload'
+    ,page: true
+    //,limits: [10, 20, 30]
+    ,limit: 20 //每页默认显示的数量
+  });
+  	var $ = layui.$, active = {
+       reload: function(){
+       var whReload = $('#whReload');
+       var pcReload = $('#pcReload');
+       var dateReload = $('#date');
+        table.reload('testReload', {
+              where: {
+                 equipmentid: whReload.val(),
+                 device_class: pcReload.val(),
+                 device_sub: dateReload.val()
+                 }
+            });
+          }
+       };
+    $('.demoTable .layui-btn').on('click', function(){    
+	        var type = $(this).data('type');
+          active[type] ? active[type].call(this) : '';
+     });
+	  //监听单元格编辑
+	  table.on('edit(test)', function(obj){
+	    var value = obj.value //得到修改后的值
+	    ,data = obj.data //得到所在行所有键值
+	    ,field = obj.field;//得到字段
+	    
+	    layer.msg('[ID: '+ data.insuranceid +'] ' + field + ' 字段更改为：'+ value);
+	    
+	    $.ajax({
+	    	type:"post",
+	    	data:{
+	    		productid : data.productid,
+	    		productname : data.productname,
+	    		unit : data.unit,
+	    		supplier : data.supplier,
+	    		beizhu : data.beizhu,
+	    		
+	    	},
+	    	url:'{:U("producteditsuc")}',
+	    	
+	    	success: function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	  //头工具栏事件
+  	table.on('toolbar(test)', function(obj){
+	  	var checkStatus = table.checkStatus(obj.config.id);
+	    switch(obj.event){
+	      case 'getCheckData':
+	        var data = checkStatus.data;
+	        layer.alert(JSON.stringify(data));
+	      break;
+	      case 'getCheckLength':
+	        layer.open({
+		        type: 2 //此处以iframe举例
+		        ,title: '产品信息添加'
+		        ,area: ['1024px', '768px']
+		        ,shade: 0
+		        ,maxmin: true
+		        
+		        ,content: 'productadd.html'
+		        ,btn: ['全部关闭'] //只是为了演示
+		        
+		        ,btn2: function(){
+		          layer.closeAll();
+		        }
+		        
+		        ,zIndex: layer.zIndex //重点1
+		        ,success: function(layero){
+		          layer.setTop(layero); //重点2
+		        }
+		      });
+	      break;
+	      case 'getCheckstats':
+		  var data = table.checkStatus(obj.config.id);
+		  var datas = new Array();
+		  len = data.data.length;
+			for(i = 0; i < len; i++){
+				console.log(data.data);
+				datas[i] = data.data[i]['productid'];
+			}
+		  console.log(datas);
+		  layer.open({
+			  type: 2
+			  ,title: '出库情况'
+			  ,area: ['1000px' , '400px']
+			  ,shade: 0
+			  ,maxmin: true
+			  ,content: 'applyproducts_up.html?productid='+datas
+			  ,cancel: function(index, layero){ 
+				if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+					layer.close(index);
+					window.location.reload();
+					}
+					return false; 
+				}
+		  })
+	        // if(data.data.length > 1){
+			// 	      //配置一个透明的询问框
+			// 	      layer.msg('每次操作只能办理一张积分卡', {
+			// 	        time: 10000, //20s后自动关闭
+			// 	        btn: ['明白了',]
+			// 	      });
+	        // }else{
+	        // 		datas = data.data[0]['cardid'];
+	        // 		datass = data.data[0]['cardinid'];
+	        // 		datasss = data.data[0]['card'];
+		    //     	layer.open({
+			// 	        type: 2 //此处以iframe举例
+			// 	        ,title: '发卡'
+			// 	        ,area: ['800px', '600px']
+			// 	        ,shade: 0
+			// 	        ,maxmin: true
+				        
+			// 	        ,content: 'pointcardhair.html?cardid='+datas+'&cardinid='+datass+'&card='+datasss
+				        
+			// 	        ,btn2: function(){
+			// 	          layer.closeAll();
+			// 	        }
+			// 	        ,cancel: function(index, layero){ 
+			// 					  if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+			// 					    layer.close(index);
+			// 					    window.location.reload();
+			// 					  }
+			// 					  return false; 
+			// 					}    
+			// 	        ,zIndex: layer.zIndex //重点1
+			// 	        ,success: function(layero){
+			// 	          layer.setTop(layero); //重点2
+			// 	        }
+			//       });
+	        // }
+	        
+	        
+	        
+	      break;
+	      
+	      case 'isAll':
+	        layer.msg(checkStatus.isAll ? '全选': '未全选');
+	      break;
+	      
+	    };
+	  	
+	  	
+	  });
+	  
+	  //监听性别操作
+	  form.on('switch(sexDemo)', function(obj){
+	    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+	    console.log(obj);
+	    $.ajax({
+	    	type:"post",
+	    	
+	    	url:'{:U("productstats")}',
+	    	
+	    	async:true,
+	    	
+	    	data:{
+	    		productid : this.value,
+	    		stats : obj.elem.checked,
+	    	},
+	    	
+	    	success:function(result){
+	    		console.log(result);
+	    	},
+	    });
+	    
+	  });
+	  
+	 	//监听行工具事件
+	  table.on('tool(test)', function(obj){
+	    var data = obj.data;
+	    //console.log(obj)
+	    if(obj.event === 'del'){
+	      layer.confirm('真的删除行么', function(index){
+	        obj.del();
+	        layer.close(index);
+	      });
+	    } else if(obj.event === 'edit'){
+			console.log(data);
+	      layer.prompt({
+	        formType: 2
+			,title: '请简单说明故障原因'
+	        // ,value: data.sumkcquantity
+	      }, function(value, index){
+				$.ajax({
+					type:"post",
+					
+					url:'{:U("equipmentupsuc")}',
+					
+					async:true,
+					
+					data:{
+						equipment_subid: data.equipment_subid,
+						dwname: data.dwname,
+						jgh: data.jgh,
+						equipmentid: data.equipmentid,
+						maintenanceid: data.maintenanceid,
+						device_classid: data.device_classid,
+						reason: value,
+						device_subid: data.device_subid,
+					},
+					
+					success:function(result){
+						alert(result)
+					},
+	    		});
+				layer.close(index);
+				window.location.reload();
+			  
+	        
+	      });
+
+	    }
+	  });
+	 
+});
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#date' //指定元素
+  });
+  laydate.render({
+  	elem: '#test6'
+  	,range: true
+	});
+});
+</script>
+<!--底部-->
+</body>
+</html>
