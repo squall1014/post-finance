@@ -1389,7 +1389,7 @@ class IndexController extends Controller {
     	}
 
     	// $count = $ci -> where($where) -> count();
-    	$count = 0;
+    	$count = $ca -> where($where) -> limit($first,$limit) -> count();
     	$data = json_encode($data);
 		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
 		echo $json;
@@ -1410,6 +1410,115 @@ class IndexController extends Controller {
 		}
 	}
 
+
+
+
+
+	public function applyproductsearch_up(){
+		$dwname = cookie('dwname');
+    	$jgh = $dwname['jgh'];
+		
+		$cw = M('costwarehouse');
+		$cwrr = $cw -> select();
+		$this->assign('cwrr',$cwrr);
+
+    	$where['applyjgh'] = $jgh;
+    	$where['shenhe'] = '未审核';
+    	$where['applyquantity'] = array('gt',0);
+    	
+    	$ca = M('costapply');
+    	$data = $ca -> field('productid') -> distinct('productid') -> where($where) -> select();
+    	$data = $this->costinfos($data);
+    	//var_dump($data);
+    	$this->assign('data',$data);
+    	$this->display();
+	}
+	public function applyproductsearch_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+		
+    	$wh = $_GET['warehouseid'];
+    	$date = $_GET['date'];
+    	if($wh == null){
+    		
+    	}else{
+    		$where['warehouseid'] = $wh;
+    	}
+    	
+    	
+    	if($date == null){
+    		
+    	}else{
+    		$where['date'] = $date;
+    	}
+
+		$dwname = cookie('dwname');
+    	$jgh = $dwname['jgh'];
+
+    	$where['applyjgh'] = $jgh;
+    	$where['shenhe'] = array('notin' , '已出库,审核不同意');
+    	$where['applyquantity'] = array('gt',0);
+    	
+    	$ca = M('costapply');
+		$data = $ca -> where($where) -> limit($first,$limit) -> select();
+		
+		$pwid = $ca -> where($where) -> field('pwid') -> distinct('pwid') -> select();
+		// $pwids = array();
+		foreach($pwid as &$value){
+			$pwids[] = $value['pwid'];
+		}
+
+		// var_dump($data,$pwids);
+
+		$data = $this->costinfo($data);
+		
+		$whereci['pwid'] = array('in' , $pwids);
+    	$whereci['kcquantity'] = array('gt',0);
+    	$whereci['shenhe'] = array('neq','未审核');
+    	$ci = M('costinbound');
+    	$cirr = $ci -> field('productid,warehouseid,pwid,sum(kcquantity) as sumkcquantity') -> where($whereci) -> group('productid,warehouseid,pwid') -> select();
+		
+    	$whereca['shenhe'] = array('in','未审核,审核同意');
+    	// $whereca['applyid'] = array('notin',$applyid);
+    	$whereca['pwid'] = array('in' , $pwids);
+    	$carr = $ca -> where($whereca) -> field('productid,warehouseid,pwid,sum(applyquantity) as sumapplyquantity') -> group('productid,pwid,warehouseid') -> select();
+    	foreach($data as &$value){
+
+    		foreach($cirr as &$valueci){
+    			$value['kcquantity'] = $valueci['sumkcquantity'];
+    			foreach($carr as &$valueca){
+    				
+    				if($value['pwid'] == $valueci['pwid'] and $value['pwid'] == $valueca['pwid']){
+    				//if($value['pwid'] == $valueca['pwid']){
+						$value['kcquantity'] = $valueci['sumkcquantity'] - $valueca['sumapplyquantity'];
+						$value['sjkcquantity'] = $value['kcquantity'] + $value['applyquantity'];
+    				}
+    			}
+    		}
+    	}
+
+    	// $count = $ci -> where($where) -> count();
+    	$count = $ca -> where($where) -> limit($first,$limit) -> count();
+    	$data = json_encode($data);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
+	}
 
 
 
@@ -1629,7 +1738,158 @@ class IndexController extends Controller {
     	$this->assign('data',$data);
     	
     	$this->display();
-    }
+	}
+	public function applyproductsh_up(){
+		$jd = M('jrdanwei');
+		$where['stats'] = 0;
+		$jdr = $jd -> where($where) -> select();
+		$this->assign('jdr',$jdr);
+
+		$dwname = cookie('dwname');
+		$cp = M('costproduct');
+		$wherecp['productdwname'] = $dwname['jgh'];
+		$cprr = $cp -> where($wherecp) -> select();
+		$this->assign('cprr' , $cprr);
+
+		$this->display();
+	}
+	public function applyproductsh_ups(){
+		$limit = $_GET['limit'];
+    	$page = $_GET['page'];
+    	$first = $limit * ($page-1);
+		
+		$jgh = $_GET['jgh'];
+		if($jgh == null){
+
+		}else{
+			$where['applyjgh'] = $jgh;
+		}
+		
+		$product = $_GET['product'];
+		if($product == null){
+
+		}else{
+			$products = '%'.$product.'%';
+			$cp = M('costproduct');
+			$wherecp['productname'] = array('like' , $products);
+			$cprr = $cp -> field('productid') -> where($wherecp) -> select();
+			foreach($cprr as &$value){
+				$cpr[] = $value['productid'];
+			}
+			$where['productid'] = array('in' , $cpr);
+			
+		}
+
+		$dwname = cookie('dwname');
+    	$ca = M('costapply');
+    	$where['shenhe'] = '未审核';
+    	$where['jgh'] = $dwname['jgh'];
+		$data = $ca -> where($where) -> limit($first,$limit) -> order('date desc') -> select();
+		
+		//礼品消耗品
+		$wheretype['producttype'] = 2;
+		$wheretype['productdwname'] = $dwname['jgh'];
+		$cp = M('costproduct');
+		$cprr = $cp -> where($wheretype) -> select();
+		foreach($cprr as &$value){
+			$producttype[] = $value['productid'];
+		}
+
+		$whereco['productid'] = array('in' , $producttype);
+		$whereco['shenhe'] = '出库中';
+		$co = M('costoutbound');
+		$corr = $co -> where($whereco) -> field('applyjgh , productid , sum(kcapplyquantity) as sumkc') -> group('applyjgh , productid') -> select();
+
+		foreach($data as &$value){
+
+			foreach($corr as &$val){
+
+				if($value['applyjgh'] ==$val['applyjgh'] and $value['productid'] == $val['productid']){
+
+					$value['sumkc'] = $val['sumkc'];
+				break;
+				}
+			}
+		}
+
+		$wheretypes['producttype'] = 1;
+		$wheretypes['productdwname'] = $dwname['jgh'];
+		$dates = date('Y-m-d');
+		$date = date("Y-m-d", strtotime("-3 month"));
+    	$wherecos['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+
+		$cp = M('costproduct');
+		$cprr = $cp -> where($wheretypes) -> select();
+
+		foreach($cprr as &$value){
+			$producttypes[] = $value['productid'];
+		}
+		if(!$producttypes){
+
+		}else{
+			$wherecos['productid'] = array('in' , $producttypes);
+		}
+		$wherecos['shenhe'] = '出库中';
+		$co = M('costoutbound');
+		// $count = $co -> where($wherecos) -> field('applyjgh , productid , sum(kcapplyquantity) as sumkc') -> group('applyjgh , productid') -> count();
+		
+		$corr = $co -> where($wherecos) -> field('applyjgh , productid , sum(kcapplyquantity) as sumkc') -> group('applyjgh , productid') -> select();
+		
+		foreach($data as &$value){
+
+			foreach($corr as &$val){
+
+				if($value['applyjgh'] == $val['applyjgh'] and $value['productid'] == $val['productid']){
+
+					$value['sumkc'] = $val['sumkc'];
+				break;
+				}
+			}
+		}
+
+    	$data = $this->costinfos($data);
+		// var_dump($data);
+		$this->assign('data' , $data);
+
+		
+
+    	$count = $ca -> where($where) -> count();
+		
+		$data = json_encode($data);
+    	$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		
+    	echo $json;
+
+
+    	// $d = M('jrdanwei');
+    	// $drr = $d -> select();
+    	// foreach($data as &$value){
+    	// 	foreach($drr as &$valued){
+    	// 		if($valued['jgh'] == $value['applyjgh']){
+    	// 			$value['applydwname'] = $valued['dwname'];
+    	// 			continue;
+    	// 		}
+    	// 	}
+    	// }
+	}
+	public function applyproductshsuc_up(){
+		$where['applyid'] = $_POST['applyid'];
+
+		$sjapplyquantity = $_POST['sjapplyquantity'];
+
+		$whereca['sjapplyquantity'] = $sjapplyquantity;
+		$whereca['shenhe'] = '审核同意';
+		$ca = M('costapply');
+
+		$carr = $ca -> where($where) -> save($whereca);
+
+		if($carr > 0){
+
+			echo "审核通过";
+		}
+	}
+
+
     public function outbound(){
     	$dwname = cookie('dwname');
     	$jgh = $dwname['jgh'];
@@ -1715,7 +1975,7 @@ class IndexController extends Controller {
     	}
     	
     	$where['warehouseid'] = array('in',$cwr);
-    	$data = $ca -> where($where) -> field('applyjgh,jgh,productid,pwid,warehouseid,sum(applyquantity) as sumapplyquantity') -> group('applyjgh,jgh,productid,warehouseid,pwid') -> order('jgh desc') -> select();
+    	$data = $ca -> where($where) -> limit($first,$limit) -> field('applyid,applyjgh,jgh,productid,pwid,warehouseid,applyquantity') -> order('jgh desc') -> select();
 		$ob = 1;
 		foreach($data as &$value){
 			$value['id'] = $ob;
@@ -1724,44 +1984,152 @@ class IndexController extends Controller {
 		// var_dump($data);
 		
 		$data = $this->costinfos($data);
-    	$count = $ca -> where($where) -> field('applyjgh,jgh,productid,pwid,warehouseid,sum(applyquantity) as sumapplyquantity') -> group('applyjgh,jgh,productid,warehouseid,pwid') -> order('jgh desc') -> count();
+    	$count = $ca -> where($where) -> field('applyid,applyjgh,jgh,productid,pwid,warehouseid,applyquantity') -> order('jgh desc') -> count();
     	$data = json_encode($data);
     	$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
 		
     	echo $json;
 	}
-
 	public function outbound_upsuc(){
-		$sjapplyquantity = $_POST['sjapplyquantity'];
-		$where['applyjgh'] = $_POST['applyjgh'];
-		$where['pwid'] = $_POST['pwid'];
-		$where['shenhe'] = '审核同意';
+		$cisjapplyquantity = $_POST['sjapplyquantity'];
+
+		$where['applyid'] = $_POST['applyid'];
+
+		$whereca['sjapplyquantity'] = $_POST['sjapplyquantity'];
+		$whereca['shenhe'] = '已出库';
 		$ca = M('costapply');
-		$carr = $ca -> where($where) -> select();
+		
+		$carr = $ca -> where($where) -> save($whereca);
 
-		// var_dump($carr);
+		$whereco['applyid'] = $_POST['applyid'];
+		$whereco['productid'] = $_POST['productid'];
+		$whereco['warehouseid'] = $_POST['warehouseid'];
+		$whereco['pwid'] = $_POST['pwid'];
+		$whereco['applyjgh'] = $_POST['applyjgh'];
+		$whereco['applyquantity'] = $_POST['applyquantity'];
+		$whereco['shenhe'] = '出库中';
+		$whereco['date'] = date('Y-m-d');
 
-		foreach($carr as &$value){
-			$applyquantity = $value['applyquantity'];
-			if($applyquantity >= $sjapplyquantity){
+		$co = M('costoutbound');
+
+		$ci = M('costinbound');
+
+		$wherecis['shenhe'] = array('notin' , '未审核');
+		$wherecis['kcquantity'] =array('gt' , 0);
+		$wherecis['pwid'] = $_POST['pwid'];
+		$cirr = $ci -> where($wherecis) -> select();
+
+		foreach($cirr as &$value){
+
+			$kcquantity = $value['kcquantity'];
+			if($kcquantity >= $cisjapplyquantity){
+
+				$inboundid = $value['inboundid'];
+				$whereci['kcquantity'] = $value['kcquantity'] - $cisjapplyquantity;
+				$cir = $ci -> where("inboundid = '$inboundid'") -> save($whereci);
+
+				//出库，嵌套在里面;所有出库数据就是此循环的inboundid
+
+				$whereco['inboundid'] = $value['inboundid'];
+				$whereco['sjapplyquantity'] = $cisjapplyquantity;
+				$whereco['kcapplyquantity'] = $cisjapplyquantity;
+
+				$corr = $co -> add($whereco);
 				
-				$applyid = $value['applyid'];
-				$whereca['sjapplyquantity'] = $sjapplyquantity;
-				$whereca['shenhe'] = '已出库';
-				$ca -> where("applyid = '$applyid'") -> save($whereca);
 				echo '出库成功';
 			break;
-
 			}else{
 
-				$applyid = $value['applyid'];
-				$whereca['sjapplyquantity'] = $applyquantity;
-				$whereca['shenhe'] = '已出库';
-				$ca -> where("applyid = '$applyid'") -> save($whereca);
-				$sjapplyquantity = $sjapplyquantity - $applyquantity;
+				$inboundid = $value['inboundid'];
+				$whereci['kcquantity'] = 0;
+				$cir = $ci -> where("inboundid = '$inboundid'") -> save($whereci);
+
+				$whereco['inboundid'] = $value['inboundid'];
+				$whereco['sjapplyquantity'] = $kcquantity;
+				$whereco['kcapplyquantity'] = $kcquantity;
+
+				$corr = $co -> add($whereco);
+
+				$cisjapplyquantity = $cisjapplyquantity - $kcquantity;
+
+
 			}
 		}
 	}
+
+
+	// public function outbound_upsuc(){
+	// 应用在批量出库，包括多个请领和多个入库的状态下，未完工
+	// 	$sjapplyquantity = $_POST['sjapplyquantity'];
+	// 	$cisjapplyquantity = $_POST['sjapplyquantity'];
+
+	// 	$cavalue = $_POST['sjapplyquantity'];
+	// 	$civalue = $_POST['sjapplyquantity'];
+
+	// 	$where['applyjgh'] = $_POST['applyjgh'];
+	// 	$where['pwid'] = $_POST['pwid'];
+	// 	$where['shenhe'] = '审核同意';
+	// 	$ca = M('costapply');
+	// 	$carr = $ca -> where($where) -> select();
+
+	// 	// var_dump($carr);
+
+	// 	$ci = M('costinbound');
+
+	// 	$wherecis['shenhe'] = array('notin' , '未审核');
+	// 	$wherecis['kcquantity'] =array('gt' , 0);
+	// 	$wherecis['pwid'] = $_POST['pwid'];
+	// 	$cirr = $ci -> where($wherecis) -> select();
+
+	// 	$co = M('costoutbound');
+
+
+	// 	foreach($carr as &$value){
+	// 		$applyquantity = $value['applyquantity'];
+	// 		if($applyquantity >= $sjapplyquantity){
+				
+	// 			$applyid = $value['applyid'];
+	// 			$whereca['sjapplyquantity'] = $sjapplyquantity;
+	// 			$whereca['shenhe'] = '已出库';
+	// 			// $ca -> where("applyid = '$applyid'") -> save($whereca);
+
+	// 		break;
+
+	// 		}else{
+
+	// 			$applyid = $value['applyid'];
+	// 			$whereca['sjapplyquantity'] = $applyquantity;
+	// 			$whereca['shenhe'] = '已出库';
+	// 			// $ca -> where("applyid = '$applyid'") -> save($whereca);
+	// 			$sjapplyquantity = $sjapplyquantity - $applyquantity;
+	// 		}
+	// 	}
+
+	// 	foreach($cirr as &$value){
+
+	// 		$kcquantity = $value['kcquantity'];
+	// 		if($kcquantity >= $cisjapplyquantity){
+
+	// 			$inboundid = $value['inboundid'];
+	// 			$whereci['kcquantity'] = $value['kcquantity'] - $cisjapplyquantity;
+	// 			$cir = $ci -> where("inboundid = '$inboundid'") -> save($whereci);
+
+
+	// 			//请领和出库，嵌套在里面;所有出库数据就是此循环的inboundid
+
+
+
+	// 		}else{
+
+	// 			$inboundid = $value['inboundid'];
+	// 			$whereci['kcquantity'] = 0;
+	// 			$cir = $ci -> where("inboundid = '$inboundid'") -> save($whereci);
+	// 			$cisjapplyquantity = $cisjapplyquantity - $kcquantity;
+
+	// 		}
+	// 	}
+	// 	//先遍历申请情况,再遍历
+	// }
 
     public function outbounds(){
     	$productid = $_GET['productid'];
@@ -1891,7 +2259,7 @@ class IndexController extends Controller {
 		if(!$_GET){
 			$this->error('不能直接访问此页面' , U('index/index'));
 		}
-
+		
 		$dwname = cookie('dwname');
 		$wherecw['warehousedwname'] = $dwname['jgh'];
 		// $wherecw['stats'] = 0;
@@ -1903,6 +2271,10 @@ class IndexController extends Controller {
 		$cprr = $cp -> where($wherecp) -> select();
 		$this->assign('cprr' , $cprr);
 		$jgh = $_GET['jgh'];
+		$jd = M('jrdanwei');
+		$jdrr = $jd -> where("jgh = '$jgh'") -> select();
+		$this->assign('jdrr' , $jdrr);
+		cookie('jgh' , $jgh);
 		$this->display();
 	}
 	public function outbounddwname_upouts(){
@@ -1972,9 +2344,125 @@ class IndexController extends Controller {
 		echo $json;
 	}
 	public function outbounddwname_upouttemp(){
-		
+		$cot = M('costoutboundtemp');
+		$where['stats'] = 0;
+		$data = $cot -> where($where) -> select();
+		$data = $this->costinfos($data);
+		$count = $cot -> where($where) -> count();
+		$data = json_encode($data);
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$data.'}';
+		echo $json;
 	}
+	public function outbounddwnameerr_upout(){
+		$outboundtempid = $_POST['outboundtempid'];
 
+		$cot = M('costoutboundtemp');
+		$wherecot['stats'] = 1;
+		$cotr = $cot -> where("outboundtempid = '$outboundtempid'") -> save($wherecot);
+
+		$outboundid = $_POST['outboundid'];
+
+		$co = M('costoutbound');
+
+		$cor = $co -> where("outboundid = '$outboundid'") -> select();
+
+		$outquantity = $_POST['outquantity'];
+
+		$inboundid = $cor[0]['inboundid'];
+
+		// $whereco['kcapplyquantity'] = $cor[0]['kcapplyquantity'] + $outquantity;
+		$whereco['shenhe'] = '未出库';
+		$whereco['applyid'] = $cor[0]['applyid'] . '-1';
+		$corr = $co -> where("outboundid = '$outboundid'") -> save($whereco);
+
+		$ci = M('costinbound');
+		$cir = $ci -> where("inboundid = '$inboundid'") -> select();
+
+		$whereci['kcquantity'] = $cir[0]['kcquantity'] + $outquantity;
+		$cirr = $ci -> where("inboundid = '$inboundid'") -> save($whereci);
+
+		echo '删除成功';
+ 	}
+	public function outbounddwnamesuc_upout(){
+		$applyjgh = cookie('jgh');
+		$dwname = cookie('dwname');
+		var_dump($applyjgh);
+		$whereco['applyjgh'] = $applyjgh;
+		$whereco['productid'] = $_POST['productid'];
+		$whereco['warehouseid'] = $_POST['warehouseid'];
+		$whereco['pwid'] = $_POST['pwid'];
+		$whereco['shenhe'] = '出库中';
+		$whereco['date'] = date('Y-m-d');
+		// $whereco['applyquantity'] = $_POST['applyquantity'];
+		$whereco['applyid'] = 0;
+
+
+
+		$applyquantity = $_POST['applyquantity'];
+
+
+		$wherecot['productname'] = $_POST['productname'];
+		$wherecot['warehousedwname'] = $_POST['warehouse'];
+		$wherecot['producttype'] = $_POST['producttypename'];
+		// $wherecot['outquantity'] = $applyquantity;
+
+		$where['pwid'] = $_POST['pwid'];
+		$where['productjgh'] = $dwname['jgh'];
+		$where['sjquantity'] = array('gt',0);
+		$where['kcquantity'] = array('gt',0);
+
+		$ci = M('costinbound');
+		$cir = $ci -> where($where) -> select();
+
+		$co = M('costoutbound');
+		$cot = M('costoutboundtemp');
+		foreach($cir as &$value){
+
+			$kcquantity = $value['kcquantity'];
+			if(intval($kcquantity) >= intval($applyquantity)){
+
+				$inboundid = $value['inboundid'];
+				$whereco['inboundid'] = $value['inboundid'];
+				$whereco['applyquantity'] = $applyquantity;
+				$whereco['sjapplyquantity'] = $applyquantity;
+				$whereco['kcapplyquantity'] = $applyquantity;
+				
+				$cor = $co -> add($whereco);
+
+				$wherecot['outquantity'] = $applyquantity;
+				$wherecot['outboundid'] = $cor;
+
+				$cot -> add($wherecot);
+				
+				$whereci['kcquantity'] = $value['kcquantity'] - $applyquantity;
+				$ci -> where("inboundid = '$inboundid'") -> save($whereci);
+
+				echo '出库成功';
+
+			break;
+
+			}else{
+				$inboundid = $value['inboundid'];
+				$whereco['inboundid'] = $value['inboundid'];
+				$whereco['applyquantity'] = $value['kcquantity'];
+				$whereco['sjapplyquantity'] = $value['kcquantity'];
+				$whereco['kcapplyquantity'] = $value['kcquantity'];
+
+				$cor = $co -> add($whereco);
+
+				$wherecot['outquantity'] = $value['kcquantity'];
+				$wherecot['outboundid'] = $cor;
+				$cot -> add($wherecot);
+
+				$whereci['kcquantity'] = 0;
+				$ci -> where("inboundid = '$inboundid'") -> save($whereci);
+
+				$applyquantity = $applyquantity - $value['kcquantity'];
+
+			}
+		}
+
+	}
 
     public function applyproductconfirm(){
     	$dwname = cookie('dwname');
@@ -2637,7 +3125,58 @@ class IndexController extends Controller {
     	
     	$this->assign('data',$data);
     	$this->display();
-    }
+	}
+	public function dwcostreports(){
+		$dwname = cookie('dwname');
+		$jgh = $dwname['jgh'];
+
+		$wherecdo['outjgh'] = $jgh;
+		$wherecdo['shenhe'] = '出库中';
+		$wherecdo['outquantity'] = array('gt' , 0);
+		$date = substr($_POST['date_date'],0,10);
+    	$dates = substr($_POST['date_date'],-10,10);
+    	//var_dump($date,$dateo);
+		$wherecdo['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+
+		$cdo = M('costdwoutbound');
+		$cdor = $cdo -> where($wherecdo) -> field('outjgh , inboundid , pwid , productid , warehouseid , sum(outquantity) as sumoutquantity') -> group('productid , warehouseid , pwid , outjgh , inboundid') -> select();
+		$inboundid = $cdo -> where($wherecdo) -> distinct('inboundid') -> field('inboundid') -> select();
+		
+		foreach($inboundid as &$value){
+			$inbounds[] = $value['inboundid'];
+		}
+		if(!$inbounds){
+			$this->error('没有发生业务');
+		}
+		$whereci['inboundid'] = array('in' , $inbounds);
+		$ci = M('costinbound');
+		$cir = $ci -> where($whereci) -> field('inboundid , unitprice , vatprice , vatfill') -> select();
+
+		foreach($cdor as &$value){
+
+			foreach($cir as &$val){
+
+				if($value['inboundid'] == $val['inboundid']){
+
+					$value['unitprice'] = $val['unitprice'];
+				break;
+				}
+			}
+		}
+
+		foreach($cdor as &$value){
+			$value['cost'] = $value['unitprice'] * $value['sumoutquantity'];
+			$cost = $cost + $value['unitprice'] * $value['sumoutquantity'];
+		}
+		
+		$cdor = $this->costinfos($cdor);
+
+		$this->assign('cost' , $cost);
+		$this->assign('cdor' , $cdor);
+		$this->display();
+		// var_dump($cdor);
+	}
+
     public function backlog(){
     	$dwname = cookie('dwname');
     	$ca = M('costapply');
@@ -2687,7 +3226,7 @@ class IndexController extends Controller {
     	
     	$where['remark'] = '0库存申请调配';
     	$where['shenhe'] = '已出库';
-    	$where['date'] = $where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+    	$where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
     	
     	$ca = M('costapply');
     	$carr= $ca -> where($where) -> select();
@@ -2952,7 +3491,226 @@ class IndexController extends Controller {
     	$this->assign('data',$datas);
     	//var_dump($data);
     	$this->display();
-    }
+	}
+	public function warehouseproductalls(){
+		$dwname = cookie('dwname');
+		$ci = M('costinbound');
+
+		$date = substr($_POST['date_date'],0,10);
+		$dates = substr($_POST['date_date'],-10,10);
+		$whereall['date'] = array('elt' , $dates);
+		$whereall['shenhe'] = array('notin' , '未审核');
+		$whereall['dwname'] = $dwname['jgh'];
+
+		//获取到区间内有关产品的信息
+		$productall = $ci -> where($whereall) -> field('productid') -> distinct('productid') -> select();
+		foreach($productall as &$value){
+
+			$productalls[] = $value['productid'];
+		}
+		// $where['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+    	//仓库期初库存;日期范围前 所有入库的数量减去出库的数量
+    	$whereci['date'] = array('lt',$date);
+		$whereci['dwname'] = $dwname['jgh'];
+		
+		$whereci['shenhe'] = array('notin' , '未审核');
+		//获取期初的库存
+		$cirr = $ci -> where($whereci) -> field('productid , unitprice , vatprice , vatfill , sum(sjquantity) as sumsjquantity') -> group('productid , unitprice , vatprice , vatfill') -> select();
+		
+		$whereco['shenhe'] = '出库中';
+
+		$whereco['date'] = array('lt',$date);
+		
+		if(!$productalls){
+			$this->error('没有任何进出库');
+		}else{
+			$whereco['productid'] = array('in' , $productalls);
+			$wherecock['productid'] = array('in' , $productalls);
+			$wherecoend['productid'] = array('in' , $productalls);
+		}
+		//获取期初的出库库存，相减
+		$co = M('costoutbound');
+		$corr = $co -> where($whereco) -> field('productid , inboundid , sum(sjapplyquantity) as sumsjapplyquantity') -> group('productid , inboundid') -> select();
+		foreach($corr as &$value){
+			$inboundid = $value['inboundid'];
+			$cir = $ci -> where("inboundid = '$inboundid'") -> field('unitprice , vatprice , vatfill') -> find();
+			$value['unitprice'] = $cir['unitprice'];
+			$value['vatprice'] = $cir['vatprice'];
+			$value['vatfill'] = $cir['vatfill'];
+		}
+
+		foreach($cirr as &$value){
+			$value['cost'] = $value['sumsjquantity'] * $value['unitprice'];
+			$value['vatcost'] = round($value['sumsjquantity'] * $value['unitprice'] / (1 +  $value['vatprice'] + $value['vatfill']) , 2);
+		}
+		foreach($corr as &$value){
+			$value['cost'] = $value['sumsjapplyquantity'] * $value['unitprice'];
+			$value['vatcost'] = round($value['sumsjapplyquantity'] * $value['unitprice'] / (1 +  $value['vatprice'] + $value['vatfill']) , 2);
+		}
+
+		foreach($productall as &$value){
+
+			foreach($cirr as &$val){
+
+				if($value['productid'] == $val['productid']){
+
+					$value['cost'] = round($value['cost'] + $val['cost'] , 2);
+					$value['vatcost'] = round($value['vatcost'] + $val['vatcost'] , 2);
+					continue;
+
+				}
+
+			}
+
+		}
+		
+		foreach($productall as &$value){
+
+			foreach($corr as &$val){
+
+				if($value['productid'] == $val['productid']){
+
+					$value['cost'] = $value['cost'] - $val['cost'];
+					$value['vatcost'] = $value['vatcost'] - $val['vatcost'];
+					continue;
+					
+				}
+			}
+		}
+		//库存日期范围内入库的总量
+		$wherecirk['shenhe'] = array('notin' , '未审核');
+		$wherecirk['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		$wherecirk['dwname'] = $dwname['jgh'];
+		$cirk = $ci -> where($wherecirk) -> field('productid , unitprice , vatprice , vatfill , sum(sjquantity) as sumsjquantity') -> group('productid , unitprice , vatprice , vatfill') -> select();
+
+		foreach($cirk as &$value){
+
+			$value['costrk'] = $value['sumsjquantity'] * $value['unitprice'];
+			$value['vatcostrk'] = round($value['sumsjquantity'] * $value['unitprice'] / (1 +  $value['vatprice'] + $value['vatfill']) , 2);
+			
+		}
+
+		foreach($productall as &$value){
+
+			foreach($cirk as &$val){
+
+				if($value['productid'] == $val['productid']){
+
+					$value['costrk'] = round($value['costrk'] + $val['costrk'] , 2);
+					$value['vatcostrk'] = round($value['vatcostrk'] + $val['vatcostrk'] , 2);
+					continue;
+				}
+			}
+		}
+
+		//库存日期范围内出库的总量
+		$wherecock['date'] = array( array('egt',$date) , array('elt',$dates) , 'and' );
+		$wherecock['shenhe'] = '出库中';
+		$cock = $co -> where($wherecock) -> field('productid , inboundid , sum(sjapplyquantity) as sumsjapplyquantity') -> group('productid , inboundid') -> select();
+		foreach($cock as &$value){
+			$inboundid = $value['inboundid'];
+			$cir = $ci -> where("inboundid = '$inboundid'") -> field('unitprice , vatprice , vatfill') -> find();
+			$value['unitprice'] = $cir['unitprice'];
+			$value['vatprice'] = $cir['vatprice'];
+			$value['vatfill'] = $cir['vatfill'];
+			$value['costck'] = $value['sumsjapplyquantity'] * $value['unitprice'];
+			$value['vatcostck'] = round($value['sumsjapplyquantity'] * $value['unitprice'] / (1 +  $value['vatprice'] + $value['vatfill']) , 2);
+		}
+
+		foreach($productall as &$value){
+
+			foreach($cock as &$val){
+
+				if($value['productid'] == $val['productid']){
+
+					$value['costck'] = round($value['costck'] + $val['costck'] , 2);
+					$value['vatcostck'] = round($value['vatcostck'] + $val['vatcostck'] , 2);
+					continue;
+				}
+			}
+		}
+
+		$whereciend['date'] = array('elt',$dates);
+		$whereciend['dwname'] = $dwname['jgh'];
+		
+		$whereciend['shenhe'] = array('notin' , '未审核');
+		//获取期末的库存
+		$ciend = $ci -> where($whereciend) -> field('productid , unitprice , vatprice , vatfill , sum(sjquantity) as sumsjquantity') -> group('productid , unitprice , vatprice , vatfill') -> select();
+
+		$wherecoend['shenhe'] = '出库中';
+
+		$wherecoend['date'] = array('elt',$dates);
+
+		$coend = $co -> where($wherecoend) -> field('productid , inboundid , sum(sjapplyquantity) as sumsjapplyquantity') -> group('productid , inboundid') -> select();
+		foreach($coend as &$value){
+			$inboundid = $value['inboundid'];
+			$cir = $ci -> where("inboundid = '$inboundid'") -> field('unitprice , vatprice , vatfill') -> find();
+			$value['unitprice'] = $cir['unitprice'];
+			$value['vatprice'] = $cir['vatprice'];
+			$value['vatfill'] = $cir['vatfill'];
+			$value['costend'] = $value['sumsjapplyquantity'] * $value['unitprice'];
+			$value['vatcostend'] = round($value['sumsjapplyquantity'] * $value['unitprice'] / (1 +  $value['vatprice'] + $value['vatfill']) , 2);
+		}
+		
+		foreach($ciend as &$value){
+
+			$value['costend'] = $value['sumsjquantity'] * $value['unitprice'];
+			$value['vatcostend'] = round($value['sumsjquantity'] * $value['unitprice'] / (1 +  $value['vatprice'] + $value['vatfill']) , 2);
+			
+		}
+
+		foreach($productall as &$value){
+
+			foreach($ciend as &$val){
+ 
+				if($value['productid'] == $val['productid']){
+
+					$value['costend'] = $value['costend'] + $val['costend'];
+					$value['vatcostend'] = $value['vatcostend'] + $val['vatcostend'];
+					continue;
+				}
+			}
+		}
+
+		foreach($productall as &$value){
+
+			foreach($coend as &$val){
+
+				if($value['productid'] == $val['productid']){
+
+					$value['costend'] = round($value['costend'] - $val['costend'] , 2);
+					$value['vatcostend'] = round($value['vatcostend'] - $val['vatcostend'] , 2);
+					continue;
+				}
+			}
+		}
+
+		$cp = M('costproduct');
+		$jgh = $dwname['jgh'];
+		$cprr = $cp -> where("productdwname = '$jgh'") -> select();
+
+		foreach($productall as &$value){
+
+			foreach($cprr as &$val){
+
+				if($value['productid'] == $val['productid']){
+
+					$value['productname'] = $val['productname'];
+				break;
+				}
+			}
+		}
+
+		$this->assign('data' , $productall);
+		$this->assign('date' , $date);
+		$this->assign('dates' , $dates);
+		$this->display();
+
+		// var_dump($productall , $ciend , $coend , $cirk , $cirr , $corr);
+
+
+	}
+
     public function financewarehouse(){
     	$dwname = cookie('dwname');
 		

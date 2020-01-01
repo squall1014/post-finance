@@ -285,9 +285,7 @@
 	      });
 	    } else if(obj.event === 'edit'){
 			console.log(data);
-			layer.confirm('确认要冲正吗？', {
-				btn: ['确认','取消'] //按钮
-			}, function(){
+			layer.confirm('确认要冲正吗？', function(index){
 				$.ajax({
 					type:"post",
 					
@@ -302,10 +300,12 @@
 					},
 					
 					success:function(result){
-						layer.close();
-						window.location.reload();
+						// alert(result)
 					},
+					
 				});
+				obj.del();
+	        layer.close(index);
 			}, function(){
 				
 			});

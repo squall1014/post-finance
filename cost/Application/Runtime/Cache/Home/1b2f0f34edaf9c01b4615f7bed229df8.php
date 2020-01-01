@@ -169,6 +169,8 @@
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/outbound_up">产品确认出库(新版)</a></dd>
+
             <dd><a href="/cost/index.php/Home/Index/outbounddwname_up">产品直接出库</a></dd>
           </dl>
         </li>

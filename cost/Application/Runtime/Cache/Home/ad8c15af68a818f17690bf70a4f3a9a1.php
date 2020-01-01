@@ -75,6 +75,7 @@
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch_up">产品请领状态查询</a></dd>
             <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
           </dl>
         </li>
@@ -108,6 +109,8 @@
           <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">库存管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehousereport">库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/dwcostreport">按日期查询上缴费用</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -168,6 +171,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsh_up">产品申请确认(新版)</a></dd>
+
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/outbound_up">产品确认出库(新版)</a></dd>
 
@@ -224,7 +229,7 @@
     <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
     	<div class="layui-card" style="width: 100%;">
         	<div class="layui-card-header">
-        		<font size="4">网点直接出库</font>
+        		<font size="4">网点确认出库</font>
         	</div>
         <div class="layui-card-body">
         <hr class="layui-bg-red">
@@ -301,7 +306,7 @@
 	  //金融网点、营业网点、寄递、机关
       ,{field:'warehouse', title:'所在仓库', width:120,sort: true}
       ,{field:'productname', title:'产品名称', width:120,sort: true}
-      ,{field:'sumapplyquantity', title:'请领数量', width:120,sort: true}
+      ,{field:'applyquantity', title:'请领数量', width:120,sort: true}
 	  ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:75}
     //   ,{field:'sumkcquantity', title:'库存', width:400, edit: 'text', sort: true}
     ]]
@@ -494,9 +499,10 @@
 	      layer.prompt({
 	        formType: 2
 			,title: '请输入数量'
+			,value: data.applyquantity
 	        // ,value: data.sumkcquantity
 	      }, function(value, index){
-			  if(parseInt(value) > parseInt(data.sumapplyquantity)){
+			  if(parseInt(value) > parseInt(data.applyquantity)){
 				  alert("出库数量不能大于请领数量")
 				  
 			  }else{
@@ -508,8 +514,13 @@
 					async:true,
 					
 					data:{
+						applyid: data.applyid,
 						applyjgh: data.applyjgh,
 						pwid: data.pwid,
+						productid: data.productid,
+						warehouseid: data.warehouseid,
+						applyquantity: data.applyquantity,
+						
 						jgh: data.productjgh,
 						sjapplyquantity: value,
 					},
@@ -519,7 +530,8 @@
 					},
 	    		});
 				layer.close(index);
-				window.location.reload();
+				obj.del();
+				// window.location.reload();
 			  }
 	        
 	      });

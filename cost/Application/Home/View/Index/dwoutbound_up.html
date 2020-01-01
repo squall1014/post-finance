@@ -312,7 +312,10 @@
 					},
 	    		});
 				layer.close(index);
-				window.location.reload();
+				// window.location.reload();
+				obj.update({
+					kcapplyquantity: data.kcapplyquantity - value,
+				})
 			  }
 	        
 	      });

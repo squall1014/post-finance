@@ -75,6 +75,7 @@
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch_up">产品请领状态查询</a></dd>
             <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
           </dl>
         </li>
@@ -113,7 +114,9 @@
         <li class="layui-nav-item">
           <?php if($user["jrywbqx"] == 0 and $user["qx"] == 5): ?><a class="" href="javascript:;">0库存产品申请</a><?php else: endif; ?>
           <dl class="layui-nav-child">
-            <dd><a href="/cost/index.php/Home/Index/applyproductzero">0库存产品申请</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductzero/productdwname/28">0库存金融部产品申请</a></dd>
+            <!-- <dd><a href="/cost/index.php/Home/Index/applyproductzero/productdwname/58">0库存市场部产品申请</a></dd> -->
+
             <dd><a href="/cost/index.php/Home/Index/applyproductzeromodify">0库存产品修改</a></dd>
           </dl>
         </li>
@@ -166,7 +169,12 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsh_up">产品申请确认(新版)</a></dd>
+
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/outbound_up">产品确认出库(新版)</a></dd>
+
+            <dd><a href="/cost/index.php/Home/Index/outbounddwname_up">产品直接出库</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">

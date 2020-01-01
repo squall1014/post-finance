@@ -69,6 +69,7 @@
           	
             <dd><a href="__URL__/applyproduct_up">单位产品请领</a></dd>
             <dd><a href="__URL__/applyproductmodify_up">产品请领数量编辑</a></dd>
+            <dd><a href="__URL__/applyproductsearch_up">产品请领状态查询</a></dd>
             <!-- <dd><a href="__URL__/applyproductsearch">产品请领查询</a></dd> -->
           </dl>
         </li>
@@ -102,6 +103,8 @@
           <if condition="$user.qx eq 5"><a class="" href="javascript:;">库存管理</a><else /></if>
           <dl class="layui-nav-child">
             <dd><a href="__URL__/warehousereport">库存报表</a></dd>
+            <dd><a href="__URL__/dwcostreport">按日期查询上缴费用</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -162,6 +165,8 @@
           <dl class="layui-nav-child">
             <dd><a href="__URL__/inboundsh">产品确认入库</a></dd>
             <dd><a href="__URL__/applyproductsh">产品申请确认</a></dd>
+            <dd><a href="__URL__/applyproductsh_up">产品申请确认(新版)</a></dd>
+
             <dd><a href="__URL__/outbound">产品确认出库</a></dd>
             <dd><a href="__URL__/outbound_up">产品确认出库(新版)</a></dd>
 
@@ -190,6 +195,8 @@
           <dl class="layui-nav-child">
             <dd><a href="__URL__/warehouseall">本部门产品库存报表</a></dd>
             <dd><a href="__URL__/productall">本部门仓库库存报表</a></dd>
+            <dd><a href="__URL__/warehouseproductall">本部门库存产品费用报表</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">

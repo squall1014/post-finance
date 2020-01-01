@@ -75,6 +75,7 @@
           	
             <dd><a href="/cost/index.php/Home/Index/applyproduct_up">单位产品请领</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductmodify_up">产品请领数量编辑</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsearch_up">产品请领状态查询</a></dd>
             <!-- <dd><a href="/cost/index.php/Home/Index/applyproductsearch">产品请领查询</a></dd> -->
           </dl>
         </li>
@@ -108,6 +109,8 @@
           <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">库存管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehousereport">库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/dwcostreport">按日期查询上缴费用</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -168,6 +171,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsh_up">产品申请确认(新版)</a></dd>
+
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/outbound_up">产品确认出库(新版)</a></dd>
 
@@ -224,8 +229,11 @@
     <h1><div style="padding: 15px;">余杭区邮政费用分摊系统</div></h1>
     	<div class="layui-card" style="width: 100%;">
         	<div class="layui-card-header">
-        		<font size="4">网点库存出库</font>
-        	</div>
+        		<font size="5">网点库存出库</font>
+			</div>
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				<legend><?php echo ($jdrr[0]['dwname']); ?></legend>
+			  </fieldset>
         <div class="layui-card-body">
         <hr class="layui-bg-red">
     		
@@ -278,8 +286,8 @@
 		 <div class="layui-card-body">
 			<table class="layui-hide" id="test_one" lay-filter="test_one"></table>
 			<script type="text/html" id="barDemo_one">
-				<a class="layui-btn layui-btn-xs" lay-event="edit">删除</a>
-				<!-- <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a> -->
+				<!-- <a class="layui-btn layui-btn-xs" lay-event="edit">删除</a> -->
+				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 			  </script>
 		 </div>
         </div>
@@ -299,25 +307,38 @@
   table.render({
     elem: '#test_one'
     ,url:'<?php echo U("outbounddwname_upouttemp");?>'
-    ,toolbar: '#toolbarDemo'
+    ,toolbar: '#toolbarDemo_one'
     ,title: '用户数据表'
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field:'productid', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-      ,{field:'productname', title:'产品名称', width:180, unresize: true, sort: true}
-      ,{field:'productdwname', title:'产品所属单位', width:120,sort: true}
-      ,{field:'warehouse', title:'产品所在仓库', width:120,sort: true}
-	  ,{field:'producttypename', title:'所属类别', width:100, sort: true}
-      ,{field:'sumkcquantity', title:'可请领库存', width:120, sort: true}
+	  ,{field:'productname', title:'产品名称', width:180, unresize: true, sort: true}
+	  ,{field:'outquantity', title:'出库数量', width:120, sort: true}
+      ,{field:'warehousedwname', title:'产品所在仓库', width:120,sort: true}
+	  ,{field:'producttype', title:'所属类别', width:100, sort: true}
+      
 	  ,{fixed: 'right', title:'操作', toolbar: '#barDemo_one', width:75}
     //   ,{field:'sumkcquantity', title:'库存', width:400, edit: 'text', sort: true}
     ]]
-    ,id: 'testReload'
+    ,id: 'testReload_one'
     ,page: true
     //,limits: [10, 20, 30]
     ,limit: 20 //每页默认显示的数量
   });
-
+  var $ = layui.$, active = {
+       reload: function(){
+       var whReload = $('#whReload');
+       var pcReload = $('#pcReload');
+       var dateReload = $('#date');
+        table.reload('testReload_one', {
+              where: {
+                 warehouseid: whReload.val(),
+                 product: pcReload.val(),
+                 date: dateReload.val()
+                 }
+            });
+          }
+       };
   table.render({
     elem: '#test'
     ,url:'<?php echo U("outbounddwname_upouts");?>'
@@ -330,14 +351,14 @@
       ,{field:'productdwname', title:'产品所属单位', width:120,sort: true}
       ,{field:'warehouse', title:'产品所在仓库', width:120,sort: true}
 	  ,{field:'producttypename', title:'所属类别', width:100, sort: true}
-      ,{field:'sumkcquantity', title:'可请领库存', width:120, sort: true}
+      ,{field:'sumkcquantity', title:'可出库数量', width:120, sort: true}
 	  ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:75}
     //   ,{field:'sumkcquantity', title:'库存', width:400, edit: 'text', sort: true}
     ]]
     ,id: 'testReload'
     ,page: true
     //,limits: [10, 20, 30]
-    ,limit: 20 //每页默认显示的数量
+    ,limit: 10 //每页默认显示的数量
   });
   	var $ = layui.$, active = {
        reload: function(){
@@ -509,7 +530,38 @@
 	    
 	  });
 	  
-	 	//监听行工具事件
+		 //监听行工具事件
+	  table.on('tool(test_one)', function(obj){
+		var data = obj.data;
+	    console.log(obj)
+	    if(obj.event === 'del'){
+	      layer.confirm('真的删除出库记录么', function(index){
+			console.log(data);
+			$.ajax({
+					type:"post",
+					
+					url:'<?php echo U("outbounddwnameerr_upout");?>',
+					
+					async:true,
+					
+					data:{
+						outboundtempid: data.outboundtempid,
+						outboundid: data.outboundid,
+						outquantity: data.outquantity
+					},
+					
+					success:function(result){
+						alert(result)
+					},
+	    		});
+				layer.close(index);
+				obj.del();
+				
+			layer.close(index);
+			window.location.reload();
+		  });
+		}
+	  })
 	  table.on('tool(test)', function(obj){
 	    var data = obj.data;
 	    //console.log(obj)
@@ -519,7 +571,7 @@
 	        layer.close(index);
 	      });
 	    } else if(obj.event === 'edit'){
-			console.log(data);
+		  console.log(data);
 	      layer.prompt({
 	        formType: 2
 			,title: '请输入出库数量'
@@ -532,7 +584,7 @@
 				$.ajax({
 					type:"post",
 					
-					// url:'<?php echo U("applyproductsuc_up");?>',
+					url:'<?php echo U("outbounddwnamesuc_upout");?>',
 					
 					async:true,
 					
@@ -540,6 +592,13 @@
 						productid: data.productid,
 						warehouseid: data.warehouseid,
 						pwid: data.pwid,
+						applyid: 0,
+						productjgh: data.productjgh,
+						
+						productname: data.productname,
+						warehouse: data.warehouse,
+						producttypename: data.producttypename,
+
 						jgh: data.productjgh,
 						applyquantity: value,
 					},

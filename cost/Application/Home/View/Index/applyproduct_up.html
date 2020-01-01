@@ -280,7 +280,7 @@
 	        layer.close(index);
 	      });
 	    } else if(obj.event === 'edit'){
-			console.log(data);
+			console.log(obj);
 	      layer.prompt({
 	        formType: 2
 			,title: '请输入数量'
@@ -310,7 +310,10 @@
 					},
 	    		});
 				layer.close(index);
-				window.location.reload();
+				// window.location.reload();
+				obj.update({
+					sumkcquantity: data.sumkcquantity - value,
+				});
 			  }
 	        
 	      });
