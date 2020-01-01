@@ -201,6 +201,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehouseall">本部门产品库存报表</a></dd>
             <dd><a href="/cost/index.php/Home/Index/productall">本部门仓库库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/warehouseproductall">本部门库存产品费用报表</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">

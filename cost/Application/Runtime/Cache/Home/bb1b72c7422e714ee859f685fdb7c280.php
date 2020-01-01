@@ -201,6 +201,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehouseall">本部门产品库存报表</a></dd>
             <dd><a href="/cost/index.php/Home/Index/productall">本部门仓库库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/warehouseproductall">本部门库存产品费用报表</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -265,7 +267,7 @@
 					
 					<script type="text/html" id="toolbarDemo">
 					  <div class="layui-btn-container">
-					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">查看</button>
+					    <button class="layui-btn layui-btn-sm" lay-event="getCheckstats">批量审核同意</button>
 					  </div>
 					</script>
 					
@@ -391,60 +393,33 @@
 		  var datas = new Array();
 		  len = data.data.length;
 			for(i = 0; i < len; i++){
-				console.log(data.data);
-				datas[i] = data.data[i]['productid'];
+				// console.log(data.data);
+				datas[i] = data.data[i]['applyid'];
 			}
-		  console.log(datas);
-		  layer.open({
-			  type: 2
-			  ,title: '出库情况'
-			  ,area: ['1000px' , '400px']
-			  ,shade: 0
-			  ,maxmin: true
-			  ,content: 'applyproducts_up.html?productid='+datas
-			  ,cancel: function(index, layero){ 
-				if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
-					layer.close(index);
-					window.location.reload();
-					}
-					return false; 
-				}
-		  })
-	        // if(data.data.length > 1){
-			// 	      //配置一个透明的询问框
-			// 	      layer.msg('每次操作只能办理一张积分卡', {
-			// 	        time: 10000, //20s后自动关闭
-			// 	        btn: ['明白了',]
-			// 	      });
-	        // }else{
-	        // 		datas = data.data[0]['cardid'];
-	        // 		datass = data.data[0]['cardinid'];
-	        // 		datasss = data.data[0]['card'];
-		    //     	layer.open({
-			// 	        type: 2 //此处以iframe举例
-			// 	        ,title: '发卡'
-			// 	        ,area: ['800px', '600px']
-			// 	        ,shade: 0
-			// 	        ,maxmin: true
-				        
-			// 	        ,content: 'pointcardhair.html?cardid='+datas+'&cardinid='+datass+'&card='+datasss
-				        
-			// 	        ,btn2: function(){
-			// 	          layer.closeAll();
-			// 	        }
-			// 	        ,cancel: function(index, layero){ 
-			// 					  if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
-			// 					    layer.close(index);
-			// 					    window.location.reload();
-			// 					  }
-			// 					  return false; 
-			// 					}    
-			// 	        ,zIndex: layer.zIndex //重点1
-			// 	        ,success: function(layero){
-			// 	          layer.setTop(layero); //重点2
-			// 	        }
-			//       });
-	        // }
+			
+			if(datas.length === 0){
+				layer.msg('请选择需要审核的项目');
+			}else{
+				// console.log(obj)
+				$.ajax({
+					type:"post",
+					
+					url:'<?php echo U("applyproductshbatch_up");?>',
+					
+					async:true,
+					
+					data:{
+						applyid: datas,
+					},
+					
+					success:function(result){
+						layer.msg(result)
+					},
+				})
+				window.location.reload();
+			}
+				
+		 
 	        
 	        
 	        

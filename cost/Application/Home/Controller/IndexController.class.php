@@ -1888,6 +1888,29 @@ class IndexController extends Controller {
 			echo "审核通过";
 		}
 	}
+	public function applyproductshbatch_up(){
+		$applyid = $_POST['applyid'];
+		$ca = M('costapply');
+		$where['shenhe'] = '审核同意';
+		foreach($applyid as $key => $value){
+
+			$carr = $ca -> where("applyid = '$value'") -> select();
+			$where['sjapplyquantity'] = $carr['applyquantity'];
+
+			$car = $ca -> where("applyid = '$value'") -> save($where);
+
+		}
+			
+
+
+			
+		
+		if($car > 0){
+
+			echo "批量审核通过";
+		}
+
+	}
 
 
     public function outbound(){
@@ -1895,7 +1918,6 @@ class IndexController extends Controller {
     	$jgh = $dwname['jgh'];
     	$ca = M('costapply');
     	$where['shenhe'] = '审核同意';
-    	
     	$cw = M('costwarehouse');
     	$cwrr = $cw -> field('warehouseid') -> where("warehousedwname = '$jgh'") -> select();
     	foreach($cwrr as &$value){
@@ -1918,7 +1940,7 @@ class IndexController extends Controller {
 //  	}
     	
     	$this -> assign('data',$data);
-    	//var_dump($data);
+    	// var_dump($data);
     	$this -> display();
 	}
 	

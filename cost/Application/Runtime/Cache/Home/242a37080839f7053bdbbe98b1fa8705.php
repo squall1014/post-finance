@@ -109,6 +109,8 @@
           <?php if($user["qx"] == 5): ?><a class="" href="javascript:;">库存管理</a><?php else: endif; ?>
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehousereport">库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/dwcostreport">按日期查询上缴费用</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -169,6 +171,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/inboundsh">产品确认入库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/applyproductsh">产品申请确认</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/applyproductsh_up">产品申请确认(新版)</a></dd>
+
             <dd><a href="/cost/index.php/Home/Index/outbound">产品确认出库</a></dd>
             <dd><a href="/cost/index.php/Home/Index/outbound_up">产品确认出库(新版)</a></dd>
 
@@ -197,6 +201,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehouseall">本部门产品库存报表</a></dd>
             <dd><a href="/cost/index.php/Home/Index/productall">本部门仓库库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/warehouseproductall">本部门库存产品费用报表</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">

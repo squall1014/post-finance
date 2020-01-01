@@ -201,6 +201,8 @@
           <dl class="layui-nav-child">
             <dd><a href="/cost/index.php/Home/Index/warehouseall">本部门产品库存报表</a></dd>
             <dd><a href="/cost/index.php/Home/Index/productall">本部门仓库库存报表</a></dd>
+            <dd><a href="/cost/index.php/Home/Index/warehouseproductall">本部门库存产品费用报表</a></dd>
+
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -312,9 +314,6 @@
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field:'productid', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-	  ,{field:'productname', title:'产品名称', width:180, unresize: true, sort: true}
-	  ,{field:'outquantity', title:'出库数量', width:120, sort: true}
-      ,{field:'warehousedwname', title:'产品所在仓库', width:120,sort: true}
 	  ,{field:'producttype', title:'所属类别', width:100, sort: true}
       
 	  ,{fixed: 'right', title:'操作', toolbar: '#barDemo_one', width:75}
