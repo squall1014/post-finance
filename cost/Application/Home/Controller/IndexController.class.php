@@ -629,7 +629,7 @@ class IndexController extends Controller {
     	$where['pwid'] = $_POST['productid'].$_POST['warehouseid'];
     	$where['unitprice'] = $_POST['unitprice'];
     	$where['quantity'] = $_POST['quantity'];
-    	$where['sjquantity'] = 0;
+    	$where['sjquantity'] = $_POST['quantity'];
     	$where['kcquantity'] = 0;
     	$where['vatprice'] = $_POST['vatprice']/100;
     	$where['vatfill'] = $_POST['vatfill']/100;
@@ -637,7 +637,7 @@ class IndexController extends Controller {
     	$where['totalprice'] = 0;
     	$where['vat'] = $_POST['vat'];
     	$where['shenhebill'] = '未审核';
-    	$where['shenhe'] = '未审核';
+    	$where['shenhe'] = '部分审核';
     	$where['inboundnum'] = $_POST['inboundnum'];
     	$where['date'] = date('Y-m-d');
     	$ci = M('costinbound');
@@ -1794,8 +1794,12 @@ class IndexController extends Controller {
 		foreach($cprr as &$value){
 			$producttype[] = $value['productid'];
 		}
+		if(!$producttype){
 
-		$whereco['productid'] = array('in' , $producttype);
+		}else{
+			$whereco['productid'] = array('in' , $producttype);
+		}
+		// $whereco['productid'] = array('in' , $producttype);
 		$whereco['shenhe'] = '出库中';
 		$co = M('costoutbound');
 		$corr = $co -> where($whereco) -> field('applyjgh , productid , sum(kcapplyquantity) as sumkc') -> group('applyjgh , productid') -> select();
@@ -1911,7 +1915,22 @@ class IndexController extends Controller {
 		}
 
 	}
+	public function applyproductsherr_up(){
+		$where['applyid'] = $_POST['applyid'];
 
+		$sjapplyquantity = $_POST['sjapplyquantity'];
+
+		$whereca['sjapplyquantity'] = $sjapplyquantity;
+		$whereca['shenhe'] = '审核不同意';
+		$ca = M('costapply');
+
+		$carr = $ca -> where($where) -> save($whereca);
+
+		if($carr > 0){
+
+			echo "审核不通过";
+		}
+	}
 
     public function outbound(){
     	$dwname = cookie('dwname');

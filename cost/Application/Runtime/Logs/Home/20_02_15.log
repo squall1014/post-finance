@@ -1,0 +1,5 @@
+[ 2020-02-15T10:28:18+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_networks.html?page=1&limit=15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000759s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001552s ]
+

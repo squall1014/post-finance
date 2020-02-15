@@ -522,7 +522,7 @@
 					},
 					
 					success:function(result){
-						alert(result)
+						layer.msg(result)
 					},
 	    		});
 				layer.close(index);

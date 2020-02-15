@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title><?php echo ($jdrr[0]['dwname']); ?>--<?php echo ($ieqrr[0]['equipment']); ?></title>
     <meta name="renderer" content="webkit">
     <meta content="access-control-allow-origin: *">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,9 @@
 <body>
 <div class="layuimini-container">
     <div class="layuimini-main">
-
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend><?php echo ($jdrr[0]['dwname']); ?>-<?php echo ($ieqrr[0]['equipment']); ?></legend>
+        </fieldset>
         <fieldset class="layui-elem-field layuimini-search">
             <legend>搜索信息</legend>
             <div style="margin: 10px 10px 10px 10px">

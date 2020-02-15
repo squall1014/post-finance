@@ -195,7 +195,7 @@ class IcController extends Controller {
 	public function welcome(){
 		$ieq = M('icequipment');
 		$where['stats'] = 0;
-		$ieqr = $ieq -> where($where) -> select();
+		$ieqr = $ieq -> where($where) -> order('sort asc') -> select();
 		$this->assign('ieqr',$ieqr);
 		$this->display();
 	}
@@ -217,7 +217,7 @@ class IcController extends Controller {
 
 				if($value['dwnames'] == $val['jgh']){
 					
-					$value[$val['equipmentid']] = $val['device_sub'] . $val['dispose'] . $value[$val['equipmentid']];
+					$value[$val['equipmentid']] = $val['device_sub'] . $val['dispose'] . ' | ' . $value[$val['equipmentid']];
 					// $whereieq['equipmentid'] = $val['equipmentid'];
 					// $ieqr = $ieq -> where($whereieq) -> select();
 
@@ -244,6 +244,20 @@ class IcController extends Controller {
 		// $where['stats'] = 0;
 		$tablemat_classid = $_GET['tablemat_classid'];
 		cookie('tablemat_classid' , $tablemat_classid);
+		
+		$jd = M('jrdanwei');
+
+		$wherejd['dwnames'] = $equipment['jgh'];
+
+		$jdrr = $jd -> where($wherejd) -> select();
+
+		$ieq = M('icequipment');
+
+		$whereieq['equipmentid'] = $equipment['equipmentid'];
+
+		$ieqrr = $ieq -> where($whereieq) -> select();
+
+		
 
 		// $itm = M('ictablemat');
 		// $itmr = $itm -> where($where) -> select();
@@ -264,7 +278,9 @@ class IcController extends Controller {
 		// }
 		// $this->assign('itmr' , $itmr);
 		// var_dump($itmr);
-		
+		// var_dump($equipment , $ieqrr , $jdrr);
+		$this->assign('jdrr' , $jdrr);
+		$this->assign('ieqrr' , $ieqrr);
 		cookie('equipment' , $equipment);
 		$this->display();
 	}
@@ -314,6 +330,22 @@ class IcController extends Controller {
 		$where['tablemat_classid'] = $_GET['tablemat_classid'];
 		$where['stats'] = 0;
 		$tablemat_classid = $_GET['tablemat_classid'];
+
+		$jd = M('jrdanwei');
+
+		$wherejd['dwnames'] = $equipment['jgh'];
+
+		$jdrr = $jd -> where($wherejd) -> select();
+
+		$ieq = M('icequipment');
+
+		$whereieq['equipmentid'] = $equipment['equipmentid'];
+
+		$ieqrr = $ieq -> where($whereieq) -> select();
+
+		$this->assign('jdrr' , $jdrr);
+		$this->assign('ieqrr' , $ieqrr);
+
 		cookie('tablemat_classid' , $tablemat_classid);
 		cookie('equipment' , $equipment);
 		$this->display();
@@ -415,6 +447,62 @@ class IcController extends Controller {
 
 		echo $json;
 	}
+	public function network(){
+		$iw = M('icswitch');
+
+		$iwrr = $iw -> select();
+
+		$this->assign('iwrr' , $iwrr);
+		$this->display();
+	}
+	public function networks(){
+		$iw = M('icswitch');
+
+		$iwrr = $iw -> select();
+
+		$jd = M('jrdanwei');
+
+		$jdrr = $jd -> select();
+
+		foreach($iwrr as &$value){
+
+			foreach($jdrr as &$val){
+
+				if($value['jgh'] == $val['jgh']){
+
+					$value['dwnames'] = $val['dwname'];
+				break;
+				}
+			}
+		}
+
+		$count = $iw -> count();
+		$json = json_encode($iwrr);
+
+		$json = '{"code":0,"msg":"","count":'.$count.',"data":'.$json.'}';
+
+		echo $json;
+		
+	}
+	public function networksuc(){
+		$iw = M('icswitch');
+
+		$switchid = $_POST['switchid'];
+
+		$where[$_POST['field']] = $_POST['value'];
+
+		$iwrr = $iw -> where("switchid = '$switchid'") -> save($where);
+
+		if($iwrr > 0){
+			echo '修改成功';
+		}else{
+			echo '修改失败';
+		}
+	}
+
+
+
+
 
 	public function table_selects(){
 		var_dump($_POST);

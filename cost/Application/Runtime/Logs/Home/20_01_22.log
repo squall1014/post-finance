@@ -1,0 +1,1005 @@
+[ 2020-01-22T16:40:33+08:00 ] ::1 /cost/index.php/Home/Ic/network
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000764s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001520s ]
+
+[ 2020-01-22T16:43:53+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000729s ]
+
+[ 2020-01-22T16:43:55+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+
+[ 2020-01-22T16:43:55+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+
+[ 2020-01-22T16:43:56+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+
+[ 2020-01-22T16:43:56+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+
+[ 2020-01-22T16:43:56+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000698s ]
+
+[ 2020-01-22T16:43:56+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+
+[ 2020-01-22T16:43:57+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000654s ]
+
+[ 2020-01-22T16:43:57+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000847s ]
+
+[ 2020-01-22T16:44:05+08:00 ] ::1 /cost/index.php/Home/Ic/welcome
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc sort' at line 1
+ [ SQL语句 ] : SELECT * FROM `hr_icequipment` WHERE `stats` = 0 ORDER BY desc sort 
+
+[ 2020-01-22T16:44:28+08:00 ] ::1 /cost/index.php/Home/Ic/welcomes.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000654s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0019s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `stats` = 0  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0018s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `hr_jrdanwei` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_jrdanwei` WHERE ( jiagou = 'A1' )  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `stats` = 0 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000596s ]
+
+[ 2020-01-22T16:44:29+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000854s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment` WHERE `equipmentid` = 1  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_ictablemat_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_ictablemat_class` WHERE `tablemat_classid` = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000341s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000528s ]
+
+[ 2020-01-22T16:44:30+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_subs.html?page=1&limit=15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001454' AND `equipmentid` = 1 AND `stats` = '0'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_ictablemat` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_ictablemat` WHERE `tablemat_classid` = 1 AND `stats` = 0  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `jgh` = '33001454' AND `equipmentid` = 1 AND `stats` = '0' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000511s ]
+
+[ 2020-01-22T16:44:34+08:00 ] ::1 /cost/index.php/Home/Ic/welcomes.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `stats` = 0  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `hr_jrdanwei` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `hr_jrdanwei` WHERE ( jiagou = 'A1' )  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `stats` = 0 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000363s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000520s ]
+
+[ 2020-01-22T16:44:37+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000380s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000812s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment` WHERE `equipmentid` = 1  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_ictablemat_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_ictablemat_class` WHERE `tablemat_classid` = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000334s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000507s ]
+
+[ 2020-01-22T16:44:37+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_subs.html?page=1&limit=15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000648s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001454' AND `equipmentid` = 1 AND `stats` = '0'  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_ictablemat` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_ictablemat` WHERE `tablemat_classid` = 1 AND `stats` = 0  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: device_subid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 85 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: disposeid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 123 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: device_classid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 141 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+NOTIC: [8] Undefined index: maintenanceid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 184 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `jgh` = '33001454' AND `equipmentid` = 1 AND `stats` = '0' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000352s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000498s ]
+
+[ 2020-01-22T16:44:40+08:00 ] ::1 /cost/index.php/Home/Ic/welcomes.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000718s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `stats` = 0  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `hr_jrdanwei` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_jrdanwei` WHERE ( jiagou = 'A1' )  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `stats` = 0 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000523s ]
+
+[ 2020-01-22T16:45:00+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_tablemat?equipmentid=15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icequipment` WHERE `equipmentid` = 15  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_ictablemat_class` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_ictablemat_class` WHERE `tablemat_classid` = 2 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000307s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000456s ]
+
+[ 2020-01-22T16:45:00+08:00 ] ::1 /cost/index.php/Home/Ic/equipment_networks.html?page=1&limit=15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000600s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `jgh` = '33001454' AND `equipmentid` = 15 AND `stats` = '0'  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icswitch` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icswitch`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: data /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 343 行.
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 81 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 119 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 137 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 152 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 167 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 180 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `jgh` = '33001454' AND `equipmentid` = 15 AND `stats` = '0' LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000433s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2020-01-22T16:45:03+08:00 ] ::1 /cost/index.php/Home/Ic/welcomes.html?page=1&limit=10
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+SQL: SHOW COLUMNS FROM `hr_icequipment_sub` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icequipment_sub` WHERE `stats` = 0  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `hr_icdevice`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_class` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `hr_icdevice_class`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icdispose` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `hr_icdispose`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icdevice_sub` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icdevice_sub`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icmaintenance` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icmaintenance`  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `hr_icsupplier` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icsupplier`  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `hr_icpurcha` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_icpurcha`  [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+NOTIC: [8] Undefined index: purchaid /Library/WebServer/Documents/cost/Application/Home/Controller/IcController.class.php 第 171 行.
+SQL: SHOW COLUMNS FROM `hr_icequipment` [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `hr_jrdanwei` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `hr_jrdanwei` WHERE ( jiagou = 'A1' )  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `hr_icequipment_sub` WHERE `stats` = 0 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000363s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+

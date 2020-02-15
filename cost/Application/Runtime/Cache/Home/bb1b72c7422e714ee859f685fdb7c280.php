@@ -472,7 +472,6 @@
 					
 				data:{
 					applyid: data.applyid,
-					sjapplyquantity: value,
 				},
 					
 				success:function(result){

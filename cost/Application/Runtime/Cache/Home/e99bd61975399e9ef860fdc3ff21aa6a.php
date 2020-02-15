@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title><?php echo ($jdrr[0]['dwname']); ?>--<?php echo ($ieqrr[0]['equipment']); ?></title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,7 +12,9 @@
 <body>
 <div class="layuimini-container">
     <div class="layuimini-main">
-
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend><?php echo ($jdrr[0]['dwname']); ?>-<?php echo ($ieqrr[0]['equipment']); ?></legend>
+        </fieldset>
         <fieldset class="layui-elem-field layuimini-search">
             <legend>搜索信息</legend>
             <div style="margin: 10px 10px 10px 10px">
@@ -82,27 +84,27 @@
             cols: [[
                 {type: "checkbox", width: 50, fixed: "left",},
                 {field: 'deviceid', width: 80, title: 'ID', sort: true, fixed: "left",},
-                {field: 'device', width: 150, title: '设备', sort: true, fixed: "left",},
-                {field: 'device_sub', width: 150, title: '型号', sort: true, fixed: "left",},
-                {field: 'hitch', width: 150, title: '报障编号', unresize: true, sort: true},
-                {field: 'layer', width: 150, title: '交换机地址', sort: true},
-                {field: 'threelayer', width: 150, title: '三层地址', sort: true},
-                {field: 'hitch', width: 150, title: '保障编号', sort: true},
-                {field: 'postvlan', width: 150, title: '邮政vlan', sort: true},
-                {field: 'postip', width: 150, title: '邮政IP', sort: true},
-                {field: 'postgateway', width: 150, title: '邮政网关', sort: true},
-                {field: 'bankvlan', width: 150, title: '储蓄vlan', sort: true},
-                {field: 'bankip', width: 150, title: '储蓄IP', sort: true},
-                {field: 'bankgateway', width: 150, title: '储蓄网关', sort: true},
-                {field: 'officevlan', width: 150, title: '办公vlan', sort: true},
-                {field: 'officeip', width: 150, title: '办公IP', sort: true},
-                {field: 'officegateway', width: 150, title: '办公网关', sort: true},
-                {field: 'videovlan', width: 150, title: '监控vlan', sort: true},
-                {field: 'videoip', width: 150, title: '监控IP', sort: true},
-                {field: 'videogateway', width: 150, title: '监控网关', sort: true},
-                {field: 'countingvlan', width: 150, title: '点钞机vlan', sort: true},
-                {field: 'countingip', width: 150, title: '点钞机IP', sort: true},
-                {field: 'countinggateway', width: 150, title: '点钞机网关', sort: true},
+                {field: 'device', width: 150, edit: 'text', title: '设备', sort: true, fixed: "left",},
+                {field: 'device_sub', width: 150, edit: 'text', title: '型号', sort: true, fixed: "left",},
+                {field: 'hitch', width: 150, edit: 'text', title: '报障编号', unresize: true, sort: true},
+                {field: 'layer', width: 150, edit: 'text', title: '交换机地址', sort: true},
+                {field: 'threelayer', width: 150, edit: 'text', title: '三层地址', sort: true},
+                
+                {field: 'postvlan', width: 150, edit: 'text', title: '邮政vlan', sort: true},
+                {field: 'postip', width: 150, edit: 'text', title: '邮政IP', sort: true},
+                {field: 'postgateway', width: 150, edit: 'text', title: '邮政网关', sort: true},
+                {field: 'bankvlan', width: 150, edit: 'text', title: '储蓄vlan', sort: true},
+                {field: 'bankip', width: 150, edit: 'text', title: '储蓄IP', sort: true},
+                {field: 'bankgateway', width: 150, edit: 'text', title: '储蓄网关', sort: true},
+                {field: 'officevlan', width: 150, edit: 'text', title: '办公vlan', sort: true},
+                {field: 'officeip', width: 150, edit: 'text', title: '办公IP', sort: true},
+                {field: 'officegateway', width: 150, edit: 'text', title: '办公网关', sort: true},
+                {field: 'videovlan', width: 150, edit: 'text', title: '监控vlan', sort: true},
+                {field: 'videoip', width: 150, edit: 'text', title: '监控IP', sort: true},
+                {field: 'videogateway', width: 150, edit: 'text', title: '监控网关', sort: true},
+                {field: 'countingvlan', width: 150, edit: 'text', title: '点钞机vlan', sort: true},
+                {field: 'countingip', width: 150, edit: 'text', title: '点钞机IP', sort: true},
+                {field: 'countinggateway', width: 150, edit: 'text', title: '点钞机网关', sort: true},
 
 
 

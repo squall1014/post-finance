@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title>欢迎</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -64,6 +64,7 @@
               <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
               <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
               <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+              <button class="layui-btn layui-btn-sm" lay-event="tabadd">测试addtab</button>
             </div>
           </script>
         <script type="text/html" id="currentTableBar">
@@ -84,10 +85,13 @@
             elem: '#currentTableId',
             url: "<?php echo U('Ic/welcomes');?>",
             toolbar: '#toolbarDemo',
+            // width: 1920,
+            height: 'full-200',
+
             cols: [[
                 {type: "checkbox", width: 50, fixed: "left"},
-                {field: 'dwname', width: 200, title: '机构号', sort: true,fixed: 'left'},
-                <?php if(is_array($ieqr)): $i = 0; $__LIST__ = $ieqr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>{field: "<?php echo ($vo["equipmentid"]); ?>", event: <?php echo ($vo["equipmentid"]); ?>,width: 200, title: '<?php echo ($vo["equipment"]); ?>'},<?php endforeach; endif; else: echo "" ;endif; ?>
+                {field: 'dwname', event: 'dwnameinfo' , width: 200, title: '机构号', sort: true,fixed: 'left'},
+                <?php if(is_array($ieqr)): $i = 0; $__LIST__ = $ieqr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>{field: "<?php echo ($vo["equipmentid"]); ?>", event: <?php echo ($vo["equipmentid"]); ?> , width: 200, title: '<?php echo ($vo["equipment"]); ?>'},<?php endforeach; endif; else: echo "" ;endif; ?>
                 
             ]],
             limits: [10, 15, 20, 25, 50, 100],
@@ -145,8 +149,13 @@
         table.on('tool(currentTableFilter)', function(obj){
             var data = obj.data;
             var eve = obj.event;
-            // console.log(data,eve)
-            $.ajax({
+            console.log(data,eve)
+            if(eve == 'dwnameinfo'){
+                console.log(eve);
+                
+                
+            }else{
+                $.ajax({
                 type: "GET",
                 url: "equipment_tablemat",
                 data: {equipmentid : eve},
@@ -157,30 +166,17 @@
                     tablemat_url = tablemat['tablemat_url']
                     tablemats = tablemat
                     
+                    }
+                })
+                if(tablemat_classid > "0"){
+                    window.open(tablemat_url + "?jgh=" + data.dwnames + "&equipmentid=" + eve + "&tablemat_classid=" + tablemat_classid, "_blank");
+                }else{
+                    window.open(tablemat_url + "?jgh=" + data.dwnames + "&equipmentid=" + eve + "&tablemat_classid=" + tablemat_classid, "_blank");
                 }
-            })
-            // console.log(top.document.getElementById("layuiminiHomeTabIframe"))
-            // parent.document.getElementById("layuiminiHomeTabIframe").innerHTML = '<iframe width="100%" height="100%" frameborder="0"  src="table"></iframe>'
-            if(tablemat_classid > "0"){
-                parent.location.href = tablemat_url + "?jgh=" + data.dwnames + "&equipmentid=" + eve + "&tablemat_classid=" + tablemat_classid
-            }else{
-                parent.location.href = "equipment_other?jgh=" + data.dwnames + "&equipmentid=" + eve
             }
             
-            
-            // parent.location.href = "equipment_sub"
-            // parent.location.reload()
-            // top.location.reload()
-            
-            // if(data.gather === "1"){
-            //     location.href = "equipment_sub?jgh=" + data.dwnames + "&euqipmentid=" + eve
-            // }else if(data.gather === "0"){
-                
 
-            // }
-            
-            
-        });
+            });
 
         table.on('toolbar(currentTableFilter)', function(obj){
             var checkStatus = table.checkStatus(obj.config.id);
@@ -197,6 +193,38 @@
                 layer.msg(checkStatus.isAll ? '全选': '未全选');
             break;
             
+            case 'tabadd':
+                var title = 'tabadd';
+                var href = 'network';
+                var tabId = 'wdinfo';
+                // console.log(parent.layui.element);
+                // parent.layui.element.tabAdd('layuiminiTab' , {
+                //     title: title + '<i data-tab-close="" class="layui-icon layui-unselect layui-tab-close">ဆ</i>' //用于演示
+                //     , content: '<iframe width="100%" height="100%" frameborder="0"  src="' + href + '"></iframe>'
+                //     , id: 'wdinfo'
+                // });
+                var checkTab = parent.layuimini.checkTab(tabId, true);
+                if (!checkTab) {
+                var layuiminiTabInfo = JSON.parse(sessionStorage.getItem("layuiminiTabInfo"));
+                if (layuiminiTabInfo == null) {
+                    layuiminiTabInfo = {};
+                }
+                    layuiminiTabInfo[tabId] = {href: href, title: title}
+                    sessionStorage.setItem("layuiminiTabInfo", JSON.stringify(layuiminiTabInfo));
+                    parent.layui.element.tabAdd('layuiminiTab', {
+                        title: title + '<i data-tab-close="" class="layui-icon layui-unselect layui-tab-close">ဆ</i>' //用于演示
+                        , content: '<iframe width="100%" height="100%" frameborder="0"  src="' + href + '"></iframe>'
+                        , id: tabId
+                    });
+                }
+                parent.layui.element.tabChange('layuiminiTab', tabId);
+                parent.layuimini.tabRoll();
+                // parent.layer.close(loading);
+
+                
+            
+            break;
+
             //自定义头工具栏右侧图标 - 提示
             case 'LAYTABLE_TIPS':
                 layer.alert('这是工具栏右侧自定义的一个图标按钮');
